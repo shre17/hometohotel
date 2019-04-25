@@ -1,0 +1,32 @@
+.container-fluid.margin_30_30.pl-lg-5.pr-lg-5
+  - unless @city.present?
+    %section
+      .headings
+        %h1 
+          = t('home.popular_cities.heading')
+        %h5 
+          = t('home.popular_cities.sub_heading')
+      .row
+        - Place::POPULAR_CITIES.each do |city|
+          .col-md-3.col-sm-6.col-6
+            %a{href: explore_city_path(city)}
+              .top-rated-box
+                .top-rated-overly
+                  %h3 
+                    = t('home.popular_cities.city', city: city)
+                %img.img-fluid{:alt => "", :src => "/assets/#{city.downcase.gsub(' ', '-')}.jpg"}/
+  - else
+    %section.experiences-wrapper
+      .container-fluid.margin_60_35.pl-lg-5.pr-lg-5
+        %h1.main-title #{t('home.popular_cities.title')}
+        #carousel-first.carouseller
+          %a.carouseller__left{:href => "javascript:void(0)"} ‹
+          .carouseller__wrap
+            .carouseller__list
+              - Place::POPULAR_CITIES.each do |city|
+                .car__2
+                  %a{:href => explore_city_path(city)}
+                    %img{:src => "/assets/#{city.downcase.gsub(' ', '-')}.jpg"}/
+                    %span 
+                      = t('home.popular_cities.city', city: city)
+          %a.carouseller__right{:href => "javascript:void(0)"} ›

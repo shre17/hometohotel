@@ -1,0 +1,21 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %link{:href => "assets/favicon.ico", :rel => "icon"}/
+    %title Homes2hotels
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'main_layout', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'main_layout', 'data-turbolinks-track': 'reload'
+
+    %link{:href => "https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway:200,400,500,600,700", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    #page
+      = render partial: "partials/header"
+      = yield
+      = render partial: "partials/footer"

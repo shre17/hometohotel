@@ -1,0 +1,39 @@
+.nested-fields.form-group{id: f.object.id}
+  .form-group
+    = f.select :category, options_for_select(Item::PROVIDE_CATEGORY, f.object.category), { prompt: 'Select category' }, class: 'form-control select-item-category', :required => true
+  .form-group
+    = f.text_field :name, placeholder: 'Some name', class: 'form-control',:required => true
+  .form-group
+    = f.text_field :description, placeholder: 'Some description', class: 'form-control', :required => true
+
+  .for_drinks_only{ class: "#{ f.object.category.eql?('Drink') ? '' : 'd-none' }" }
+    .form-group
+      %label Are you providing alcohol?
+      .select-option-radio
+        %label.radio-check-box
+          No
+          - if f.object.is_alcohol
+            = f.radio_button :is_alcohol, 0
+          - else
+            = f.radio_button :is_alcohol, 0, checked: 'checked'
+          %span.checkmark
+        %label.radio-check-box
+          Yes
+          - if f.object.is_alcohol
+            = f.radio_button :is_alcohol, 0, checked: 'checked'
+          - else
+            = f.radio_button :is_alcohol, 0
+          %span.checkmark
+
+      %label Is your experience in compliance with your local alcohol laws?
+      .check-box-wrapper
+        %label.check-box
+          I confirm that my experience is compliant with local laws. Only guests who meet the legal drinking age and bring a valid ID will be served.
+
+          - if f.object.compliance_with_local_alcohol_laws
+            = f.check_box :compliance_with_local_alcohol_laws, checked: 'checked'
+          - else
+            = f.check_box :compliance_with_local_alcohol_laws
+          %span.checkmark
+
+  = link_to_remove_association "remove item", f, class: "remove-item"

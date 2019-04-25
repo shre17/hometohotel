@@ -1,0 +1,67 @@
+#what-guests{"aria-labelledby" => "what-guests-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_14.heading_1')
+        %p 
+          = t('experiences.edit_page.step_14.paragraph_1')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 15 }
+        .form-group
+          %h6 
+            = t('experiences.edit_page.step_14.title', title: f.object.title)
+          %p 
+            = t('experiences.edit_page.step_14.paragraph_2')
+        %p
+          = f.fields_for :bring_items do |item|
+            = render 'bring_item_fields', f: item
+          .links
+            %i.fa.fa-plus.add-bring-item>
+            = link_to_add_association t('common.add_item'), f, :bring_items, class: "add-bring-item"
+
+
+        %h6.bring-item-check-box
+          = t('experiences.edit_page.step_14.heading_2')
+        .form-group.bring-item-check-box
+          %label 
+            = t('experiences.edit_page.step_14.label_1')
+          .check-box-wrapper
+            %label.check-box
+              = t('experiences.edit_page.step_14.label_2')
+              - if f.object.no_need_to_bring_anything
+                = f.check_box :no_need_to_bring_anything, checked: 'checked', class: "bring_item_checked" 
+              - else
+                = f.check_box :no_need_to_bring_anything, class: "bring_item_unchecked"
+              %span.checkmark
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-14.jpg"}/ 
+
+:javascript
+  $(document).on("click", ".add-bring-item", function(){
+    $(".bring-item-check-box").hide();
+  });
+
+  $(document).on("click", ".remove-bring-item", function(){
+    if($(".remove-bring-item").length == 1){
+      $(".bring-item-check-box").show(); 
+    }
+  });  
+
+  $(document).on("click",".checkmark",function(){
+    $(".add-bring-item").toggle();
+  });
+
+  $(document).ready(function(){
+    if($(".remove-bring-item").length != 0){
+      $(".bring-item-check-box").hide(); 
+    }
+  });
+
+- if f.object.bring_items.present?
+  :javascript
+    $(".bring-item-check-box").hide();
+
+

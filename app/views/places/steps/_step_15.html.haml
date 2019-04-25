@@ -1,0 +1,59 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title
+          = t('places.step_17.title')
+        %h4
+          = t('places.step_17.title')
+        %h2
+          = t('places.step_17.heading')
+        .form-group
+          .row.border-box.no-gutters
+            .col-md-7.col
+              = t('places.step_17.sub_heading_1')
+            .col-md-5.col
+              .add-field.form-group
+                .input-group.input-number-group
+                  .input-group-button
+                    %span.input-number-decrement.min-night -
+                  = form.number_field :stay_upto_min, min: 1,:value => (form.object.stay_upto_min.present? ? form.object.stay_upto_min : 1), class: 'input-number min-night-val'
+                  .input-group-button
+                    %span.input-number-increment.min-night +
+          .row.border-box.no-gutters
+            .col-md-7.col
+              = t('places.step_17.sub_heading_2')
+            .col-md-5.col
+              .add-field.form-group
+                .input-group.input-number-group
+                  .input-group-button
+                    %span.input-number-decrement.max-night -
+                  = form.number_field :stay_upto_max, min: 1, max:365,:value => (form.object.stay_upto_max.present? ? form.object.stay_upto_max : 1), class: 'input-number max-night-val'
+                  .input-group-button
+                    %span.input-number-increment.max-night +
+              = form.hidden_field :step, value: 16
+        .form-group
+          .row
+            .col-md-10
+              %p
+                = t('places.step_17.paragraph')
+
+    .col-lg-6#sidebar.col-md-6.pl-lg-5.pr-lg-5.margin_60_35.warning.d-none
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p
+            = t('places.step_17.paragraph_1')
+
+:javascript
+  $(document).on("click",".min-night, .max-night",function(){
+    if($(".min-night-val").val() > $(".max-night-val").val()){
+      $(".next-button").prop("disabled", true);
+      $(".warning").removeClass('d-none');
+    }
+    else{
+      $(".next-button").prop("disabled", false);
+      $(".warning").addClass('d-none');
+    }
+  });

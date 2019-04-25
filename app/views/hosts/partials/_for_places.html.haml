@@ -1,0 +1,45 @@
+- if offer.places.present?
+  %table.display.responsive.no-wrap{ id: "places-list" }
+    %thead
+      %tr
+        %th Name
+        %th Rating
+        %th Reviews
+        %th Status
+        %th Offers
+        %th Check Detail
+    %tbody
+      - offer.places.each do |data|
+        %tr
+          %td
+            = data.name
+          %td
+            = data.rating
+          %td
+            = data.reviews.count
+          %td
+            = data.status.capitalize
+          %td
+            = data.offers.pluck(:title)
+          %td.actions{ id: "data-#{data.id}-view" }
+            = link_to "Change", change_object_offers_host_path(id: data.id, class_name: data.class.name, offer_id: offer.id), method: :get, class: "btn btn-primary", remote: true
+
+- else
+  %p.text-center No record present for this offer!
+
+%br
+%div.add-new-btn
+  = button_tag "Add Place", class: 'add-place-btn btn btn-primary'
+
+%br
+%br
+%div.add-new-place-record-for-offer
+  %h4 Add/Remove places for this offer
+  %br
+  = form_tag(manage_offer_for_host_path(offer), method: :post, remote: true) do |f|
+    = hidden_field_tag :for, :places
+
+    = select_tag :places, options_for_select(Place.published.pluck(:name,:id), offer.places.pluck(:id)), multiple: true, class: 'chosen-select'
+    %br
+    %br
+    = submit_tag 'Add or Update', class: 'btn btn-primary'

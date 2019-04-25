@@ -1,0 +1,23 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title Step 8
+        %h4 Step 8
+        %h2 PROPERTY SPACES GUEST CAN USE
+        .form-group
+          .row
+            .col
+              = form.hidden_field :step, value: 8
+              - Place::SPACES.each do |space|
+                .check-box-wrapper
+                  %label.check-box
+                    = check_box_tag "place[shared_spaces][]", space[0], @place.shared_spaces.include?(space[0])
+                    = t('places.step_8.space', space: space[1])
+                    %span.checkmark
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35 
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_8.suggestion.paragraph')}

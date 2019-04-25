@@ -1,0 +1,25 @@
+= form_with(model: place, local: true, id: "host_form") do |form|
+  = form.hidden_field :step, :value => "", id: "hiddenField"
+  - if place.errors.any?
+    #error_explanation
+      %ul
+        - place.errors.full_messages.each do |message|
+          %li= message
+  .container-fluid
+    = render  "places/steps/step_1", form: form
+    = render  "places/steps/step_2", form: form
+    = render  "places/steps/step_3", form: form
+    = render  "places/steps/step_4", form: form
+    = render  "places/steps/step_5", form: form
+    = render  "places/steps/step_6", form: form
+    = render  "places/steps/step_7", form: form
+    = render  "places/steps/step_8", form: form
+    = render  "places/steps/step_9", form: form
+    = render  "places/steps/step_10", form: form
+    = render  "places/steps/step_11", form: form
+    = render  "places/steps/step_12", form: form
+    = render  "places/steps/step_13", form: form
+    = render  "places/steps/step_14", form: form
+    = render  "places/steps/step_15", form: form
+    = render  "places/steps/step_16", form: form
+    = render  "places/steps/step_17", form: form

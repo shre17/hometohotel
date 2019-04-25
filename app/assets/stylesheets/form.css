@@ -1,0 +1,539 @@
+.full-wrapper{
+  width: 100%;
+}
+.remove-date {
+  background-color: #f44048;
+  padding: 5px;
+  border-radius: 100%;
+  display: block;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  text-align: center;
+  margin: 15px 0;
+  line-height: 17px;
+  font-weight: bold;
+}
+.nested-date-field.full-wrapper .form-group{
+  margin-bottom: 1rem;
+}
+.to-separet {
+  display: block;
+  vertical-align: initial;
+  padding-top: 20px;
+}
+.btn-outline-secondary {
+  color: #6c757d;
+  background-color: transparent;
+  background-image: none;
+  border-color: #d2d8dd;
+}
+#host_form fieldset {
+  border: none;
+  width: 80%;
+}
+
+#host_form legend {
+  font-size: 18px;
+  margin: 0px;
+  padding: 10px 0px;
+  color: #1cbcb4;
+  font-weight: bold;
+}
+
+#host_form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+#host_form input[type=text],
+#host_form input[type=password] {
+
+}
+
+.step-button .prev, .step-button .next {
+    background-color: #1cbcb4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0 12px;
+    line-height: 50px;
+    min-height: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.step-button .prev, .step-button .next {
+    background-color: #1cbcb4;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.step-button .prev {
+  float: left;
+}
+
+.step-button .next {
+  float: right;
+}
+
+#steps {
+  list-style: none;
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-bottom: 1px solid #d2d8dd;
+  display: none;
+}
+
+#steps li {
+  font-size: 12px;
+  float: left;
+  padding: 12px;
+  color: #b0b1b3;
+  border-bottom: 3px solid #fff;
+}
+
+#steps li span {
+  font-size: 11px;
+  display: none;
+}
+
+#steps li.current {
+  color: #1cbcb4;
+  border-bottom: 3px solid #1cbcb4;
+}
+
+#makeWizard {
+  background-color: #1cbcb4;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#makeWizard:hover {
+  background-color: #000;
+}
+
+#host_form .form-control{
+  -moz-appearance:none;
+  -webkit-appearance: none;
+  min-height: 44px;
+  border-radius: 0;
+}
+.host-step h4{
+  color: #bbb;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.host-step h1{
+  font-size: 24px;
+  color: #484848;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  padding: 10px 0 5px;
+}
+.host-step .place-title h1 {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.host-step .place-title h2 {
+  padding: 0 0 10px;
+}
+
+.host-step h3{
+  font-size: 14px;
+  color: #484848;
+  font-weight: 400;
+  font-family: 'Quicksand', sans-serif;
+  padding: 10px 0 5px;
+  display: none;
+}
+.host-step h2{
+  font-size: 22px;
+  color: #484848;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+  padding: 10px 0 5px;
+}
+.host-step .form-group {
+    margin-bottom: 10px;
+}
+.host-step .form-control:focus{
+  box-shadow: none;
+  border-color: #d2d8dd;
+}
+.form-progress {
+    height: 10px;
+    line-height: .8px;
+    background-color: #edefed;
+    display: none;
+  }
+.progress_bar{
+  width: 20%;
+  height: 10px;
+  background-color: #1cbcb4;
+  border-radius: 0px 10px 10px 0;
+}
+
+.radio-check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px !important;
+}
+
+/* Hide the browser's default radio button */
+.radio-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-check:hover input ~ .checkmark {
+    background-color: transparent;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-check input:checked ~ .checkmark {
+    background-color: #1cbcb4;
+    border-color: #1cbcb4;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-check input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-check .checkmark::after {
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+}
+.step-button{
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  z-index: 999999;
+}
+.center{
+width: 150px;
+  margin: 40px auto;
+
+}
+.add-field{
+
+}
+.add-field .btn {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: #1cbcb4;
+}
+
+#host_form .add-field .form-control {
+    min-height: 35px;
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+    border: navajowhite;
+}
+#host_form .add-field .btn:focus{
+  box-shadow: none;
+  border-color: #1cbcb4;
+}
+#host_form .add-field label {
+    display: block;
+    margin: 10px 0;
+  }
+  #host_form .big-label {
+    display: block;
+    margin: 10px 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: block;
+}
+.add-buttons {
+    background: transparent;
+    border: 1px solid #d2d8dd;
+    padding: 5px 12px;
+    color: #1cbcb4;
+}
+.add-buttons a{
+    color: #1cbcb4;
+}
+.add-more{
+  padding: 10px 0 20px;
+}
+.bed-heading {
+  text-align: center;
+  font-weight: bold;
+}
+.bed-fields{
+  padding: 10px 0;
+}
+
+
+/*..............checkbox css...........*/
+.check-box {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: normal !important;
+}
+
+/* Hide the browser's default checkbox */
+.check-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.check-box .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.check-box:hover input ~ .checkmark {
+    background-color: #1cbcb4;
+    border: 1px solid #1cbcb4;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check-box input:checked ~ .checkmark {
+    background-color: #1cbcb4;
+    border: 1px solid #1cbcb4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.check-box .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.check-box input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-box .checkmark::after {
+    left: 6px;
+    top: 2px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.font-16{
+  font-size: 16px;
+}
+.upload-image{
+  border: 2px dashed #d2d8dd;
+  min-height: 200px;
+  width: 100%;
+  padding: 15px;
+}
+#host_form .image-upload fieldset{
+  width: 100%;
+}
+#host_form .date-select fieldset{
+  width: 100%;
+}
+/*..........checkbox css end..........*/
+.min-scroll{
+  max-height: 320px;
+  overflow-y: auto;
+}
+.host-step .form-group p {
+    margin: 30px 0;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+.add-guests{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 16px;
+
+}
+.add-guests input {
+    display: inline-block;
+    max-width: 50%;
+    text-align: left !important;
+    padding: 0 10px !important;
+    min-height: 60px !important;
+    font-size: 16px;
+
+}
+.add-field .add-guests .btn {
+    border-radius: 0;
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    padding: 0;
+    border: none;
+    border-left: 1px solid #ccc;
+    background-color: transparent;
+    color: #1cbcb4;
+    float: right;
+
+}
+#host_form .add-field .add-guests .btn:focus {
+    box-shadow: none;
+    border-color: #ccc;
+}
+.set-price .radio-check .checkmark{
+  right: 0;
+  top: 38px;
+  left: auto;
+  height: 15px;
+  width: 15px;
+}
+.set-price .radio-check{
+  padding-left: 0;
+  padding-right: 35px;
+}
+
+.set-price .radio-check .checkmark::after {
+
+    top: 4px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+
+}
+.set-price{
+  border-top: 1px solid #d2d8dd;
+  padding: 15px 0;
+}
+.extra-wrap{
+  overflow: hidden;
+}
+.set-price .radio-check img{
+  float: left;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.form-group.set-price p {
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.beddetail-item-container {
+    border-top: 1px solid #dce0e0;
+    padding-top: 28px;
+}
+#host_form .location-information .form-control {
+  min-height: 44px;
+}
+#host_form fieldset.map-location{
+  width: 100%;
+}
+#host_form fieldset.full-fieldset{
+  width: 100% !important;
+}
+.bedroom-links{
+  padding: 15px 0;
+}
+h4.rooms-title{
+    font-size: 18px;
+    color: #484848;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    padding: 5px 0 5px;
+    text-transform: capitalize;
+    margin: 0;
+}
+@media (max-width: 640px) {
+  #host_form .prev, #host_form .next{
+      line-height: 40px;
+      min-height: 40px;
+  }
+  .host-step{
+    background-color: #fff;
+  }
+
+}
+@media (max-width: 575px) {
+  #host_form fieldset{
+    width: 100%;
+  }
+  .host-step h2{
+    font-size: 20px;
+  }
+  .check-box{
+    padding-left: 35px;
+    font-size: 14px !important;
+  }
+
+}
+@media (max-width: 375px) {
+  .add-guests input {
+    max-width: 38%;
+  }
+}

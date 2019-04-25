@@ -1,0 +1,14 @@
+#settings{"aria-labelledby" => "settings-tab", :role => "tabpanel"}
+  = render partial: 'experiences/steps/step_count', locals: { f: f, step: 17 }
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h1 
+          = t('experiences.edit_page.step_16.heading')
+        %p 
+          = t('experiences.edit_page.step_16.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 17 }
+        = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-15.jpg"}/

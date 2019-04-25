@@ -1,0 +1,81 @@
+%script{:src => "https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js", :type => "text/javascript"}
+%link{:href => "https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css", :rel => "stylesheet", :type => "text/css"}/
+.host-step
+  .row.justify-content-md-center
+    .col-md-8.margin_30_30.host-step-left
+      %h2 #{t('places.step_19.heading')}
+      = form.hidden_field :step, value: 17
+      %ul.nav.nav-tabs.review-tabs{:role => "tablist"}
+        %li.nav-item{:role => "presentation"}
+          %a{"aria-controls" => "single_date", "data-toggle" => "tab", :href => "#single_date", :role => "tab", class: "nav-link active show"} #{t('places.step_19.sub_heading_1')}
+        %li.nav-item{:role => "presentation"}
+          %a{"aria-controls" => "multiple", "data-toggle" => "tab", :href => "#multiple", :role => "tab", class: "nav-link"} #{t('places.step_19.sub_heading_2')}
+      / Tab panes
+      .tab-content
+        .all_blocked-dates.d-none
+          = get_blocked_dates(@place)
+        .advance_booking_period.d-none
+          = @place.advance_booking_period
+        #single_date.tab-pane.active{:role => "tabpanel"}
+          .card.info-card
+            .card-body
+              .single_date
+                = form.fields_for :blocked_dates do |block|
+                  = render 'blocked_date_fields', f: block
+                = link_to_add_association t('places.step_19.add_single_date'), form, :blocked_dates, class: "red-button btn"
+        #multiple.tab-pane{:role => "tabpanel"}
+          .multiple_date
+            .form-group
+              .row.justify-content-md-center
+                .col-md-8
+                  .check-in-date
+                    %i.icon_calendar
+                    = form.text_field :blocked_dates_in_range, placeholder: t('places.step_18.placeholder_1'), class: 'form-control', id: "txtCheckIn", :readonly => "readonly"
+                / .col-md-6
+                /   .check-in-date
+                /     %i.icon_calendar
+                /     =# text_field_tag :blocked_dates_from, nil, placeholder: t('common.from'), class: 'form-control datepicker', id: "txtCheckIn", :readonly => "readonly"
+                / .col-md-6
+                /   .check-out-date
+                /     %i.icon_calendar
+                /     =# text_field_tag :blocked_dates_to, nil, placeholder: t('common.to'), class: 'form-control datepicker', id: "txtCheckOut", :readonly => "readonly"
+
+:javascript
+  if ($(".advance_booking_period").text() == 1){
+    var current_date = 50;
+  }
+  else if($(".advance_booking_period").text() == 0){
+    var current_date = new Date();
+  }
+  else {
+    var current_date = new Date();
+    current_date.setDate(new Date().getDate()+parseInt($(".advance_booking_period").text()));
+  }
+  var blocked_dates = $(".all_blocked-dates").text();
+  $('#txtCheckIn').daterangepicker({
+    autoUpdateInput: false,
+    minDate:new Date(),
+    autoApply: true,
+    maxDate: current_date,
+    locale: {
+      format: 'DD/MM/YYYY'
+    },
+    isInvalidDate: function(date) {
+      if (blocked_dates.includes(moment(date).format("DD/MM/YYYY"))) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    }, function(start, end, label) {
+      console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
+  });
+
+  $('input[name="place[blocked_dates_in_range]"]').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+  });
+
+:css
+  .date-calendar {
+    width: 398px;
+  }

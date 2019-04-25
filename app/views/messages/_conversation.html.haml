@@ -1,0 +1,24 @@
+- if message.sender_is?(current_user)
+  .col-sm-10
+    .send-message-box.panel
+      .panel-body.panel-dark
+        .message-box 
+          = message.message
+        .msg-time 
+          = time_calculation(message)
+  .col-sm-2
+    .host-image
+      - image = message.sender_image_url.present? ? message.sender_image_url : "/assets/user_pic.png"
+      %img.rounded-circle.img-responsive{:src => image}/
+-else
+  .col-sm-2
+    .host-image.float-right
+      - image = message.sender_image_url.present? ? message.sender_image_url : "/assets/user_pic.png"
+      %img.rounded-circle.img-responsive{:src => image}
+  .col-sm-10
+    .receive-message-box.panel
+      .panel-body.panel-dark
+        .message-box 
+          = message.message
+        .msg-time 
+          = time_calculation(message)

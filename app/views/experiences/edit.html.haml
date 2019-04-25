@@ -1,0 +1,130 @@
+=# javascript_include_tag('autocomplete_address.js')
+/ %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5WrXE2PKioWg1yO62dkpOk5sDhzCVxc&libraries=places&callback=initAutocomplete"}
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5WrXE2PKioWg1yO62dkpOk5sDhzCVxc&libraries=places"}
+%main
+  %section.hero_in.become_host_form.start_bg_zoom
+    .wrapper
+  %section
+    = form_with(model: @experience, local: true) do |form|
+      - @step = (params[:step] || @experience.step).to_i
+      - @step = @step.eql?(5) ? 6 : @step.eql?(10) ? 11 : @step.eql?(21) ? 22 : @step
+      .experience-tab#experience-tab
+        = render partial: "side_bar"
+
+      .tab-content.experience-tabContent
+        .setting-sidebar
+          %a#sidebar-toogle-btn{:href => "javascript:void(0)"}
+            %i.ti-settings
+
+        = render partial: "experiences/steps/step_#{@step}", locals: { f: form }
+
+
+:javascript
+  $(document).ready(function(){
+    $(function() {
+      try {
+        handler = Gmaps.build('Google');
+        handler.buildMap({ internal: {id: 'new_marker'}}, function(){
+          var lat = parseFloat($('.lat').text())
+          var long = parseFloat($('.long').text())
+          markers = handler.addMarkers([
+            {
+              lat: lat,
+              lng: long,
+              picture: {
+                url: "http://maps.google.com/mapfiles/ms/micons/red.png",
+                width:  30,
+                height: 30
+              },
+              infowindow: $(".full_address").text()
+            }
+          ]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(15);
+        });
+      }catch(err){
+        console.log(err.message);
+      }
+    });
+  });
+  $(".radio-option").on('click', 'label', function() {
+    $(".radio-option label p.p_active").removeClass("p_active"); //Remove any "active" class
+    $('p', this).addClass("p_active"); //Add "active" class to selected tab
+
+    return false;
+  });
+
+  var maxLength = 150;
+  $('textarea').keyup(function() {
+    var textlen = maxLength - $(this).val().length;
+    $('#rchars').text(textlen);
+  });
+
+:javascript
+  $('#sidebar-toogle-btn').click(function(){
+      $('.experience-tab').toggleClass('visible');
+      $('.experience-tabContent').toggleClass('visible');
+  })
+  $(document).ready(function(){
+    if($(window).width() < 768){
+      $('.experience-tab').toggleClass('visible');
+      $('.experience-tabContent').toggleClass('visible');
+      $('#sidebar-toogle-btn').click(function(){
+          $('#sidebar-toogle-btn').toggleClass('visible');
+      })
+    }
+  })
+    function myFunction() {
+      var experience = document.getElementById("experience-tab");
+      var sticky1 = experience.offsetTop;
+      if (window.pageYOffset >= sticky1) {
+        experience.classList.add("sticky-side-bar")
+      } else {
+        experience.classList.remove("sticky-side-bar");
+
+      }
+    }
+    function myFunction2() {
+      try {
+        var sideimage = document.querySelector($("a.nav-link.active").attr('href')+ ' .side-img');
+        var sticky2 = sideimage.offsetTop;
+        if (window.pageYOffset >= sticky2) {
+          $($("a.nav-link.active").attr('href')+ ' .side-img').addClass('sticky-side-bar')
+        } else {
+          $($("a.nav-link.active").attr('href')+ ' .side-img').removeClass('sticky-side-bar')
+        }
+      }
+      catch(err){
+        console.log(err.message);
+      }
+    }
+  $(document).ready(function(){
+    $('.locations_other_fields').hide();
+    $(".btn-success").click(function(){
+      var address = $(':input[id="autocomplete"]').val();
+      if(address != ""){
+        $.ajax({
+          url: "#{address_validation_place_path("#{@experience.id}")}",
+          data: {address, type: "Experience"},
+          type: "get"
+        });
+      }
+    });
+    $(".btn-primary").click(function(){
+      $(".readonly").removeAttr("readonly");
+      $('.locations_other_fields').hide();
+      $(".btn-success").show();
+      $(".btn-primary").hide();
+    });
+  });
+
+:javascript
+  $(document).on("click", "input#autocomplete", function(e) {
+    initialize()
+  });
+  function initialize() {
+    var input = document.getElementById('autocomplete');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);

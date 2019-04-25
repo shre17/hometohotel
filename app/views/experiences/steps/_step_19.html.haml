@@ -1,0 +1,18 @@
+#pricetab{"aria-labelledby" => "pricetab-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_19.heading')
+        %p 
+          = t('experiences.edit_page.step_19.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 20 }
+        .form-group
+          = f.select :curreny, options_for_select(Price::CURRENCY, selected: f.object.curreny), {}, class: 'form-control', style: 'padding-left: 55px;'
+        .form-group
+          = f.number_field :price_per_guest, max: 9999, placeholder: "Enter Amount", class: 'form-control', :required => true, style: 'padding-left: 55px;'
+          .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/ 

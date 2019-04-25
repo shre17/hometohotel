@@ -1,0 +1,78 @@
+#sign-in-dialog.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %h4.modal-title
+          = t('header.sign_in_link')
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+      .modal-body
+        .field.sign_in_form
+          = form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |f|
+            .sign-in-wrapper
+              - if devise_mapping.omniauthable?
+                - resource_class.omniauth_providers.each do |provider|
+                  = link_to t('common.social_account_link', social_network: "#{OmniAuth::Utils.camelize(provider.to_s.split("_")[0])}"), omniauth_authorize_path(resource_name, provider), class: "social_bt #{provider.to_s.split("_")[0]}"
+              .divider
+                %span
+                  = t('invite_a_friend.form_fields.or')
+              .text-center.notice
+              .form-group
+                %label
+                  = t('common.email')
+                = f.email_field :email,class: 'form-control', id: 'email', autofocus: true, autocomplete: "email"
+                %i.icon_mail_alt
+              .form-group
+                %label
+                  = t('common.password')
+                = f.password_field :password, class: 'form-control',id: 'password',autocomplete: "off"
+                %i.icon_lock_alt
+
+              .form-group
+                = check_box_tag :show_password, 'show_password'
+                %label{ for: 'show_password'}
+                  = "Show Password"
+
+              .clearfix.add_bottom_15
+                .checkboxes.float-left
+                  - if devise_mapping.rememberable?
+                    %label.container_check
+                      = t('common.remember_me')
+                      = f.check_box :remember_me
+                      %span.checkmark
+                .float-right.mt-1
+                  - if devise_mapping.recoverable? && controller_name != 'passwords'
+                    = link_to t('sign_in_modal.forgot_password'), new_password_path(resource_name),  :title => "Sign In", 'data-toggle' => 'modal', 'data-target' => "#forgot", class: "forgot_password"
+              .text-center
+                = f.submit t('sign_in_modal.log_in'), class: "text-center btn_1 full-width"
+              .text-center
+                = t('sign_in_modal.text')
+                %a{:href => "#{new_user_registration_path}"}
+                  = t('common.sign_up_link')
+        .field.forgot_password_form
+          = form_for(resource, as: resource_name, url: user_password_path, html: { method: :post, id: 'new_user_1' }, remote: true) do |f|
+            .form-group
+              = f.label :email, "Please confirm login email below"
+              = f.email_field :email,class: 'form-control',id: 'email1', autofocus: true, autocomplete: "email"
+              %i.icon_mail_alt
+              %p.message
+            .text-center
+              = f.submit "Reset Password", class: "btn_1", 'data-target' => "#sign-in-dialog", 'data-modal' => "modal"
+            .text-center
+              Do you want to go back to sign in?
+              = link_to "Sign in", "javascript:void(0)", class: "sign_in_link"
+
+:javascript
+  $(document).ready(function(){
+    $(".forgot_password_form").hide();
+    $(".forgot_password").click(function(){
+      $(".sign_in_form").hide();
+      $(".forgot_password_form").show();
+    });
+    $(".sign_in_link").click(function(){
+      $(".forgot_password_form").hide();
+      $(".sign_in_form").show();
+    });
+  });
+

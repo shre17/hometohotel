@@ -1,0 +1,75 @@
+#what-we-provide{"aria-labelledby" => "what-we-provide-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_13.heading')
+        %p 
+          = t('experiences.edit_page.step_13.paragraph')
+        %p
+          %a{:href => "#"}
+            %i.fa.fa-lightbulb-o>
+            = t('common.tips_and_examples')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 14 }
+    
+        = f.fields_for :provide_items do |item|
+          = render 'provide_item_fields', f: item
+        .links
+          %i.fa.fa-plus.add-bring-item>
+          = link_to_add_association t('common.add_item'), f, :provide_items, class: "add-item"
+
+        .form-group.check_box
+          %label 
+            = t('experiences.edit_page.step_13.label_1')
+          .check-box-wrapper
+            %label.check-box
+              = t('experiences.edit_page.step_13.label_2')
+              - if f.object.not_providing_anything
+                = f.check_box :not_providing_anything, checked: 'checked', class: "checked"
+              - else
+                = f.check_box :not_providing_anything, class: "unchecked"
+
+              %span.checkmark
+        .form-group
+          = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/
+
+
+:javascript
+  $(document).on('change','.select-item-category',function(){
+    var drink_fields = $(this).parents('.nested-fields').find('.for_drinks_only');
+    if ($(this).val() == 'Drink') {
+      drink_fields.removeClass('d-none')
+    } else {
+      drink_fields.addClass('d-none');
+    }
+  });
+
+  $(document).on("click", ".add-item", function(){
+    $(".check_box").hide();
+  });
+
+  $(document).on("click", ".remove-item", function(){
+    if($(".remove-item").length == 1){
+      $(".check_box").show(); 
+    }
+  });  
+
+  $(document).on("click",".checkmark",function(){
+    $(".add-item").toggle();
+  });
+
+  $(document).ready(function(){
+    var exp = #{@experience.to_json.html_safe};
+    experience = "<%= @experience%>"
+    if($(".remove-item").length != 0){
+      $(".check_box").hide(); 
+    }
+  });
+
+- if f.object.provide_items.present?
+  :javascript
+    $(".check_box").hide(); 
+

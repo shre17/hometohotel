@@ -1,0 +1,17 @@
+.nested-fields.bed-detail.beddetail-item-container
+  #beds
+    .row
+      .col-md-12
+        %h2.bed-heading
+        .bed-fields
+          = f.fields_for :beds do |bed|
+            = render 'bed_fields', f: bed
+          .links.btn.add-buttons.d-none
+            %span
+              %i.icon-plus
+            = link_to_add_association 'add bed', f, :beds
+
+  .bedroom-links
+    .row.no-gutters
+      .col
+        = link_to_remove_association t('places.step_3.sub_heading_3.remove_bedroom_button'), f, class: "btn red-button btn-sm remove-bed"

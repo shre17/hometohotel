@@ -1,0 +1,23 @@
+- if current_user.google_oauth2_uid.present?
+  = form_tag disconnect_from_social_account_profiles_path do 
+    = label_tag :google
+    = hidden_field_tag :google_oauth2_uid, current_user.google_oauth2_uid
+    = hidden_field_tag :name, "google_oauth2"
+    = submit_tag :disconnect
+- else
+  = form_tag connect_to_social_account_profiles_path do
+    = label_tag :google
+    = hidden_field_tag :name, "google_oauth2"
+    = submit_tag :connect
+    
+- if current_user.facebook_uid.present?
+  = form_tag disconnect_from_social_account_profiles_path do 
+    = label_tag :facebook
+    = hidden_field_tag :facebook_uid, current_user.facebook_uid
+    = hidden_field_tag :name, "facebook"
+    = submit_tag :disconnect
+- else
+  = form_tag connect_to_social_account_profiles_path do
+    = label_tag :facebook
+    = hidden_field_tag :name, "facebook"
+    = submit_tag :connect

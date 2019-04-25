@@ -1,0 +1,39 @@
+-if  @places.present?
+  %main
+    %section.hero_in.become_host_form.start_bg_zoom
+      .wrapper
+    .container.margin_60_35
+      / /custom-search-input-2
+      .isotope-wrapper
+        - @places.each do |place|
+          .box_list.isotope-item.popular.box-shadow-new
+            .row.no-gutters
+              .col-lg-3
+                %a{:href => "#{place_path(place)}"}
+                  = image_tag place.images[0].avatar.url(:thumb), class: "img-fluid", :height => "533", :width => "800" if place.images.length > 0
+              .col-lg-9
+                .wrapper
+                  %h3
+                    %a{:href => "restaurant-detail.html"}
+                    = link_to place.name, place_path(place)
+                  %p
+                    = place.description.truncate(225) if place.description
+                  %span.price
+                    From
+                    %strong
+                      = place.price.with_symbol
+                    \/per night
+
+
+        / /box_list
+      / /isotope-wrapper
+      %p.text-center.add_top_30
+        = will_paginate @places
+-else
+  %main
+    %section.hero_in.become_host_form.start_bg_zoom
+      .wrapper
+    .container.margin_60_35
+      .isotope-wrapper
+        .h3
+          Your list is empty.

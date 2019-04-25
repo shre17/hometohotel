@@ -1,0 +1,18 @@
+%h5.text-center
+  = "<b>#{offer.title}</b>".html_safe
+%br
+
+%div.offers
+  = render partial: "hosts/partials/for_#{offer_for}", locals: { offer: offer }
+
+:javascript
+  $("##{offer_for}-list").DataTable({
+    responsive: true
+  });
+
+  $(function() {
+    return $('.chosen-select').chosen({
+      no_results_text: 'No results matched',
+      width: '90%'
+    });
+  });

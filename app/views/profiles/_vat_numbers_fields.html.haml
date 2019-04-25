@@ -1,0 +1,26 @@
+.nested-fields
+  .field 
+    = f.label t('profile.optional.form_fields.vat_number_field.member_state')
+    = f.text_field :member_state, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.vat_number')
+    = f.text_field :vat_number, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.name_on_registration')
+    = f.text_field :vat_name, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.address_line_1')
+    = f.text_field :vat_address_line_1, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.address_line_2')
+    = f.text_field :vat_optional_address_line_2, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.city')
+    = f.text_field :vat_city, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.region')
+    = f.text_field :vat_state, class: "form-control"
+  .field 
+    = f.label (t 'profile.optional.form_fields.vat_number_field.postal_code')
+    = f.text_field :vat_zip, class: "form-control"
+ 

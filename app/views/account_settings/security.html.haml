@@ -1,0 +1,13 @@
+%h3 Change Your Password
+= form_for(@user, url: "#") do |f|
+  .filed
+    = f.label :old_password
+    = f.text_field :old_password
+  .filed
+    = f.label :new_password
+    = f.text_field :new_password
+  .filed
+    = f.label :confirm_password
+    = f.text_field :confirm_password
+  .field
+    = f.submit "update password" 

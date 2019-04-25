@@ -1,0 +1,6 @@
+= form_tag(change_object_offers_host_path(object), method: :post, remote: true) do |f|
+  = hidden_field_tag :class_name, object.class.name
+  = hidden_field_tag :offer_id, offer.id
+
+  = select_tag :offers, options_for_select(Offer.all.pluck(:title,:id), object.offers.pluck(:id)), multiple: true, class: 'chosen-select'
+  = submit_tag 'Update', class: 'btn btn-primary'

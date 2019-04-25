@@ -1,0 +1,36 @@
+.col-xl-3.col-lg-6.col-md-6.col-sm-6{:id => "div_#{place.id}"}
+  .info-box
+    %a.grid_item{ href: "#{ place_path(place) }"}
+      %figure.place-img
+        - if place.try(:rating).present?
+          .score
+            %strong
+              = place.try(:rating)
+        - if place.images.present?
+          %img.img-fluid{:alt => "", :src => "#{place.images.first.avatar.url}"}/
+        - else
+          %img.img-fluid{:alt => "", :src => "/assets/hotel_1.jpg"}/
+        .info
+          = render '/common/rating', rating: place.rating
+          %h3
+            = t('places.show_page.place_name', title: place.name)
+    .info-box-bottom
+      - if current_user.present?
+        %span.like-box.favourite.favourite_place.wish_bt{:id => "#{place.try(:id)}", class: "#{place.favourites.where(user_id: current_user.try(:id)).present? ? 'active-like-box' : ''}", type: "Place"}
+          %i.icon-heart-empty
+      - else
+        %span.like-box.favourite.favourite_place.wish_bt{ type: "Place", 'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"}
+          %i.icon-heart-empty
+      %small
+        = place.what_will_guest_have
+      %h1
+        %i.icon_pin_alt>
+        = "#{t('places.show_page.place_name', title: place.name)} in #{t('home.popular_cities.city', city: place.location.try(:city))}"
+      .row
+        .col
+          %i.icon-eye
+          = pluralize(place.views.count, t('home.top_rated_places.view'))
+        .col.text-right
+          %span.price-text= place.price.with_symbol
+          = t('booking_modal.per_night')
+

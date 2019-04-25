@@ -1,0 +1,18 @@
+%br
+%section.experience-steps.pl-lg-15.pr-lg-15
+  .row
+    - @data.each_pair do |data|
+      - unless data.first.eql?(:object)
+        .col-lg-3.col-md-6
+          %a.box_topic{ href: hosted_places_host_path(@host) }
+            %span
+              / %i.pe-7s-wallet
+              %i
+                - if data.first.eql?(:rating)
+                  = "#{data.last} by #{@data[:reviews]} users"
+                - else
+                  = data.last
+            %h3
+              = data.first.to_s.titleize.capitalize
+            %p
+              = t('common.traveling_help_paragraph_1')

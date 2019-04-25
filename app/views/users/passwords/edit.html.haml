@@ -1,0 +1,31 @@
+#register_bg
+  %nav#menu.fake_menu
+  #login
+    %aside
+      %figure
+        %a{:href => "index-2.html"}
+          %img.logo_sticky{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo_sticky.png", :width => ""}/
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        = f.hidden_field :reset_password_token
+        .form-group
+          %label
+            = t('password_reset.new_password')
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control"
+          %i.icon_lock_alt
+        .form-group
+          %label
+            = t('password_reset.confirm_password')
+          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+          %i.icon_lock_alt
+
+        .form-group
+          = check_box_tag :show_password, 'show_password'
+          %label{ for: 'show_password'}
+            = "Show Password"
+
+        .actions
+          = f.submit (t "password_reset.button"), class: "btn_1 rounded full-width add_top_30"

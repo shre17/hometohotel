@@ -1,0 +1,656 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body style="min-width:100%;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;font-size:16px;line-height:19px;width:100% !important">
+  <div class="preheader" style="visibility:hidden;opacity:0;color:transparent;height:0;width:0;font-size:0px;mso-hide:all;display:none !important"></div>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style data-roadie-ignore="" data-immutable="true" type="text/css">
+    /*Light*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 200;
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Lt-61d38480cfdf1dfc73d6bd0f459b3e10.eot");
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Lt-61d38480cfdf1dfc73d6bd0f459b3e10.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Lt-4f51497e2f6db6e72599a1f2f484eb7e.woff") format("woff"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Lt-919ae0b65de2f8c6204ec57daeceb9e9.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Lt-ef243dd05072c5987d3abcbe00581224.ttf") format("truetype");
+    }
+    /*Regular*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 300;
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Rg-909a75677f1cbf6e66c8811e6d39441a.eot");
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Rg-909a75677f1cbf6e66c8811e6d39441a.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Rg-391ee76d399e20117aade2ce1f7e196e.woff") format("woff"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Rg-3ff4006ded0500d605d6eff88ccc59f8.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Rg-190a6e02b3b3d6cfaf3bbe887349adad.ttf") format("truetype");
+    }
+    /*Medium*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 500;
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Md-ff8747694c95295917ef4c60c2bb6bce.eot");
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Md-ff8747694c95295917ef4c60c2bb6bce.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Md-b9bb7e6d20007be4b0caa86ea7fbd906.woff") format("woff"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Md-dec1db4a099dd1761f19bbe3088de0c8.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Md-2f25e87279c9c202ebf384fae79ac376.ttf") format("truetype");
+    }
+    /*Bold*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 700;
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bd-7b4c5f071be2fb695c04a1af3a1e0616.eot");
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bd-7b4c5f071be2fb695c04a1af3a1e0616.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bd-20d7bff68cfbfa449bd9601275d29996.woff") format("woff"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bd-32afa6b67d060b665623bbc48ce00187.woff2") format("woff2"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bd-943ebbaff21543f9115cf46427213a47.ttf") format("truetype");
+    }
+    /*XBold*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 800;
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_XBd-170530db17719eb719c2f03f8ac2a94d.eot");
+      src: url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_XBd-170530db17719eb719c2f03f8ac2a94d.eot?#") format("eot"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_XBd-3aea49864b40db534f43dc271460baba.woff") format("woff"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_XBd-66f244ea0cd79026250a9ba89a47a7aa.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_XBd-5d879965b6ea4ac2a31b41647c283433.ttf") format("truetype");
+    }
+    /*Black*/
+    @font-face {
+      font-family: 'Cereal';
+      font-style: normal;
+      font-weight: 900;
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-5e8fbee9505fc68a77d714aa35aee405.eot");
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-5e8fbee9505fc68a77d714aa35aee405.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-36f3fbaecfd0e0f82e83f28a466ce425.woff") format("woff"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-eed38b780704d1a3acbdb4ed930f6cdf.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-a7f958b92f5a7555e9a6d5755e026c6b.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: 'Cereal Black';
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-5e8fbee9505fc68a77d714aa35aee405.eot");
+      src: url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-5e8fbee9505fc68a77d714aa35aee405.eot?#") format("eot"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-36f3fbaecfd0e0f82e83f28a466ce425.woff") format("woff"),
+      url("https://a1.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-eed38b780704d1a3acbdb4ed930f6cdf.woff2") format("woff2"),
+      url("https://a0.muscache.com/airbnb/rookery/fonts/Cereal/Cereal_W_Bk-a7f958b92f5a7555e9a6d5755e026c6b.ttf") format("truetype");
+    }
+  </style>
+  <style data-roadie-ignore="" data-immutable="true">
+    @media only screen and (max-width: 596px) {
+      .small-float-center {
+        margin: 0 auto !important;
+        float: none !important;
+        text-align: center !important;
+      }
+      .small-text-center {
+        text-align: center !important;
+      }
+      .small-text-left {
+        text-align: left !important; 
+      }
+      .small-text-right {
+        text-align: right !important; 
+      }
+    }
+    @media only screen and (max-width: 596px) {
+      table.body table.container .hide-for-large {
+        display: block !important;
+        width: auto !important;
+        overflow: visible !important;
+        max-height: none !important; 
+      }
+    }
+    @media only screen and (max-width: 596px) {
+      table.body table.container .row.hide-for-large,table.body table.container .row.hide-for-large {
+        display: table !important;
+        width: 100% !important; 
+      } 
+    }
+    @media only screen and (max-width: 596px) {
+      table.body table.container .show-for-large {
+        display: none !important;
+        width: 0;
+        mso-hide: all;
+        overflow: hidden; 
+      } 
+    }
+    @media only screen and (max-width: 596px) {
+      table.body img {
+        width: auto !important;
+        height: auto !important;
+      }
+      table.body center {
+        min-width: 0 !important;
+      }
+      table.body .container {
+        width: 95% !important;
+      }
+      table.body .columns,table.body .column {
+        height: auto !important;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+      table.body .columns .column,table.body .columns .columns,table.body .column .column,table.body .column .columns {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      table.body .columns .column.nested,table.body .columns .columns.nested,table.body .column .column.nested,table.body .column .columns.nested {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+      table.body .collapse .columns,table.body .collapse .column {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      td.small-1,th.small-1 {
+        display: inline-block !important;
+        width: 8.33333% !important;
+      }
+      td.small-2,th.small-2 {
+        display: inline-block !important;
+        width: 16.66667% !important;
+      }
+      td.small-3,th.small-3 {
+        display: inline-block !important;
+        width: 25% !important;
+      }
+      td.small-4,th.small-4 {
+        display: inline-block !important;
+        width: 33.33333% !important;
+      }
+      td.small-5,th.small-5 {
+        display: inline-block !important;
+        width: 41.66667% !important; 
+      }
+      td.small-6,th.small-6 {
+        display: inline-block !important;
+        width: 50% !important;
+      }
+      td.small-7,th.small-7 {
+        display: inline-block !important;
+        width: 58.33333% !important;
+      }
+      td.small-8,th.small-8 {
+        display: inline-block !important;
+        width: 66.66667% !important;
+      }
+      td.small-9,th.small-9 {
+        display: inline-block !important;
+        width: 75% !important;
+      }
+      td.small-10,th.small-10 {
+        display: inline-block !important;
+        width: 83.33333% !important;
+      }
+      td.small-11,th.small-11 {
+        display: inline-block !important;
+        width: 91.66667% !important;
+      }
+      td.small-12,th.small-12 {
+        display: inline-block !important;
+        width: 100% !important;
+      }
+      .columns td.small-12,.column td.small-12,.columns th.small-12,.column th.small-12 {
+        display: block !important;
+        width: 100% !important;
+      }
+      .body .columns td.small-1,.body .column td.small-1,td.small-1 center,.body .columns th.small-1,.body .column th.small-1,th.small-1 center {
+        display: inline-block !important;
+        width: 8.33333% !important;
+      }
+      .body .columns td.small-2,.body .column td.small-2,td.small-2 center,.body .columns th.small-2,.body .column th.small-2,th.small-2 center {
+        display: inline-block !important;
+        width: 16.66667% !important;
+      }
+      .body .columns td.small-3,.body .column td.small-3,td.small-3 center,.body .columns th.small-3,.body .column th.small-3,th.small-3 center {
+        display: inline-block !important;
+        width: 25% !important;
+      }
+      .body .columns td.small-4,.body .column td.small-4,td.small-4 center,.body .columns th.small-4,.body .column th.small-4,th.small-4 center {
+        display: inline-block !important;
+        width: 33.33333% !important;
+      }
+      .body .columns td.small-5,td.small-5 center,.body .columns th.small-5,.body .column th.small-5,th.small-5 center {
+        display: inline-block !important;
+        width: 41.66667% !important;
+      }
+      td.small-6 center,.body .columns th.small-6,.body .column th.small-6,th.small-6 center {
+        display: inline-block !important;
+        width: 50% !important;
+      }
+      .body .columns td.small-7,.body .column td.small-7,td.small-7 center,.body .columns th.small-7,.body .column th.small-7,th.small-7 center {
+        display: inline-block !important;
+        width: 58.33333% !important; 
+      }
+      .body .column td.small-8,td.small-8 center,.body .columns th.small-8,.body .column th.small-8,th.small-8 center {
+        display: inline-block !important;
+        width: 66.66667% !important; 
+      }
+      .body .columns td.small-9,.body .column td.small-9,td.small-9 center,.body .columns th.small-9,.body .column th.small-9,th.small-9 center {
+        display: inline-block !important;
+        width: 75% !important;
+      }
+      .body .columns td.small-10,td.small-10 center,.body .columns th.small-10,.body .column th.small-10,th.small-10 center {
+        display: inline-block !important;
+        width: 83.33333% !important;
+      }
+      .body .columns td.small-11,.body .column td.small-11,td.small-11 center,.body .columns th.small-11,.body .column th.small-11,th.small-11 center {
+        display: inline-block !important;
+        width: 91.66667% !important; 
+      }
+      table.body td.small-offset-1,table.body th.small-offset-1 {
+        margin-left: 8.33333% !important;
+      }
+      table.body td.small-offset-2,table.body th.small-offset-2 {
+        margin-left: 16.66667% !important;
+      }
+      table.body td.small-offset-3,table.body th.small-offset-3 {
+        margin-left: 25% !important;
+      }  
+      table.body td.small-offset-4,table.body th.small-offset-4 {
+        margin-left: 33.33333% !important;
+      }  
+      table.body td.small-offset-5,table.body th.small-offset-5 {
+        margin-left: 41.66667% !important;
+      }
+      table.body td.small-offset-6,table.body th.small-offset-6 {
+        margin-left: 50% !important;
+      }
+      table.body td.small-offset-7,table.body th.small-offset-7 {
+        margin-left: 58.33333% !important;
+      }
+      table.body td.small-offset-8,table.body th.small-offset-8 {
+        margin-left: 66.66667% !important;
+      }
+      table.body td.small-offset-9,table.body th.small-offset-9 {
+        margin-left: 75% !important;
+      }
+      table.body td.small-offset-10,table.body th.small-offset-10 {
+        margin-left: 83.33333% !important;
+        margin-left: 83.33333% !important;
+      }
+      table.body td.small-offset-11,table.body th.small-offset-11 {
+        margin-left: 91.66667% !important;
+      }
+      table.body table.columns td.expander,table.body table.columns th.expander {
+        display: none !important;
+      }
+      table.body .right-text-pad,table.body .text-pad-right {
+        padding-left: 10px !important;
+      }
+      table.body .left-text-pad,table.body .text-pad-left {
+        padding-right: 10px !important;
+      }
+      table.menu {
+        width: 100% !important;
+      }
+      table.menu td,table.menu th {
+        width: auto !important;
+        display: inline-block !important;
+      }
+      table.menu.vertical td,table.menu.vertical th, table.menu.small-vertical td,table.menu.small-vertical th {
+        display: block !important;
+      }
+      table.menu[align="center"] {
+        width: auto !important; 
+      }
+      table.button.expand {
+        width: 100% !important; 
+      } 
+    }
+    @media only screen and (max-width: 596px) {
+      .day-box {
+        padding-top: 2vw !important;
+        width: 14vw !important;
+        height: 14vw !important;
+      }
+      .icon {
+        margin-right: 0.5vw;
+        width: 8px !important;
+      }
+      .icon-container {
+        height: 25%;
+      }
+      .exp-day-label {
+        margin-top: 0% !important;
+        font-size: 15px;
+      }
+      .exp-calendar-content {
+        min-width: 320px;
+        height: 14vw;
+      }
+    }
+    @media only screen and (min-width: 596px) {
+      .exp-calendar-content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 78 * 7 + 8;
+        height: 78;
+      }
+      .icon-container {
+        height: 35px;
+      }
+    }
+    @media only screen and (max-width: 596px) {
+      .calendar-content {
+        padding: 0px !important;
+        width: 288px !important;
+      }
+      .not-available-day, .calendar-today, .available-day {
+        height: 40px !important;
+        width: 40px !important;
+      }
+      .day-label {
+        margin-left: 10% !important;
+        margin-top: 0% !important;
+        font-size: 15px;
+      }
+    }
+    .gmailfix {
+      display: none;
+      display: none !important;
+    }
+  </style>
+  <img class="tracking" src="https://www.homes2hotels.ca" style="outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:auto;max-width:100%;clear:both;display:block;display:none">
+  <img class="tracking" src="https://www.homes2hotels.ca" width="1" height="1" style="outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:auto;max-width:100%;clear:both;display:block">
+  <table class="body" style="border-spacing:0;border-collapse:collapse;vertical-align:top;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;background:#f3f3f3;height:100%;width:100%;color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;font-size:16px;line-height:19px;margin-bottom:0px !important;background-color: white">
+    <tbody>
+      <tr style="padding:0;vertical-align:top;text-align:left">
+        <td class="center" align="center" valign="top" style="word-wrap:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;vertical-align:top;color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;font-size:16px;line-height:19px;border-collapse:collapse !important">
+          <center style="width:100%;min-width:580px">
+            <table class="container" style="border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;background:#fefefe;width:580px;margin:0 auto;text-align:inherit;max-width:580px;">
+              <tbody>
+                <tr style="padding:0;vertical-align:top;text-align:left">
+                  <td style="word-wrap:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;vertical-align:top;color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;font-size:16px;line-height:19px;border-collapse:collapse !important">
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <a href="https://www.homes2hotels.ca?eluid=4&amp;euid=65543f16-541c-e379-3cd5-cd30dd0bd093" style="font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;line-height:1.3;color:#2199e8;text-decoration:none" target="_blank">
+                                <img align="center" alt="" class="center standard-header" height="30" src="<%= Rails.application.secrets[:root_path] + '/assets/logo_sticky.png' %>" style="outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:auto;max-width:100%;clear:both;display:block;border:none;padding-bottom:16px;padding-top:48px;max-height:30px">
+                              </a>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <p class="headline headline-lg  heavy max-width-485" style="padding:0;margin:0;text-align:left;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;max-width:485px;font-weight:700;color:#484848;word-break:normal;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-size:32px;line-height:1.3;margin-bottom:0 !important;">
+                                Get ready for <%= (@booking.bookable.try(:name) || @booking.bookable.try(:title)) if @booking.present? %>!
+                              </p>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <p class="body  body-lg  body-link-rausch light text-left   " style="padding:0;margin:0;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;font-weight:300;color:#484848;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-size:18px;line-height:1.4;text-align:left;margin-bottom:0px !important;">
+                                Hi <%= @user.profile.name if @user.profile %>,
+                              </p>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <a href="#" style="font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;line-height:1.3;color:#2199e8;text-decoration:none" target="_blank">
+                              <img src="<%= @booking.bookable.images.try(:first).try(:avatar).try(:url) %>" class="row-pad-bot-1" style="outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:auto;max-width:100%;clear:both;display:block;border:none;padding-bottom:8px !important">
+                              </a>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="row guest-listing-card" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr style="padding:0;vertical-align:top;text-align:left">
+                            <th class="small-10 large-10 columns first guest-listing-card-text row-pad-bot-3 valign-mid" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;vertical-align:middle;margin:0 auto;padding-bottom:16px;width:467.33333px;padding-right:8px;padding-left:16px">
+                              <a href="#" class="subheadline" style="font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;color:#2199e8;text-decoration:none;font-size:18px;line-height:1.4" target="_blank">
+                                <p class="headline" style="padding:0;margin:0;text-align:left;word-break:normal;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-weight:300;font-size:24px;line-height:1.3;margin-bottom:0 !important">
+                                  <%= @booking.bookable.try(:name) || @booking.bookable.try(:title) %>
+                                </p>
+                                <p class="midheadline" style="padding:0;margin:0;text-align:left;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-weight:300;font-size:18px;line-height:1.4;margin-bottom:0 !important">
+                                  <% if @booking.bookable.class.name.eql?('Experience') %>
+                                    hosted by <%= @user.profile.name if @user.profile %>
+                                  <% else %>
+                                    <%= "#{@booking.bookable.what_will_guest_have} of #{@booking.bookable.property_type.title}" %> hosted by <%= @user.profile.name if @user.profile %>
+                                  <% end %>
+                                </p>
+                              </a>
+                            </th>
+                            <tr>
+                              <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
+                            </tr>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <hr class="full-divider" style="max-width:580px;border-right:0;border-top:0;border-bottom:1px solid #cacaca;border-left:0;margin:20px auto;clear:both;background-color:#dbdbdb;height:1px;border:none;width:100%;margin-top:0;margin-bottom:0">
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="row-pad-bot-1" style="padding-bottom:8px !important"></div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <% if @booking.bookable.class.name.eql?('Experience') %>
+                          <tbody>
+                            <tr style="padding:0;vertical-align:top;text-align:left">
+                              <th class="small-5 large-5 columns first" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:225.66667px;padding-right:8px;padding-left:16px">
+                                <p class="body-text-lg light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;margin-bottom:0px !important">
+                                  <%= @booking.exp_date.to_date.strftime("%A").capitalize %>
+                                </p>
+                                <p class="body-text-lg light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;margin-bottom:0px !important">
+                                  ‌‌<%= @booking.exp_date.to_date.strftime("%b %d, %Y") %>
+                                </p>
+                                <p class="body-text light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:18px;line-height:1.4;word-break:normal;margin-bottom:0px !important">
+                                  ‌Time:‌ ‌<%= Time.parse("#{@booking.exp_start_time}:00").strftime("%l %P") %> to <%= Time.parse("#{@booking.exp_end_time}:00").strftime("%l %P") %>
+                                </p>
+                              </th>
+                            </tr>
+                          </tbody>
+                        <% else %>
+                          <tbody>
+                            <tr style="padding:0;vertical-align:top;text-align:left">
+                              <th class="small-5 large-5 columns first" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:225.66667px;padding-right:8px;padding-left:16px">
+                                <p class="body-text-lg light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;margin-bottom:0px !important">
+                                  <%= @booking.start_date.strftime("%A").capitalize %>
+                                </p>
+                                <p class="body-text-lg light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;margin-bottom:0px !important">
+                                  ‌‌<%= @booking.start_date.strftime("%b %d, %Y") %>
+                                </p>
+                                <p class="body-text light" style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:18px;line-height:1.4;word-break:normal;margin-bottom:0px !important">
+                                  ‌C‌h‌e‌c‌k‌-‌i‌n‌ ‌i‌s‌ ‌a‌n‌y‌t‌i‌m‌e‌ ‌a‌f‌t‌e‌r‌ ‌<%= @booking.bookable.check_in_time_from %> 
+                                </p>
+                              </th>
+                              <th class="small-5 large-5 columns last" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:225.66667px;padding-left:8px;padding-right:16px">
+                                <p class="body-text-lg light text-right" style="padding:0;margin:0;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;text-align:right;margin-bottom:0px !important">
+                                  <%= @booking.end_date.strftime("%A").capitalize %>
+                                </p>
+                                <p class="body-text-lg light text-right" style="padding:0;margin:0;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;text-align:right;margin-bottom:0px !important">
+                                  ‌‌<%= @booking.end_date.strftime("%b %d, %Y") %>
+                                </p>
+                                <p class="body-text light text-right" style="padding:0;margin:0;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:18px;line-height:1.4;word-break:normal;text-align:right;margin-bottom:0px !important">
+                                  ‌‌<%#= @booking.bookable.check_in_time_from %>
+                                </p>
+                              </th>
+                            </tr>
+                          </tbody>
+                        <% end %>
+                      </table>
+                      <div class="row-pad-bot-1" style="padding-bottom:8px !important"></div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <hr class="full-divider" style="max-width:580px;border-right:0;border-top:0;border-bottom:1px solid #cacaca;border-left:0;margin:20px auto;clear:both;background-color:#dbdbdb;height:1px;border:none;width:100%;margin-top:0;margin-bottom:0">
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <div style="padding-top:8px;padding-bottom:8px">
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr>
+                            <th class="small-7 large7 columns first" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-left:16px;padding-bottom:16px">
+                              <p class=" body-text-lg light " style="padding:0;margin:0;text-align:left;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:24px;line-height:1.2;word-break:normal;margin-bottom:0px !important">
+                                Confirmation code
+                              </p>
+                            </th>
+                            <th class="small-5 large-5 columns last valign-mid" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;vertical-align:middle;margin:0 auto;padding-bottom:16px;width:225.66667px;padding-left:8px;padding-right:16px">
+                              <p class=" body-text light text-right" style="padding:0;margin:0;font-weight:300;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:18px;line-height:1.4;word-break:normal;text-align:right;margin-bottom:0px !important">
+                                RGE650050
+                              </p>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> -->
+                    <!-- <div style="padding-bottom:16px">
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <hr class="full-divider" style="max-width:580px;border-right:0;border-top:0;border-bottom:1px solid #cacaca;border-left:0;margin:20px auto;clear:both;background-color:#dbdbdb;height:1px;border:none;width:100%;margin-top:0;margin-bottom:0">
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> -->
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <p class="headline headline-lg  heavy max-width-485" style="padding:0;margin:0;text-align:left;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;max-width:485px;font-weight:700;color:#484848;word-break:normal;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-size:32px;line-height:1.3;margin-bottom:0 !important;">
+                                Meet your host
+                              </p>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <table class="row host-profile-card" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first valign-mid" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;vertical-align:middle;margin:0 auto;padding-left:16px;padding-bottom:16px">
+                              <a href="#" style="font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;line-height:1.3;color:#2199e8;text-decoration:none" target="_blank">
+                              <img alt="" class="profile-img" src="<%= @user.profile.try(:image).try(:url) %>" style="outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:auto;clear:both;display:block;border:none;border-radius:50%;max-width:77px;max-height:77px">      </a>
+                            </th>
+                            <th class="small-9 large-10 columns first card-text row-pad-bot-3 valign-mid" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;vertical-align:middle;margin:0 auto;padding-bottom:16px;width:467.33333px;padding-right:8px;padding-left:16px">
+                              <a href="#" style="font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;margin:0;text-align:left;line-height:1.3;color:#2199e8;text-decoration:none" target="_blank">
+                                <p class="headline" style="padding:0;margin:0;text-align:left;word-break:normal;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-size:18px;font-weight:bold;line-height:1.4;margin-bottom:0 !important">
+                                  <%= @user.profile.name if @user.profile %>
+                                </p>
+                                <p class="midheadline" style="padding:0;margin:0;text-align:left;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#484848;font-weight:300;font-size:18px;line-height:1.4;margin-bottom:0 !important">
+                                  <%= @user.email if @user %>
+                                </p>
+                              </a>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <% if @booking.bookable.class.name.eql?('Place') %>
+                      <div>
+                        <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                          <tbody>
+                            <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                              <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                                <hr class="full-divider" style="max-width:580px;border-right:0;border-top:0;border-bottom:1px solid #cacaca;border-left:0;margin:20px auto;clear:both;background-color:#dbdbdb;height:1px;border:none;width:100%;margin-top:0;margin-bottom:0">
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                          <tbody>
+                            <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                              <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                                <p class="headline headline-md  heavy max-width-485" style="padding:0;margin:0;text-align:left;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;max-width:485px;font-weight:700;color:#484848;word-break:normal;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-size:24px;line-height:28px;margin-bottom:0 !important;">
+                                  House Rules
+                                </p>
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                          <tbody>
+                            <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                              <th class="columns first large-12 last small-12" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                                <p class="body  body-lg  body-link-rausch light text-left   " style="padding:0;margin:0;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;font-weight:300;color:#484848;hyphens:none;-moz-hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;font-size:18px;line-height:1.4;text-align:left;margin-bottom:0px !important;">
+                                  <% @booking.bookable.rules.each do |rule| %>
+                                    <%= rule.title %>
+                                    <br>
+                                  <% end %>
+                                </p>
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    <% end %>
+                    <div>
+                      <table class="row" style="border-spacing:0;border-collapse:collapse;vertical-align:top;text-align:left;padding:0;width:100%;position:relative;display:table">
+                        <tbody>
+                          <tr class="" style="padding:0;vertical-align:top;text-align:left">
+                            <th class="columns first large-12 last small-12 standard-footer-padding" style="color:#0a0a0a;font-family:'Cereal', Helvetica, Arial, sans-serif;font-weight:normal;padding:0;text-align:left;font-size:16px;line-height:19px;margin:0 auto;padding-bottom:16px;width:564px;padding-left:16px;padding-right:16px">
+                              <div class="">
+                                <hr class="standard-footer-hr" style="max-width:580px;border-right:0;border-top:0;border-bottom:1px solid #cacaca;border-left:0;clear:both;background-color:#dbdbdb;height:2px;width:100%;border:none;margin:auto">
+                                <div class="row-pad-bot-4" style="padding-bottom:32px">
+                                </div>
+                                <p class="standard-footer-text center " style="padding:0;margin:0;text-align:left;margin-bottom:10px;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#9ca299;font-size:14px;text-shadow:0 1px #fff;font-weight:300;line-height:1.4">
+                                  Sent with ♥ from Homes2Hotels
+                                </p>
+                                <p class="standard-footer-text " style="padding:0;margin:0;text-align:left;margin-bottom:10px;font-family:&quot;Cereal&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color:#9ca299;font-size:14px;text-shadow:0 1px #fff;font-weight:300;line-height:1.4">
+                                  Homes2Hotels,‌ ‌I‌n‌c‌.‌,‌ ‌8‌8‌8‌ ‌B‌r‌a‌n‌n‌a‌n‌ ‌S‌t‌,‌ ‌S‌a‌n‌ ‌F‌r‌a‌n‌c‌i‌s‌c‌o‌,‌ ‌C‌A‌ ‌9‌4‌1‌0‌3‌
+                                </p>
+                              </div>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </center>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="gmailfix" style="white-space:nowrap; font:15px courier; line-height:0; color:white;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  </div>
+</body>

@@ -1,0 +1,152 @@
+/ #page
+/   %main 
+/     %section.hero_in.invite-friend-wrap
+/       .wrapper
+/         .container-fluid.pl-lg-5.pr-lg-5
+/           .row.justify-content-md-center
+/             .col-md-8
+/               .experience-wrapper
+/                 %h1 
+/                   = t('invite_a_friend.heading')
+/                 %p 
+/                   = t('invite_a_friend.paragraph')
+/     %section.referrals-app
+/       .container
+/         .row.justify-content-md-center
+/           .col-md-11
+/             .share-box
+/               .profile-photo
+/                 %img{:src => "/assets/one.jpg"}/
+/               = form_for resource, :as => resource_name, :url => user_invitation_path(resource_name), :html => {:method => :post} do |f|
+/                 - resource.class.invite_key_fields.each do |field|
+/                   .row
+/                     .col-sm-9
+/                       .form-group
+/                         = f.text_field field, class: "form-control", placeholder: t('invite_a_friend.form_fields.enter_email_addresses')
+/                         / %input.form-control{:placeholder => "Enter email addresses", :type => "text"}/
+/                     .col-sm-3
+/                       .form-group
+/                         = f.submit t("invite_a_friend.form_fields.send_an_invitations"), class: "btn red-button btn-block"
+/                         / %button.btn.red-button.btn-block{:type => "submit"} Send Invites
+/                     .clearfix
+/                     .col
+/                       %ul.contact-importers
+/                         %li 
+/                           = t('invite_a_friend.form_fields.import_contacts')
+/                         %li
+/                           %a{:href => "#"}
+/                             %i.icon-gmail>
+/                             = t('invite_a_friend.form_fields.gmail')
+/                         %li
+/                           %a{:href => "#"}
+/                             %i.icon-yahoo>
+/                             = t('invite_a_friend.form_fields.yahoo')
+/                         %li
+/                           %a{"data-target" => "#account-setting-modal", "data-toggle" => "modal", :href => "#"}
+/                             %i.icon_question
+/               .divider
+/                 %span 
+/                   = t('invite_a_friend.form_fields.or')
+/               .margin_30_30
+/                 .row
+/                   .col-sm-2
+/                     .form-group
+/                       = t('invite_a_friend.form_fields.share_your_link')
+/                   .col-sm-4
+/                     .form-group
+/                       %input.form-control{:placeholder => t('invite_a_friend.form_fields.enter_email_addresses'), :type => "text"}/
+/                   .col-sm-3
+/                     .form-group
+/                       %a.btn.btn-block.btn-facebook-messenger
+/                         %img{:src => "/assets/fb_messenger.png"}/
+/                         = t('common.messenger')
+/                   .col-sm-3
+/                     .form-group
+/                       %a.btn.btn-block.btn-facebook
+/                         %i.fa.fa-facebook
+/                         = t('common.facebook')
+/     %section.getting-started-wrapper
+/       .container.margin_60_35
+/         %center
+/           %h1.main-title  
+/             = t('invite_a_friend.its_easy_to_get_started.heading')
+/         .row.justify-content-md-center
+/           .col-md-11
+/             .row
+/               .col-md-4
+/                 .getting-started
+/                   %span
+/                     %i.icon-share
+/                   .extra-wrap
+/                     = t('invite_a_friend.its_easy_to_get_started.sub_heading_1')
+/               .col-md-4
+/                 .getting-started
+/                   %span
+/                     %i.icon-suitcase
+/                   .extra-wrap
+/                     = t('invite_a_friend.its_easy_to_get_started.sub_heading_2')
+/               .col-md-4
+/                 .getting-started
+/                   %span
+/                     %i.fa.fa-hand-grab-o
+/                   .extra-wrap
+/                     = t('invite_a_friend.its_easy_to_get_started.sub_heading_3')
+/     %section.getting-started-wrapper
+/       .container.margin_30_30
+/         .row.justify-content-md-center
+/           .col-md-11
+/             .row
+/               .col-md-8
+/                 .card.info-card
+/                   %h5.card-header.panel-dark 
+/                     = t('invite_a_friend.in_progress')
+/                   .card-body
+/                     - @pending_users.each do |pending_user|
+/                       .invited-list
+/                         %span.invite-user
+/                           %img{:src => "/assets/user_pic.png"}/
+/                         .extra-wrap
+/                           %h5 
+/                             = pending_user.email
+/                           %span.invitation-price ₹1,100
+/                           %p Next, have your friend create an Homes2Hotels account using your unique referral link.
+/               .col-md-4
+/                 .card.info-card
+/                   %h5.card-header.panel-dark 
+/                     = t('invite_a_friend.referrals.heading')
+/                   .card-body
+/                     %table.referral-table
+/                       %tbody
+/                         %tr
+/                           %td
+/                             %span 
+/                               = t('invite_a_friend.referrals.sub_heading_1')
+/                           %td{:align => "right"} 1
+/                         %tr
+/                           %td{:colspan => "2"}
+/                             %hr/
+/                         %tr
+/                           %td
+/                             %span 
+/                               = t('invite_a_friend.referrals.sub_heading_2')
+/                           %td{:align => "right"} ₹0
+/                         %tr
+/                           %td{:colspan => "2"}
+/                             %hr/
+/                         %tr
+/                           %td
+/                             %strong
+/                               %span 
+/                                 = t('invite_a_friend.referrals.sub_heading_3')
+/                           %td{:align => "right"} ₹000
+/                 .card.info-card
+/                   .card-body
+/                     %h5.card-title
+/                       = t('invite_a_friend.want_more_credits.heading')
+/                     %p 
+/                       = t('invite_a_friend.want_more_credits.paragraph')
+                    
+/ :javascript
+/   $(function () {
+/       $('[data-toggle="popover"]').popover()
+/   })

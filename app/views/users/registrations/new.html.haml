@@ -1,0 +1,53 @@
+#register_bg
+  %nav#menu.fake_menu
+  #login
+    %aside
+      %figure
+        %a{:href => "/"}
+          %img.logo_sticky{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo_sticky.png", :width => ""}/
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        - flash.each do |key, value|
+          - if value.class == Array
+            %div{:class => "#{flash_class(key)}"}
+              %button.close{"data-dismiss" => "alert", :type => "button"} ×
+              - value.each do |message|
+                = message
+                %br
+          - else
+            %div{:class => "#{flash_class(key)}"}
+              %button.close{"data-dismiss" => "alert", :type => "button"} ×
+              = value
+
+        .form-group
+          %label
+            = t('common.email')
+          = f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email"
+          %i.icon_mail_alt
+
+        .form-group
+          %label
+            = t('registration.new.label_2')
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, class: "form-control", id: "password1", autocomplete: "off"
+          %i.icon_lock_alt
+        .form-group
+          %label
+            = t('registration.new.label_3')
+          = f.password_field :password_confirmation, class: "form-control", id: "password2",autocomplete: "off"
+          %i.icon_lock_alt
+
+        .form-group
+          = check_box_tag :show_password, 'show_password'
+          %label{ for: 'show_password'}
+            = "Show Password"
+
+        #pass-info.clearfix
+        = f.submit t('registration.new.button'), class: "btn_1 rounded full-width add_top_30"
+        .text-center.add_top_10
+          %b
+            = t('registration.new.text_1')
+          %strong
+            = render "users/shared/links"

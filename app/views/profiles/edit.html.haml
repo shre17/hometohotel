@@ -1,0 +1,332 @@
+#page
+  = form_for @profile do |f|
+    %main
+      %section.hero_in.become_host_form
+        .wrapper
+      .bg_color_1
+        %section.edit-profile
+          .container.margin_30_30
+            .row
+              = render partial: "common_links", locals: {profile: @profile}
+              .col-md-9
+
+                .panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+                  .panel.panel-default
+                    .card.info-card
+                      %h5.card-header.panel-dark
+                        = (t 'profile.required_fields.heading')
+                      .card-body
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "firstname"}
+                            = (t 'common.first_name')
+                            %span.mandatory *
+                          .col-sm-9
+                            = f.text_field :first_name, class: "form-control", required: true
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "lastname"}
+                            = (t 'common.last_name')
+                            %span.mandatory *
+                          .col-sm-9
+                            = f.text_field :last_name, class: "form-control", required: true
+                            %p
+                              = (t 'profile.required_fields.paragraph_1')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "iam"}
+                            = (t 'profile.required_fields.i_am')
+                            %i.fa.fa-lock
+                            %span.mandatory *
+                          .col-sm-9
+                            = f.select :gender, options_for_select(Profile::GENDER, :selected => f.object.gender),{}, class: "form-control", prompt: "Gender", required: true
+                            %p
+                              = (t 'profile.required_fields.paragraph_2')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "lastname"}
+                            = (t 'profile.required_fields.birth_date')
+                            %i.fa.fa-lock
+                            %span.mandatory *
+                          .col-sm-9
+                            .form-row
+                              .col
+                                = f.select :month, options_for_select(Profile::MONTH, :selected => f.object.month),{}, class: "form-control", prompt: "Month", required: true
+                              .col
+                                = f.select :date, options_for_select(Profile::DATE, :selected => f.object.date),{}, class: "form-control", prompt: "Date", required: true
+                              .col
+                                = f.select :year, options_for_select(Profile::YEAR, :selected => f.object.year),{}, class: "form-control", prompt: "Year", required: true
+                            %p
+                              = (t 'profile.required_fields.paragraph_3')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "email"}
+                            = (t 'common.email_address')
+                            %i.fa.fa-lock
+                            %span.mandatory *
+                          .col-sm-9
+                            = f.text_field :email, class: "form-control", required: true
+                            %p
+                              = (t 'profile.required_fields.paragraph_4')
+                              / %a{:href => "#"}
+                              /   =# (t 'profile.required_fields.learn_more_link')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => ""}
+                            = (t 'common.phone_number')
+                            %span.mandatory *
+                          .col-sm-9
+                            - unless f.object.contact_no.present?
+                              %input#staticEmail.form-control-plaintext{:readonly => "readonly", :type => "text", value: I18n.t( "common.no_phone_number_enter")}/
+
+                            %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "modal", :href => "#addPhone", :role => "button"}
+                              %i.fa.fa-plus
+                                = (t 'common.add_a_phone_number_link', type: (f.object.contact_no.present? ? 'Update' : 'Add a'))
+                            %br
+                            %br
+                            = f.text_field :contact_no, class: "form-control", disabled: 'disabled', required: true
+                            
+                            - unless @profile.mobile_verified?
+                              %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "modal", :href => "#verifyPhone", :role => "button"}
+                                = (t 'common.add_a_phone_number_link', type: 'Verify')
+
+                            %p{:style => "margin-top: 15px;"}
+                              = (t 'common.phone_number_verification_fields.paragraph')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => "iam"}
+                            = (t 'profile.required_fields.preferred_language')
+                          .col-sm-9
+                            = f.select :prefered_language, options_for_select(Profile::LANGUAGES, f.object.prefered_language),{}, class: "form-control", prompt: "preferred language"
+                            / %p
+                            /   =# (t 'profile.required_fields.paragraph_5')
+                        / .form-group.row
+                        /   %label.col-sm-3.col-form-label{:for => "iam"}
+                        /     =# (t 'profile.required_fields.preferred_currency')
+                        /   .col-sm-9
+                        /     =# f.select :prefered_currency, options_for_select(Profile::CURRENCY, f.object.prefered_currency),{}, class: "form-control", prompt: "preferred currency"
+                        /     %p
+                        /       =# (t 'profile.required_fields.paragraph_6')
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => ""}
+                            = (t 'profile.required_fields.where_you_live')
+                          .col-sm-9
+                            = f.text_field :city, class: "form-control", placeholder: "e.g. Paris, France / Brooklyn, NY / Chicago, IL"
+                        .form-group.row
+                          %label.col-sm-3.col-form-label{:for => ""}
+                            = (t 'profile.required_fields.describe_yourself')
+                          .col-sm-9
+                            = f.text_area :describe_yourself, row: "5", cols: "40", class: "form-control"
+                            %p
+                              = (t 'profile.required_fields.paragraph_7')
+                            %p
+                              = (t 'profile.required_fields.paragraph_8')
+                            %p
+                              = (t 'profile.required_fields.paragraph_9')
+                            %p
+                              = (t 'profile.required_fields.paragraph_10')
+
+                    #headingOptional.card.info-card.panel-heading{:role => "tab"}
+                      %a{ "data-toggle" => "collapse", :href => "#optional", :role => "button"}
+                        %h5.card-header.panel-dark  
+                          = (t 'profile.optional.heading')
+                      #optional.panel-collapse.collapse.in{"aria-labelledby" => "headingOptional", :role => "tabpanel"}
+                        .card-body
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => ""}
+                              = (t 'profile.optional.form_fields.school')
+                            .col-sm-9
+                              = f.text_field :school, class: "form-control"
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => ""}
+                              = (t 'profile.optional.form_fields.work')
+                            .col-sm-9
+                              = f.text_field :work, class: "form-control", placeholder: "company name or job title"
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => "iam"}
+                              = (t 'profile.optional.form_fields.time_zone')
+                            .col-sm-9
+                              = f.select :time_zone, options_for_select(Profile::TIMEZONE, :selected => f.object.time_zone),{}, class: "form-control", prompt: ""
+                              %p
+                                = (t 'profile.optional.form_fields.paragraph')
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => ""}
+                              = (t 'profile.optional.form_fields.languages')
+                            .col-sm-9
+                              .selected-languages
+                                %ul
+                                  - f.object.languages.each do |language|
+                                    %li{:id => "choosed_#{language}"}
+                                      %span
+                                        = language
+                                      %i.icon_close.language{:id => "#{language}"}
+                              %a{"data-target" => "#languageModal", "data-toggle" => "modal"}
+                                %i.fa.fa-plus
+                                = (t 'profile.optional.form_fields.languages_fields.add_more_link')
+
+                              %p{:style => "margin-top: 15px;"}
+                                = (t 'profile.optional.form_fields.languages_fields.paragraph')
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => "staticEmail"}
+                              = (t 'profile.optional.form_fields.vat_id')
+                              %i.fa.fa-lock
+                            .col-sm-9
+                              %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#vatID", :role => "button"}
+                                %i.fa.fa-plus
+                                = (t 'profile.optional.form_fields.add_vat_id_number')
+                              #vatID.collapse
+                                .vat-id
+                                  = f.fields_for :vat_number do |vat_number|
+                                    = render 'vat_numbers_fields', f: vat_number
+                              %p{:style => "margin-top: 15px;"}
+                                = (t 'profile.optional.form_fields.vat_id_paragraph')
+                                / %a{:href => "#"}
+                                /   =# (t 'profile.optional.form_fields.visit_vat_faqs')
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => "staticEmail"}
+                              = (t 'profile.optional.form_fields.emergency_contact')
+                              %i.fa.fa-lock
+                            .col-sm-9
+                              %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#emergencyContact", :role => "button"}
+                                %i.fa.fa-plus
+                                = (t 'profile.optional.form_fields.add_contact_link')
+                              %p
+                                = (t 'profile.optional.form_fields.emergency_contact_paragraph')
+                              #emergencyContact.collapse
+                                .emergency-contact
+                                  = f.fields_for :emergency_contact do |emergency_contact|
+                                    = render 'emergency_contacts_fields', f: emergency_contact
+                        - if false
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => "staticEmail"}
+                              Shipping Address
+                              %i.fa.fa-lock
+                            .col-sm-9
+                              %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#shipping-address", :role => "button"}
+                                %i.fa.fa-plus
+                                Add shipping address
+                              #shipping-address.collapse
+                                .emergency-contact
+                                  %form
+                                    .form-group
+                                      %label Country
+                                      = select_tag :country1, options_for_select(Profile::COUNTRIES), class: 'form-control',:onchange => "document.getElementById('country-code').innerHTML = this.options[selectedIndex].value;"
+                                    .row
+                                      .col-md-6
+                                        .form-group
+                                          %label Address Line 1
+                                          %input.form-control{:ceholder => "", :type => "text"}/
+                                      .col-md-6
+                                        .form-group
+                                          %label Address Line 2
+                                          %input.form-control{:ceholder => "", :type => "text"}/
+                                    .form-group
+                                      %label City / Town / District
+                                      %input.form-control{:ceholder => "", :type => "text"}/
+                                    .form-group
+                                      %label State / Province / County / Region
+                                      %input.form-control{:ceholder => "", :type => "text"}/
+                                    .form-group
+                                      %label ZIP / Postal Code
+                                      %input.form-control{:ceholder => "", :type => "text"}/
+                                    .form-group.text-center
+                                      %button.btn.red-button.red-button Save
+                        - if false
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => "staticEmail"}
+                              Guest Profiles
+                              %i.fa.fa-lock
+                            .col-sm-9
+                              %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#guest-profile", :role => "button"}
+                                %i.fa.fa-plus
+                                Add new guest profile
+                              #guest-profile.collapse
+                                .guest-profile
+                                  = f.fields_for f.object.guest_profiles.new do |guest_profile|
+                                    = render 'guest_profile_fields', f: guest_profile
+                                  .links
+                                    = link_to_add_association 'Add guest', f, :guest_profiles
+
+                              %p This information is only required when you travel to China and will not be shared with your hosts and other guests.
+                    
+                    #headingWork.card.info-card.panel-heading{:role => "tab"}
+                      %a{ "data-toggle" => "collapse", :href => "#work_travel", :role => "button"}
+                        %h5.card-header.panel-dark
+                          = (t 'profile.work_travel.heading')
+                      #work_travel.panel-collapse.collapse.in{"aria-labelledby" => "headingWork", :role => "tabpanel"}
+                        .card-body
+                          .form-group.row
+                            %label.col-sm-3.col-form-label{:for => ""}
+                              = (t 'profile.work_travel.form_field.work_email')
+                              %i.fa.fa-lock
+                            .col-sm-9
+                              = f.text_field :work_email, class: "form-control"
+                              %p
+                                = (t 'profile.work_travel.paragraph')
+                                / %a{:href => "#"}
+                                /   =# (t 'profile.work_travel.learn_more_link')
+
+                    %button.btn.red-button.red-button.red-button.btn-lg{:style => "margin-top: 15px;", :type => "submit"}
+                      = (t 'profile.form_field_button')
+
+    = render partial: "language_fields", locals: { ff: f }
+    - f.fields_for :vat_number do |vat_number|
+      = render "vat_numbers_fields", f: vat_number
+
+  = render partial: "profiles/phone_number_modal"
+  = render partial: "profiles/verify_otp_modal"
+
+#toTop
+
+:javascript
+  $('.panel-collapse').on('show.bs.collapse', function () {
+    $(this).parent().addClass('active');
+  });
+
+  $('.panel-collapse').on('hide.bs.collapse', function () {
+    $(this).parent().removeClass('active');
+  });
+
+  $(document).ready(function(){
+    var files = new Array();
+    var languages = new Array();
+    $('#language_button').click(function(e){
+      e.preventDefault();
+      languages = new Array();
+      $('.selected-languages ul').html('');
+      $('#languageModal input:checkbox').each(function(){
+        if ($(this).is(':checked')) {
+          languages.push(this.value);
+        }
+      });
+
+      $.ajax({
+        url: "#{profile_path}",
+        data: {languages},
+        type: "patch",
+        success: function(response){
+          $.each(languages,function(){
+            $('.selected-languages ul').append("<li>"+this+"</li>")
+          })
+        },
+        failure: function(response){},
+      });
+
+    });
+
+    $(".language").click(function(){
+      language = this.id;
+      element = document.getElementById(this.id);
+      element.parentNode.remove();
+      checkbox_id = "profile_" + this.id
+      checkbox = document.getElementById(checkbox_id);
+      checkbox.checked = false;
+      $.ajax({
+        url: "#{delete_language_profiles_path}",
+        data: {language},
+        type: "delete",
+        success: function(response){
+        },
+        failure: function(response){}
+      });
+    });
+
+  });
+  
+  function clear_class() {
+    $("#verifyPhone .notice").removeClass('success')
+    $("#verifyPhone .notice").removeClass('error')
+  }

@@ -1,0 +1,10 @@
+<% if (@review.reviewable_type.eql?("Place") || (@review.reviewable_type.eql?("Experience"))) %>
+  $("#show_place_reviews").append("<%= escape_javascript(render(partial: 'reviews/review', locals: {review: @review}))%>")
+  $("#place_reviews_count").html(" Reviews(<%= @resource.reviews.count%>)")
+  $("#review_comment").html("<%= rating_comment(@resource.rating)%>")
+  $("#rating").html("<%= @resource.rating %>")
+  $("#review_content").val("");
+<% else %>
+  $("#show_host_reviews").append("<%= escape_javascript(render(partial: 'reviews/review', locals: {review: @review}))%>")
+  $("#host_reviews_count").html("(<%= @resource.reviews.count%>)")
+<% end %>

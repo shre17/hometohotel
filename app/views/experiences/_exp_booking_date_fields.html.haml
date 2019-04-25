@@ -1,0 +1,28 @@
+.nested-fields.nested-date-field.full-wrapper
+  .row
+    .col-sm-4.col-12
+      .form-group
+        .calender-box
+          .icon-calendar.icon-box
+          =# f.text_field :b_date, placeholder: 'Select Date', class: 'form-control ExpDate', :readonly => "readonly"
+    .col-md-3.col-5
+      .form-group
+        .calender-box
+          .icon-clock-3.icon-box
+          =# f.select :hosting_start_time, options_for_select(time_list, f.object.hosting_start_time), { prompt: 'Start Time'}, class: 'form-control'
+    .col-md-1.col-1
+      %span.to-separet to
+    .col-md-3.col-5
+      .form-group
+        .calender-box
+          .icon-clock-3.icon-box
+          =# f.select :hosting_end_time, options_for_select(time_list, f.object.hosting_end_time), { prompt: 'End Time'}, class: 'form-control'
+    .col-sm-1.col-1
+      =# link_to_remove_association "X", f, class: 'remove-date'
+
+:javascript
+  $('.ExpDate').datepicker({
+    format: 'dd/mm/yyyy',
+    startDate:'+0d',
+    autoclose: true
+  });

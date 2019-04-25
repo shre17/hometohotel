@@ -1,0 +1,137 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: "account_settings/account_settings_navigation"
+            .col-md-9
+              #chnage.row
+                .col-md-12
+                  .card.info-card
+                    %h5.card-header.panel-dark 
+                      = (t 'account_settings.bank_details.heading')
+                    .card-body
+                      = form_for(@bank_account, url: bank_accounts_path, method: :put) do |f|
+
+                        %h6
+                          %b
+                            = (t 'account_settings.bank_details.sub_heading.individual')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.first_name')
+                          .col-sm-5
+                            = f.text_field :first_name, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.first_name')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.last_name')
+                          .col-sm-5
+                            = f.text_field :last_name, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.last_name')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.email')
+                          .col-sm-5
+                            = f.email_field :email, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.email')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.dob')
+                          .col-sm-5
+                            = f.text_field :dob, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.dob_placeholder')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.ssn')
+                          .col-sm-5
+                            = f.text_field :ssn, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.ssn')
+
+                        %h6
+                          %b
+                            = (t 'account_settings.bank_details.sub_heading.address')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.street')
+                          .col-sm-5
+                            = f.text_field :street, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.street')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.locality')
+                          .col-sm-5
+                            = f.text_field :locality, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.locality')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.region').titleize
+                          .col-sm-5
+                            = f.text_field :region, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.region')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.postal_code').titleize
+                          .col-sm-5
+                            = f.number_field :postal_code, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.postal_code')
+
+                        %h6
+                          %b
+                            = (t 'account_settings.bank_details.sub_heading.funding')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.email').titleize
+                          .col-sm-5
+                            = f.email_field :funding_email, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.funding_email')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.mobile_number').titleize
+                          .col-sm-5
+                            = f.number_field :mobile_number, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.mobile_number')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.account_number').titleize
+                          .col-sm-5
+                            = f.text_field :account_number, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.account_number')
+
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right
+                            = (t 'account_settings.bank_details.routing_number').titleize
+                          .col-sm-5
+                            = f.text_field :routing_number, autocomplete: "off", class: "form-control", placeholder: (t 'account_settings.bank_details.routing_number')
+
+                        .card-footer.text-right
+                          = f.submit (t 'account_settings.bank_details.save_details_btn'), class: 'btn btn-primary red-button'
+
+#toTop
+
+= javascript_include_tag('setting_menu.js')
+
+:javascript
+  $(document).ready(function(){
+    $(".create-account-box").hide();
+    $(".create-company-account").click(function(){
+      $(".create-company-account").hide();
+      $(".create-account-box").show();
+    });
+    $(".cancel-company-account").click(function(){
+      $(".create-company-account").show();
+      $(".create-account-box").hide();
+    });
+    $(".account-deactivate-box").hide();
+    $(".deactivate-account").click(function(){
+      $(".deactivate-account").hide();
+      $(".account-deactivate-box").show(); 
+    });
+    $(".cancel-deactivation").click(function(){
+      $(".account-deactivate-box").hide();
+      $(".deactivate-account").show();
+    });
+     
+  });

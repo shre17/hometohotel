@@ -1,0 +1,22 @@
+%section#reviews
+  %h2#place_reviews_count 
+    = "#{t('profile.common_links.reviews')}(#{data.reviews.count})"
+  - if data.reviews.present?
+    .reviews-container
+      = render partial: "reviews/rating", locals: {data: data} 
+  - else
+    %p
+      No reviews yet.
+  %hr/
+  .reviews-container#show_place_reviews
+    - data.reviews.each do |review|
+      = render partial: "reviews/review", locals: {review: review}
+- if user_signed_in?
+  - unless current_user.id.eql?(data.host_id)
+    - unless data.reviewed_by_user?(current_user)
+      - if current_user.booked_this_resource?(data)
+        - if current_user.not_provided_any_review_yet?(data)
+          .add-review
+            %h5 Leave a Review
+            = form_for data.reviews.new, url: create_review_place_path(data), remote: true do |f|
+              = render partial: "reviews/review_form", locals: {f: f} 

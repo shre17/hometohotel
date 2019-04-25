@@ -1,0 +1,53 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %title Homes2hotels
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = Gon::Base.render_data
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %link{:href => "https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway:200,400,500,600,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+
+  %body
+    #page.host_panel
+      = render partial: "common/header"
+
+      %main
+        %section.hero_in.experiences-wrap
+          .wrapper
+            .container-fluid.pl-lg-5.pr-lg-5
+              .row.justify-content-md-center
+                .col-md-10
+                  .experience-wrapper
+                    %h1 Explore from the below list
+                    =# t('host.experiences.host_an_experience_on_homes2hotels_host.heading')
+
+        = yield
+
+    #toTop
+    / Back to top button
+
+    - if host_offer_page?
+      = render partial: "hosts/modals/new_offer_modal"
+      = render partial: "hosts/modals/edit_offer_modal"
+      = render partial: "hosts/modals/manage_offer_modal"
+      = render partial: "hosts/modals/change_offer_modal"
+
+    - unless user_signed_in?
+      = render partial: "common/sign_in_modal"  
+
+    - unless footer_required?
+      = render partial: "common/footer"
+
+    %script{:src => "/assets/common_scripts.js"}
+    %script{:src => "/assets/main.js"}

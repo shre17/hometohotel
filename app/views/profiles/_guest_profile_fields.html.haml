@@ -1,0 +1,25 @@
+.nested-fields
+  .field 
+    = f.label :first_name
+    = f.text_field :first_name, class: "form-control"
+  .field
+    = f.label :last_name
+    = f.text_field :last_name, class: "form-control"
+  .field
+    = f.label :nationality
+    = f.select :nationality, options_for_select(Profile::COUNTRIES), {},  class: "form-control"
+  .field
+    = f.label :passport_number
+    = f.text_field :passport_number, class: "form-control"
+  .field
+    .form-row
+      .col
+        = f.label :expires_on
+    .form-row
+      .col
+        = f.select :date, options_for_select(GuestProfile::DATE, :selected => f.object.date), {}, class: "form-control", prompt: "Date"
+      .col
+        = f.select :month, options_for_select(GuestProfile::MONTH, :selected => f.object.month), {}, class: "form-control", prompt: "Month"
+      .col
+        = f.select :year, options_for_select(GuestProfile::YEAR, :selected => f.object.year),  {}, class: "form-control", prompt: "Year"
+  = link_to_remove_association "remove guest profile", f 

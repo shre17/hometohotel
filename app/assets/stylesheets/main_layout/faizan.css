@@ -1,0 +1,255 @@
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+}
+.tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+}
+.vertical-text {
+  margin-top:50px;
+  border: none;
+  position: relative;
+}
+.vertical-text>li {
+  height: 20px;
+  width: 120px;
+  margin-bottom: 100px;
+}
+.vertical-text>li>a {
+  border-bottom: 1px solid #ddd;
+  border-right-color: transparent;
+  text-align: center;
+  border-radius: 4px 4px 0px 0px;
+}
+.vertical-text>li.active>a,
+.vertical-text>li.active>a:hover,
+.vertical-text>li.active>a:focus {
+  border-bottom-color: transparent;
+  border-right-color: #ddd;
+  border-left-color: #ddd;
+}
+.vertical-text.tabs-left {
+  left: -50px;
+}
+.vertical-text.tabs-right {
+  right: -50px;
+}
+.nav-tabs>li{
+  width: 100%;
+}
+.edit-profile-tabs .nav-tabs>li.active>a, .edit-profile-tabs .nav-tabs>li.active>a:focus, .edit-profile-tabs .nav-tabs>li.active>a:hover{
+  color: #fff;
+      text-decoration: none;
+    background: #ff9966;
+    background: -moz-linear-gradient(left, #ff9966 0%, #ff5e62 100%);
+    background: -webkit-linear-gradient(left, #ff9966 0%, #ff5e62 100%);
+    background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9966', endColorstr='#ff5e62', GradientType=1);
+    border: 0px;
+    padding: 8px 26px;
+    color: #fff;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+.edit-profile-tabs .nav-tabs>li{
+  margin-bottom: 5px;
+}
+.edit-profile-tabs .nav>li>a:focus, .edit-profile-tabs .nav>li>a:hover {
+    padding: 10px 24px;
+    border: 1px solid transparent;
+}
+.view_edit_btn {
+    text-align: center;
+    margin-top: 40px;
+}
+.view_edit_btn a {
+    text-decoration: none;
+    background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+    padding: 10px 0px;
+    color: #fff;
+    width: 100%;
+    float: left;
+    border-radius: 4px;
+}
+.edit-profile-tabs .nav-tabs{
+  border-bottom: none;
+}
+.edit-profile-tabs {
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+.view_edit_btn a:hover {
+    color: #fff;
+    background: #ff9966;
+    border-color: #ff9966;
+}
+.heading-profile h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+.heading-profile {
+    background: #ff6262;
+    padding: 10px 40px;
+}
+.required_form label {
+    width: 100%;
+}
+.required_form {
+    border: 1px solid #ccc;
+    padding: 35px 50px 30px;
+}
+.required_form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: none !important;
+    outline: none;
+    border: 1px solid #ccc;
+}
+.required_form label {
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 0;
+        font-size: 14px;
+}
+.required_form .row {
+    margin-bottom: 28px;
+}
+.required_form p {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.required_form select.form-control {
+    width: auto;
+    padding: 7px 19px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.form-group {
+    margin-bottom: 0;
+}
+.required_form textarea {
+    width: 100%;
+    height: 110px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.edit-profile-box {
+    margin-bottom: 30px;
+}
+.required_form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.submit-btn a {
+    text-decoration: none;
+    background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+    padding: 10px 40px;
+    color: #fff;
+    width: 100%;
+    border-radius: 4px;
+}
+.upload-photo {
+    padding: 30px 30px;
+}
+.upload-photo img#blah {
+    width: 100%;
+    border-radius: 50%;
+    max-height: 250px;
+    max-width: 250px;
+    object-fit: cover;
+}
+.upload-photo input[type=file] {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+}
+
+.upload-photo input[type=file]:before {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    line-height: 35px;
+    content: 'Upload a file from your computer';
+    display: inline-block;
+    background: #ff6262;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+.upload-photo input[type=file]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.upload-photo .row {
+    margin-bottom: 0;
+}
+.be-rady .row {
+    display: flex;
+    align-items: center;
+}
+.be-rady {
+    border: 1px solid #ccc;
+    padding: 10px 41px;
+    margin-bottom: 30px;
+}
+.provide-btn {
+    text-align: center;
+}
+.provide-btn a{
+      text-decoration: none;
+    background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+    padding: 10px 30px;
+    color: #fff;
+    border-radius: 4px;
+}
+.optional-box.edit-profile-box h3 {
+    margin-top: 0;
+}
+a.mt-4 {
+    margin-top: 16px;
+    display: inherit;
+}
+.connect-social {
+    margin-top: 44px;
+}
+.connect-social .row{
+  display: flex;
+  align-items: center;
+}
+.connect-socla a{
+  text-decoration: none;
+    background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+    padding: 10px 30px;
+    color: #fff;
+    border-radius: 4px;
+}
+.connect-socla {
+    text-align: center;
+}
+.review-tab li {
+    width: 170px;
+    text-align: center;
+}
+.review-tab ul.nav.nav-tabs {
+    margin-bottom: 30px;
+}
+.edit-profile-box a {
+    position: relative;
+}

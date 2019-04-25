@@ -1,0 +1,13 @@
+$(".<%= @for %>_field .input_field").html("<%= escape_javascript( render partial:('places/locations/'+ @for) ) %>")
+$(".<%= @for %>_field").show();
+<% if @for.eql?('city') %>
+  $('.other_fields').show();
+<% end %>
+
+$(function() {
+  return $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
+    width: '100%'
+  });
+});

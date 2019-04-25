@@ -1,0 +1,6 @@
+- if f.object.step.to_i < step.to_i
+  = f.hidden_field :step, value: step
+- elsif params[:step].present?
+  = hidden_field_tag :step, params[:step].to_i+1
+- else
+  = f.hidden_field :step, value: step

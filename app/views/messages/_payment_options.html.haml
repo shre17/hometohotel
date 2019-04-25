@@ -1,0 +1,16 @@
+#payment_options.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title
+          %span.booking-price.price Pay via:
+          %span
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        .row
+          .col-sm-12
+            =# link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_booking_path(@booking), method: :post)
+
+            = link_to t('booking_invoice.braintree'), pay_via_braintree_booking_path(@booking), method: :get, class: "btn red-button bold-button"
+      .modal-footer

@@ -1,0 +1,202 @@
+.host-step
+  .row.justify-content-md-center
+    .col-md-8.pl-lg-5.pr-lg-5.margin_60_35.host-step-left.image-upload
+      %fieldset
+        %h3.form-title
+          = t('places.step_9.title')
+        %h4
+          = t('places.step_9.title')
+        %h2
+          = t('places.step_9.heading')
+        .form-group
+          .upload-image
+            #photo{"aria-labelledby" => "photo-title", :role => "tabpanel"}
+              .current-preview
+                .row
+                  = form.fields_for :images do |image|
+                    = render 'image_fields', f: image
+                  .links.add-more-images.col-md-12
+                    = link_to_add_association t('places.step_9.add_image_button'), form, :images, class: "btn red-button add-image"
+                  = form.hidden_field :step, value: 9
+
+- images_count = form.object.images.count
+- add_more = 6 - images_count
+
+:javascript
+  $(document).on('click', '.img-preview', function(){
+    $(this).parent('.nested-fields').find("input[type='file']").trigger('click');
+  });
+
+  $(document).on('click', '.remove_img', function(){
+    $(this).parent('.remove-image-icon').find("a")[0].click();
+  });
+
+  function showimagepreview(input) {
+    if (input.files && input.files[0]) {
+      $('.current-preview').data('id', $(input).attr('id'));
+      var filerdr = new FileReader();
+      filerdr.onload = function(e) {
+        img = e.target.result;
+        div_id = $('.current-preview').data('id')
+        preview_div =  $('#'+div_id).parents('.nested-fields').find('.img-preview');
+
+        preview_div.css({
+          "background-image": "url("+img+")",
+        });
+
+        $('#'+div_id).parents('.nested-fields').find('.caption-box').removeClass('d-none');
+        $('#'+div_id).parents('.nested-fields').find('.remove-image-icon').removeClass('d-none');
+      }
+      filerdr.readAsDataURL(input.files[0]);
+
+    }
+  }
+
+  $(document).ready(function(){
+    var add_more = parseInt("#{add_more}");
+    for (var i=0; i<add_more; i++) {
+      $('.add_fields')[0].click();
+    }
+    if ($('.nested-fields').length < 9) {
+      $('.links a.add_fields').show()
+    } else {
+      $('.links a.add_fields').hide()
+    }
+  });
+
+  $(document).on('click','.add_fields',function(e){
+    if ($('.nested-fields').length < 9) {
+      $('.links a.add_fields').show()
+    } else {
+      $('.links a.add_fields').hide()
+    }
+  });
+
+  $(document).on('click','.remove_fields',function(e){
+    if ($('.nested-fields').length < 10) {
+      $('.links a.add_fields').show()
+    } else {
+      $('.links a.add_fields').hide()
+    }
+  });
+
+  $(document).ready(function(){
+    $(".next-button").prop("disabled", true);
+    $(".img-preview").each(function(i,element){
+      if($(element).css("background-image").replace(/"/g, "") != "url(http://localhost:3000/assets/no-image.png)"){
+        $(".next-button").prop("disabled", false);
+        return false;
+      }
+    });
+
+  });
+
+  $(document).on("change", ".img-field", function(){
+    $(".next-button").prop("disabled", false);
+  });
+
+  $(document).on("click",".remove_img",function(){
+    remove_element = $(this).parent().parent().children()[0];
+    $(remove_element).css('background-image',"url(http://localhost:3000/assets/no-image.png)");
+    ary = $(".img-preview");
+    ary = jQuery.grep(ary, function(value) {
+      return value != remove_element;
+    });
+    $(ary).each(function(i,element){
+      if($(element).css("background-image").replace(/"/g, "") != "url(http://localhost:3000/assets/no-image.png)"){
+        $(".next-button").prop("disabled", false);
+        return false;
+      }
+      else{
+        $(".next-button").prop("disabled", true);
+      }
+    });
+
+    if(ary.length == 0){
+      $(".next-button").prop("disabled", true);
+    }
+  });
+
+
+:css
+  .preview-image {
+    min-height: 200px;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .preview-image img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  .caption-box{
+    position: absolute;
+    bottom: 5px;
+    background: linear-gradient(to top, rgb(0, 0, 0) -20%, rgba(0, 0, 0, 0) 100%);
+    width: 95%;
+  }
+  .caption-box input{
+    min-height: 70px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 0 5px;
+    width: 100%;
+  }
+  .caption-box input:focus{
+    outline: none;
+    border: none;
+  }
+  .remove-image-icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+  }
+  .remove_img {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 20px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    display: block;
+    line-height: 22px;
+    box-shadow: 0px 1px 2px #333;
+  }
+  .remove-image-icon a {
+    display: none;
+  }
+
+  .caption-box input::-webkit-input-placeholder {
+    color: #fff;
+  }
+  .caption-box input::-moz-placeholder {
+    color: #fff;
+  }
+  .caption-box input:-ms-input-placeholder {
+    color: #fff;
+  }
+  .caption-box input:-moz-placeholder {
+    color: #fff;
+  }
+  .add-more-images {
+    clear: both;
+    width: 100%;
+    margin: 15px 0px;
+  }
+  .img-preview{
+    background-position: center, center;
+    background-size: cover;
+    height: 188px !important;
+  }

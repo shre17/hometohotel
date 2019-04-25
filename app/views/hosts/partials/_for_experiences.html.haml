@@ -1,0 +1,45 @@
+- if offer.experiences.present?
+  %table.display.responsive.no-wrap{ id: "experiences-list" }
+    %thead
+      %tr
+        %th Name
+        %th Rating
+        %th Reviews
+        %th Status
+        %th Offers
+        %th Check Detail
+    %tbody
+      - offer.experiences.each do |data|
+        %tr
+          %td
+            = data.title
+          %td
+            = data.rating
+          %td
+            = data.reviews.count
+          %td
+            = data.status.capitalize
+          %td
+            = data.offers.pluck(:title)
+          %td.actions{ id: "data-#{data.id}-view" }
+            = link_to "Change", change_object_offers_host_path(id: data.id, class_name: data.class.name, offer_id: offer.id), method: :get, class: "btn btn-primary", remote: true
+
+- else
+  %p.text-center No record present for this offer!
+
+%br
+%div.add-new-btn
+  = button_tag "Add Experience", class: 'add-experience-btn btn btn-primary'
+
+%br
+%br
+%div.add-new-experience-record-for-offer
+  %h4 Add/Remove experiences for this offer
+  %br
+  = form_tag(manage_offer_for_host_path(offer), method: :post, remote: true) do |f|
+    = hidden_field_tag :for, :experiences
+
+    = select_tag :experiences, options_for_select(Experience.published.pluck(:title,:id), offer.experiences.pluck(:id)), multiple: true, class: 'chosen-select'
+    %br
+    %br
+    = submit_tag 'Add or Update', class: 'btn btn-primary'

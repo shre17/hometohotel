@@ -1,0 +1,108 @@
+- price_from, price_to = check_price_range
+
+%main
+  %section.hero_single.version_2
+    .wrapper
+      .container
+        %h3.banner-heading
+          = t('home.search_form.heading1')
+          %span
+            = t('home.search_form.heading2')
+        = form_tag request.path, method: :get do |f|
+          .row.custom-search-input-2.main-search-wrapper
+            %div{ class: "#{ request.path.eql?('/') ? 'col-lg-4 col-sm-12 col-xs-12 mc-5' : 'col-lg-3 col-sm-4 mc-5' }"}
+              .form-group
+                = text_field_tag 'filter[query]', "#{params[:filter][:query] rescue nil}", placeholder: t('home.search_form.placeholder_1'), class: 'form-control'
+                %i.icon_pin_alt
+            .col-lg-2.col-sm-4.col-xs-6.mc-5
+              / .panel-dropdown
+              /   %a{:href => "#"}
+              /     = t('home.search_form.dates')
+              /   .panel-dropdown-content
+              .form-group
+                = text_field_tag 'filter[check_in]', "#{params[:filter][:check_in] rescue nil}", placeholder: t('home.search_form.placeholder_2'), class: 'form-control datepicker'
+                %i.icon_calendar{ for: 'filter_check_in' }
+            .col-lg-2.col-sm-4.col-xs-6.mc-5
+              .form-group
+                = text_field_tag 'filter[check_out]', "#{params[:filter][:check_out] rescue nil}", placeholder: t('home.search_form.placeholder_3'), class: 'form-control datepicker'
+                %i.icon_calendar
+
+            .col-lg-2.col-sm-4.mc-5
+              .panel-dropdown
+                %a{:href => "#"}
+                  = t('home.search_form.guest')
+                  %span.qtyTotal 1
+                .panel-dropdown-content
+                  .qtyButtons
+                    %label
+                      = t('home.search_form.adults')
+                    = text_field_tag 'filter[guest[adult]]', "#{params[:filter][:guest][:adult] rescue 1}"
+                  .qtyButtons
+                    %label
+                      =# t('home.search_form.childrens')
+                    =# text_field_tag 'filter[guest[child]]', "#{params[:filter][:guest][:child] rescue 0}"
+
+            - if request.path.include?('/places')
+              .col-lg-2.col-sm-6.mc-5
+                .panel-dropdown{ style: 'color: black;' }
+                  %a{:href => "#"}
+                    Home type
+                  .panel-dropdown-content
+                    - Place::GUEST_HAVE.each do |guest_have|
+                      - if (params[:filter][:what_will_guest_have].include?(guest_have) rescue false)
+                        = check_box_tag 'filter[what_will_guest_have][]', guest_have, checked: 'checked'
+                      - else
+                        = check_box_tag 'filter[what_will_guest_have][]', guest_have
+                      %lable
+                        = guest_have.titleize
+
+            - if request.path.include?('/experiences')
+              .col-md-2.col-sm-6.col.mc-5
+                .form-group
+                  .panel-dropdown.select-day.filter-dropdown
+                    %a{:href => "#"} Time Of Day
+                    .panel-dropdown-content
+                      .check-box-wrapper
+                        - ApplicationController::TIME_OF_DAY_FILTER.map do |key, value|
+                          %label.check-box
+                            #{key}
+                            %small Starts after #{value}
+                            - if (params[:filter][:hosting_start_time].include?(key.downcase) rescue false)
+                              = check_box_tag 'filter[hosting_start_time][]', key.downcase, checked: 'checked'
+                            - else
+                              = check_box_tag 'filter[hosting_start_time][]', key.downcase
+                            %span.checkmark
+
+            - if (request.path.include?('/experiences') || request.path.include?('/places'))
+              .col-md-2.col-sm-6.col.mc-5
+                .form-group
+                  .panel-dropdown.select-day.filter-dropdown
+                    %a{:href => "#"}
+                      = t('home.search_form.price_range')
+                    .panel-dropdown-content
+                      .price-slider
+                        = number_field_tag 'filter[price[minimum]]', price_from, placeholder: 'Min', class: 'form-control'
+                        = number_field_tag 'filter[price[maximum]]', price_to, placeholder: 'Max', class: 'form-control d-none'
+
+            .col-lg-2.col-sm-12.mc-5.form-btn
+              = submit_tag t('common.search_button'), class: 'btm_search'
+      %section.categoires-wrapper.cat-wrap.d-md-block.d-lg-none.d-xs-block.d-sm-block
+        .container
+          .row.justify-content-md-center
+            .col.col-md-8
+              .text-center.lp-search-description
+                %p #{t('home.search_form.paragraph')}
+              .categoires
+                %ul.lp-home-categoires.padding-left-0
+                  %li
+                    %a{:href => "/places"}
+                      %span
+                        %img.icon.icons-banner-cat{:alt => "Home", :src => "/assets/home-icon.png"}/
+                        = succeed t('home.search_form.home') do
+                          %br/
+                  %li
+                    %a.lp-border-radius-5{:href => "/experiences"}
+                      %span
+                        %img.icon.icons-banner-cat{:alt => "Experience", :src => "/assets/experience-icon.png"}/
+                        = succeed t('home.search_form.experience') do
+                          %br/

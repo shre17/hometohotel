@@ -1,0 +1,19 @@
+.nested-fields
+  .field
+    %label.col-sm-3.col-form-label{:for => ""} 
+      = (t 'profile.optional.emergency_contact_fields.name')
+    = f.text_field :name, class: "form-control"
+  .field
+    %label.col-sm-3.col-form-label{:for => ""} 
+      = (t 'profile.optional.emergency_contact_fields.phone')
+    = f.text_field :phone, class: "form-control"
+  .field
+    %label.col-sm-3.col-form-label{:for => ""} 
+      = (t 'profile.optional.emergency_contact_fields.email')
+    = f.text_field :email, class: "form-control"
+  .field
+    %label.col-sm-3.col-form-label{:for => ""} 
+      = (t 'profile.optional.emergency_contact_fields.relationship')
+    = f.text_field :relationship, class: "form-control"
+     
+            

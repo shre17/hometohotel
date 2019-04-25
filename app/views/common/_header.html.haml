@@ -1,0 +1,83 @@
+%header.header.menu_fixed
+  -if user_signed_in?
+    #logo.m-logo
+      %a{:href => "/"}
+        - if !(params[:controller] == "users/passwords")
+          %img.logo_normal{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo1.png", :width => ""}/
+        %img.logo_sticky{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo_sticky.png", :width => ""}/
+  -else
+    #logo
+      %a{:href => "/"}
+        - if !(params[:controller] == "users/passwords")
+          %img.logo_normal{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo1.png", :width => ""}/
+        %img.logo_sticky{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo_sticky.png", :width => ""}/
+  %ul#top_menu
+    - if user_signed_in?
+      %li.user-drowdown.user-profile
+        %a.dropdown-toggle.host-btn{"data-toggle" => "dropdown", :href => "#"}
+          %span.user-icon
+            %img.user-pic{:alt => "User Image", :src => current_user.profile.image.present? ? current_user.profile.image.url : "/assets/user_pic.png" }
+            = current_user.profile.first_name
+        %ul.dropdown-menu.dropdown-menu-right
+          %li
+            = link_to(t('header.user.sub_heading_1'), edit_profile_path(current_user.id), class: "dropdown-item")
+          %li
+            = link_to(t('header.user.sub_heading_2'), edit_account_setting_path(current_user.account_setting), class: "dropdown-item")
+          / %li
+          /   =# link_to(t('header.user.sub_heading_3'), new_user_invitation_path, class: "dropdown-item")
+          %li
+            = link_to(t('header.user.sub_heading_4'), favourites_profiles_path, class: "dropdown-item")
+          - if current_user.is_host?
+            %li
+              = link_to(t('header.user.sub_heading_5'), dashboard_hosts_path, class: "dropdown-item")
+          %li
+            = link_to(t('header.user.sub_heading_6'), booking_history_bookings_path, class: "dropdown-item")
+          %li
+            = link_to(t('header.user.sub_heading_7'), transaction_history_bookings_path,class: "dropdown-item")
+          %li
+            = link_to(t('header.user.sub_heading_8'), destroy_user_session_path, method: :delete, class: "dropdown-item")
+    - else
+      %li
+        %a.login.property-list-btn{:title => "List Your Property", 'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"}
+          = t('header.become_a_host')
+      %li
+        %a.cart-menu-btn{:href => "#{new_user_registration_path}", :title => "Cart"}
+          = t('header.sign_up_link')
+      %li
+        %a.login{:title => "Sign In", 'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"}
+
+  - if user_signed_in?
+    %a.btn_mobile{href: "#menu"}
+      #hamburger.hamburger.hamburger--spin
+        .hamburger-box
+          .hamburger-inner
+  %nav#menu.main-menu
+    %ul
+      - if user_signed_in?
+        %li
+          %span
+            %a{:href => "javascript:void(0)"}
+              = (t 'header.host.heading')
+          %ul
+            %li
+              = link_to((t 'header.host.sub_heading_1'), place_landing_path, class: "nav-link")
+            %li
+              = link_to((t 'header.host.sub_heading_2'), experience_landing_path, class: "nav-link")
+        %li
+          %span
+            = link_to((t 'header.favourite.heading'), favourites_profiles_path, class: "nav-link")
+        - if current_user.is_host?
+          %li
+            %span
+              = link_to((t 'header.add_listing.heading'), listings_path, class: "nav-link")
+        %li
+          %span
+            = link_to "Messages", messages_path, class: "nav-link"
+
+        / %li
+        /   %span
+        /     =# link_to((t 'header.hotels'), "#", class: "nav-link")
+
+        %li
+          %span
+            = link_to((t 'header.flights'), "http://www.instaflightbook.com", class: "nav-link")

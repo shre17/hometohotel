@@ -1,0 +1,19 @@
+.row
+  - ["accuracy","amenities","checkin","communication","cleanliness","location","service","food_quality"].each do |attribute|
+    
+    .col-md-9.col-5
+      = f.label "#{t('common.reviews.attribute', attr: attribute)}"
+    .col-md-3.col-7
+      .rating
+        - [4,3,2,1,0].each do |i|
+          = f.radio_button "#{attribute}", "#{i+1}", id: "#{attribute}_#{i}_stars"
+          %label.stars{ for: "#{attribute}_#{i}_stars"} #{i} stars
+    .col-md-12
+      .single-line
+  %hr/        
+  .form-group.col-md-12
+    %label #{t('common.reviews.content')}
+    = f.hidden_field :reviewable_type
+    = f.text_area :content, class: "form-control"
+  .form-group.col-md-12.add_top_20
+    = f.submit "#{t('common.submit_button')}", class: "btn_1", id: "review-submit-btn"

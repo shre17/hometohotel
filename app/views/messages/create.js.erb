@@ -1,0 +1,1 @@
+$("#chat").prepend("<%= escape_javascript(render(partial: 'conversation', locals: {message: @message}))%>")

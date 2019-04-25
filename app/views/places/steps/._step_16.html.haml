@@ -1,0 +1,66 @@
+%script{:src => "https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js", :type => "text/javascript"}
+%link{:href => "https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css", :rel => "stylesheet", :type => "text/css"}/
+
+.host-step
+  .row.justify-content-md-center
+    .col-md-8.margin_30_30.host-step-left.date-select
+      %fieldset
+        .checkin_date.d-none
+          = @place.check_in_date_from.present? ? @place.check_in_date_from : Date.today.strftime('%d/%m/%Y')
+        .checkout_date.d-none
+          = @place.check_in_date_to.present? ? @place.check_in_date_to : Date.today.strftime('%d/%m/%Y')
+        .form-group
+          .row.justify-content-md-center
+            .col-md-8
+              %h4
+                = t('places.step_18.title')
+              %h2
+                = t('places.step_18.heading')
+              .check-in-date
+                %i.icon_calendar
+                = form.text_field :check_in_date_from, placeholder: t('places.step_18.placeholder_1'), class: 'form-control', id: "txtCheckIn", :readonly => "readonly"
+              = form.hidden_field :step, value: 17
+              .advance_booking_period.d-none
+                = @place.advance_booking_period
+
+:javascript
+  if ($(".advance_booking_period").text() == 1){
+    var current_date = 50;
+  }
+  else if($(".advance_booking_period").text() == 0){
+    var current_date = new Date();
+  }
+  else {
+    var current_date = new Date();
+    current_date.setDate(new Date().getDate()+parseInt($(".advance_booking_period").text()));
+  }
+  $('#txtCheckIn').daterangepicker({
+    startDate: $(".checkin_date").text(),
+    endDate: $(".checkout_date").text(),
+    minDate:new Date(),
+    maxDate: current_date,
+    locale: {
+      format: 'DD/MM/YYYY'
+    },
+    }, function(start, end, label) {
+      console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
+  });
+
+
+:javascript
+  $(document).ready(function(){
+    var checkout = $('#txtCheckOut').datepicker();
+    $('#txtCheckOut').addClass("date-calendar")
+    $('#txtCheckOut').attr('disabled', 'disabled');
+    $('#txtCheckIn').addClass("date-calendar")
+    var checkin = $('#txtCheckIn').datepicker({
+    }).on('changeDate', function(event) {
+        $('#txtCheckOut').removeAttr('disabled');
+        var newDate = new Date(event.date)
+        newDate.setDate(newDate.getDate()+60)
+        checkout.datepicker("setStartDate", event.date);
+        checkout.datepicker("setEndDate", newDate);
+        checkin.datepicker('hide');
+        $('#txtCheckOut')[0].focus();
+    });
+  });

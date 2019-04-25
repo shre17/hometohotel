@@ -1,0 +1,204 @@
+#page
+  %main
+    %section.hero_in.general
+      .wrapper
+        .container
+          %h1.fadeInUp
+            %span>
+            = t('static_pages.traveling_help.ask_ques_form.title')
+          %form.fadeInUp
+            #custom-search-input
+              .input-group
+                %input.search-query{:placeholder => t('static_pages.traveling_help.ask_ques_form.placeholder'), :type => "text"}
+                  %input.btn_search{:type => "submit", :value => t('common.search_button')}
+        / /hero_in
+    .container.margin_30_30
+      .main_title_2
+        %h2 
+          = t('static_pages.traveling_help.questions_you_re_in_the_right_place.heading')
+        %p
+        %span
+          %em
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          .top-rated-box
+            %a{:href => how_it_works_staticpages_path}
+              .top-rated-overly
+                %h3 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.how_it_works.heading')
+                %p.overly-text 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.how_it_works.paragraph')
+              %img.img-fluid{:alt => "", :src => "/assets/how-it-bg.jpg"}
+        .col-lg-6.col-md-6.col-sm-6
+          .top-rated-box
+            %a{ :href => trust_and_safety_staticpages_path }
+              .top-rated-overly
+                %h3 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.trust_safety.heading')
+                %p.overly-text 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.trust_safety.paragraph')
+              %img.img-fluid{:alt => "", :src => "/assets/trust-safety.jpg"}
+      .main_title_2
+        %h2 
+          = t('static_pages.traveling_help.select_a_topic.heading')
+        %p 
+          = t('common.traveling_help_paragraph_2')
+        %span
+          %em
+      .row
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %span
+              %i.pe-7s-wallet
+            %h3 
+              = t('common.static_page_common_content.payments')
+            %p
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %i.ti-help
+            %h3
+              = t('common.static_page_common_content.popular_questions') 
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %i.icon-cancel-4
+            %h3 
+              = t('common.static_page_common_content.canceling_a_reservation')
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %i.pe-7s-credit
+            %h3 
+              = t('common.static_page_common_content.coupons_credits')
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %i.pe-7s-note2
+            %h3 
+              = t('common.static_page_common_content.payments.identification_verifications')
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => suggested_topic_content_staticpages_path }
+            %i.ti-support
+            %h3 
+              = t('common.static_page_common_content.payments.help_with_your_reservation')
+            %p 
+              = t('common.traveling_help_paragraph_1')     
+    .bg_color_1.top-rated
+      .container.margin_60_35
+        .main_title_3
+          %h2 
+            = t('static_pages.traveling_help.popular_articles.heading')
+          %p 
+            = t('common.traveling_help_paragraph_2')
+          %span
+            %em
+        .row
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.payment_methods.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.payment_methods.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.payment_methods.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.payment_methods.list_item_3')
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.popular_questions.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.popular_questions.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.popular_questions.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.popular_questions.list_item_3')
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.Canceling_a_reservation.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.Canceling_a_reservation.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.Canceling_a_reservation.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.Canceling_a_reservation.list_item_3')
+        .row
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.coupons_credits.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.coupons_credits.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.coupons_credits.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.coupons_credits.list_item_3')
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.identification_verifications.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.identification_verifications.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.identification_verifications.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.identification_verifications.list_item_3')
+          .col-sm-4
+            .list_articles.add_bottom_30.clearfix
+              %h2 
+                = t('static_pages.traveling_help.popular_articles.help_with_your_reservation.heading')
+              %ul
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.help_with_your_reservation.list_item_1')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.help_with_your_reservation.list_item_2')
+                %li
+                  %a{:href => suggested_topic_content_staticpages_path }
+                    %i.icon_documents_alt>
+                    = t('static_pages.traveling_help.popular_articles.help_with_your_reservation.list_item_3')

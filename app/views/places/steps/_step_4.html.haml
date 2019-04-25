@@ -1,0 +1,135 @@
+.host-step.location-information
+  .row
+    = form.fields_for :location do |ff|
+      .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+        %fieldset.location
+          %h3.form-title
+            = t('places.step_5.title')
+          %h4
+            = t('places.step_5.title')
+          %h2
+            = t('places.step_5.heading')
+          #map
+          #infowindow-content
+            / %img#place-icon{:height => "16", :src => "", :width => "16"}/
+            / %span#place-name.title
+            / %br/
+            %span#place-address
+
+          %div.locations_other_fields.d-none
+            .form-group
+              .row
+                .col
+                  %label.big-label
+                    = t('places.step_5.form_fields.country_region')
+                    - options = options_for_select_field(sort_hash(CS.countries))
+                  = ff.select :country, options_for_select(options, ff.object.country), {}, { class: 'form-control fetch_addr chosen-select', data: { for: 'state'} }
+
+            .form-group.state_field{ class: "#{ff.object.state.present? ? '' : 'hide'}" }
+              .row
+                .col
+                  %label.big-label
+                    = t('place.state')
+                  .input_field
+                    - if ff.object.state.present?
+                      - options = options_for_select_field(sort_hash(CS.states(ff.object.country.try(:to_sym))))
+                      = ff.select :state, options_for_select(options, ff.object.state), {}, { class: 'form-control fetch_addr chosen-select', data: { for: 'state'} }
+
+            .form-group.city_field{ class: "#{ff.object.city.present? ? '' : 'hide'}" }
+              .row
+                .col-md-12
+                  %label.big-label
+                    = t('place.city')
+                  .input_field
+                    - if ff.object.city.present?
+                      - options = CS.cities(ff.object.state.try(:to_sym), ff.object.country.try(:to_sym)).sort
+                      = ff.select :city, options_for_select(options, ff.object.city), {}, { class: 'form-control fetch_addr chosen-select', data: { for: 'state'} }
+            
+            .form-group.other_fields{ class: "#{ff.object.city.present? ? '' : 'hide'}" }
+              .row
+                .col-md-12
+                  %label.big-label
+                    = t('place.street_address')
+                  = ff.text_field :street, id: "pac-input", :class => 'form-control text-field', required: true
+
+              .row
+                .col
+                  %label.big-label
+                    = t('places.step_5.form_fields.apt_suite')
+                  = ff.text_field :apt, id: "street_number", :class => 'form-control text-field', placeholder: "House Number"
+                  = form.hidden_field :step, value: 5
+
+              .row
+                .col-md-6
+                  %label.big-label
+                    = t('common.zip_code')
+                  .form-group
+                    = ff.text_field :zipcode, id: "postal_code", :class => 'form-control text-field', required: true
+                    = ff.hidden_field :latitude, id: "latitude"
+                    = ff.hidden_field :longitude, id: "longitude"
+                  .form-group
+                    = link_to t('places.step_5.reset_button'), "javascript:void(0)", class:"btn-primary btn btn-outline-secondary reset-button"
+      .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+        .box_detail.booking.correct-address
+          .extra-wrap
+            %ul.information-list
+              %li
+                %i.icon-lightbulb
+                = t('places.step_5.paragraph_1')
+
+        / .box_detail.booking.correct-address
+        /   .extra-wrap
+        /     %ul.information-list
+        /       %li
+        /         %i.icon-lightbulb
+        /         = t('place.paragraph_1')
+        .box_detail.booking.wrong-address.d-none
+          %span
+            %i.icon_close
+          .extra-wrap
+            = t('places.step_5.paragraph_2')
+
+:javascript
+  $(document).ready(function(){
+    if($("#country").val() == ""){
+      $(".next-button").prop("disabled",true);
+    }
+    else{
+      $(".locations_other_fields").removeClass("d-none");
+    }
+   });
+
+   // $(document).on("change","#pac-input",function(){
+   //   $(".correct-address").addClass("d-none");
+   //   $(".wrong-address").removeClass("d-none");
+   //   $(".next-button").prop("disabled",true);
+   // });
+
+   $(document).on("click",".reset-button", function(){
+     $(".next-button").prop("disabled",true);
+     $(".locations_other_fields").addClass("d-none");
+     $(".text-field").val("");
+     $("#pac-input").prop("readonly",false);
+   });
+
+   $(document).on('change','.fetch_addr',function(){
+      var value = $(this).val();
+      var field = $(this).data('for');
+      var country = ''
+      if (field == 'city') {
+        country = $('#place_location_attributes_country').val();
+      }
+      $.ajax({
+        method: "get",
+        data: { field: field, value: value, country: country },
+        url: "#{location_fetch_places_path}"
+      })
+   });
+
+  $(function() {
+    return $('.chosen-select').chosen({
+      allow_single_deselect: true,
+      no_results_text: 'No results matched',
+      width: '100%'
+    });
+  });

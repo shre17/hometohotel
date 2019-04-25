@@ -1,0 +1,20 @@
+.col-xl-4.col-lg-6.col-md-6.col-sm-6.place-title{:id => "div_#{place.id}"}
+  .info-box
+    %a.grid_item{ href: "#{ place_path(place) }"}
+      %figure
+        - if place.images.present?
+          %img.img-fluid{:alt => "", :src => "/assets/hotel_1.jpg"}/
+        - else
+          %img.img-fluid{:alt => "", :src => "/assets/hotel_1.jpg"}/
+        .info
+          %h3
+            = t('places.show_page.place_name', title: place.try(:name))
+    .info-box-bottom
+      %h1
+        = "#{t('places.show_page.place_name', title: place.try(:name))} in #{t('home.popular_cities.city', city: place.location.try(:city))}"
+      .row
+        .col
+          -if place.try(:price)
+            %span.price-text= place.price.with_symbol
+            = t('booking_modal.per_night')
+

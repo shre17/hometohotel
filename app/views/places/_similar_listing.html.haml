@@ -1,0 +1,38 @@
+- if @similar_places.present?
+  .container-fluid.margin_30_30.margin_30_70.pl-lg-5.pr-lg-5.top-rated
+    %section
+      .main_title_3
+        %h2 Similar listings
+        %span
+          %em
+      #carousel-second.carouseller
+        - if @similar_places.count > 4
+          %a.carouseller__left{:href => "javascript:void(0)"} ‹
+        .carouseller__wrap
+          .carouseller__list
+            - @similar_places.each do |similar_place| 
+              .car__3
+                .info-box
+                  %a.grid_item{:href => "#"}
+                    %figure
+                      .score
+                        %strong 
+                          = similar_place.rating
+                      %img.img-fluid{:alt => "", :src => "/assets/hotel_1.jpg"}/
+                      .info
+                        = render '/common/rating', rating: similar_place.rating
+                        %h3 
+                          = "#{similar_place.name}"
+                  .info-box-bottom
+                    %small
+                      = "#{similar_place.what_will_guest_have} #{property_type(similar_place)}"
+                    %h1
+                      %i.icon_pin_alt>
+                      = "#{similar_place.name} in #{city(similar_place)}" 
+                    .row
+                      .col
+                        %span.price-text $785
+                        per night
+        - if @similar_places.count > 4
+          %a.carouseller__right{:href => "javascript:void(0)"} ›
+

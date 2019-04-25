@@ -1,0 +1,14 @@
+#about{"aria-labelledby" => "about-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h1 
+          = t('experiences.edit_page.step_5.heading')
+        %p 
+          = t('experiences.edit_page.step_5.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 6 }
+        = f.submit 'Next', class: 'btn save-stpe-btn align'
+
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-5.jpg"}/

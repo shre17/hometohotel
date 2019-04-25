@@ -1,0 +1,31 @@
+.host-step.step-1
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title Step 1
+        %h1 How would you like to start?
+        %h4 Step 1
+        .radio-box.create-form
+          %label.radio-check
+            %img{:src => "/assets/create-listing.jpg", :width => "80"}>/
+            Create a new listing
+            %input{:checked => "checked", :name => "radio", :type => "radio"}/
+            %span.checkmark
+        - if @all_places.present?
+          - @all_places.each do |place|
+            .radio-box.create-form.created-list
+              %label.radio-check
+                -if place.images.length > 0
+                  = image_tag place.images[0].avatar.url(:thumb), :width => "80" 
+                - else
+                  %img{:src => "/assets/create-listing.jpg", :width => "80"}>/
+                / %img{:src => "/assets/create-listing.jpg", :width => "80"}>/
+                listing
+                %input{:checked => "checked", :name => "radio", :type => "radio"}/
+                %span.checkmark
+    / .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+    /   .box_detail.booking
+    /     %span
+    /       %i.icon-lightbulb
+    /     .extra-wrap
+    /       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.    gdgfdgkbdjgbk

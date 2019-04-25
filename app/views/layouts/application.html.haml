@@ -1,0 +1,55 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %title Homes2hotels
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = Gon::Base.render_data
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway:200,400,500,600,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css", :rel => "stylesheet"}/
+
+    :javascript
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        var str = $("div.skiptranslate").text();
+        str.replace('Powered by', 'neeraj');
+      }
+  %body
+
+    = render partial: "common/flash_message"
+
+    #page
+      = render partial: "common/header"
+      
+
+
+      / %main
+      /   %section.hero_in.become_host_form
+      /     .wrapper
+
+      = yield
+
+    #toTop
+    / Back to top button
+
+    - unless user_signed_in?
+      = render partial: "common/sign_in_modal"
+
+    - unless footer_required?
+      = render partial: "common/footer"
+
+    - if @booking.present?
+      = render partial: "messages/payment_options"
+
+    %script{:src => "/assets/common_scripts.js"}
+    %script{:src => "/assets/main.js"}

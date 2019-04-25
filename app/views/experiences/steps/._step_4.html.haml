@@ -1,0 +1,34 @@
+#organization{"aria-labelledby" => "organization-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_4.heading')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 5 }
+        .form-group
+          %label 
+            = t('experiences.edit_page.step_4.label_1')
+          = f.text_field :organization_name, placeholder: "Enter name here", class: 'form-control'
+        .form-group
+          %label 
+            = t('experiences.edit_page.step_4.label_2')
+          .check-box-wrapper
+            %label.check-box
+              = t('experiences.edit_page.step_4.label_3')
+              - if f.object.have_consent_of_the_charitable_organization
+                = f.check_box :have_consent_of_the_charitable_organization, checked: 'checked'
+              - else
+                = f.check_box :have_consent_of_the_charitable_organization
+              %span.checkmark
+            %label.check-box
+              = t('experiences.edit_page.step_4.label_4')
+              - if f.object.charitable_organization_meets_criteria
+                = f.check_box :charitable_organization_meets_criteria, checked: 'checked'
+              - else
+                = f.check_box :charitable_organization_meets_criteria
+              %span.checkmark
+        .form-group
+          = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-4.jpg"}/

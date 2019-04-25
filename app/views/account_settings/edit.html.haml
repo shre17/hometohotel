@@ -1,0 +1,213 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: "account_settings_navigation"
+            .col-md-9
+              = form_for(@account_setting) do |f|
+                .row
+                  .col-md-6
+                    .card.info-card
+                      %h5.card-header.panel-dark 
+                        = (t 'account_settings.notifications.reminders.heading')
+                      .card-body
+                        %p 
+                          = (t 'account_settings.notifications.reminders.paragraph')
+                        .details-box
+                          .check-box-wrapper
+                            %label.check-box
+                              %strong 
+                                = (t 'account_settings.common_sub_heading.email')
+                              = f.check_box :reminder_email
+                              %span.checkmark
+                            %label.check-box
+                              %strong 
+                                = (t 'account_settings.common_sub_heading.text_messages')
+                              = f.check_box :reminder_text_message 
+                              %span.checkmark
+
+                            / %label.check-box
+                            /   %strong 
+                            /     =# (t 'account_settings.common_sub_heading.push_notifications')
+                            /   =# f.check_box :reminder_push_notification
+                            /   %span.checkmark
+
+                  .col-md-6 
+                    .card.info-card
+                      %h5.card-header.panel-dark
+                        = (t 'account_settings.notifications.messages.heading')
+                      .card-body
+                        %p 
+                          = (t 'account_settings.notifications.messages.paragraph')
+                        .details-box
+                          .check-box-wrapper
+                            %label.check-box
+                              %strong 
+                                = (t 'account_settings.common_sub_heading.email')
+                              = f.check_box :message_email
+                              %span.checkmark
+                            %label.check-box
+                              %strong 
+                                = (t 'account_settings.common_sub_heading.text_messages')
+                              = f.check_box :message_text_message
+                              %span.checkmark
+
+                            / %label.check-box
+                            /   %strong 
+                            /     =# (t 'account_settings.common_sub_heading.push_notifications')
+                            /   =# f.check_box :message_push_notification
+                            /   %span.checkmark
+
+                  / new functionality added by airbnb
+                  / .col-md-6
+                  /   .card
+                  /     %h5.card-header.panel-dark Contact Information
+                  /     .card-body
+                  /       %p.card-text
+                  /         This information can be edited from your profile page.
+                  /       .details-box
+                  /         .row
+                  /           .col-sm-3
+                  /             Email
+                  /           .col-sm-9.text-right.text-truncate
+                  /             %span.text-muted
+                  /               pankaj.yuvasoft134@gmail.com
+                  /         .row
+                  /           .col-sm-6
+                  /             Phone number
+                  /         .space-3
+                  /         .row.space-3
+                  /           .col-sm-7.text-muted
+                  /             Account alerts, verification and booking requests
+                  /           .col-sm-5.text-right.text-muted
+                  /             %span.text-muted +91 *** *** ** 07
+                  /         .row
+                  /           .col-sm-7.text-muted
+                  /             Messages from guests
+                  /           .col-sm-5.text-right.text-muted
+                  /             %span.text-muted +91 *** *** ** 07
+
+                - if false
+                  .row
+                    .col-md-6
+                      .card.info-card
+                        %h5.card-header.panel-dark 
+                          = (t 'account_settings.notifications.policy_and_community.heading')
+                        .card-body
+                          %p 
+                            = (t 'account_settings.notifications.policy_and_community.paragraph')
+                          .details-box
+                            .check-box-wrapper
+                              %label.check-box
+                                %strong 
+                                  = (t 'account_settings.common_sub_heading.email')
+                                = f.check_box :policy_and_community_email
+                                %span.checkmark
+                              %label.check-box
+                                %strong 
+                                  = (t 'account_settings.common_sub_heading.text_messages')
+                                = f.check_box :policy_and_community_text_message
+                                %span.checkmark
+
+                              / %label.check-box
+                              /   %strong 
+                              /     =# (t 'account_settings.common_sub_heading.push_notifications')
+                              /   =# f.check_box :policy_and_community_push_notification
+                              /   %span.checkmark
+
+                              / %label.check-box
+                              /   %strong 
+                              /     =# (t 'account_settings..common_sub_heading.phone_calls')
+                              /   =# f.check_box :policy_and_community_phone_call
+                              /   %span.checkmark
+                    
+                    .col-md-6
+                      .card.info-card
+                        %h5.card-header.panel-dark 
+                          = (t 'account_settings.notifications.account_support.heading')
+                        .card-body
+                          %p 
+                            = (t 'account_settings.notifications.account_support.paragraph')
+                          .details-box
+                            .check-box-wrapper
+                              %label.check-box
+                                %strong 
+                                  = (t 'account_settings.common_sub_heading.email')
+                                = f.check_box :account_support_email
+                                %span.checkmark
+                              %label.check-box
+                                %strong 
+                                  = (t 'account_settings.common_sub_heading.text_messages')
+                                = f.check_box :account_support_text_message
+                                %span.checkmark
+
+                              / %label.check-box
+                              /   %strong 
+                              /     =# (t 'account_settings.common_sub_heading.push_notifications')
+                              /   =# f.check_box :account_support_push_notification
+                              /   %span.checkmark
+
+                              / new functionality
+                              / %label.check-box
+                              /   %strong Phone Calls
+                              /   %input{:type => "checkbox"}/
+                              /   %span.checkmark
+
+                  / .row
+                  /   .col-md-6
+                  /     .card.info-card
+                  /       %h5.card-header.panel-dark 
+                  /         = (t 'account_settings.notifications.promotion_and_tips.heading')
+                  /       .card-body
+                  /         %p 
+                  /           = (t 'account_settings.notifications.promotion_and_tips.paragraph')
+                  /         .details-box
+                  /           .check-box-wrapper
+                  /             %label.check-box
+                  /               %strong 
+                  /                 =# (t 'account_settings.common_sub_heading.email')
+                  /               =# f.check_box :promotion_and_tip_email
+                  /               %span.checkmark
+                  /             %label.check-box
+                  /               %strong 
+                  /                 =# (t 'account_settings.common_sub_heading.text_messages')
+                  /               =# f.check_box :promotion_and_tip_text_message
+                  /               %span.checkmark
+                  /             %label.check-box
+                  /               %strong 
+                  /                 =# (t 'account_settings.common_sub_heading.push_notifications')
+                  /               =# f.check_box :promotion_and_tip_push_notification
+                  /               %span.checkmark
+    
+                  /             %label.check-box
+                  /               %strong 
+                  /                 =# (t 'account_settings.common_sub_heading.phone_calls')
+                  /               =# f.check_box :promotion_and_tip_phone_call
+                  /               %span.checkmark
+
+                  /   // new functionality
+                  /   .col-md-6
+                  /     .card
+                  /       %h5.card-header.panel-dark Text Messages
+                  /       .card-body
+                  /         .row.space-3
+                  /           .col-sm-7.text-muted
+                  /             Receive SMS notifications to:
+                  /           .col-sm-5.text-right.text-muted
+                  /             .select
+                  /               %select{:id => "", :name => "sms_phone_number_id"}
+                  /                 %option.form-control{:selected => "selected", :value => "120395883"} +91 *** *** ** 07
+                  /         .details-box
+                  /           %p Note: For more information, text HELP to 247262. To cancel mobile notifications, reply STOP to 247262. Message and Data rates may apply.
+
+                = f.submit (t "account_settings.submit_button"), class: "btn red-button red-button red-button btn-lg"
+  //main
+/ page
+#toTop
+/ Back to top button
+/ COMMON SCRIPTS
+= javascript_include_tag('setting_menu.js')

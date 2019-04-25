@@ -1,0 +1,33 @@
+%script{:src => "https://js.braintreegateway.com/v2/braintree.js"}
+
+#payment_modal.modal.fade{ data: { backdrop: "static" } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5 Please enter your payment details
+      .modal-body
+        .form-container.radius-box.glassy-bg.small-10.small-centered.medium-8.large-6.columns
+          = form_tag braintree_checkout_booking_path do
+            = hidden_field_tag :booking_id, @booking.id
+            #dropin
+            = submit_tag "Pay #{@booking.final_price_with_symbol}", class: "btn btn-primary"
+      .modal-footer
+        = link_to 'Cancel', booking_path(@booking), class: 'btn'
+
+:css
+  #hero_video, iframe {
+    min-height: 250px !important;
+  }
+
+:javascript
+  $(document).ready(function(){
+    $('#payment_modal').modal('show');
+  });
+
+  $(function() {
+    if (typeof gon !== 'undefined') {
+      return braintree.setup(gon.client_token, 'dropin', {
+        container: 'dropin'
+      });
+    }
+  });

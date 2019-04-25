@@ -1,0 +1,34 @@
+#booking-settings{"aria-labelledby" => "booking-settings-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_22.heading')
+        %p 
+          = t('experiences.edit_page.step_22.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 23 }
+        .form-group
+          = f.select :latest_time_for_booking, options_for_select(Experience::LATEST_TIME_GUEST_CAN_BOOK.invert, f.object.latest_time_for_booking), { prompt: t('experiences.edit_page.step_22.prompt')}, class: 'form-control', :required => true
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_22.label_1')
+          .select-option-radio
+            %label.radio-check-box
+              = t('experiences.edit_page.step_22.label_2')
+              - if f.object.experience_canceled_if_no_one_book
+                = f.radio_button :experience_canceled_if_no_one_book, 0
+              - else
+                = f.radio_button :experience_canceled_if_no_one_book, 0, checked: 'checked'
+              %span.checkmark
+            %label.radio-check-box
+              = t('experiences.edit_page.step_22.label_3')
+              - if f.object.experience_canceled_if_no_one_book
+                = f.radio_button :experience_canceled_if_no_one_book, 1, checked: 'checked'
+              - else
+                = f.radio_button :experience_canceled_if_no_one_book, 1
+              %span.checkmark
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/

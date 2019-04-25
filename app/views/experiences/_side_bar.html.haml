@@ -1,0 +1,99 @@
+%h2 
+  = t('experiences.edit_page.side_bar.submit_experience')
+%ul#myTab.nav.nav-tabs{:role => "tablist"}
+  %li.nav-item
+    %a#basic-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 0)}", class: "#{active_inactive_class(0)}" }
+      = t('experiences.edit_page.side_bar.basic')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#location-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 1)}", class: "#{active_inactive_class(1)}"}
+      = t('experiences.edit_page.side_bar.location')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#language-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 2)}", class: "#{active_inactive_class(2)}"}
+      = t('experiences.edit_page.side_bar.language')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#category-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 3)}", class: "#{active_inactive_class(3)}"}
+      = t('experiences.edit_page.side_bar.category')
+      %i.fa.fa-check
+  / %li.nav-item
+  /   %a#organization-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 4)}", class: "#{active_inactive_class(4)}"}
+  /     = t('experiences.edit_page.side_bar.organization')
+  /     %i.fa.fa-check
+  %li.nav-item
+    %a#about-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 4)}", class: "#{active_inactive_class(4)}"}
+      = t('experiences.edit_page.side_bar.about_the_experience')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#experience-title.nav-link{ href: "#{edit_experience_path(@experience, step: 6)}", class: "#{active_inactive_class(6)}"}
+      = t('experiences.edit_page.side_bar.title')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#photo-title.nav-link{ href: "#{edit_experience_path(@experience, step: 7)}", class: "#{active_inactive_class(7)}"}
+      = t('experiences.edit_page.side_bar.photo')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#about-you-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 8)}", class: "#{active_inactive_class(8)}"}
+      = t('experiences.edit_page.side_bar.about_you')
+      %i.fa.fa-check
+  / %li.nav-item
+  /   %a#about-organization-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 9)}", class: "#{active_inactive_class(9)}"}
+  /     = t('experiences.edit_page.side_bar.about_organization')
+  /     %i.fa.fa-check
+  %li.nav-item
+    %a#what-we-do-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 9)}", class: "#{active_inactive_class(9)}"}
+      = t('experiences.edit_page.side_bar.what_we_ll_do')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#where-we-meet-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 11)}", class: "#{active_inactive_class(11)}"}
+      = t('experiences.edit_page.side_bar.where_we_ll_meet')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#where-we-be-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 12)}", class: "#{active_inactive_class(12)}"}
+      = t('experiences.edit_page.side_bar.where_we_ll_be')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#what-we-provide-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 13)}", class: "#{active_inactive_class(13)} what_we_will_provide"}
+      = t('experiences.edit_page.side_bar.what_we_ll_provide')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#what-guests-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 14)}", class: "#{active_inactive_class(14)}"}
+      = t('experiences.edit_page.side_bar.what_guests_should_bring')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#notes-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 15)}", class: "#{active_inactive_class(15)}"}
+      = t('experiences.edit_page.side_bar.notes')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#settings-tab.nav-link.text-dark{ href: "#{edit_experience_path(@experience, step: 16)}", class: "#{active_inactive_class(16)}"}
+      = t('experiences.edit_page.side_bar.settings')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#guest-requirements-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 17)}", class: "#{active_inactive_class(17)}"}
+      = t('experiences.edit_page.side_bar.guest_requirements')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#group-size-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 18)}", class: "#{active_inactive_class(18)}"}
+      = t('experiences.edit_page.side_bar.group_size')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#pricetab-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 19)}", class: "#{active_inactive_class(19)}"}
+      = t('experiences.edit_page.side_bar.price')
+      %i.fa.fa-check
+  / %li.nav-item
+  /   %a#contribution-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 20)}", class: "#{active_inactive_class(20)}"}
+  /     = t('experiences.edit_page.side_bar.contribution')
+  /     %i.fa.fa-check
+  %li.nav-item
+    %a#default-time-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 20)}", class: "#{active_inactive_class(20)}"}
+      = t('experiences.edit_page.side_bar.default_time')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#booking-settings-tab.nav-link{ href: "#{edit_experience_path(@experience, step: 22)}", class: "#{active_inactive_class(22)}"}
+      = t('experiences.edit_page.side_bar.booking_settings')
+      %i.fa.fa-check
+  %li.nav-item
+    %a#review-and-submit-tab.nav-link.text-dark{ href: "#{edit_experience_path(@experience, step: 23)}", class: "#{active_inactive_class(23)}"}
+      = t('experiences.edit_page.side_bar.review_submit')
+      %i.fa.fa-check

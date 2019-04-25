@@ -1,0 +1,40 @@
+/ Modal
+#login.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Login
+      .modal-body
+        %ul.social-link
+          %li
+            %a.facebook{:href => "#", :title => ""}
+              %i.icon-facebook
+              Log in with Facebook
+          %li
+            %a.google{:href => "#", :title => ""}
+              %i.icon-google
+              Log in with Google
+        %span.seprator
+          %b OR
+        %form{:action => "", :method => "get"}
+          .form-group
+            %input.form-control{:name => "", :placeholder => "Email Address", :type => "text"}/
+          .form-group
+            %input.form-control{:name => "", :placeholder => "Password", :type => "password"}/
+          .row.form-group
+            .col-md-6
+              %label
+                %input{:name => "", :type => "checkbox"}/
+                Remember me
+            .col-md-6.text-right
+              %a{:href => "#", :title => ""} Show password
+          .form-group
+            %input.btn.btn-primary.btn-full{:name => "", :type => "submit", :value => "Log in"}/
+          .form-group.text-center
+            %a{:href => "#", :title => ""} Forgot password?
+      .modal-footer
+        %p
+          Already have an Homes 2 hotels account?
+          %a{:href => "#"} Log in

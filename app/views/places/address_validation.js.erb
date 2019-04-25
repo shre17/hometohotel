@@ -1,0 +1,7 @@
+<% if @flag.present? %>
+  $('.locations_other_fields').show();
+  $(".btn-success").hide();
+  $(".btn-primary").show();
+  $(".readonly").attr("readonly", "true");
+  $('.show_map').html("<%= escape_javascript(render(partial: 'experiences/map', locals: {experience: @resource})) %>")
+<%end%>

@@ -1,0 +1,32 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+  .container-fluid.margin_30_30.pl-lg-5.pr-lg-5.top-rated
+    .row
+      .col-md-12
+        .card.info-card
+          %h5.card-header.panel-dark Transaction History
+          .card-body
+            .login-history-table
+              %table.table
+                %thead
+                  %tr
+                    %th{:scope => "col"} S.no
+                    %th{:scope => "col"} Payment Made For
+                    %th{:scope => "col"} Price
+                    %th{:scope => "col"} Payment Made On
+                %tbody
+                  - @bookings.each_with_index do |booking, index|
+                    - count = index + 1
+                    - path = booking.bookable_type.eql?("Experience") ? experience_path(booking.bookable_id) : place_path(booking.bookable_id)
+                    %tr
+                      %td{:scope => "row"} #{count}
+                      %td 
+                        %a{href: path}
+                          = booking.bookable_type
+                      %td #{booking.price}
+                      %td #{booking.reservation.created_at.strftime("%d-%b-%y")}
+
+                       
+
+                

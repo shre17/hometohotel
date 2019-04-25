@@ -1,0 +1,29 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_14.title')
+        %h4 
+          = t('places.step_14.title')
+        %h2 
+          = t('places.step_14.heading')
+        .form-group
+          .row
+            .col-md-10
+              %label.big-label 
+                = t('places.step_14.sub_heading_1')
+              = form.select :rented_out_your_place_before, options_for_select(Place::RENTED_BEFORE.invert,selected: @place.rented_out_your_place_before),{include_blank: "Select one"}, {:class => 'form-control', :required => true}
+              = form.hidden_field :step, value: 13
+        .form-group
+          .row
+            .col-md-10
+              %label.big-label 
+                = t('places.step_14.sub_heading_2')
+              = form.select :often_do_you_want_to_have_guests, options_for_select(Place::GUEST_OFTEN,selected: @place.often_do_you_want_to_have_guests),{include_blank: "Select one"}, {:class => 'form-control', :required => true}
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35 
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p Based on your responses, we can recommend specific availability settings for you.

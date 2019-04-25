@@ -1,0 +1,280 @@
+#page.theia-exception
+  %main
+    %section.hero_in.general
+      .wrapper
+        .container
+          %h1.fadeInUp
+            %span>
+            = t('static_pages.suggested_topic_content.heading')
+    / /hero_in
+    .container.margin_60_35
+      .row
+        %aside#sidebar.col-lg-3
+          #faq_box.box_style_cat
+            %ul#cat_nav
+              %li
+                %a.active{:href => "#payment"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.payments')
+              %li
+                %a{:href => "#questions"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.popular_questions')
+              %li
+                %a{:href => "#reservation"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.canceling_a_reservation')
+              %li
+                %a{:href => "#credits"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.coupons_credits')
+              %li
+                %a{:href => "#verifications"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.identification_verifications')
+              %li
+                %a{:href => "#help"}
+                  %i.icon_document_alt>
+                  = t('common.static_page_common_content.help_with_your_reservation')
+          / /sticky
+        / /aside
+        #faq.col-lg-9
+          %h4.nomargin_top 
+            = t('static_pages.suggested_topic_content.payment_methods.title')
+          #payment.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_payment"}
+                    %i.indicator.ti-minus>
+                    = t('static_pages.suggested_topic_content.payment_methods.ques_1')
+              #collapseOne_payment.collapse.show{"data-parent" => "#payment", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_payment"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.payment_methods.ques_2')
+              #collapseTwo_payment.collapse{"data-parent" => "#payment", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_payment"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.payment_methods.ques_3')
+              #collapseThree_payment.collapse{"data-parent" => "#payment", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+          / /accordion payment
+          %h4.nomargin_top 
+            = t('static_pages.suggested_topic_content.popular_questions.title')
+          #questions.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_tips"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.popular_questions.ques_1')
+              #collapseOne_tips.collapse{"data-parent" => "#tips", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_tips"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.popular_questions.ques_2')
+              #collapseTwo_tips.collapse{"data-parent" => "#tips", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_tips"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.popular_questions.ques_3')
+              #collapseThree_tips.collapse{"data-parent" => "#tips", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+          / /accordion Popular questions
+          %h4.nomargin_top
+            = t('static_pages.suggested_topic_content.canceling_a_reservation.title')
+          #reservation.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_reccomendations"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.canceling_a_reservation.ques_1')
+              #collapseOne_reccomendations.collapse{"data-parent" => "#reccomendations", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_reccomendations"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.canceling_a_reservation.ques_2')
+              #collapseTwo_reccomendations.collapse{"data-parent" => "#reccomendations", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_reccomendations"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.canceling_a_reservation.ques_3')
+              #collapseThree_reccomendations.collapse{"data-parent" => "#reccomendations", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+          / /accordion Canceling a reservation
+          %h4.nomargin_top
+            = t('static_pages.suggested_topic_content.coupons_credits.title')
+          #credits.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_terms"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.coupons_credits.ques_1')
+              #collapseOne_terms.collapse{"data-parent" => "#terms", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_terms"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.coupons_credits.ques_2')
+              #collapseTwo_terms.collapse{"data-parent" => "#terms", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_terms"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.coupons_credits.ques_3')
+              #collapseThree_terms.collapse{"data-parent" => "#terms", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+          / /accordion Coupons & credits
+          %h4.nomargin_top 
+            = t('static_pages.suggested_topic_content.identification_verifications.title')
+          #verifications.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.identification_verifications.ques_1')
+              #collapseOne_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.identification_verifications.ques_2')
+              #collapseTwo_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.identification_verifications.ques_3')
+              #collapseThree_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+          / /accordion Identification & verifications
+          %h4.nomargin_top 
+            = t('static_pages.suggested_topic_content.help_with_your_reservation.title')
+          #help.add_bottom_45.accordion_2{:role => "tablist"}
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a{"aria-expanded" => "true", "data-toggle" => "collapse", :href => "#collapseOne_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.help_with_your_reservation.ques_1')
+              #collapseOne_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseTwo_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.help_with_your_reservation.ques_2')
+              #collapseTwo_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')
+            .card
+              .card-header{:role => "tab"}
+                %h5.mb-0
+                  %a.collapsed{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseThree_booking"}
+                    %i.indicator.ti-plus>
+                    = t('static_pages.suggested_topic_content.help_with_your_reservation.ques_3')
+              #collapseThree_booking.collapse{"data-parent" => "#booking", :role => "tabpanel"}
+                .card-body
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_1')
+                  %p 
+                    = t('common.static_page_common_content.suggested_topic_content.paragraph_2')

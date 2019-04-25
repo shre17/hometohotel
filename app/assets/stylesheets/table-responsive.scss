@@ -1,0 +1,77 @@
+.responsive-table {
+  padding-top: 0px !important;
+  .login-history-table {
+    margin: 0px !important;
+  }
+  table {
+    margin-bottom: 5px;
+  }
+}
+table.responsive-table {
+  border: none;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  tr {
+    background: #f8f8f8;
+  }
+}
+.responsive-table .info-card .card-body {
+  padding: 0;
+}
+@media screen and (max-width: 600px) {
+  table.responsive-table {
+    border: 0;
+    caption {
+      font-size: 1.3em;
+    }
+    thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+      border: 1px solid #ddd;
+    }
+    td {
+      padding: .625em;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+      &:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+  .responsive-table .info-card{
+    border: none !important;
+  }
+  .responsive-table .card {
+    background: none;
+  }
+  .responsive-table .info-card .card-body {
+    padding: 0;
+  }
+  .responsive-table .card-header:first-child {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+%div.no_fav_experience{ class: "#{@fav_experiences.present? ? 'd-none' : '' }", style: "#{@fav_experiences.present? ? 'display:none' : 'display:block'}"}
+  %h6.mb-3.font-weight-bold 
+    = t('favourites.sub_sub_heading')
+  %p
+    = t('favourites.paragraph')
+
+  = link_to t('favourites.start_exploring_link'), experiences_path , class: "btn btn-danger"
+
+%div.no_fav_place.d-none{ style: "#{@fav_places.present? ? 'display:none' : 'display:block'}"}
+  %h6.mb-3.font-weight-bold 
+    = t('favourites.sub_sub_heading')
+  %p
+    = t('favourites.paragraph') 
+
+  = link_to t('favourites.start_exploring_link'), places_path , class: "btn btn-danger"

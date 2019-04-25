@@ -1,0 +1,84 @@
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.sofa_bed')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :sofa_bed,class: 'input-number', value: f.object.sofa_bed
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.air_mattress')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :air_mattress, class: 'input-number', value: f.object.air_mattress
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.floor_mattress')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :floor_mattress, class: 'input-number', value: f.object.floor_mattress
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.crib')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :crib, class: 'input-number', value: f.object.crib
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.toddler_bed')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :toddler_bed, class: 'input-number', value: f.object.toddler_bed
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.hammock')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :hammock, class: 'input-number', value: f.object.hammock
+        .input-group-button
+          %span.input-number-increment.beds +
+.row
+  .col-md-7.col
+    %label
+      = t('places.step_3.sub_heading_3.couch')
+  .col-md-5.col
+    .add-field
+      .input-group.input-number-group
+        .input-group-button
+          %span.input-number-decrement.beds -
+        = f.number_field :couch, class: 'input-number', value: f.object.couch
+        .input-group-button
+          %span.input-number-increment.beds +

@@ -1,0 +1,3 @@
+$("#data-<%= @object.id %>-action a").text("<%= @object.published ? 'Published' : 'Publish' %>");
+$("#data-<%= @object.id %>-action a").removeClass("<%= @object.published ? 'publish' : 'published' %>");
+$("#data-<%= @object.id %>-action a").addClass("<%= @object.published ? 'published' : 'publish' %>");

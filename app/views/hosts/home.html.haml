@@ -1,0 +1,236 @@
+%main
+  %section.hero_in.become-host-wrap
+    .wrapper
+      .container-fluid.pl-lg-5.pr-lg-5
+        .row
+          .col-md-8
+            = form_with(model: Place.new, local: true ) do |form|
+              .host-wrapper-left
+                %h3
+                  = t('host.home.heading_1')
+                %h1.home-small
+                  = t('host.home.heading_2')
+                = form.hidden_field :step, value: 1
+                .col-lg-12
+                  -if current_user.host
+                    = form.submit t('common.get_started'), class: "get_started"
+                  -else
+                    = form.submit "Become a Host & Add Place", class: "get_started"
+
+
+  / /hero_in
+  %section
+    .container-fluid.pl-lg-5.pr-lg-5
+      .become-host-home
+        .row
+          .col-xl-4
+            .become-list
+              .icon-host
+                %img{:src => "/assets/host-icon.png"}/
+              %h1
+                = t('host.home.why_host_on_homes2hotels.heading')
+              %p
+                = t('host.home.why_host_on_homes2hotels.paragraph')
+          .col-xl-4
+            .become-list
+              .icon-host
+                %img{:src => "/assets/control-icon.png"}/
+              %h1
+                = t('host.home.you_re_in_control.heading')
+              %p
+                = t('host.home.you_re_in_control.paragraph')
+          .col-xl-4
+            .become-list
+              .icon-host
+                %img{:src => "/assets/steps-icon.png"}/
+              %h1
+                = t('host.home.we_re_there_at_every_step.heading')
+              %p
+                = t('host.home.we_re_there_at_every_step.paragraph')
+  %section.how-to-be-box
+    .container-fluid.pl-lg-5.pr-lg-5.margin_60_35
+      %h1.main-title.home-title
+        %center
+          = t('host.home.how_to_be_an_homes2hotels_host.heading')
+    .row
+      .col-md-6
+        .step-img
+          %img{:src => "/assets/become-host-step-1.jpg"}/
+      .col-md-6
+        .contnt_box
+          %h1
+            %span 1
+            = t('host.home.how_to_be_an_homes2hotels_host.step1.heading')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step1.paragraph_1')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step1.paragraph_2')
+    .row
+      .col-md-6
+        .contnt_box
+          %span.secure
+          %h1
+            %span> 2
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.heading')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.paragraph_1')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.paragraph_2')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.paragraph_3')
+      .col-md-6
+        .step-img
+          %img{:src => "/assets/become-host-step-2.jpg"}/
+    .row
+      .col-md-6
+        .step-img
+          %img{:src => "/assets/become-host-step-3.jpg"}/
+      .col-md-6
+        .contnt_box
+          %span.secure
+          %h1
+            %span> 3
+            = t('host.home.how_to_be_an_homes2hotels_host.step3.heading')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.paragraph_1')
+          %p
+            = t('host.home.how_to_be_an_homes2hotels_host.step2.paragraph_2')
+  %section
+    .container-fluid.pl-lg-5.pr-lg-5.margin_60_35
+      %center
+        %h1.main-title.home-title
+          = t('host.home.safety_on_homes2hotels.heading')
+    .safe-box.margin_60_35
+      .container-fluid.pl-lg-5.pr-lg-5
+        .row
+          - ["guarantee-icon", "insurance-icon", "trust-icon"].each do |name|
+            .col-md-4
+              .become-list
+                .icon-host
+                  %img{:src => "/assets/#{name}.png"}/
+                %h1
+                  = t('host.home.safety_on_homes2hotels.title')
+                %p
+                  = t('host.home.safety_on_homes2hotels.paragraph')
+  %section.ask-question
+    .container-fluid.pl-lg-5.pr-lg-5.margin_60_35
+      %h1.main-title
+        %center
+          = t('host.home.frequently_asked_questions.heading')
+      .row
+        .col-lg-6
+          .question-left
+            %h6
+              = t('host.home.frequently_asked_questions.sub_heading_1')
+            #accordion
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menuone", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menuone"}
+                    = t('host.home.frequently_asked_questions.sub_ques_1')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menuone.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.sub_ans_1')
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menutwo", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menutwo"}
+                    = t('host.home.frequently_asked_questions.sub_ques_2')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menutwo.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.sub_ans_2')
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menu3", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menu3"}
+                    = t('host.home.frequently_asked_questions.sub_ques_3')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menu3.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.sub_ans_3')
+            / Accordions Ends
+        .col-lg-6
+          .question-right
+            %h6
+              = t('host.home.frequently_asked_questions.sub_heading_2')
+            / Accordions Starts
+            #accordion
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menufour", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menufour"}
+                    = t('host.home.frequently_asked_questions.ques_4')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menufour.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.ans_4')
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menufive", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menufive"}
+                    = t('host.home.frequently_asked_questions.ques_5')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menufive.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.ans_5')
+              .card
+                .card-header
+                  %a.card-link{"aria-controls" => "menusix", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#menusix"}
+                    = t('host.home.frequently_asked_questions.ques_6')
+                    %span.collapsed
+                      %p
+                        %i.fa.fa-angle-down
+                    %span.expanded
+                      %p
+                        %i.fa.fa-angle-up
+                #menusix.collapse
+                  .card-body
+                    = t('host.home.frequently_asked_questions.ans_6')
+            / Accordions Ends
+  %section.get-started-box
+    .get-started-box-shadow
+      .container-fluid.pl-lg-5.pr-lg-5
+        .row
+          .col-md-5
+            .get-started
+              %h1
+                = t('host.home.start_creating_your_listing.heading')
+              %a.btn.btn-default.get-started-btn{:href => "javascript:void(0);"}
+                = t('common.get_started')
+/ /main
+
+
+:javascript
+  $(window).load(function() {
+    $("#flexiselDemo3").flexisel({
+      visibleItems: 3,
+      itemsToScroll: 1,
+      autoPlay: {
+        enable: true,
+        interval: 5000,
+        pauseOnHover: true
+      }
+    });
+  });

@@ -1,0 +1,55 @@
+#page 
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    / /hero_in
+    .bg_color_1
+      %section.edit-profile
+        .container.margin_30_30
+          .row
+            = render partial: "common_links", locals: {profile: @profile}
+            .col-md-9
+              .card.info-card
+                %h5.card-header.panel-dark 
+                  = (t 'profile.upload_photo.heading')
+                .card-body
+                  .row
+                    .col-md-4
+                      .profile-pic 
+                        - if @profile.image.present?
+                          .image-priview
+                            = image_tag(@profile.image.url, class: "user_image")
+                        - else
+                          .image-priview
+                            %img{:src => "/assets/user_pic.png", :class => "user_image"}/
+                    .col-md-8
+                      %p 
+                        = (t 'profile.upload_photo.paragraph')
+                      = form_for @profile, url: upload_profile_picture_profile_path(@profile) do |f|
+                        #file_browse_wrapper
+                          = f.file_field :image, id: "file_browse"
+                        = f.submit t('common.save_button'), class: "btn red-button" 
+
+                        
+  / /main
+/ page
+
+#toTop
+/ Back to top button
+:javascript
+  $(document).ready(function(){
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('.user_image').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#file_browse").change(function() {
+      readURL(this);
+    });
+  });

@@ -1,0 +1,30 @@
+/ Modal
+#signup.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Sign Up
+      .modal-body
+        %ul.social-link
+          %li
+            %a.facebook{:href => "#", :title => ""}
+              %i.icon-facebook
+              Continue with Facebook
+          %li
+            %a.google{:href => "#", :title => ""}
+              %i.icon-google
+              Continue with Google
+        %span.seprator
+          %b OR
+        %ul.social-link
+          %li
+            %a.simple-link{:href => "#", :title => ""}
+              %i.icon-mail
+              Sign up with Email
+      .modal-footer
+        %p
+          Already have an Homes 2 hotels account?
+          %a{:href => "#"} Log in
+/ Modal

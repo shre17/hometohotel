@@ -1,0 +1,63 @@
+#review-and-submit{"aria-labelledby" => "review-and-submit-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_23.heading')
+        %p 
+          = t('experiences.edit_page.step_23.paragraph_1')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 23 }
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_23.label_1')
+          %p 
+            = t('experiences.edit_page.step_23.paragraph_2')
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_23.label_2')
+          %p
+            = t('experiences.edit_page.step_23.paragraph_3')
+            = succeed "." do
+              %a{:href => "#"} 
+                = t('experiences.edit_page.step_23.link_1')
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_23.label_3')
+          %p 
+            = t('experiences.edit_page.step_23.paragraph_4')
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_23.label_4')
+          .check-box-wrapper
+            %label.check-box 
+              = t('experiences.edit_page.step_23.label_5')
+              - if f.object.my_experience_complies_with_local_laws
+                = f.check_box :my_experience_complies_with_local_laws, checked: 'checked'
+              - else
+                = f.check_box :my_experience_complies_with_local_laws
+              %span.checkmark
+          .check-box-wrapper
+            %label.check-box
+              = t('experiences.edit_page.step_23.label_6')
+              %a{:href => "#"} 
+                = t('experiences.edit_page.step_23.link_2')
+              - if f.object.i_agree_to_the_terms_of_service
+                = f.check_box :i_agree_to_the_terms_of_service, checked: 'checked'
+              - else
+                = f.check_box :i_agree_to_the_terms_of_service
+              %span.checkmark
+            .check-box-wrapper
+              %label.check-box
+                = t('experiences.edit_page.step_23.label_7')
+                / -# if f.object.i_confirm_that_description_and_photo_are_my_own
+                /   =# f.check_box :i_confirm_that_description_and_photo_are_my_own, checked: 'checked'
+                / - else
+                /   =# f.check_box :i_confirm_that_description_and_photo_are_my_own
+                / %span.checkmark
+        .form-group
+          = f.submit t('experiences.edit_page.step_23.submit_button'), class: 'btn next-stpe-btn'
+          %button.btn.next-stpe-btn{:type => "button"} 
+            = t('experiences.edit_page.step_23.edit_description')
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/

@@ -1,0 +1,307 @@
+%main
+  %section.hero_in.experiences-wrap
+    .wrapper
+      .container-fluid.pl-lg-5.pr-lg-5
+        .row.justify-content-md-center
+          .col-md-10
+            .experience-wrapper
+              %h1 
+                = t('host.experiences.host_an_experience_on_homes2hotels_host.heading')
+              %p 
+                = t('host.experiences.host_an_experience_on_homes2hotels_host.paragraph')
+              %a.btn.btn-default.get-started-btn{href: "#{new_experience_path}"}
+                = t('common.get_started')
+              / %a.btn.btn-default.learnmore-btn{:href => "javascript:void(0);"} Learn More
+  %section.experience-box
+    .row.justify-content-end
+      .col-md-6
+        .experience-content
+          %h1 
+            = t('host.experiences.what_are_homes2hotels_experiences.heading')
+          %p 
+            = t('host.experiences.what_are_homes2hotels_experiences.paragraph')
+  %section.experience-steps.pl-lg-15.pr-lg-15
+    .row
+      .col-md-5
+        .step-img-left.wow.fadeInLeft{"data-wow-delay" => "0.1s", "data-wow-duration" => "1s"}
+          #full-slider-1
+            .slide
+              %img{:src => "/assets/res-1.jpg"}/
+              / Slider Description example
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+            .slide
+              %img{:src => "/assets/res-2.jpg"}/
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2 
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+            .slide
+              %img{:src => "/assets/restaurant_1.jpg"}/
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2 
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+      .col-md-7
+        .contnt_box
+          %h1 
+            = t('host.experiences.share_your_passion_with_the_world.heading')
+          %p
+            = t('host.experiences.share_your_passion_with_the_world.paragraph')
+    .row
+      .col-md-7
+        .contnt_box
+          %h1 
+            = t('host.experiences.meet_interesting_people.heading')
+          %p
+            = t('host.experiences.meet_interesting_people.paragraph')
+      .col-md-5
+        .step-img-right.wow.fadeInRight{"data-wow-delay" => "0.1s", "data-wow-duration" => "1s"}
+          #full-slider-2
+            .slide
+              %img{:src => "/assets/restaurant_2.jpg"}/
+              / Slider Description example
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2 
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+            .slide
+              %img{:src => "/assets/restaurant_3.jpg"}/
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2 
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+            .slide
+              %img{:src => "/assets/restaurant_4.jpg"}/
+              .slide-desc
+                %p 
+                  = t('host.experiences.ben.paragraph_1')
+                %h2 
+                  = t('host.experiences.ben.heading')
+                %p 
+                  = t('host.experiences.ben.paragraph_2')
+    .row.justify-content-md-center
+      .col-md-4
+        .step-img-left.wow.fadeInLeft{"data-wow-delay" => "0.1s", "data-wow-duration" => "1s"}
+          %img{:src => "/assets/iphone.png"}/
+      .col-md-4
+        .contnt_box
+          %h1 
+            = t('host.experiences.host_on_your_terms.heading')
+          %p
+            = t('host.experiences.host_on_your_terms.paragraph')
+  %section.community-wrapper.content-block.guide-sub.guide-add.pl-lg-15.pr-lg-15
+    %div
+      .content-holder
+        .row.justify-content-md-center
+          .col-md-8
+            %h1.main-title
+              %center 
+                = t('host.experiences.meet_the_host_community.heading')
+            %p 
+              = t('host.experiences.meet_the_host_community.paragraph_1')
+        .row
+          - data = {name: ["Jason Statham","Cleona Tropez","Martin Blake"], image: ["one", "two", "three"]}
+          - (0..2).each do |i|
+            .col-sm-6.col-md-4.img-article
+              .holder
+                .img-wrap
+                  %img{:alt => "image description", :height => "", :src => "/assets/#{data[:image][i]}.jpg", :width => ""}/
+                  %ul.social-networks
+                    %li
+                      %a{:href => "#"}
+                        %span.icon-facebook
+                    %li
+                      %a{:href => "#"}
+                        %span.icon-twitter
+                    %li
+                      %a{:href => "#"}
+                        %span.icon-linkedin
+                .caption
+                  %h3.small-space 
+                    = t('host.experiences.meet_the_host_community.name', name: data[:name][i])
+                  %span.designation 
+                    = t('host.experiences.meet_the_host_community.paragraph_2')
+          
+  %section.started-box
+    .shadow-wrapper
+      .container-fluid
+        %center
+          %h1.main-title 
+            = t('host.experiences.safety_on_homes2hotels.heading')
+        %center
+          %p.top-text 
+            = t('host.experiences.safety_on_homes2hotels.paragraph')
+      .row
+        .col-md-4
+          .become-list
+            .instruction__step 01.
+            %h1 
+              = t('host.experiences.learn_what_we_re_looking_for.heading')
+            %p 
+              = t('host.experiences.learn_what_we_re_looking_for.paragraph')
+        .col-md-4
+          .become-list
+            .instruction__step 02.
+            %h1 
+              = t('host.experiences.create_your_experience_page.heading')
+            %p 
+              = t('host.experiences.create_your_experience_page.paragraph')
+        .col-md-4
+          .become-list
+            .instruction__step 03.
+            %h1 
+              = t('host.experiences.submit_to_airbnb_for_review.heading')
+            %p 
+              = t('host.experiences.submit_to_airbnb_for_review.paragraph')
+  %section.ask-question
+    .container.margin_60_35
+      %h1.main-title 
+        = t('host.experiences.frequently_asked_questions.heading')
+      .row
+        .col
+          .question-center
+            .card
+              %h3 
+                = t('host.experiences.frequently_asked_questions.sub_heading_1.title')
+              %p
+                = t('host.experiences.frequently_asked_questions.sub_heading_1.paragraph')
+            .card
+              %h3 
+                = t('host.experiences.frequently_asked_questions.sub_heading_2.title')
+              %p
+                = t('host.experiences.frequently_asked_questions.sub_heading_2.paragraph')
+            .card
+              %h3 
+                = t('host.experiences.frequently_asked_questions.sub_heading_3.title')
+              %p
+                = t('host.experiences.frequently_asked_questions.sub_heading_3.paragraph')
+            %div
+              %input#post-2.read-more-state{:type => "checkbox"}/
+              .read-more-wrap
+                .card.read-more-target
+                  %h3 
+                    = t('host.experiences.frequently_asked_questions.sub_heading_3.title')
+                  %p
+                    = t('host.experiences.frequently_asked_questions.sub_heading_3.paragraph')
+                
+              %label.read-more-trigger.btn.red-button{:for => "post-2"}
+  %section.explore-wrapper
+    .container.margin_60_35
+      %h1.main-title 
+        = t('host.experiences.explore_other_experiences.heading')
+      #carousel-first.carouseller
+        %a.carouseller__left{:href => "javascript:void(0)"} ‹
+        .carouseller__wrap
+          .carouseller__list
+            - Category.experiences.titles.each do |exp_category|
+              .car__3
+                %a{href: set_path_for_city_n_category(exp_category, :category)} 
+                  %img{:src => "/assets/#{exp_category.downcase.gsub(" ", "-")}.jpg"}/
+                  %span
+                    = t('host.experiences.explore_other_experiences.experience_category', exp_category: exp_category)
+        
+        %a.carouseller__right{:href => "javascript:void(0)"} ›
+      #carousel-second.carouseller
+        - if top_rated_places_and_experiences['Experience'].count > 4
+          %a.carouseller__left{:href => "javascript:void(0)"} ‹
+        .carouseller__wrap
+          .carouseller__list
+            - top_rated_places_and_experiences['Experience'].first(10).map do |id, experience|
+              - if experience.first.rating > 4
+                .car__3
+                  .info-box
+                    %a.grid_item{:href => "#"}
+                      %figure
+                        .score
+                          %strong #{experience.first.rating}
+                        - image = experience.first.images.present? ? experience.first.images.first.avatar.url : "/assets/hotel_1.jpg"
+                        %img.img-fluid{:alt => "", src: image}/
+                        .info
+                          .cat_star
+                            %i.icon_star
+                            %i.icon_star
+                            %i.icon_star
+                            %i.icon_star 
+                          %h3 #{experience.first.title}
+                    .info-box-bottom
+                      %small #{experience_category(experience.first)}
+                      %h1
+                        %i.icon_pin_alt>
+                        #{experience_category(experience.first)} experience in #{experience.first.city}
+                      .row
+                        .col
+                          %span.price-text $785
+                          per night
+              - else
+                - next
+        - if top_rated_places_and_experiences['Experience'].count > 4
+          %a.carouseller__right{:href => "javascript:void(0)"} ›
+
+:javascript
+  $(window).load(function() {
+      $("#flexiselDemo3").flexisel({
+          visibleItems: 3,
+          itemsToScroll: 1,         
+          autoPlay: {
+              enable: true,
+              interval: 5000,
+              pauseOnHover: true
+          }        
+      });
+
+  });
+/ <..........image slider js........
+:javascript
+  jQuery(document).ready(function(){
+      jQuery('#full-slider-1').skdslider({
+        slideSelector: '.slide',
+        delay:5000,
+        animationSpeed:2000,
+        showNextPrev:true,
+        showPlayButton:true,
+        autoSlide:true,
+        animationType:'fading'
+      });
+      jQuery('#full-slider-2').skdslider({
+        slideSelector: '.slide',
+        delay:5000,
+        animationSpeed:2000,
+        showNextPrev:true,
+        showPlayButton:true,
+        autoSlide:true,
+        animationType:'fading'
+      });
+  });
+/ <.........responsive carousel slider js...........
+
+:javascript
+  $(function() {
+      $('#carousel-first').carouseller({
+          //scrollSpeed: 650,
+          //autoScrollDelay: -1800,
+          //easing: 'easeOutBounce'
+      });
+      $('#carousel-second').carouseller({
+          //scrollSpeed: 650,
+          //autoScrollDelay: -1800,
+          //easing: 'easeOutBounce'
+      });
+  });

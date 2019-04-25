@@ -1,0 +1,10 @@
+%div.alert-common
+  %div.container
+    - flash.each do |name, msgs|
+      - unless msgs.blank?
+        - msgs = [msgs] unless msgs.kind_of?(Array)
+        - msgs.each do |msg|
+          %div{:class => "#{flash_class(name.to_sym)}"}
+            %a.close{"data-dismiss" => "alert", :href => "#"} ×
+            = content_tag :p, msg
+    - flash.clear

@@ -1,0 +1,14 @@
+%section.experiences-wrapper
+  .container-fluid.margin_60_35.pl-lg-5.pr-lg-5
+    %h1.main-title #{t('home.popular_cities.title')}
+    #carousel-first.carouseller
+      %a.carouseller__left{:href => "javascript:void(0)"} ‹
+      .carouseller__wrap
+        .carouseller__list
+          - Place::FAMOUS_CITIES.each do |city|
+            .car__2
+              %a{:href => destination_city_path("#{city}")}
+                %img{:src => "/assets/#{city.downcase.gsub(' ', '_')}.jpg"}/
+                %span 
+                  = t('places.index_page.city', city: city)
+      %a.carouseller__right{:href => "javascript:void(0)"} ›

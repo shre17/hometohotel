@@ -1,0 +1,81 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    / /hero_in
+    .bg_color_1
+      %section.edit-profile
+        .container.margin_30_30
+          .row
+            = render partial: "common_links", locals: {profile: @profile}
+
+            .col-md-9
+              %ul#myTab.nav.nav-tabs.review-tabs{:role => "tablist"}
+                - if current_user.is_host?
+                  %li.nav-item
+                    %a#reviewaboutyou-tab.nav-link{"aria-controls" => "reviewaboutyou", "aria-selected" => "true", "data-toggle" => "tab", :href => "#reviewaboutyou", :role => "tab"} 
+                      = (t 'profile.reviews.reviews_about_you.heading')
+                %li.nav-item
+                  %a#reviewbyyou-tab.nav-link.active{"aria-controls" => "reviewbyyou", "aria-selected" => "false", "data-toggle" => "tab", :href => "#reviewbyyou", :role => "tab"} 
+                    = (t 'profile.reviews.reviews_by_you.heading')
+              #myTabContent.tab-content
+                - if current_user.is_host?
+                  #reviewaboutyou.tab-pane.fade{"aria-labelledby" => "reviewaboutyou-tab", :role => "tabpanel"}
+                    .card.info-card
+                      %h5.card-header.panel-dark 
+                        = (t 'profile.reviews.reviews_about_you.heading')
+                      .card-body
+                        %p 
+                          = (t 'profile.reviews.reviews_about_you.paragraph_1')
+                        - if current_user.reviews_about_you.present?
+                          .reviews-container
+                            - current_user.reviews_about_you.each do |review|
+                              .review-box.clearfix
+                                %figure.rev-thumb
+                                  %img{:alt => "", :src => "#{review.user.medium_image}"}/
+                                .rev-content
+                                  .rating
+                                    - rating = review.service.to_i
+                                    - (1..5).each do |i|
+                                      %i.icon_star{ class: "#{rating >= i ? 'voted' : ''}" }
+                                  .rev-info
+                                    = review.user.profile.first_name
+                                    = review.created_at.strftime("%b %d,%Y")
+                                  .rev-text
+                                    %p
+                                      = review.content
+                        -else
+                          %p 
+                            = (t 'profile.reviews.reviews_about_you.paragraph_2')
+
+                #reviewbyyou.tab-pane.fade.show.active{"aria-labelledby" => "reviewbyyou-tab", :role => "tabpanel"}
+                  .card.info-card
+                    %h5.card-header.panel-dark 
+                      = (t 'profile.reviews.reviews_by_you.sub_heading_1')
+                    .card-body
+                      %p 
+                        = (t 'profile.reviews.reviews_by_you.paragraph_1')
+                  .card.info-card
+                    %h5.card-header.panel-dark 
+                      = (t 'profile.reviews.reviews_by_you.sub_heading_2')
+                    .card-body
+                      - if current_user.reviews_by_you.present?
+                        .reviews-container
+                          - current_user.reviews_by_you.each do |review|
+                            .review-box.clearfix
+                              %figure.rev-thumb
+                                %img{:alt => "", :src => "#{review.user.medium_image}"}/
+                              .rev-content
+                                .rating
+                                  - rating = review.service.to_i
+                                  - (1..5).each do |i|
+                                    %i.icon_star{ class: "#{rating >= i ? 'voted' : ''}" }
+                                .rev-info
+                                  = review.user.profile.first_name
+                                  = review.created_at.strftime("%b %d,%Y")
+                                .rev-text
+                                  %p
+                                    = review.content
+                      - else
+                        %p 
+                          = (t 'profile.reviews.reviews_by_you.paragraph_2')

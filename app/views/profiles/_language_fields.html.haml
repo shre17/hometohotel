@@ -1,0 +1,26 @@
+#languageModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title Spoken Languages
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        %p What languages can you speak fluently? We have many international travelers who appreciate hosts who can speak their language.
+        .row
+          - i = 0
+          - Language.try(:all).each do |language|
+            .col-md-6.mb-3
+              - if (@profile.languages.present? && (@profile.languages[i] ==language.name))
+                .form-check
+                  = check_box_tag "profile[languages][]", "#{language.name}", true, id: "profile_#{language.name}", class: "form-check-input"
+                  = ff.label "#{language.name}"
+                  - i += 1
+              - else
+                .form-check
+                  = check_box_tag "profile[languages][]", "#{language.name}", false, id: "profile_#{language.name}", class: "form-check-input"
+                  = ff.label "#{language.name}"
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Cancel
+        %button.btn.red-button.red-button{"data-dismiss" => "modal", :type => "button", :id => "language_button"} Save
+

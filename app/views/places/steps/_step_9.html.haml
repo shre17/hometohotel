@@ -1,0 +1,32 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_10.title')
+        %h4 
+          = t('places.step_10.title')
+        %h2 
+          = t('places.step_10.heading_1')
+        .form-group
+          .row
+            .col
+              = form.text_field :name, :class => "form-control", placeholder: t('places.step_10.placeholder_1'), required: true, maxlength: 50
+              %span#rchars 50
+              = t('common.character_s_remaining')
+        .form-group
+          .row
+            .col
+              %label.big-label 
+                = t('places.step_10.heading_2')
+              = form.text_area :description, :class => "form-control", placeholder: t('places.step_10.placeholder_2') ,minlength: "200", required: true, maxlength: 500, rows: "10"
+              = form.hidden_field :step, value: 10
+              
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35 
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_10.suggestion.paragraph_1')}
+
+          %p #{t('places.step_10.suggestion.paragraph_2')}

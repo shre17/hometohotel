@@ -1,0 +1,39 @@
+.col-lg-4
+  .box_grid
+    %figure
+      - unless current_user.present?
+        %a.login.wish_bt{'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"}
+      - else    
+        %a.wish_bt.favourite_experience.favourite.home{ id: "#{experience.id}", :href => "javascript:void(0);", class: "#{ experience.favourites.where(user_id: current_user.try(:id)).present? ? 'fav' : ''}", type: "Experience" }
+      %a{:href => experience_path(experience)}
+        - image = experience.images.present? ? experience.images.first.avatar.url : '/assets/ex-1.jpg'
+        %img.img-fluid{ alt: "", height: "533", src: image, width: "800"}/
+        .read_more
+          %span #{t('home.top_rated_experiences.read_more')}
+          - category_name = Category.find(experience.category_1).title rescue nil
+    .wrapper
+      %span.categoires-information 
+        = t('home.top_rated_experiences.category_name', name: category_name)
+      %span.price.pull-right
+        %strong 
+          $#{experience.price_per_guest}
+        \/per person
+      %h3
+        %a{:href => "javascript:void(0);"}
+          = t('home.top_rated_experiences.experience_title', title: experience.title)
+      %p 
+        = truncate(t('home.top_rated_experiences.what_makes_you_qualified', content: experience.what_makes_you_qualified), length: 60)
+    %ul
+      %li
+        %i.icon_clock_alt
+        2h 30min
+      %li
+        .score
+          %span
+            - unless experience.rating.nil?
+              = t('home.top_rated_experiences.rating_text', text: experience.rating_text)
+            %em
+              = pluralize(experience.reviews.count, t('places.show_page.section_2.title'))
+        - unless experience.rating.nil?
+          %strong
+            = experience.rating

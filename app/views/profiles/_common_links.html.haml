@@ -1,0 +1,15 @@
+.col-md-3
+  .setting-menu
+    #mobile-nav.nav-toggle.dropdown
+      %a.navigation-header 
+        = t('common.navigation')
+    %ul.toggle-menu-list
+      %li
+        = link_to( t('common.edit_profile_link') , edit_profile_path(current_user.id))
+      %li
+        = link_to( t('profile.common_links.upload_photo'),  set_profile_picture_profile_path(current_user.id))
+      %li
+        = link_to(t('profile.common_links.trust_and_verification'),  set_trust_and_verification_profile_path(current_user.id))
+      %li
+        = link_to(t('profile.common_links.reviews'), show_review_profiles_path  )
+    = link_to t('profile.common_links.view_profile'), profile_path(current_user.id), class: "btn btn-outline-dark"

@@ -1,0 +1,7 @@
+.nested-fields{id: f.object.id}
+  .form-group
+    = f.text_field :name, placeholder: 'Some name', class: 'form-control', :required => true
+  .form-group
+    = f.text_field :description, placeholder: 'Some description', class: 'form-control', :required => true
+
+  = link_to_remove_association "remove item", f, class: "remove-bring-item"

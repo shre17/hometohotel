@@ -1,0 +1,16 @@
+#group-size{"aria-labelledby" => "group-size-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_18.heading')
+        %p 
+          = t('experiences.edit_page.step_18.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 19 }
+        .form-group
+          = f.select :max_group_size, options_for_select((1..10).map{ |i| i }, f.object.max_group_size), { prompt: t('experiences.edit_page.step_18.prompt') }, class: 'form-control', :required => true
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/

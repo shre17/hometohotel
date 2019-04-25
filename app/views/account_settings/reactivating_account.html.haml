@@ -1,0 +1,19 @@
+%main
+  %section{:style => "margin:150px"}
+    .wrapper
+      .container
+        %h3#notice= notice
+        %p Your account is deactivated if you reactivate it than your profile become visible and you are able to access Home2hotels
+        = link_to "reactivate", "javascript:void(0)", class: "reactivate_account btn btn-success"
+        = link_to "keep it deactivated", root_path, class: "btn btn-success"
+        #test
+          = render partial: "account_settings/reactivation_password"
+
+:javascript
+  $(document).ready(function(){
+    $("#test").hide();
+    $(".reactivate_account").click(function(){
+      $("#test").show();
+    });
+  });
+  

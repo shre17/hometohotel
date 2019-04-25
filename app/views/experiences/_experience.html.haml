@@ -1,0 +1,38 @@
+.col-xl-3.col-lg-6.col-md-6.col-sm-6{:id => "div_#{experience.id}"}
+  .box_grid.box-shadow
+    %figure 
+      %div
+        %a.wish_bt.favourite_experience.favourite{ id: "#{experience.id}", :href => "javascript:void(0);", class: "#{ experience.favourites.where(user_id: current_user.try(:id)).present? ? 'fav' : ''}", type: "Experience" }
+
+      %a{:href => experience_path(experience)}
+        - image = experience.images.present? ? experience.images.first.avatar.url : '/assets/ex-1.jpg'
+        %img.img-fluid{ alt: "", height: "533", src: image, width: "800"}/
+        .read_more
+          %span
+            = t('home.top_rated_experiences.read_more')
+            - category_name = Category.find(experience.category_1).title rescue nil
+    .wrapper
+      %span.categoires-information
+        = t('home.top_rated_experiences.category_name', name: category_name)
+      %span.price.pull-right
+        %strong 
+          $#{experience.price_per_guest}
+        \/ #{t('home.top_rated_experiences.person')}
+      %h3
+        %a{:href => "javascript:void(0);"}
+          = t('home.top_rated_experiences.experience_title', title: experience.title)
+      %p 
+        = truncate("#{t('home.top_rated_experiences.what_makes_you_qualified', content: experience.what_makes_you_qualified)}", length: 60)
+    %ul
+      %li
+        = render '/common/rating', rating: experience.rating
+      %li
+        .score
+          %span
+            - unless experience.rating.nil?
+              = t('home.top_rated_experiences.rating_text', text: experience.rating_text)
+            %em
+              = pluralize(experience.reviews.count, "#{t('places.show_page.section_2.title')}")
+          - unless experience.rating.nil?
+            %strong
+              = experience.rating

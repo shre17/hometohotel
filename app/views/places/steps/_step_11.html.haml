@@ -1,0 +1,39 @@
+.host-step
+  .row.justify-content-md-center
+    .col-md-10.col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset.full-fieldset
+        %h3.form-title
+          = t('places.step_13.title')
+        %h2
+          = t('places.step_13.heading_1')
+        .form-group
+          .row.how_guest_book
+            .col-sm-4
+              .guests-box
+                %h1
+                  = t('places.step_13.sub_heading_1.title')
+                %p
+                  = t('places.step_13.sub_heading_1.paragraph')
+            .col-sm-4
+              .guests-box
+                %h1
+                  = t('places.step_13.sub_heading_2.title')
+                %p
+                  = t('places.step_13.sub_heading_2.paragraph')
+            .col-sm-4
+              .guests-box
+                %h1
+                  = t('places.step_13.sub_heading_3.title')
+                %p
+                  = t('places.step_13.sub_heading_3.paragraph')
+              = form.hidden_field :step, value: 12
+          .row.step_13_heading
+            .col-md-12
+              %h2
+                = t('places.step_13.heading_2')
+              .protected-box
+                %span
+                  %img{:src => "/assets/homes2hotels-icon.png"}/
+                .extra-wrap
+                  %p
+                    = t('places.step_13.paragraph')

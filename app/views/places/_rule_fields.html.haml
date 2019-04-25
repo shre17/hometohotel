@@ -1,0 +1,16 @@
+.nested-fields.form-group.row.no-gutters
+  .col-md-9
+    %label
+      = t('places.step_12.section_1.option', title: f.object.title)
+  .col-md-3{ class: "#{ f.object.title.present? ? '' : 'd-none'}" }
+    .toggle-switch
+      - if f.object.status
+        = f.check_box :status, class: "toggle-switch-checkbox", checked: 'checked', id: "label-#{f.object.id}"
+      - else
+        = f.check_box :status, class: "toggle-switch-checkbox", id: "label-#{f.object.id}"
+      %label.toggle-switch-label{ for: "label-#{f.object.id}"}
+        %span.toggle-switch-inner
+        %span.toggle-switch-switch
+  
+  .col-md-11{ class: "#{ f.object.title.present? ? 'd-none' : ''}" }
+    = f.text_field :title, class: "form-control", placeholder: "Listing title"

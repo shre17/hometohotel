@@ -1,0 +1,268 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    %section.margin_60_35
+      .container
+        .row
+          .col-md-12
+            .share-box
+              = t('static_pages.trust_and_safety.overview.heading')
+              %h1.main-title 
+                = t('static_pages.trust_and_safety.overview.sub_heading_1.title')
+              %ul#safety-tabs.nav.nav-tabs
+                %li.active
+                  %a.active{"data-toggle" => "tab", :href => "#overview"} 
+                    = t('static_pages.trust_and_safety.overview.sub_heading_1.list_item_1')
+                %li
+                  %a{"data-toggle" => "tab", :href => "#traveling"}
+                    = t('static_pages.trust_and_safety.overview.sub_heading_1.list_item_2')
+                %li
+                  %a{"data-toggle" => "tab", :href => "#hosting"} 
+                    = t('static_pages.trust_and_safety.overview.sub_heading_1.list_item_3')
+                %li
+                  %a{"data-toggle" => "tab", :href => "#community"} 
+                    = t('static_pages.trust_and_safety.overview.sub_heading_1.list_item_4')
+              .tab-content.safety-tabs-content
+                #overview.tab-pane.in.active
+                  .content-sction
+                    %p 
+                      = t('static_pages.trust_and_safety.overview.sub_heading_1.paragraph_1')
+                    %p 
+                      = t('static_pages.trust_and_safety.overview.sub_heading_1.paragraph_2')
+                  .content-sction
+                    %h2 
+                      = t('static_pages.trust_and_safety.overview.sub_heading_2.title')
+                    %p 
+                      = t('static_pages.trust_and_safety.overview.sub_heading_2.paragraph')
+                    .row
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/risk.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_3.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_3.paragraph')
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/watchlist.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_4.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_4.paragraph')
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/preparedness.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_5.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_5.paragraph')
+                    .row
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/secure-payment.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_6.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_6.paragraph')
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/account.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_7.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_7.paragraph')
+                      .col-sm-4
+                        .safety-steps
+                          .image-b
+                            %img{:src => "/assets/scam.png"}/
+                            %h3 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_8.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.overview.sub_heading_8.paragraph')
+                  .content-sction
+                    .row
+                      .col-sm-8
+                        %h2 
+                          = t('static_pages.trust_and_safety.overview.sub_heading_9.title')
+                        %p 
+                          = t('static_pages.trust_and_safety.overview.sub_heading_9.paragraph')
+                      .col-sm-4
+                        %img.rounded-circle{:src => "/assets/one.jpg", :width => "100%"}
+                #traveling.tab-pane.fade
+                  .content-sction
+                    %h2 
+                      = t('static_pages.trust_and_safety.traveling.heading')
+                    %p 
+                      = t('static_pages.trust_and_safety.traveling.paragraph')
+                    %section.cd-timeline.js-cd-timeline
+                      .cd-timeline__container
+                        .cd-timeline__block.js-cd-block.wow.fadeInLeft{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            1
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_1')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                        .cd-timeline__block.js-cd-block.wow.fadeInRight{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--movie.js-cd-img
+                            2
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_2')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                    
+                        .cd-timeline__block.js-cd-block.wow.fadeInLeft{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--location.js-cd-img
+                            3
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_3')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                        .cd-timeline__block.js-cd-block.wow.fadeInRight{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            4
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_4')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                        .cd-timeline__block.js-cd-block.wow.fadeInLeft{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--movie.js-cd-img
+                            5
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_5')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                        .cd-timeline__block.js-cd-block.wow.fadeInRight{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--location.js-cd-img
+                            6
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_6')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                        .cd-timeline__block.js-cd-block.wow.fadeInLeft{"data-wow-delay" => ".25s", "data-wow-duration" => "0.5s"}
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            7
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.traveling.sub_heading_7')
+                            %p 
+                              = t('common.static_page_common_content.trust_and_verification_paragraph')
+                #hosting.tab-pane.fade
+                  .content-sction
+                    %h2 
+                      = t('static_pages.trust_and_safety.hosting.heading')
+                    %p
+                      = t('static_pages.trust_and_safety.hosting.paragraph')
+                    %section.cd-timeline.js-cd-timeline
+                      .cd-timeline__container
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            1
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_1.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_1.paragraph_1')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_1.paragraph_2')
+                         
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--movie.js-cd-img
+                            2
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_2.title')
+                            %p
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_2.paragraph')
+                         
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--location.js-cd-img
+                            3
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_3.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_3.paragraph')
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            4
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_4.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_4.paragraph')
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--movie.js-cd-img
+                            5
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_5.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_5.paragraph')
+                        .cd-timeline__block.js-cd-block
+                          .cd-timeline__img.cd-timeline__img--picture.js-cd-img
+                            6
+                          / cd-timeline__img
+                          .cd-timeline__content.js-cd-content
+                            %h4 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_6.title')
+                            %p 
+                              = t('static_pages.trust_and_safety.hosting.sub_heading_6.paragraph')
+                #community.tab-pane.fade
+                  .content-sction
+                    %p 
+                      = t('static_pages.trust_and_safety.community.paragraph_1')
+                    %p 
+                      = t('static_pages.trust_and_safety.community.paragraph_2')
+                  .content-sction
+                    %h2 
+                      = t('static_pages.trust_and_safety.community.sub_heading.title')
+                    %p 
+                      = t('static_pages.trust_and_safety.community..sub_heading.paragraph')
+
+/ COMMON SCRIP
+:javascript
+  $(document).ready(function(){
+  getAccordion("#safety-tabs",768);
+  });
+/ <................sticky-tabs-js
+:javascript
+  window.onscroll = function() {myFunction()};
+
+  var safety = document.getElementById("safety-tabs");
+  var sticky = safety.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      safety.classList.add("sticky-tab")
+      $('.header').css("display","none")
+    } else {
+      safety.classList.remove("sticky-tab");
+      $('.header').css("display","block");
+    }
+  }
+

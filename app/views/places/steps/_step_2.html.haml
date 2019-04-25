@@ -1,0 +1,93 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title
+          = t('places.step_3.title')
+        %h4
+          = t('places.step_3.title')
+        %h2
+          = t('places.step_3.heading')
+        .form-group
+          .row
+            .col-md-7.col
+              %label
+                = t('places.step_3.sub_heading_1')
+            .col-md-5.col
+              .add-field
+                .input-group.input-number-group
+                  .input-group-button
+                    %span.input-number-decrement-guest -
+                  = form.number_field :number_of_guests, value: "#{form.object.number_of_guests.present? ? form.object.number_of_guests : 1}", max: 16, min: 1,class: 'input-number'
+                  .input-group-button
+                    %span.input-number-increment +
+        .form-group
+          .row
+            .col
+              %label.big-label
+                = t('places.step_3.sub_heading_2')
+              = form.select :number_of_bedrooms, options_for_select(Place::BEDROOMS, :selected => @place.number_of_bedrooms), {:include_blank => 'Studio'},{:class => 'form-control select-bedrooms', :required => true}
+              = form.hidden_field :step, value: 3
+        .form-group
+          .form-group
+            .row
+              .col-md-12
+                %h2
+                  = t('places.step_3.sub_heading_3.sub_sub_heading_2')
+                #bedrooms
+                  = form.fields_for :bedrooms do |bedroom|
+                    = render 'bedroom_fields', f: bedroom
+                  .add-bedroom-link.d-none
+                    = link_to_add_association 'add bedroom', form, :bedrooms
+
+
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_3.suggestion.paragraph_1')}
+
+          %p #{t('places.step_3.suggestion.paragraph_2')}
+
+:javascript
+  $(document).ready(function(){
+    $(".next-button").prop("disabled",true);
+    $(".nested-fields").each(function(index,element){
+      $(element).find(":input").each(function(index,element){
+        if($(element).val() != 0){
+          $(".next-button").prop("disabled",false);
+          return false;
+        }
+        else{
+          $(".next-button").prop("disabled",true);
+        }
+      });
+    });
+
+    $('.bed-heading').each(function(index){
+      $('.bed-heading').eq(index).text("Room " + parseInt(index+1))
+    });
+  });
+
+  $(document).on("click",".beds",function(){
+    $(".nested-fields").each(function(index,element){
+      var count = 0;
+      $(element).find(":input").each(function(index,element){
+        if($(element).val() != 0){
+          $(".next-button").prop("disabled",false);
+          return false;
+        }
+        else{
+          count = index;
+          $(".next-button").prop("disabled",true);
+        }
+      });
+      if(count == 7){
+        $(".next-button").prop("disabled",true)
+        return false;
+      }
+    });
+  });
+
+

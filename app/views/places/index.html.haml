@@ -1,0 +1,122 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+
+  = render partial: "common/header_filters"
+
+  - unless params[:filter].present?
+    = render partial: "famous_cities"
+
+  .container-fluid.margin_30_30.pl-lg-5.pr-lg-5.top-rated
+    - if params[:filter].present?
+      %section
+        .row
+          - if @places.present?
+            - @places.each do |place|
+              = render partial: "place", locals: {place: place, city: @city}
+          - else
+            %h3.text-center
+              No result found!
+              %br
+              Update your search for better result!
+
+    - elsif @city.present?
+      %section
+        .main_title_3
+          %h2
+            Explore #{t('places.index_page.city', city: @city)}
+          %span
+            %em
+        .row
+          - @places.each do |place|
+            = render partial: "place", locals: {place: place, city: @city}
+    - else
+      - if sorted_cities.present?
+        - sorted_cities.first(4).map do |city,data|
+          %section
+            .main_title_3
+              %h2
+                = t('places.index_page.city', city: city)
+              %span
+                %em
+            .row
+              - data.first(4).each do |place|
+                = render partial: "place", locals: {place: place, city: city}
+          - if (city.present? && data.length>4)
+            %a{:href => destination_city_path(city)}
+              %strong
+                #{t('common.view_all')} (#{data.count})
+                %i.arrow_carrot-right
+      - else
+        %section.min_hight_100
+          .main_title_3.text-center
+            %h2 No experience uploaded yet!
+
+- price_from, price_to = check_price_range
+
+= javascript_include_tag('input_qty.js')
+
+:javascript
+  window.onscroll = function() {myFunction()};
+
+  var safety = document.getElementById("filters_searchbar");
+  var sticky = safety.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      safety.classList.add("sticky-filter")
+    } else {
+      safety.classList.remove("sticky-filter");
+    }
+  }
+
+  $(function() {
+    $('#carousel-first').carouseller({
+    });
+    $('#carousel-second').carouseller({
+    });
+  });
+
+  $(document).ready(function(){
+    $(".like-box").click(function(){
+      place_id = this.id;
+      place = this;
+      $.ajax({
+        url: "#{create_favourite_profiles_path}",
+        data: {type: 'Place', id: place_id},
+        type: "post",
+        success: function(response){
+          if(response.liked){
+            $(place).addClass("active-like-box");
+          }
+          else{
+            $(place).removeClass("active-like-box")
+          }
+        },
+        failure: function(response){}
+      })
+    });
+  });
+
+  $(function() {
+    var price_from = parseInt("#{price_from}");
+    var price_to = parseInt("#{price_to}");
+
+    $("#filter_price_minimum").ionRangeSlider({
+      min: 0,
+      max: 1000,
+      from: price_from,
+      to: price_to,
+      type: 'double',
+      prefix: "$. ",
+      grid: true,
+      grid_num: 10,
+      onFinish: function (data) {
+        $('#filter_price_minimum').val(data.from);
+        $('#filter_price_maximum').val(data.to);
+      }
+    });
+
+    $('#filter_price_minimum').val(price_from);
+    $('#filter_price_maximum').val(price_to);
+  });

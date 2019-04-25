@@ -1,0 +1,9 @@
+<% if @message == "password reset instructions sent to your email address" %>
+  $(".message").html("<%= @message %>")
+  setTimeout(function() {
+    $("#sign-in-dialog").find(".close").trigger('click');
+  }, 5000);
+
+<%else%>
+  $(".message").html("<%= @message %>");
+<%end%>

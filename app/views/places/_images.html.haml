@@ -1,0 +1,6 @@
+- class_name = view_photos_btn_class
+- @place.images.each_with_index do |img, index|
+  %a{"data-effect" => "mfp-zoom-in", :href => "#{img.avatar.url}", :title => "#{img.description}", class: "#{(index==0 ? class_name : '')}"} 
+    - if (index==0)
+      = t('places.show_page.view_photos')
+    

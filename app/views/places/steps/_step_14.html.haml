@@ -1,0 +1,23 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_16.title')
+        %h4 
+          = t('places.step_16.title')
+        %h2 
+          = t('places.step_16.heading')
+        .form-group
+          .row
+            .col-md-10
+              = form.select :advance_booking_period, options_for_select(Place::ADVANCE_BOOKING.invert,selected: @place.advance_booking_period),{}, {:class => 'form-control', :required => true}
+              = form.hidden_field :step, value: 15
+
+        .form-group
+          .row
+            .col-md-10
+              %p  
+                = t('places.step_16.paragraph')
+    
+    

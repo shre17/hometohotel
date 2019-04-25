@@ -1,0 +1,96 @@
+#where-we-meet{"aria-labelledby" => "where-we-meet-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_11.heading')
+        %p 
+          = t('experiences.edit_page.step_11.paragraph')
+        %h6 
+          = t('experiences.edit_page.step_11.form_heading')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 12 }
+        = f.fields_for :location do |ff|
+          .form-group
+            %label 
+              = "#{t('common.street_address')} :"
+            = ff.text_field :street, placeholder: "Area,city,state,country", class: 'form-control', id: "autocomplete", onFocus: "geolocate()", :class => 'form-control readonly'
+            = link_to t('common.next_button'), "javascript:void(0)", class: "btn-success btn btn-outline-secondary"
+          %div.locations_other_fields
+            .form-group
+              %label
+                = "#{t('common.country')} :" 
+              = ff.text_field :country, class: 'form-control', id: "country", readonly: true
+              / =# ff.select :country, options_for_select(ISO3166::Country.all_names_with_codes.collect(&:first)),{ prompt: 'Select Category' }, class: 'form-control'
+            .form-group 
+              %label 
+                = t('experiences.edit_page.step_11.location_name')
+              = ff.text_field :name, class: 'form-control'
+            .form-group
+              %label 
+                = t('experiences.edit_page.step_11.apt_suite')
+              = ff.text_field :apt, placeholder: "Apt., suite, building access code", class: 'form-control', id: "street_number"
+            .row
+              .col-md-6
+                .form-group
+                  %label 
+                    = t('common.city')
+                  = ff.text_field :city, placeholder: "City", class: 'form-control', id: "locality", readonly: true
+              .col-md-6
+                .form-group
+                  %label 
+                    = t('common.state')
+                  = ff.text_field :state, placeholder: "State", class: 'form-control', id: "administrative_area_level_1", readonly: true
+            .row
+              .col-md-6
+                .form-group
+                  %label 
+                    = t('common.zip_code')
+                  = ff.number_field :zipcode, placeholder: "Zipcode", class: 'form-control', id: "postal_code"
+                  
+            .form-group
+              %label 
+                = t('experiences.edit_page.step_11.form_fields.directions')
+              %p 
+                = t('experiences.edit_page.step_11.form_fields.paragraph')
+
+              = ff.text_area :direction, class: 'form-control', placeholder: "Consider including walking, driving, and public transportation directions, as well as parking tips.",maxlength: 150, style: 'height: 123px;'
+              %span#rchars 150
+      
+        .form-group
+          = link_to 'Reset', "javascript:void(0)", class: "btn-primary btn btn-outline-secondary"
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-11.jpg"}/
+
+/ :javascript
+/   function set_lat_long(lat, long){
+/     $.ajax({
+/       url: "#{address_validation_place_path("#{@experience.id}")}",
+/       data: {latitude: lat, longitude: long, type: "Experience"}, 
+/       type: "get",
+/       success: function(response){
+/         debugger
+/       },
+/       failure: function(response){},     
+/     })  
+/   }
+
+/   $(document).ready(function(){
+/     $(".btn-success").click(function(){
+/       loc = $("#autocomplete").val();
+/       api_key = "AIzaSyABGpqgjjCQRdJnuCjd9_op63aNPr95Y60"; 
+/       $.ajax({
+/         url: "https://maps.googleapis.com/maps/api/geocode/json",
+/         data: { address: loc, key: api_key },
+/         type: "get",
+/         success: function(response){
+/           debugger
+/           lat = response.results[0].geometry.location.lat;
+/           long = response.results[0].geometry.location.lng;
+/           set_lat_long(lat,long);
+/         },
+/         failure: function(response){}, 
+/       });
+/     });
+/   });

@@ -1,0 +1,6 @@
+<% if @success %>
+  $("#addPhone").modal('hide');
+  $("#verifyPhone").modal('show');
+<% else %>
+  $("#addPhone .notice").addClass('error').html("<%= @error %>");
+<% end %>

@@ -1,0 +1,41 @@
+#page
+  %main.message_page
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: "user_details"
+            
+            .col-sm-8
+              / .message-top
+              /   %h1 Ready to book?
+              /   %p Vanita Amir lets guests book instantly.
+              /   %button.btn.red-button.btn-lg.bold-button{:type => "button"} Book Now
+              %hr/
+              .row
+                .col-sm-10
+                  .send-message-box.panel
+                    = form_for @message, remote: true do |f|
+                      .panel-body
+                        = f.text_area :message
+                        = f.hidden_field :messagable_type
+                        = f.hidden_field :messagable_id
+                        = f.hidden_field :received_by_id
+                      .panel-bottom.text-right
+                        = f.submit "send message", class: "btn btn-outline-secondary"
+                .col-sm-2
+                  .host-image
+                    %img.rounded-circle.img-responsive{:src => current_user.profile.image.url}/
+            
+              .row#chat
+                - @conversation.reverse.each do |message|
+                  = render partial: "conversation", locals: { message: message }
+                
+:javascript
+  $(document).ready(function(){
+   $(".msg-cross").click(function(){
+     $(".message-top").hide();
+   })
+  })

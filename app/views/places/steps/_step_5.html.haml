@@ -1,0 +1,69 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset.map-location
+        %h3.form-title
+          = t('places.step_6.title')
+        %h4
+          = t('places.step_6.title')
+        %p.full_address
+          = form.hidden_field :step, value: 6
+        - begin
+          %div.lat.d-none
+            = @place.location.latitude
+          %div.long.d-none
+            = @place.location.longitude
+        -rescue
+        .map.map_single.add_bottom_30
+          %div{:style => "width: 100%;"}
+            / #new_marker.map-field{:style => "width: 100%; height: 400px;"}
+            #new_marker.map-field
+
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p 
+            %b= @place.location.full_address
+
+
+:javascript
+  $(document).ready(function(){
+    $(window).load(function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'new_marker'}}, function(){
+        var lat = parseFloat($('.lat').text())
+        var long = parseFloat($('.long').text())
+
+        markers = handler.addMarkers([
+          {
+            lat: lat,
+            lng: long,
+            picture: {
+              url: "http://maps.google.com/mapfiles/ms/micons/red.png",
+              width:  30,
+              height: 30
+            },
+            infowindow: $(".full_address").text()
+          }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
+      });
+
+      $(".map").append('<div class="check-box-wrapper step-5-map"><label class="check-box"><input type="checkbox" name="address" value="1">Address is right?<span class="checkmark"></span></label></div>');
+    });
+
+    $(".next-button").prop("disabled",true);
+  });
+
+  $(document).on("click","input[type=checkbox]",function(){
+    if($("input[type=checkbox]").is(':checked')){
+      $(".next-button").prop("disabled",false);
+    }
+    else{
+      $(".next-button").prop("disabled",true);
+    }
+  });

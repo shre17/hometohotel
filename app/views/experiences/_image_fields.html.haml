@@ -1,0 +1,11 @@
+.col-sm-4.preview-image.nested-fields
+  .img-preview{ style: "background-image: url( #{f.object.avatar_image('medium')} )" }
+  .field.d-none
+    = f.file_field :avatar, onchange: "showimagepreview(this)", class: "image_field"
+
+  .field.caption-box{ class: "#{ f.object.avatar.present? ? '' : 'd-none' }" }
+    = f.text_field :description, placeholder: "Add caption.."
+  
+  .remove-image-icon{ class: "#{ f.object.avatar.present? ? '' : 'd-none' }" }
+    %i.icon_close.remove_img{id: f.object.id}
+    = link_to_remove_association "remove", f

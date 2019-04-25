@@ -1,0 +1,127 @@
+%main.exp_booking
+  %section.hero_in.become_host_form.start_bg_zoom
+    .wrapper
+  / /hero_in
+  .bg_color_1
+    .container.margin_60_35
+      .row
+        .col-lg-7
+          %p
+            - if flash[:notice].present?
+              = t('booking_invoice.notice', notice: flash[:notice])
+          %section#description
+            %h2 
+              = t('booking_invoice.heading')
+            .reviews-container.about-trip-box
+              .review-box.clearfix
+                .rev-content
+                  .rev-text
+                    = @booking.bookable.kick_off_experience.truncate(260)
+                %figure.rev-thumb
+                  = image_tag (@booking.bookable.host.user.profile.image.url || "/assets/avatar1.jpg")
+
+            - if @booking.reservation.present?
+              = link_to "Download", download_invoice_bookings_path(format: :pdf, id: @booking), class: "btn red-button bold-button", target: :_blank
+            - else
+              = link_to t('booking_invoice.button_1'), pay_via_braintree_booking_path(@booking), method: :get, class: "btn red-button bold-button"
+
+        %aside.col-lg-5
+          .confirm-booking_detail.trip-details-list
+            .row
+              .col-sm-8
+                %h2
+                  = t('home.top_rated_experiences.experience_title', title: @experience.title )
+                .score
+                  .cat_star
+                    - (1..5).each do |i|
+                      - if i <= @experience.rating.to_i
+                        %i.icon_star
+                      - else
+                        %i.icon_star.blank
+
+                %span 
+                  = "#{@experience.reviews.count} #{t('booking_invoice.reciept.span').pluralize(@experience.reviews.count)}"
+
+              .col-sm-4
+                %img.img-fluid{:src => "#{@experience.images.try(:first).try(:avatar).try(:url) }"}/
+            %hr/
+            .booking-date-detail
+              %ul
+                %li
+                  %i.icon-users
+                  = @booking.total_guest.to_s + " #{t('home.search_form.guest')}"
+                %li
+                  %i.icon-calendar-empty
+                  %span
+                    = @booking.exp_date.to_time.strftime("%a, %d %b %Y")
+              .booking-price-details
+                %table{:width => "100%"}
+                  %tr
+                    %td
+                      = @booking.price_with_symbol + " X " + pluralize(@booking.total_guest, 'guest')
+                    %td
+                      = @booking.total_with_symbol
+
+                  %tr.total-price
+                    %td #{t('booking_invoice.reciept.total', currency: @booking.currency_symbol)}
+                    %td
+                      %strong
+                        = @booking.final_price_with_symbol
+
+              %hr/
+              .row
+                .col-sm-8
+                  %h2
+                    = t('booking_invoice.reciept.heading')
+                  / %p
+                  /   = t('booking_invoice.reciept.paragrapg_2')
+                  /   %a{:href => "#"} #{t('booking_invoice.reciept.link')}
+                .col-sm-4
+                  %img.img-fluid{:src => "/assets/logo_sticky.png"}/
+        #trip-details.nav-toggle.dropdown
+          %a 
+      / /row
+    / /container
+  / /bg_color_1
+:javascript
+  $(document).ready(function(){
+    $(".increment").on("click", function(e){
+      e.preventDefault();
+      // Stop acting like a button
+      // Get the field name
+      fieldName = $(this).parents('.incre').find('.input-number').attr('field');
+      // Get its current value
+      var currentVal = parseInt($('input[name='+fieldName+']').val());
+      // If is not undefined
+      if (!isNaN(currentVal)) {
+          // Increment
+          var incremented = currentVal + 1;
+          $('input[name='+fieldName+']').val(incremented);
+          // $(".total_guest_div").text(incremented)
+          // var price = $(".total_amt").text().match(/-?\d+\.?\d*/)[0]
+          // $(".total_amt").text(incremented * price)
+      } else {
+          // Otherwise put a 0 there
+          $('input[name='+fieldName+']').val(0);
+      }
+
+    });
+
+    $('.input-number-decrement').click(function(e) {
+      // Stop acting like a button
+      e.preventDefault();
+      // Get the field name
+      fieldName = $(this).parents('.incre').find('.input-number').attr('field');
+      // Get its current value
+      var currentVal = parseInt($('input[name='+fieldName+']').val());
+      // If it isn't undefined or its greater than 0
+      if (!isNaN(currentVal) && currentVal > 0) {
+          // Decrement one
+          $('input[name='+fieldName+']').val(currentVal - 1);
+          $(".total_guest_div").text(currentVal - 1)
+      } else {
+          // Otherwise put a 0 there
+          $('input[name='+fieldName+']').val(0);
+      }
+    })
+  });

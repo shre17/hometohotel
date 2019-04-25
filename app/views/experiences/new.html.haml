@@ -1,0 +1,204 @@
+%main
+  %section.hero_in.become_host_form.start_bg_zoom
+    .wrapper
+  %section
+    = form_with(model: @experience, local: true) do |form|
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2
+                %span
+                  = t('experiences.new_page.page_1.hi_there')
+                  = succeed "!" do
+                    %span
+                      = t('experiences.new_page.page_1.user_name', name: current_user.profile.name)
+              %p 
+                = t('experiences.new_page.page_1.paragraph_1')
+              %p 
+                = t('experiences.new_page.page_1.paragraph_2')
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img1.jpg"}/
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2 
+                = t('experiences.new_page.page_2.heading')
+              - [1].each do |i|
+                .inner-content-bx
+                  .inner-content-bx-left
+                    .number-count 1
+                  .inner-content-bx-right
+                    %h5 
+                      = t('experiences.new_page.page_2.sub_heading.title')
+                    %p 
+                      = t('experiences.new_page.page_2.sub_heading.paragraph')
+
+    
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img2.jpg"}/
+      / .tab
+      /   .row
+      /     .col-sm-7.wow.fadeIn
+      /       .inner-content
+      /         %h2 Have you hosted an experience on Homes2Hotels or somewhere else before?
+      /         %div
+      /           .radio-box.radio-option
+      /             %label.radio-check{ for: 'experience_hosted_an_experience_1' }
+      /               Yes, I’ve done this before
+      /               =# form.radio_button :hosted_an_experience, 1
+      /               %p.p_active Thank you for your interest in hosting on Homes2Hotels! We’re happy you’re here. Hosting on Homes2Hotels is different than hosting activities on other platforms or on your own.
+      /               %span.checkmark
+      /             %label.radio-check{ for: 'experience_hosted_an_experience_0' }
+      /               No, not yet!
+      /               =# form.radio_button :hosted_an_experience, 0
+      /               %p No problem! Anyone with a lot of passion and a great idea can become a host. We’ll show you tips and examples along the way to help you build a great experience and be successful.
+      /               %span.checkmark
+      /         %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} Next
+      /       %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+      /         %i.fa.fa-angle-left>
+      /         Back
+      /     .col-sm-5
+      /       .step-rt-img
+      /         %img{:src => "/assets/img3.jpg"}/
+      
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2
+                %span 
+                  = t('experiences.new_page.page_3.heading')
+              %ul.form-list
+                = render partial: "new_page_list_items"
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img6.jpg"}/
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2
+                %span 
+                  = t('experiences.new_page.page_4.heading')
+              %p 
+                = t('experiences.new_page.page_4.paragraph')
+              %ul.form-list
+                = render partial: "new_page_list_items"
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img6.jpg"}/
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2
+                %span 
+                  = t('experiences.new_page.page_5.heading')
+              .form-group
+                = form.text_area :kick_off_experience, class: 'text-box', id: 'text'
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img6.jpg"}/
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2
+                %span 
+                  = t('experiences.new_page.page_6.heading')
+              .form-group
+                = form.text_area :hospitality_mean_to_you, class: 'text-box'
+              %button#nextBtn{:onclick => "nextPrev(1)", :type => "button"} 
+                = t('common.next_button')
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img6.jpg"}/
+      .tab
+        .row.no-margin
+          .col-sm-7.wow.fadeIn
+            .inner-content
+              %h2 
+                = t('experiences.new_page.page_7.heading')
+              .inner-content-bx
+                .inner-content-bx-left
+                  .number-count 1
+                .inner-content-bx-right
+                  %h5 
+                    = t('experiences.new_page.page_7.sub_heading_1.title')
+                  %p 
+                    = t('experiences.new_page.page_7.sub_heading_1.paragraph')
+              .inner-content-bx
+                .inner-content-bx-left
+                  .number-count 2
+                .inner-content-bx-right
+                  %h5 
+                    = t('experiences.new_page.page_7.sub_heading_2.title')
+                  %p 
+                    = t('experiences.new_page.page_7.sub_heading_2.paragraph')
+              .inner-content-bx
+                .inner-content-bx-left
+                  .number-count 3
+                .inner-content-bx-right
+                  %h5 
+                    = t('experiences.new_page.page_7.sub_heading_3.title')
+                  %p 
+                    = t('experiences.new_page.page_7.sub_heading_3.paragraph')
+              = form.submit t('experiences.new_page.page_7.create_your_experiences_button'), id: 'nextBtn'
+            %button#prevBtn{:onclick => "nextPrev(-1)", :type => "button"}
+              %i.fa.fa-angle-left>
+              = t('common.back_button')
+          .col-sm-5
+            .step-rt-img
+              %img{:src => "/assets/img2.jpg"}/
+      %div{:style => "text-align:center;margin-top:40px; display: none;"}
+        %span.step
+        %span.step
+        %span.step
+        %span.step
+        %span.step
+        %span.step
+        %span.step
+        %span.step
+
+= render partial: 'script'
+
+:javascript
+  $(".radio-option").on('click', 'label', function() { 
+     $(".radio-option label p.p_active").removeClass("p_active"); //Remove any "active" class 
+     $('p', this).addClass("p_active"); //Add "active" class to selected tab 
+  
+     return false; 
+  });
+

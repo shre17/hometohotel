@@ -1,0 +1,18 @@
+#language{"aria-labelledby" => "language-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_2.heading')
+        %p 
+          = t('experiences.edit_page.step_2.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 3 }
+        .form-group
+          %label.big-label 
+            = t('experiences.edit_page.step_2.label')
+          = f.select :preferred_language, options_for_select(Experience::LANGUAGES.invert.to_a, f.object.preferred_language), { prompt: t('experiences.edit_page.step_2.prompt') }, :required => true, class: 'form-control'
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-2.jpg"}/

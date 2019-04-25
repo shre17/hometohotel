@@ -1,0 +1,141 @@
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5WrXE2PKioWg1yO62dkpOk5sDhzCVxc&libraries=places&callback=initAutocomplete"}
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        %div
+          .row.no-gutters
+            .col-md-12
+              .favourite-list-left
+                .mb-4
+                  %h1.main-title.home-title 
+                    = t('favourites.heading', first_name: current_user.profile.first_name)
+                %ul#favouriteTab.nav.nav-tabs.review-tabs{:role => "tablist"}
+                  %li.nav-item
+                    %a#experiences-tab.nav-link.active.show{"aria-controls" => "experiences", "aria-selected" => "false", "data-toggle" => "tab", :href => "#experiences", :role => "tab", data: { id: 'experience' }} 
+                      = t('favourites.sub_heading_1')
+                  %li.nav-item
+                    %a#places-tab.nav-link{"aria-controls" => "places", "aria-selected" => "false", "data-toggle" => "tab", :href => "#places", :role => "tab", data: { id: 'place' }}
+                      = t('favourites.sub_heading_2')
+                - @data = {}
+                #favourit-types.tab-content
+                  #experiences.tab-pane.fade.active.show{"aria-labelledby" => "experiences-tab", :role => "tabpanel"}
+                    .row
+                      - if @fav_experiences.present?
+                        - get_lat_and_long(@fav_experiences, "Experience")
+                        - @fav_experiences.each_with_index do |experience, index|
+                          = render partial: "common/favourite", locals: { data: experience, index: index, type: "Experience" }
+
+
+                  #places.tab-pane.fade{"aria-labelledby" => "places-tab", :role => "tabpanel"}
+                    .row
+                      - if @fav_places.present?
+                        - get_lat_and_long(@fav_places, "Place")
+                        - @fav_places.each_with_index do |place, index|
+                          = render partial: "common/favourite", locals: { data: place, index: index, type: "Place" }
+                      
+                  = render partial: "no_favourite"     
+
+            %div.d-none.data{value: "#{@data.to_json}"}
+
+            - if (@fav_places.present? || @fav_experiences.present?)
+              .col-md-6
+                .favourite_map
+                  %div{:style => "width: 100%;"}
+                    #fav_map{:style => "width: 100%; height: 100%;"}
+
+#toTop
+
+:javascript
+  $(document).on('click', '#favouriteTab .nav-link',function(){
+    var id = $(this).data('id');
+    if (id == 'place') {
+      $('.no_fav_experience').addClass('d-none');
+      $('.no_fav_place').removeClass('d-none');
+    } else {
+      $('.no_fav_place').addClass('d-none');
+      $('.no_fav_experience').removeClass('d-none');
+    }
+
+  });
+
+  $(document).ready(function(){
+    $(".wish_bt").click(function(){
+      id = this.id;
+      div_id = "div_" + this.id
+      heading_id = "h6_" + this.id
+      div = document.getElementById(div_id);
+      h6 = document.getElementById(heading_id); 
+      element = document.getElementById(id);
+      type = $(element).attr("type");
+      $.ajax({
+        url: "#{create_favourite_profiles_path}",
+        data: {type: type, id: id},
+        type: "post",
+        success: function(response){
+          val = $(".data").attr("value");
+          val = JSON.parse(val);
+          div.remove();
+          h6.remove();
+          if((response.fav_count == 0) && (response.type == "Place")){
+            $(".no_fav_place").attr("style","display:block");
+            map_marker(val['Place']);
+          }
+          if((response.fav_count == 0) && (response.type == "Experience")){
+            $(".no_fav_experience").attr("style","display:block");
+            map_marker(val['Experience']);
+          }
+        },
+        failure: function(response){},
+      });
+    });
+  });
+
+  $(document).ready(function(){
+    val = $(".data").attr("value");
+    val = JSON.parse(val);
+    map_marker(val['Experience']);
+    $("#experiences-tab").click(function(){
+      map_marker(val['Experience']);
+    });
+    $("#places-tab").click(function(){
+      map_marker(val['Place']);
+    });   
+  });
+
+  function map_marker(val)
+  {
+    $(function() {
+      var markers = [];
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'fav_map'}}, function(){
+        if (val != undefined){
+          for(var i = 0; i< val.length; i++)
+          {
+            var lat = parseFloat(val[i]['latitude']) 
+            var long = parseFloat(val[i]['longitude'])
+            markers[i] = handler.addMarkers([
+              {
+                lat: lat,
+                lng: long,
+                picture: {
+                  url: "http://maps.google.com/mapfiles/ms/micons/red.png",
+                  width:  36,
+                  height: 36
+                },
+                
+              }
+            ]);
+            handler.bounds.extendWith(markers[i]);
+          }
+        }
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(2);
+      });
+    });
+  }
+
+
+  

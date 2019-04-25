@@ -1,0 +1,208 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+  / /hero_in
+  .bg_color_1
+    %section.edit-profile
+      .container.margin_30_30
+        .row
+          = render partial: "common_links", locals: {profile: @profile}
+          .col-md-9
+            = form_for @profile, url: upload_ids_profile_path(@profile), method: :patch do |f|
+              .card.info-card
+                %h5.card-header.panel-dark
+                  = (t 'profile.trust_and_verification.be_ready_to_book.heading')
+                .card-body
+                  .row
+                    .col-md-6
+                      %p.id-para
+                        = (t 'profile.trust_and_verification.be_ready_to_book.paragraph')
+                    .col-md-6.text-center
+                      %div.upload-id-image
+                        - gov_id = @profile.govt_id_soft_copy.present? ? @profile.govt_id_soft_copy.url : "/assets/gov-id.jpeg"
+                        %img#img_prev{:alt => "your image", :src => "#{ gov_id }"}/
+                      %div.upload-btn
+                        .btn.btn-secondary.upload-id{ onclick: "upload_gov_id()" }
+                          = (t 'profile.trust_and_verification.be_ready_to_book.provide_id_button')
+                        / OR
+                        / .btn.btn-secondary.upload-id{:onclick => "take_snapshot_for_gov_id()", :type => "button"}
+                        /   =# (t 'profile.trust_and_verification.be_ready_to_book.take_snapshot')
+                        = f.file_field :govt_id_soft_copy, id: "profile_govt_id_soft_copy", onchange: "readURL(this);"
+                        / =# f.hidden_field :govt_id_soft_copy, id: "profile_govt_id_soft_copy"
+
+                .card-body
+                  .row
+                    .col-md-4.text-center.pt-4
+                      %p 
+                        = (t 'profile.trust_and_verification.be_ready_to_book.paragraph_2')
+                      %input{ onclick: "take_snapshot()", :type => "button", :class => "btn btn-secondary" , value: "Take Snapshot"}/
+                    .field
+                      = f.hidden_field :user_current_image
+                    .col-md-4.text-center
+                      %div.snapshot-img.mb-3
+                        #my_camera
+                    .col-md-4.text-center
+                      %div.snapshot-img
+                        #results
+                          = image_tag @profile.user_current_image.url if @profile.user_current_image.present?
+
+                  .row.mt-5
+                    .col-md-12.text-right
+                      = f.submit "Submit", class: "btn btn-danger btn-lg"
+
+              .card.info-card
+                %h5.card-header.panel-dark
+                  = (t 'profile.trust_and_verification.your_verified_info.heading')
+                .card-body
+                  %h6
+                    = (t 'common.email_address')
+                  %p
+                    = (t 'profile.trust_and_verification.your_verified_info.paragraph', email: current_user.email)
+              .card.info-card
+                %h5.card-header.panel-dark
+                  = (t 'profile.trust_and_verification.your_social_accounts.heading')
+                .card-body
+                  / %h6
+                  /   = (t 'common.phone_number')
+                  / %p
+                  /   = (t 'profile.trust_and_verification.your_social_accounts.paragraph_1')
+                  / %p
+                  /   = (t 'profile.trust_and_verification.your_social_accounts.paragraph_2')
+                  / .form-group.row
+                  /   .col-sm-10
+                  /     %input#staticEmail.form-control-plaintext{:readonly => "readonly", :type => "text", :value => t('common.no_phone_number_enter')}/
+                  /     %a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#addPhone", :role => "button"}
+                  /       %i.fa.fa-plus
+                  /       = (t 'common.add_a_phone_number_link', type: 'Add a')
+                  /     #addPhone.collapse
+                  /       .addphone-container
+                  /         = form_for @profile, url: generate_otp_for_phone_number_verification_profiles_path do |f|
+                  /           .form-group
+                  /             %label{:for => "chosecountry"} Choose a country:
+                  /             = select_tag :country, options_for_select(Profile::COUNTRIES), class: 'form-control',:onchange => "document.getElementById('country-code').innerHTML = this.options[selectedIndex].value;"
+                  /           .form-group
+                  /             %label{:for => ""}
+                  /               = (t 'common.phone_number_verification_fields.add_a_phone_number')
+                  /             .input-group.mb-3
+                  /               .input-group-prepend
+                  /                 %span.input-group-text{:id => "country-code"} +93
+                  /               = f.text_field :contact_no, class: "form-control"
+                  /           = f.submit (t 'common.phone_number_verification_fields.verify_via_sms'), class: "btn btn-danger"
+                  /           %button.btn.btn-danger{:type => "submit"}
+                  /             = (t 'common.phone_number_verification_fields.verify_via_call')
+                  /           %a.text-right.d-block{:href => "#"}
+                  /             = (t 'common.phone_number_verification_fields.why_verify_link')
+                  /     %p{:style => "margin-top: 15px;"}
+                  /       = (t 'common.phone_number_verification_fields.paragraph')
+                  %h6
+                    = (t 'common.facebook')
+                  .row
+                    .col-md-6
+                      %p
+                        = (t 'profile.trust_and_verification.your_social_accounts.facebook_paragraph')
+                    .col-md-6.text-center
+                      - if current_user.facebook_uid.present?
+                        = form_tag disconnect_from_social_account_profiles_path do
+                          = hidden_field_tag :facebook_uid, current_user.facebook_uid
+                          = hidden_field_tag :name, "facebook"
+                          = button_tag (t 'profile.trust_and_verification.your_social_accounts.disconnect'), class: "btn btn-block btn-facebook" do
+                            Connect to Facebook
+                            %i.fa.fa-facebook
+                      - else
+                        = form_tag connect_to_social_account_profiles_path do
+                          = hidden_field_tag :name, "facebook"
+                          = button_tag (t 'profile.trust_and_verification.your_social_accounts.connect'), class: "btn btn-block btn-facebook" do
+                            Connect to Facebook
+                            %i.fa.fa-facebook
+                  %h6
+                    = (t 'profile.trust_and_verification.your_social_accounts.google')
+                  .row
+                    .col-md-6
+                      %p
+                        = (t 'profile.trust_and_verification.your_social_accounts.google_paragraph')
+                    .col-md-6.text-center
+                      - if current_user.google_oauth2_uid.present?
+                        = form_tag disconnect_from_social_account_profiles_path do
+                          = hidden_field_tag :google_oauth2_uid, current_user.google_oauth2_uid
+                          = hidden_field_tag :name, "google_oauth2"
+                          = button_tag '', class: "social_bt google btn btn-outline-dark btn-block" do
+                            = "#{(t('profile.trust_and_verification.your_social_accounts.disconnect')).capitalize} to Google"
+                            %i.fa.fa-google-plus
+                      - else
+                        = form_tag connect_to_social_account_profiles_path do
+                          = hidden_field_tag :name, "google_oauth2"
+                          = button_tag (t 'profile.trust_and_verification.your_social_accounts.connect'), class: "social_bt google btn btn-outline-dark btn-block" do
+                            = "#{(t 'profile.trust_and_verification.your_social_accounts.connect').capitalize} to Google"
+                            %i.fa.fa-google-plus
+#toTop
+- unless @is_profile_submit
+  :javascript
+    $(document).ready(function(){
+      alertify.set('notifier','position', 'top-right');
+      alertify.set('notifier','delay', 80);
+      alertify.warning('Please submit your id before booking.');
+    });
+
+:javascript
+  function take_snapshot(){
+    Webcam.snap(function(data_uri) {
+        id = $('[id*="_image"]');
+
+        if (id.length) {
+            id.val(data_uri);
+        }
+
+        document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+    });
+  }
+  
+  function take_snapshot_for_gov_id() {
+    Webcam.snap(function(data_uri) {
+        id = $('[id*="_soft_copy"]');
+        if (id.length) {
+          id.attr('type','text')
+          id.val(data_uri);
+        }
+        $('#img_prev').attr('src', data_uri)
+    });
+  }
+
+  function upload_gov_id() {
+    id = $('[id*="_soft_copy"]');
+    if (id.length) {
+      id.attr('type','file')
+    }
+    $('#profile_govt_id_soft_copy').click()
+  }
+
+  // $(document).on('change', '#profile_govt_id_soft_copy', function() {
+  // });
+
+  $(document).ready(function() {
+      if ($("#my_camera").length) {
+          Webcam.set({
+              width: 320,
+              height: 240,
+              position: 'relative',
+              image_format: 'jpeg',
+              jpeg_quality: 90
+          });
+
+          Webcam.attach('#my_camera');
+      }
+  });
+
+  function readURL(input) {
+    if (input.type == 'file') {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#img_prev')
+            .attr('src', e.target.result)
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  }

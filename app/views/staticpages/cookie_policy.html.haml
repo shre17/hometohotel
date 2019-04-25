@@ -1,0 +1,17 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: 'common_link'
+            .col-md-9
+              .terms-content-wrapper
+                %h1 
+                  = t('static_pages.terms.cookie_policy')
+                %p 
+                  = t('common.static_page_common_content.terms_paragraph')
+
+= javascript_include_tag('setting_menu.js')

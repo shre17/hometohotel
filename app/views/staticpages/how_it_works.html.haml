@@ -1,0 +1,67 @@
+#page
+  %main
+    %section.hero_in.become_host_form.start_bg_zoom
+      .wrapper
+    / /hero_in
+    %section.margin_30_30.top-rated.how-it-works
+      .main_title_2
+        %h2 
+          = t('static_pages.how_it_works.heading')
+        %p
+        %span
+          %em
+      .container
+        .row
+          .col-lg-4.col-md-4.col-sm-4
+            .featured-box
+              %img{:src => "/assets/discover-place.png", :width => "100%"}/
+              %h1 
+                = t('static_pages.how_it_works.discover_amazing_places.title')
+              %p 
+                = t('static_pages.how_it_works.discover_amazing_places.paragraph')
+          .col-lg-4.col-md-4.col-sm-4
+            .featured-box
+              %img{:src => "/assets/book-to.png", :width => "100%"}/
+              %h1 
+                = t('static_pages.how_it_works.book_a_stay.title')
+              %p 
+                = t('static_pages.how_it_works.book_a_stay.paragraph')
+          .col-lg-4.col-md-4.col-sm-4
+            .featured-box
+              %img{:src => "/assets/travel-to.png", :width => "100%"}/
+              %h1 
+                = t('static_pages.how_it_works.travel.title')
+              %p 
+                = t('static_pages.how_it_works.travel.paragraph')
+    .container
+      .main_title_2
+        %h2 
+          = t('static_pages.traveling_help.select_a_topic.heading')
+        %p 
+          = t('common.traveling_help_paragraph_2')
+        %span
+          %em
+      .row
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => "article.html"}
+            %span
+              %i.pe-7s-wallet
+            %h3 
+              = t('common.static_page_common_content.payments')
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => "article.html"}
+            %i.ti-help
+            %h3
+              = t('common.static_page_common_content.popular_questions')
+            %p 
+              = t('common.traveling_help_paragraph_1')
+        .col-lg-4.col-md-6
+          %a.box_topic{:href => "article.html"}
+            %i.icon-cancel-4
+            %h3 
+              = t('common.static_page_common_content.canceling_a_reservation')
+            %p
+              = t('common.traveling_help_paragraph_1')
+      / /row

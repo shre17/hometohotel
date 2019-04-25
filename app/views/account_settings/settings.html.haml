@@ -1,0 +1,260 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: "account_settings_navigation"
+            .col-md-9
+              #chnage.row
+                .col-md-12
+                  .card.info-card
+                    %h5.card-header.panel-dark 
+                      = (t 'account_settings.settings.create_company_account.heading')
+                    .card-body
+                      %p 
+                        = (t 'account_settings.settings.create_company_account.paragraph_1')
+                      .details-box
+                        %button.btn.red-button.create-company-account 
+                          = (t 'account_settings.settings.create_company_account.create_company_account_button')
+                    .card-body.create-account-box
+                      %p 
+                        = (t 'account_settings.settings.create_company_account.paragraph_2')
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""}
+                          = (t 'account_settings.settings.create_company_account.form_fields.company_name') 
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                          %span 
+                            = (t 'account_settings.settings.create_company_account.form_fields.business_address')
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'common.street')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""}
+                          = (t 'account_settings.settings.create_company_account.form_fields.suite_bldg_etc_optional') 
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.city')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.state')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.zip_code')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.country')
+                        .col-sm-6
+                          %select.form-control{:id => "", :name => ""}
+                            %option{:selected => "selected", :value => ""} Country
+                            %option{:value => "AF"} Afghanistan
+                            %option{:value => "AX"} Åland Islands
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.phone_number')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      %hr/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.first_name')
+                        .col-sm-9
+                          %span
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.last_name')
+                        .col-sm-9
+                          %span
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.email')
+                        .col-sm-9
+                          %span
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.phone_number')
+                        .col-sm-9
+                          %input.form-control{:id => "", :placeholder => "", :type => "text"}/
+                      %hr/
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} 
+                          = (t 'account_settings.common.country_of_incorporation')
+                        .col-sm-6
+                          %select.form-control{:id => "", :name => ""}
+                            %option{:selected => "selected", :value => ""} Country
+                            %option{:value => "AF"} Afghanistan
+                            %option{:value => "AX"} Åland Islands
+                      .form-group.row
+                        %label.col-sm-3.col-form-label{:for => ""} Registration number
+                        .col-sm-2
+                          %select.form-control{"aria-label" => "", :name => ""}
+                            %option{:value => ""} Month
+                            %option{:value => "1"} January
+                            %option{:value => "2"} February
+                            %option{:value => "3"} March
+                            %option{:value => "4"} April
+                            %option{:value => "5"} May
+                            %option{:value => "6"} June
+                            %option{:value => "7"} July
+                            %option{:value => "8"} August
+                            %option{:value => "9"} September
+                            %option{:value => "10"} October
+                            %option{:value => "11"} November
+                            %option{:value => "12"} December
+                        .col-sm-2
+                          %select.form-control{"aria-label" => "", :name => ""}
+                            %option{:value => ""} Day
+                            %option{:value => "1"} 1
+                            %option{:value => "2"} 2
+                        .col-sm-2
+                          %select.form-control{"aria-label" => "", :name => ""}
+                            %option{:value => ""} Year
+                            %option{:value => "2018"} 2018
+                            %option{:value => "2017"} 2017
+                            %option{:value => "2016"} 2016
+                      .form-group.row.justify-content-end
+                        .col-md-4
+                          %button.btn.btn-primary.red-button{:id => ""} 
+                            = (t 'common.submit_button')
+                          %button.btn.btn-primary.red-button.cancel-company-account{:id => ""} 
+                            = (t 'common.cancel_button')
+                        .col-md-5
+                          %p{:style => "margin-bottom: 0;"} No longer hosting as part of a company?
+                          %a{:href => "#"} Remove company account
+              #deactivate.row
+                .col-md-12
+                  .card.info-card
+                    %h5.card-header.panel-dark 
+                      = (t 'account_settings.settings.create_company_account.heading')
+                    .card-body
+                      %p 
+                        = (t 'account_settings.settings.create_company_account.paragraph_1')
+                      .details-box
+                        %button.btn.red-button.deactivate-account 
+                          = (t 'account_settings.settings.deactivate_account.deactivate_button')
+                    .card-body.account-deactivate-box
+                      .row
+                        .col-md-6
+                          = form_for @user, url: deactivate_account_account_settings_path do |f|
+                            .form-group
+                              .radio-box.deactivate-option-list
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.i_have_safety_concerns')
+                                  = f.radio_button :selected_deactivation_reason, "I have safety concerns."
+                                  %span.checkmark
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.i_have_privacy_concerns')
+                                  = f.radio_button :selected_deactivation_reason, "I have privacy concerns."
+                                  %span.checkmark
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.i_dont_find_it_useful')
+                                  = f.radio_button :selected_deactivation_reason, "I don't find it useful."
+                                  %span.checkmark
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.i_dont_understand_how_to_use_it')
+                                  = f.radio_button :selected_deactivation_reason, "I don’t understand how to use it."
+                                  %span.checkmark
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.its_temporary_i’ll_be_back')
+                                  = f.radio_button :selected_deactivation_reason, "It’s temporary; I’ll be back."
+                                  %span.checkmark
+                                %label.radio-check
+                                  = (t 'account_settings.settings.deactivate_account.radio_buttons.others')
+                                  = f.radio_button :selected_deactivation_reason, "Other"
+                                  %span.checkmark
+                            .form-group
+                              %label Care to tell us more?
+                              = f.text_area :detailed_reason_for_deactivation, class: "form-control"
+                            .form-group
+                              %label 
+                                = (t 'account_settings.settings.deactivate_account.text_area')
+                              .radio-box.deactivate-option-list
+                                %label.radio-check
+                                  Yes
+                                  %input{:checked => "checked", :name => "radio1", :type => "radio"}/
+                                  %span.checkmark
+                                %label.radio-check
+                                  No
+                                  %input{:name => "radio1", :type => "radio"}/
+                                  %span.checkmark
+                            %h5.card-title 
+                              = (t 'account_settings.settings.deactivate_account.static_content.heading_1')
+                            .form-group
+                              %ul.card-list
+                                %li 
+                                  = (t 'account_settings.settings.deactivate_account.static_content.list_item_1')
+                                %li 
+                                  = (t 'account_settings.settings.deactivate_account.static_content.list_item_2')
+                                %li 
+                                  = (t 'account_settings.settings.deactivate_account.static_content.list_item_3')
+                            = f.submit "Deactivate My Account", class: "btn red-button"
+                          %button.btn.btn-primary.red-button.cancel-deactivation{:id => "cancel-deactivation-process"} 
+                            = (t 'account_settings.settings.deactivate_account.cancel_deactivation')
+                      
+
+                        .col-md-6
+                          %h5.card-title 
+                            = (t 'account_settings.settings.deactivate_account.static_content.heading_2')
+                          .form-group
+                            %a{:href => "privacy.html"}
+                              %b 
+                                = (t 'account_settings.settings.deactivate_account.static_content.sub_heading_1')
+                            %p 
+                              = (t 'account_settings.settings.deactivate_account.static_content.paragraph_1')
+                            %a{:href => "notification.html"}
+                              %b 
+                                = (t 'account_settings.settings.deactivate_account.static_content.sub_heading_2')
+                            %p 
+                              = (t 'account_settings.settings.deactivate_account.static_content.paragraph_2')
+                            %a{:href => "my_listings.html"}
+                              %b 
+                                = (t 'account_settings.settings.deactivate_account.static_content.sub_heading_3')
+                            %p 
+                              = (t 'account_settings.settings.deactivate_account.static_content.paragraph_3')
+  / /main
+/ page
+/ Button trigger modal
+#toTop
+/ Back to top button
+/ COMMON SCRIPTS
+= javascript_include_tag('setting_menu.js')
+:javascript
+  $(document).ready(function(){
+    $(".create-account-box").hide();
+    $(".create-company-account").click(function(){
+      $(".create-company-account").hide();
+      $(".create-account-box").show();
+    });
+    $(".cancel-company-account").click(function(){
+      $(".create-company-account").show();
+      $(".create-account-box").hide();
+    });
+    $(".account-deactivate-box").hide();
+    $(".deactivate-account").click(function(){
+      $(".deactivate-account").hide();
+      $(".account-deactivate-box").show(); 
+    });
+    $(".cancel-deactivation").click(function(){
+      $(".account-deactivate-box").hide();
+      $(".deactivate-account").show();
+    });
+     
+  });
+  
+  

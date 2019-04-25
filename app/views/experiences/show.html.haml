@@ -1,0 +1,296 @@
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5WrXE2PKioWg1yO62dkpOk5sDhzCVxc&libraries=places&callback=initAutocomplete"}
+.theia-exception
+  %main
+    %section.hero_in.experience_detail
+      .image-wrapper{style: "background-image:url(#{@experience.images.first.try(:avatar).try(:url)});"}
+      .wrapper
+        .container
+          %h1.fadeInUp
+            %span>
+            = t('home.top_rated_experiences.experience_title', title: @experience.title)
+        %span.magnific-gallery
+          - if @experience.images.present?
+            - @experience.images.each do |image|
+              %a.btn_photos.banner_btn_photos{"data-effect" => "mfp-zoom-in", :href => image.avatar.url, :title => "Photo title"} #{t('places.show_page.view_photos')}
+        - if user_signed_in? && current_user.id.eql?(@experience.host.user.id)
+          %span
+            %a.save-experience{:href => "/"}
+              Save Experience
+          %span
+            %a.edit-experience{:href => "/experiences/#{@experience.id}/edit?step=0"}
+              Edit Experience
+    / /hero_in
+    .bg_color_1
+      %nav.secondary_nav.sticky_horizontal
+        .container
+          %ul.clearfix
+            %li
+              %a.active{:href => "#description"} #{t('places.show_page.section_1.title')}
+
+            %li
+              %a{:href => "#reviews"} #{t('places.show_page.section_2.title')}
+
+      .container.margin_60_35
+        .row
+          .col-lg-8
+            .user-bx
+              = link_to profile_path(@experience.host.user.profile) do
+                %span.pro-img
+                  %img.user-pic{:alt => "User Image", :src => (user_signed_in? && @experience.host.user.profile.image.present?) ? @experience.host.user.profile.image.url : "/assets/user_pic.png" }
+                .extra-wrap
+                  %h4
+                    = t('places.show_page.place_name', title: @experience.title.try(:capitalize))
+                  %span.usernames Hosted by: 
+                  =  @experience.host.user.try(:name)
+
+            %section#description
+
+              %hr/
+              = t('experiences.show_page.full_address', full_addr: @experience.location.full_address)
+              %hr/
+              = @experience.latest_time_for_booking.to_s + " hours total"
+              %hr/
+              = @experience.provide_items.pluck(:category).to_sentence
+              %hr/
+              = "Offered in " + Experience::LANGUAGES[@experience.preferred_language].to_s
+              %hr/
+
+              %h2 #{t('experiences.show_page.ques_1')}
+              %p
+                = t('experiences.show_page.ans_1', what_makes_you_qualified: @experience.what_makes_you_qualified)
+              %hr/
+              %h2 #{t('experiences.show_page.ques_2')} 
+              %p
+                = t('experiences.show_page.ans_2', what_you_will_do: @experience.what_you_will_do)
+              %hr/
+              %h2 #{t('experiences.show_page.ques_3')}
+              = t('experiences.show_page.ans_3', min_age: @experience.min_age)
+              
+              %hr/
+              %h2 #{t('experiences.show_page.ques_4')}
+              = t('experiences.show_page.ans_4', where_you_will_be: @experience.where_you_will_be)
+              %hr/
+              %h2 #{t('experiences.show_page.ques_5')}
+              = t('experiences.show_page.ans_5', max_group_size: @experience.max_group_size)
+              %hr/
+              %h2 #{t('experiences.show_page.ques_6')}
+              = t('experiences.show_page.ans_6')
+              %hr/
+              %h2 #{t('experiences.show_page.ques_7')}
+              = t('experiences.show_page.ans_7')
+              %hr/
+              %h3 #{t('experiences.show_page.heading_1')}
+              .instagram_gallery
+                .row
+                  - if @experience.images.present?
+                    - @experience.images.each do |image|
+                      .col-md-2
+                        %a{:href => "#"}
+                          %img.img-fluid.insta-img{:alt => "", :src => "#{image.avatar.url}"}/
+              %hr/
+              %h2 #{t('experiences.show_page.heading_2')}
+              %p
+                = @experience.location.direction
+              %hr/
+              %div.lat.d-none
+                = @experience.location.latitude
+              %div.long.d-none
+                = @experience.location.longitude
+              %h3 #{t('experiences.show_page.heading_3')}
+              .map.map_single.add_bottom_30
+                %div
+                  #one_marker{:style => "width: 100%; height: 400px;"}
+            %hr/
+
+            = render partial: "reviews/reviews", locals: {data: @experience}
+
+      - if @similar_listing.present?
+        .container-fluid.margin_30_30.pl-lg-5.pr-lg-5.top-rated
+          %section
+            .main_title_3
+              %h2 #{t('experiences.show_page.heading_4')}
+              %span
+                %em
+            .blog-details-popular-post
+              .row.polular-post-slider-active#experiences
+                - @similar_listing.each do |experience|
+                  = render 'experiences/experience', experience: experience
+
+      - unless !current_user.nil? && current_user.id.eql?(@experience.host_id)
+        .booking_detail_wrapper
+          .container-fluid.pl-lg-5.pr-lg-5
+            .row
+              .col-md-9.col-sm-7
+                .booking-name
+                  %h3
+                    = @experience.title
+                  = render '/common/rating', rating: @experience.rating
+              .col-md-3.col-sm-5
+                %table{:width => "100%"}
+                  %tr
+                    %td
+                      %span.booking-price
+                      %span
+                        = "#{Money.new(@experience.price_per_guest,@experience.curreny).currency.symbol}"+"#{@experience.price_per_guest.to_s}" + " #{t('booking_modal.per_night')}"
+                    %td
+                      %a.btn.btn-block.red-button.booked-btn.see_dates
+                        = t('experiences.show_page.button')
+      .overlay-wrapper
+      .choose-date-wrapper.d-none
+        .container.pl-lg-5.pr-lg-5
+          .row
+            .col-md-12
+              %button.mfp-close{:title => "Close (Esc)", :type => "button"}
+                %i.icon_close
+            .col-sm-4
+              .choose-date-wrapper-box
+                %h3 #{t('experiences.show_page.see_dates_modal_popup.heading_1')}
+                %p
+                  = t('experiences.show_page.see_dates_modal_popup.paragraph', href: link_to('ask Aditya', experiences_path)).html_safe
+            .col-sm-4
+              .choose-date-wrapper-box
+                #calendar.date-calendar
+            .col-sm-4
+              = form_for(@experience.bookings.new) do |f|
+
+                = f.hidden_field :bookable_type
+                = hidden_field_tag :id , @experience.id
+                .availability-wrapper
+                  .choose-date-wrapper-box
+                    .available-date
+                      %h4 #{t('experiences.show_page.see_dates_modal_popup.heading_2')}
+                      .today_date
+                        = Date.today.strftime("%d %b %Y")
+                      .calender_date
+                      = f.hidden_field :exp_date, id: 'hidden_exp_date'
+                      %hr/
+                      .row
+                        .col-8
+                          %span
+                            %b
+                              = f.hidden_field :exp_start_time, value: @experience.hosting_start_time
+                              = f.hidden_field :exp_end_time, value:@experience.hosting_end_time
+                              -if @experience.hosting_start_time
+                                = Time.parse("#{@experience.hosting_start_time}:00").strftime("%l %P") + "-" + Time.parse("#{@experience.hosting_end_time}:00").strftime("%l %P")
+                          %span
+                            = "#{Money.new(@experience.price_per_guest, @experience.curreny).currency.symbol}" + "#{@experience.price_per_guest.to_s}" + " / #{t('home.top_rated_experiences.person')}"
+                            = f.hidden_field :price, value: @experience.price_per_guest
+                            = f.hidden_field :currency, value: @experience.curreny
+                          %br
+                          %span
+                            %h4
+                              = t('booking_invoice.reciept.how_many_coming')
+                            .add-field
+                              .input-group.input-number-group.incre
+                                .input-group-button
+                                  %span.input-number-decrement -
+                                = f.number_field :total_guest, value: 1, min: 1, max: @experience.max_group_size, class: 'input-number'
+                                .input-group-button
+                                  %span.input-number-increment.increment +
+
+                        .col-4
+                          - if current_user
+                            = f.submit t('experiences.show_page.see_dates_modal_popup.button'), class: "button booked-btn btn red-button btn-sm"
+                          - else
+                            %a.btn.btn-block.red-button.booked-btn{:title => "Book", 'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"} Choose
+
+
+= javascript_include_tag 'thumbslider-plugins'
+= javascript_include_tag 'thumbslider-active'
+
+:javascript
+  $(document).ready(function(){
+    $('.see_dates').click(function() {
+      $("#hidden_exp_date").val(new Date().toLocaleDateString());
+      $(".booking_detail_wrapper").hide();
+      $(".choose-date-wrapper").removeClass("d-none");
+      $(".overlay-wrapper").show();
+    });
+
+    $(".mfp-close").click(function(){
+      $(".booking_detail_wrapper").show();
+      $(".choose-date-wrapper").addClass("d-none");
+      $(".overlay-wrapper").hide();
+    });
+  });
+
+  $(document).ready(function(){
+    $('#calendar').fullCalendar({
+      eventConstraint: {
+        start: moment().format('YYYY-MM-DD'),
+        end: '2100-01-01',
+        dow: [ 3, 5 ]
+      },
+    });
+
+    $(window).load(function() {
+      $("#flexiselDemo3").flexisel({
+        visibleItems: 3,
+        itemsToScroll: 1,
+        autoPlay: {
+          enable: true,
+          interval: 5000,
+          pauseOnHover: true
+        }
+      });
+    });
+
+    // map js
+    $(window).load(function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'one_marker'}}, function(){
+        var lat = parseFloat($(".lat").text())
+        var long = parseFloat($(".long").text())
+        markers = handler.addMarkers([
+          {
+            lat: lat,
+            lng: long,
+            picture: {
+              url: "http://maps.google.com/mapfiles/ms/micons/red.png",
+              width:  36,
+              height: 36
+            },
+            infowindow: "ddd"
+          }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
+      });
+    });
+
+    // Book Button Js
+
+
+    fullcalender_js();
+    // Fullcalender Js
+    function fullcalender_js() {
+      $(".fc-day-top").click(function(){
+        $(".today_date").hide();
+        var current_date = this.dataset.date.split("-");
+        month = moment(current_date[1], 'MM').format('MMMM');
+        $(".calender_date").text(current_date[2] +'\xa0' +month+'\xa0'+current_date[0]);
+        $("#hidden_exp_date").val(this.dataset.date);
+      });
+
+      $('.fc-day-number').click(function() {
+        $('.fc-view-container').find('.fc-today').removeClass("fc-today");
+        $(this).parent().addClass('fc-today');
+      });
+    }
+
+    $('.fc-prev-button').click(function(){
+      fullcalender_js();
+    });
+
+    $('.fc-next-button').click(function(){
+      fullcalender_js();
+    });
+  });  
+:css
+  .fc-past {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: lightgrey;
+  }

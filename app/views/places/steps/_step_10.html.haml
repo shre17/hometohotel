@@ -1,0 +1,35 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_12.title')
+        %h4 
+          = t('places.step_12.title')
+        %h2 
+          = t('places.step_12.section_1.title')
+        .form-group.switcher-box
+          #rules
+            = form.fields_for :rules do |rule|
+              = render 'rule_fields', f: rule
+            .links
+              = link_to_add_association t('places.step_12.section_1.add_rules_button'), form, :rules, class: 'red-button btn'
+        .form-group
+          .row
+            .col
+              %label
+                = t('places.step_12.section_2.title')
+              - get_guest_details.each do |guest_detail|
+                .check-box-wrapper
+                  %label.check-box
+                    = check_box_tag "place[details_guest_must_knows][]", guest_detail.id, @place.guest_details.map(&:title).include?(guest_detail.title)
+                    = t('places.step_12.section_2.option', title: guest_detail.title )
+                    %span.checkmark
+                = form.hidden_field :step, value: 11
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35 
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_12.suggestion.paragraph_1')}
+          %p #{t('places.step_12.suggestion.paragraph_2')}

@@ -1,0 +1,5 @@
+<h2>Hello <%= @user.name %></h2>
+
+<p>You have received a new booking request for your <%= @booking.bookable.class.name %>, <%= @booking.bookable.try(:name) || @booking.bookable.try(:title) %>.</p>
+
+<p>To check more details about the booking <%= link_to 'click here', check_booking_booking_url(@booking) %></p>

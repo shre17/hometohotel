@@ -1,0 +1,3 @@
+$("#manage-offer .modal-dialog").removeClass('small');
+
+$("#manage-offer .modal-body").html("<%= escape_javascript(render partial: 'hosts/partials/manage_offer_for', locals: { offer_for: @offer_for, offer: @offer }) %>");

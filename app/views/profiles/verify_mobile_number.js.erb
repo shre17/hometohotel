@@ -1,0 +1,11 @@
+clear_class()
+<% if @otp_status %>
+  $("#verifyPhone .addphone-container").hide()
+  $("#verifyPhone .notice").addClass('success').html("<%= @notice %>");
+  
+  setTimeout( function(){ 
+    location.reload();  
+  }, 1500 );
+<% else %>
+  $("#verifyPhone .notice").addClass('error').html("<%= @notice %>");
+<% end %>

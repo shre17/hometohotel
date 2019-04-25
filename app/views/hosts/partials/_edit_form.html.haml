@@ -1,0 +1,14 @@
+= form_for(offer, url: offer_host_path, method: :put) do |f|
+  = f.text_field :title, placeholder: "Title", class: "form-control"
+  %br
+  = f.text_field :description, placeholder: "Description", class: "form-control"
+  %br
+  = f.text_field :discount, placeholder: "Discount in %", class: "form-control"
+  %br
+  = f.text_field :max_discount, placeholder: "Max Discount", class: "form-control"
+  %br
+  = f.text_field :weekly_discount, placeholder: "Max Weekly Discount", class: "form-control"
+  %br
+  = f.text_field :monthly_discount, placeholder: "Max Monthly Discount", class: "form-control"
+  %br
+  = f.submit "Update Offer", class: "form-control btn btn-primary"

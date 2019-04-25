@@ -1,0 +1,70 @@
+.host_panel {
+  .hero_in.experiences-wrap {
+    height: 164px;
+  }
+
+  .dataTables_wrapper {
+    padding: 70px 35px;
+  }
+
+  .btn.published {
+    background: #f44048;
+    border-color: red;
+  }
+  .btn.publish {
+    background: #1db9b6;
+    border-color: green;
+  }
+  .add_new_offer {
+    padding: 20px 55px 0 0;
+  }
+  .experience-steps .row {
+    background: #fff;
+  }
+  a.box_topic {
+    margin-bottom: 0px;
+  }
+  a.box_topic i {
+    font-size: 2.75rem;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+  }
+}
+
+#manage-offer .modal-dialog.small {
+  width: 40%;
+  .btn-or-links {
+    margin: 20px 0;
+
+    a {
+      margin: 0 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+
+#manage-offer .modal-dialog {
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.add-new-btn {
+  float: right;
+}
+
+.add-new-place-record-for-offer {
+  display: none;
+}
+
+.add-new-experience-record-for-offer {
+  display: none;
+}
+
+.manage_offer .btn-or-links a {
+  border: 1px solid;
+  border-radius: 45px;
+  padding: 12px 35px;
+}

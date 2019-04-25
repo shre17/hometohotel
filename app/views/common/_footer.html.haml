@@ -1,0 +1,83 @@
+%footer
+  .container-fluid.pl-lg-5.pr-lg-5.footer-first
+    .row
+      .col-lg-3.col-md-6.col-sm-6.col-6.p-r-5
+        %p
+          %img{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/logo_sticky.png", :width => ""}/
+        .follow_us
+          %ul
+            %li
+              = t('footer.follow_us')
+            %li
+              %a{:href => "#0"}
+                %i.ti-facebook.fb-clr
+            %li
+              %a{:href => "#0"}
+                %i.ti-twitter-alt.twitter-clr
+            %li
+              %a{:href => "#0"}
+                %i.ti-google.g-plus-clr
+            %li
+              %a{:href => "#0"}
+                / %i.ti-instagram.insta-clr
+                %span
+                  %img{:alt => "", "data-retina" => "true", :height => "", :src => "/assets/instagram.png", :width => ""}
+      .col-lg-3.col-md-6.col-sm-6.ml-lg-auto
+        %h5
+          = t('footer.home_to_hotels')
+        %ul.links
+          %li
+            = link_to t('footer.static_pages_link.link_1'), terms_staticpages_path
+          %li
+            = link_to t('footer.static_pages_link.link_2'), privacy_and_policy_staticpages_path
+          %li
+            = link_to t('footer.static_pages_link.link_3'), trust_and_safety_staticpages_path
+      .col-lg-3.col-md-6.col-sm-6.ml-lg-auto
+        %h5 Discover
+        %ul.links
+          %li
+            = link_to t('footer.static_pages_link.link_4'), traveling_help_staticpages_path
+          %li
+            = link_to t('footer.static_pages_link.link_5'), hospitality_staticpages_path
+
+      .col-lg-3.col-md-6.col-sm-6
+        %h5
+          = t('footer.contact_with_us')
+        %ul.contacts
+          %li
+            %a{:href => "javascript:void(0);"}
+              %i.ti-mobile
+              + 1-647-984-3227
+          %li
+            %a{:href => "javascript:void(0);"}
+              %i.ti-email
+              %span.__cf_email__
+                = t('footer.email_protected')
+
+    //row
+  %hr/
+  - unfixed_position = %w(experiences places).include?(params[:controller]) && params[:action].eql?('show')
+  .container-fluid.pl-lg-5.pr-lg-5.price_n_currency{ class: "#{unfixed_position ? '' : 'f_position'}" }
+    .row
+      .col-lg-6.col-sm-6
+        %ul#footer-selector
+          %li
+            #google_translate_element
+          / %li
+          /   #currency-selector.styled-select
+          /     %select
+          /       %option{:selected => "selected", :value => "US Dollars"} US Dollars
+          /       %option{:value => "Euro"} Euro
+          %li
+            %img{:alt => "", :src => "/assets/cards_all.svg"}/
+      .col-lg-6.col-sm-6
+        %ul#additional_links
+          %li
+            %a{:href => "#0"}
+              = t('footer.terms_and_conditions')
+          %li
+            %a{:href => "#0"}
+              = t('footer.privacy')
+          %li
+            %span © 2018 Homes 2 Hotels
+

@@ -1,0 +1,245 @@
+#page.theia-exception
+  %main
+    %section.hero_in.experience_detail.hlep-back.start_bg_zoom
+      .wrapper
+        .container
+          %h1.fadeInUp
+            %span>
+            = t('static_pages.hospitality.heading')
+    / /hero_in
+    .container.margin_60_35
+      .row
+        %aside#sidebar.col-lg-3
+          #faq_box.box_style_cat
+            %ul#cat_nav
+              %li
+                %a.active{:href => "#basic"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_1')
+              %li
+                %a{:href => "#reviews"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_2')
+              %li
+                %a{:href => "#cleanliness"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_3')
+              %li
+                %a{:href => "#essential"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_4')
+              %li
+                %a{:href => "#accurate"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_5')
+              %li
+                %a{:href => "#check-in"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_6')
+              %li
+                %a{:href => "#communication"}
+                  %i.icon_document_alt>
+                  = t('static_pages.hospitality.link_7')
+          / /sticky
+        / /aside
+        #faq.col-lg-9.hospitality-container
+          .accordion_2{:id => "", :role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_1.title')
+                  %p
+                    = t('static_pages.hospitality.sub_heading_1.paragraph_1')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_1.paragraph_2')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_1.paragraph_3')
+            / /card
+          / /accordion payment
+          #basic.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_2.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_2.paragraph')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_3.title')
+                  %p  
+                    = t('static_pages.hospitality.sub_heading_3.paragraph')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_4.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_4.paragraph')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_5.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_5.paragraph')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_6.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_6.paragraph_1')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_6.paragraph_2')
+            / /card
+          / /accordion Basic requirements
+          #reviews.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4.nomargin_top 
+                    = t('static_pages.hospitality.sub_heading_7.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_7.paragraph')
+            / /card
+          / /accordion Guest reviews
+          #cleanliness.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_8.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_8.paragraph_1')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_8.paragraph_2')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_9.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_9.list_item_1')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_9.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_9.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_9.list_item_4')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_9.list_item_5')
+                  %h4
+                    %i.icon-lightbulb
+                    = t('static_pages.hospitality.sub_heading_10.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_10.list_item_1')
+                    %li
+                      = t('static_pages.hospitality.sub_heading_10.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_10.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_10.list_item_4')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_10.list_item_5')
+           
+          #essential.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4.nomargin_top 
+                    = t('static_pages.hospitality.sub_heading_11.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_11.paragraph')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_11.list_item_1')
+                    %li   
+                      = t('static_pages.hospitality.sub_heading_11.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_11.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_11.list_item_4')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_11.list_item_5')
+            
+          #accurate.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4.nomargin_top
+                    = t('static_pages.hospitality.sub_heading_12.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_12.paragraph_1')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_12.paragraph_2')
+                  %h4.nomargin_top 
+                    = t('static_pages.hospitality.sub_heading_13.title')
+                  %h2 
+                    = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_1.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_1.list_item_1')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_1.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_1.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_1.list_item_4')
+                  %h2
+                    %i.icon-lightbulb
+                    = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_2.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_2.list_item_1')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_2.list_item_2')
+                    %li   
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_2.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_13.sub_sub_heading_2.list_item_4')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_14.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_14.paragraph')
+                  %h4 
+                    = t('static_pages.hospitality.sub_heading_15.title')
+                  %p  
+                    = t('static_pages.hospitality.sub_heading_15.paragraph')
+            / /card
+          / /accordion Accurate listing details
+          #check-in.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4.nomargin_top 
+                    = t('static_pages.hospitality.sub_heading_16.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_16.paragraph')
+                  %h2
+                    %i.icon-lightbulb
+                    = t('static_pages.hospitality.sub_heading_17.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_17.list_item_1')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_17.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_17.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_17.list_item_4')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_17.list_item_5')
+            / /card
+          / /accordion Easy check-in
+          #communication.accordion_2{:role => "tablist"}
+            .card
+              %div
+                .card-body
+                  %h4.nomargin_top 
+                    = t('static_pages.hospitality.sub_heading_18.title')
+                  %p 
+                    = t('static_pages.hospitality.sub_heading_18.paragraph')
+                  %h2
+                    %i.icon-lightbulb
+                    = t('static_pages.hospitality.sub_heading_19.title')
+                  %ul
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_19.list_item_1')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_19.list_item_2')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_19.list_item_3')
+                    %li 
+                      = t('static_pages.hospitality.sub_heading_19.list_item_4')
+ 

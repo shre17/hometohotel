@@ -1,0 +1,8 @@
+%div.manage_offer
+  / %h5.text-center
+  /   Select what you want to manage for
+  / %br
+
+  .btn-or-links.text-center
+    = link_to "Places", manage_offer_for_host_path(id: @offer.id, for: 'places'), remote: true
+    = link_to "Experiences", manage_offer_for_host_path(id: @offer.id, for: 'experiences'), remote: true

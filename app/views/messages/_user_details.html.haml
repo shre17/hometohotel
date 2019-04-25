@@ -1,0 +1,87 @@
+- booking_detail(@conversation)
+
+- unless host_detail(@conversation.first).id.eql?(current_user.id)
+  .col-sm-4
+    .confirm-booking_detail.trip-details-list
+      .row
+        .col-sm-12
+          .msg-profile-top
+            %a{href: profile_path(host_detail(@conversation.first).id)}
+              - image = host_detail(@conversation.first).profile.image.url.present? ? host_detail(@conversation.first).profile.image.url : "/assets/user_pic.png"
+              %img.img-fluid{:src => image}/
+            %h5
+              = host_detail(@conversation.first).profile.first_name
+            %p.mb-0
+              = "#{(@conversation.first).messagable.location.city}, #{(@conversation.first).messagable.location.country}"
+              %br/
+            %span.text-medium-gray
+              %span
+                = pluralize(@booking.bookable.bookings.confirmed_bookings.count, 'booking')
+              %span  • 
+              %span
+                = pluralize(@booking.bookable.reviews.count, 'review')
+            / .reports
+            /   %a{:href => "#"} Reports
+      %hr/
+      .booking-date-detail
+        %h5.msg-heading.mt-2 Trip details
+        %p
+          = link_to "#{@conversation.first.messagable.name}", place_path(@conversation.first.messagable.id), style: "color:black"
+        .check-in-out
+          .row
+            .col-sm-5
+              %span.d-block.text-muted.pb-1 Check in
+              %span 
+                = readable_date_format(@booking.start_date)
+            .col-sm-2
+              %span.right-angle
+                %i.fa.fa-angle-right
+            .col-sm-5
+              %span.d-block.text-muted.pb-1 Check out
+              %span 
+                = readable_date_format(@booking.end_date)
+        %ul.border-bottom-0
+          %li
+            = pluralize(@booking.total_guest, 'guest')
+        .booking-price-details.border-bottom-0
+          %h5.msg-heading.mt-2 Payment
+          %table{:width => "100%"}
+            %tbody
+              %tr
+                %td
+                  = @booking.price_with_symbol + " X " + pluralize(@booking.stay_for_days, 'day') + " X " + pluralize(@booking.total_guest, 'guest')
+                %td
+                  = @booking.total_with_symbol
+              %tr
+                %td #{t('booking_invoice.reciept.cleaning_fee')}
+                %td #{@booking.cleaning_fee_with_symbol}
+              %tr
+                %td #{t('booking_invoice.reciept.service_fee')}
+                %td #{@booking.service_fee_with_symbol}
+              %tr
+                %td #{t('booking_invoice.reciept.occupancy_taxes_and_fees')}
+                %td #{@booking.tax_with_symbol}
+              %tr.total-price
+                %td #{t('booking_invoice.reciept.total', currency: @booking.currency_symbol)}
+                %td
+                  %strong
+                    = @booking.final_price_with_symbol
+
+        %hr/
+        .row
+          .col-sm-12
+            %h5 Always communicate through Homes2Hotels
+            %p To protect your payment, never transfer money or communicate outside of the Homes2Hotels website or app.
+- else
+  .col-sm-4
+    .confirm-booking_detail.trip-details-list
+      .row
+        .col-sm-12
+          .msg-profile-top
+            - image = customer_detail(@conversation).profile.image.url.present? ? customer_detail(@conversation).profile.image.url : "/assets/user_pic.png"
+            %a{href: profile_path(customer_detail(@conversation).id)}
+              %img.img-fluid{:src => image}/
+            %h5
+              = customer_detail(@conversation).profile.first_name
+            %p.mb-0
+              = "#{(@conversation.first).messagable.location.city}, #{(@conversation.first).messagable.location.country} "

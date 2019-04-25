@@ -1,0 +1,117 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            = render partial: "account_settings/account_settings_navigation"
+            .col-md-9
+              #chnage.row
+                .col-md-12
+                  .card.info-card
+                    %h5.card-header.panel-dark
+                      = (t 'account_settings.security.change_password.heading')
+                    .card-body
+                      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right{:for => "inputPassword"}
+                            = (t 'account_settings.security.change_password.sub_heading.old_password')
+                          .col-sm-5
+                            = f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Password"
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right{:for => "inputPassword"}
+                            = (t 'account_settings.security.change_password.sub_heading.new_password')
+                          .col-sm-5
+                            = f.password_field :password, autocomplete: "off",class: "form-control", placeholder: "Password"
+                        .form-group.row
+                          %label.col-sm-3.col-form-label.text-right{:for => "inputPassword"}
+                            = (t 'account_settings.security.change_password.sub_heading.confirm_password')
+                          .col-sm-5
+                            = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password"
+                        .card-footer.text-right
+                          = f.submit "Update Password", class: "btn btn-primary red-button"
+              / .row
+              /   .col-md-12
+              /     .card.info-card
+              /       %h5.card-header.panel-dark
+              /         =# (t 'account_settings.security.login_history.heading')
+              /       .card-body
+              /         .login-history-table
+              /           %table.table
+              /             %thead
+              /               %tr
+              /                 %th{:scope => "col"}
+              /                   =# (t 'account_settings.security.login_history.table_header.th1')
+              /                 %th{:scope => "col"}
+              /                   =# (t 'account_settings.security.login_history.table_header.th2')
+              /                 %th{:scope => "col"}
+              /                   =# (t 'account_settings.security.login_history.table_header.th3')
+              /                 %th{:scope => "col"}
+              /             %tbody
+              /               -# current_user.login_histories.order("id desc").limit(5).each do |login_history|
+              /                 %tr
+              /                   %td{:scope => "row"}
+              /                     =# login_history.browser
+              /                     =# login_history.device_type
+              /                   %td
+              /                     =# login_history.city
+              /                     =# login_history.region
+              /                   %td
+              /                     -# if login_history.last_sign_in_at == "0"
+              /                       =# "today"
+              /                     -# else
+              /                       =# "about {login_history.last_sign_in_at}"
+              /                 // %td Log Out need to work on this
+              /       .card-footer.text-right
+              /         If you see something unfamiliar,
+              /         %a#chnage{:href => "#chnage"} change your password.
+  / /main
+/ page
+/ Button trigger modal
+/ Sign In Popup
+#sign-in-dialog.zoom-anim-dialog.mfp-hide
+  .small-dialog-header
+    %h3 Sign In
+  %form
+    .sign-in-wrapper
+      %a.social_bt.facebook{:href => "#0"} Login with Facebook
+      %a.social_bt.google{:href => "#0"} Login with Google
+      .divider
+        %span Or
+      .form-group
+        %label Email
+        %input#email.form-control{:name => "email", :type => "email"}/
+        %i.icon_mail_alt
+      .form-group
+        %label Password
+        %input#password.form-control{:name => "password", :type => "password", :value => ""}/
+        %i.icon_lock_alt
+      .clearfix.add_bottom_15
+        .checkboxes.float-left
+          %label.container_check
+            Remember me
+            %input{:type => "checkbox"}/
+            %span.checkmark
+        .float-right.mt-1
+          %a#forgot{:href => "javascript:void(0);"} Forgot Password?
+      .text-center
+        %input.btn_1.full-width{:type => "submit", :value => "Log In"}/
+      .text-center
+        Don’t have an account?
+        %a{:href => "register.html"} Sign up
+      #forgot_pw
+        .form-group
+          %label Please confirm login email below
+          %input#email_forgot.form-control{:name => "email_forgot", :type => "email", :required => true}/
+          %i.icon_mail_alt
+        %p You will receive an email containing a link allowing you to reset your password to a new preferred one.
+        .text-center
+          %input.btn_1{:type => "submit", :value => "Reset Password"}/
+  / form
+/ /Sign In Popup
+#toTop
+/ Back to top button
+/ COMMON SCRIPTS
+= javascript_include_tag('setting_menu.js')

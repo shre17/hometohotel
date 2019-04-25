@@ -1,0 +1,35 @@
+%br
+%table.display.responsive.no-wrap{ id: "place-list" }
+  %thead
+    %tr
+      %th Name
+      %th Rating
+      %th Reviews
+      %th Status
+      %th Published
+      %th Check Detail
+      %th Action
+  %tbody
+    - @hosted.each do |data|
+      %tr
+        %td
+          = data.name
+        %td
+          = data.rating
+        %td
+          = data.reviews.count
+        %td
+          = data.status.capitalize
+        %td.actions{ id: "data-#{data.id}-action" }
+          = link_to "#{ data.published ? 'Published' : 'Publish' }", publish_n_unpublish_host_path(id: data.id, class_name: data.class.name), method: :post, remote: true, class: "btn btn-primary publish-btn #{ data.published ? 'published' : 'publish' }"
+        %td.actions{ id: "data-#{data.id}-view" }
+          = link_to "Detail", view_detail_host_path(id: data.id, class_name: data.class.name), method: :get, class: "btn btn-primary"
+        %td.actions
+          = link_to "Edit", edit_place_path(data), method: :get
+          | 
+          = link_to "Delete", place_path(data), method: :delete, data: { confirm: 'Are you sure?'}
+
+:javascript
+  $('#place-list').DataTable({
+    responsive: true
+  });

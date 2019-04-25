@@ -1,0 +1,46 @@
+-if @host
+  %section.experience-steps.pl-lg-15.pr-lg-15
+  %main
+    .container.margin_30_30
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          .top-rated-box
+            %a{ href: hosted_places_host_path(@host) }
+              .top-rated-overly
+                %h3 Your Places
+                %p.overly-text 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.how_it_works.paragraph')
+              %img.img-fluid{:alt => "", :src => "/assets/slide_1.jpg"}
+        .col-lg-6.col-md-6.col-sm-6
+          .top-rated-box
+            %a{ href: hosted_experiences_host_path(@host) }
+              .top-rated-overly
+                %h3 Your Experiences
+                %p.overly-text 
+                  = t('static_pages.traveling_help.questions_you_re_in_the_right_place.trust_safety.paragraph')
+              %img.img-fluid{:alt => "", :src => "/assets/get-started-back.jpg"}
+        / .col-lg-6.col-md-6.col-sm-6
+        /   .top-rated-box
+        /     %a{ href: offers_host_path(@host) }
+        /       .top-rated-overly
+        /         %h3 Offers
+        /         %p.overly-text 
+        /           = t('static_pages.traveling_help.questions_you_re_in_the_right_place.how_it_works.paragraph')
+        /       %img.img-fluid{:alt => "", :src => "/assets/trust-safety.jpg"}
+        / .col-lg-6.col-md-6.col-sm-6
+        /   .top-rated-box
+        /     %a{ href: offers_host_path(@host) }
+        /       .top-rated-overly
+        /         %h3 Transactions
+        /         %p.overly-text 
+        /           =# t('static_pages.traveling_help.questions_you_re_in_the_right_place.how_it_works.paragraph')
+        /       %img.img-fluid{:alt => "", :src => "/assets/how-it-bg.jpg"}
+-else
+  %section.experience-steps.pl-lg-15.pr-lg-15
+  %main
+    .container.margin_30_30
+      .row
+        .col-lg-12.col-md-12.col-sm-12
+          .h3
+            You don't have access!
+

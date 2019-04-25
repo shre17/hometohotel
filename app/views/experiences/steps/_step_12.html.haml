@@ -1,0 +1,45 @@
+#where-we-be{"aria-labelledby" => "where-we-be-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_12.heading')
+        %p 
+          = t('experiences.edit_page.step_12.paragraph_1')
+        %p
+          %a{:href => "#"}
+            %i.fa.fa-lightbulb-o>
+            = t('common.tips_and_examples_links')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 13 }
+        .form-group
+          = f.text_area :where_you_will_be, minlength: 100, maxlength: '150', style: 'height: 123px;', class: 'form-control', :required => true
+          %span#rchars 150
+          = t('common.character_s_remaining')
+        %h6
+          = t('experiences.edit_page.step_12.sub_heading') 
+        .form-group
+          %label
+            = t('experiences.edit_page.step_12.paragraph_part_1')
+            %a{:href => "#"} 
+              = t('experiences.edit_page.step_12.alcohol_law_link')
+            = t('experiences.edit_page.step_12.paragraph_part_2')
+          .select-option-radio
+            %label.radio-check-box
+              = t('common.label_no')
+              - if f.object.is_food_the_main_theme
+                = f.radio_button :is_food_the_main_theme, 0
+              - else
+                = f.radio_button :is_food_the_main_theme, 0, checked: 'checked'
+              %span.checkmark
+            %label.radio-check-box
+              = t('common.label_yes')
+              - if f.object.is_food_the_main_theme
+                = f.radio_button :is_food_the_main_theme, 0, checked: 'checked'
+              - else
+                = f.radio_button :is_food_the_main_theme, 0
+              %span.checkmark
+        .form-group
+          = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-12.jpg"}/

@@ -1,0 +1,18 @@
+#location{"aria-labelledby" => "location-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2
+          = t('experiences.edit_page.step_1.heading')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 2 }
+        .form-group
+          %label.big-label
+            = t('experiences.edit_page.step_1.label')
+          = f.text_field :city, placeholder: t('experiences.edit_page.step_1.placeholder'), class: 'form-control', :required => true, onFocus: "geolocate()", id: "autocomplete"
+        .form-group
+          .row
+            .col-md-12
+              = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-1.jpg"}/

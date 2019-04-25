@@ -1,0 +1,22 @@
+#about-you{"aria-labelledby" => "about-you-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_8.heading')
+        %p 
+          = t('experiences.edit_page.step_8.paragraph')
+        %p
+          %a{:href => "#"}
+            %i.fa.fa-lightbulb-o>
+            = t('common.tips_and_examples_link')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 9 }
+        .form-group
+          = f.text_area :what_makes_you_qualified, class: 'form-control', minlength: 100, maxlength: 150, style: 'height: 123px;', :required => true
+          %span#rchars 150
+          = t('common.character_s_remaining')
+        .form-group
+          = f.submit t('common.save_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-8.jpg"}/

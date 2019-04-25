@@ -1,0 +1,1043 @@
+/*..........Account setting page css..........*/
+
+header.header.sticky ul#top_menu li ul.dropdown-menu {
+    margin-top: 22px;
+}
+
+ul#top_menu li ul.dropdown-menu a {
+    padding: 14px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+}
+ul#top_menu li ul.dropdown-menu a:hover {
+    color: #444;
+}
+ul#top_menu li ul.dropdown-menu li {
+    width: 100%;
+    padding: 0px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+ul#top_menu li ul.dropdown-menu {
+    margin-top: 33px;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+}
+ul#top_menu li ul.dropdown-menu:before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right:20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+.navigation-header {
+    background-color: #f44048;
+    color: #fff !important;
+}
+
+.panel-dark, .panel-header {
+    background-color: #edefed;
+    color: #484848;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dce0e0;
+    font-weight: normal;
+}
+.info-card{
+  border: 1px solid #dce0e0 !important;
+}
+
+
+.info-card .card-body p {
+    margin-bottom: 1rem;
+}
+.details-box{
+    border-top: 1px solid #dce0e0;
+    padding-top: 1.25rem;
+}
+.info-card .check-box .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+}
+#mobile-nav{
+    display: none;
+  }
+.info-card .check-box .checkmark::after {
+    left: 3px;
+    top: 0px;
+    width: 7px;
+    height: 11px;
+}
+.info-card .check-box{
+    font-size: 14px !important;
+    font-weight: normal !important;
+    padding-left: 30px !important;
+}
+.space-3 {
+    margin-bottom: 18px;
+}
+.payement-modal {
+    border: 1px solid #dce0e0;
+    padding: 50px 0;
+    width: 250px;
+    text-align: center;
+    color: #484848;
+    font-size: 16px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.payement-modal .icon{
+    font-size: 24px;
+    margin: 10px 0;
+    display: block;
+}
+.payement-modal span{
+    display: block;
+}
+
+.new_modal .modal-header {
+    color: #484848;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dce0e0;
+    background-color: #edefed;
+}
+.new_modal .modal-header h5{
+    color: #484848;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+.new_modal .modal-body{
+    background-color: #f5f5f5;
+}
+.new_modal .modal-body .form-control{
+    border: 1px solid #c4c4c4;
+    border-radius: 0;
+}
+
+.payment-logo.visa {
+    background-position: 0 0;
+}
+.payment-logo.master {
+    background-position: -50px 0;
+}
+.payment-logo.american_express {
+    background-position: -100px 0;
+}
+.payment-logo.discover {
+    background-position: -150px 0;
+}
+.payment-logo {
+    width: 50px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 5px;
+    float: left;
+    text-indent: -99999px;
+    background: url("/assets/payment-icons.png") no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+}
+.payment-option {
+    display: block;
+    clear: both;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+.right-addon .icon {
+    position: absolute;
+    padding: 5px;
+        padding-right: 5px;
+    padding-right: 6px;
+    right: 5px;
+    top: 7px;
+    font-size: 18px;
+    color: #ccc;
+}
+.right-addon {
+    position: relative;
+}
+.right-addon input {
+    padding-right: 30px;
+}
+
+.new_modal .modal-body .form-group {
+    margin-bottom: 8px;
+}
+.new_modal .modal-body .form-group label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.new_modal .modal-footer {
+    background-color: #f5f5f5;
+    border-radius: 0 0 5px 5px;
+}
+.new_modal .modal-footer .cancel-btn{
+    background-color: #fff;
+    color: #484848;
+    font-weight: normal;
+    border-color: #ccc;
+
+}
+.new_modal .modal-footer .save-btn{
+    background-color: #f44048;
+    color: #fff;
+    font-weight: normal;
+    border-color: #f44048;
+}
+.info-card {
+    margin-bottom: 25px;
+}
+.red-button{
+    background-color: #f44048;
+    color: #fff !important;
+    font-weight: normal;
+    border-color: #f44048;
+}
+.green-button{
+    background-color: #008000;
+    color: #fff !important;
+    font-weight: normal;
+    border-color: #006400;
+}
+.info-card .card-footer{
+    padding: 1.25rem;
+    border-top: 1px solid #dce0e0;
+    background-color: #fff;
+}
+.login-history-table{
+    margin: 20px 0;
+}
+.login-history-table .table thead th{
+    border: none;
+}
+.deactivate-box .checkmark{
+    width: 15px;
+    height: 15px;
+    top: 6px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+}
+.deactivate-box .radio-check .checkmark::after {
+    top: 3px;
+    left: 3px;
+    width: 7px;
+    height: 7px;
+}
+.deactivate-box .radio-check {
+    margin-bottom: 6px;
+    font-weight: normal;
+    font-size: 14px !important;
+}
+.card-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.card-list li{
+    display: block;
+    padding-bottom: 5px;
+}
+
+.review-tabs{
+  border-bottom: none;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.review-tabs .nav-item.show .nav-link, .review-tabs .nav-link.active {
+  border: none;
+  border-bottom: 4px solid #1cbcb4;
+  color: #fff;
+  background-color: #1cbcb4;
+}
+.review-tabs .nav-link:hover{
+  border: none;
+  border-bottom: 4px solid #aaa;
+}
+.review-tabs .nav-link{
+  border: none;
+  border-bottom: 4px solid transparent;
+  color: #767676;
+  font-weight: bold;
+}
+
+.review-tabs .nav-link {
+    padding: .5rem .5rem;
+}
+/*..........setting menu css ..........*/
+
+.setting-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.setting-menu {
+    background-color: transparent; }
+
+.setting-menu ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+
+}
+
+.setting-menu li,
+.setting-menu .nav-toggle {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.setting-menu .dropdown > a:after {
+  content: "\f078";
+  font-family: 'FontAwesome';
+  position: absolute;
+  right: 15px;
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.setting-menu .dropdown > a.active-menu:after {
+  content: "\f077";
+}
+
+
+.setting-menu .dropdown.open > a:after,
+.desktop .setting-menu li:hover > a:after {
+  -webkit-transform: scaleY(-1);
+  -ms-transform: scaleY(-1);
+  transform: scaleY(-1);
+  background-color: #f44048;
+}
+
+.setting-menu .dropdown.open,
+.desktop .setting-menu li:hover a { color: #fff; background-color: #f44048; }
+.setting-menu .dropdown ul {
+  position: relative;
+  background-color: #34495e;
+  display: none;
+}
+.desktop .setting-menu li a.active { color: #fff; background-color: #f44048; }
+
+.setting-menu a {
+  display: block;
+  padding: 5px 15px;
+  color: #484848;
+  font-size: 15px;
+}
+.setting-menu .btn-outline-dark{
+  margin: 20px 0px;
+}
+.desktop .setting-menu {
+    width: 100%;
+}
+
+.desktop .setting-menu li {
+  text-align: left;
+  width: 100%;
+}
+
+.desktop .setting-menu li:hover ul {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+  visibility: visible;
+}
+
+.desktop .setting-menu .dropdown:hover > a:after {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.desktop .setting-menu .dropdown > a:after {
+  content: '>';
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.desktop .setting-menu .dropdown ul {
+  top: 0;
+  left: 150px;
+  position: absolute;
+  display: block !important;
+  visibility: hidden;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.desktop .setting-menu .nav-toggle { display: none; }
+
+
+
+
+/*invite-friend-page css*/
+
+
+
+.hero_in.invite-friend-wrap{
+  height: 550px
+}
+.hero_in.invite-friend-wrap:before {
+  background: url(/assets/invite_friend.jpg) center center no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover
+}
+
+.referrals-app {
+    position: relative;
+
+}
+.referrals-app .share-box {
+    padding: 0 45px 0;
+    background-color: #fff;
+    border: 1px solid #dce0e0;
+     margin-top: -100px;
+}
+.hero_in.invite-friend-wrap .wrapper h1{
+  margin-top: 0;
+}
+.hero_in.invite-friend-wrap .wrapper p{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: normal;
+}
+.no-padding{
+  padding: 0 !important;
+}
+.contact-importers{
+  margin: 0;
+  padding: 5px 0;
+  list-style: none;
+}
+.contact-importers li{
+  display: inline-block;
+  padding-right: 5px;
+  border-right: 1px solid #ddd;
+}
+.contact-importers li:last-child{
+  border: none;
+}
+.contact-importers li a i{
+  padding-right: 8px;
+  color: #f44048;
+}
+.contact-importers li a {
+  color: #484848;
+}
+.profile-photo {
+    height: 114px;
+    width: 114px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    overflow: hidden;
+    margin: -60px auto 20px;
+}
+.profile-photo img{
+  width: 100%;
+
+}
+.btn-facebook-messenger{
+  border-color: #0084ff;
+  background-color: #0084ff;
+  color: #fff !important;
+  padding: 7px 0;
+}
+.btn-facebook-messenger img{
+  padding-right: 5px;
+}
+.btn-facebook {
+    border-color: #3B5998;
+    background-color: #3B5998;
+    color: #fff !important;
+    padding: 8px 0;
+}
+.social_bt.google {
+    background-color: #DC4E41;
+    border-color: #DC4E41;
+    color: #fff;
+}
+.social_bt.google .fa-google-plus, .btn-facebook .fa-facebook{
+  position: relative;
+  float: left;
+  top: 5px;
+}
+.btn-facebook .fa-facebook{
+  left: 15px;
+}
+.btn-facebook .fa{
+  padding-right: 5px;
+}
+.getting-started{
+  border: 1px solid #d2d8dd;
+  padding: 30px 15px;
+  margin-top: 30px;
+}
+.getting-started span{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+  margin-right: 10px;
+  font-size: 32px;
+  text-align: center;
+}
+.getting-started .extra-wrap{
+  overflow: hidden;
+}
+.getting-started-wrapper h1.main-title{
+  font-size: 24px;
+}
+.getting-started-wrapper{
+  overflow-y: auto;
+}
+.invited-list .invite-user{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 100%;
+  text-align: center;
+}
+.invited-list{
+  border-bottom: 1px solid #d2d8dd;
+  padding: 10px 0;
+}
+.invited-list:last-child{
+  border-bottom: none;
+}
+.invited-list .extra-wrap{
+  overflow: hidden;
+}
+.invited-list .extra-wrap p{
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.invited-list .invite-user img{
+  width: 100%;
+}
+.invited-list .extra-wrap h5 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #484848;
+    display: inline-block;
+}
+.invitation-price{
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  color: #484848;
+  vertical-align: top;
+}
+.referral-table {
+  width: 100%;
+}
+.referral-table hr{
+  margin: 10px 0;
+}
+#account-setting-modal .modal-body{
+  font-size: 16px;
+}
+
+/*refer friends page css*/
+
+
+.shared-box {
+    border: 0.5px solid rgba(0, 0, 0, 0.22);
+    padding: 10px;
+    overflow:hidden;
+    border-radius: 3px;
+}
+.share-text {
+    width: 42%;
+    display: inline-block;
+    padding-top: 14px;
+    font-size: 16px;
+}
+.share-copy {
+    padding: 10px 12px;
+    display: inline-block;
+    float: right;
+}
+.share-copy span {
+    color: #dc3545;
+  font-size: 18px;
+  font-weight: 500;
+}
+.share-btn {
+    padding: 0 12px;
+    display: inline-block;
+    float: right;
+ }
+ .refer-to{
+  padding: 80px 0;
+ }
+.refer-top h1 {
+    font-size: 44px;
+    font-weight: bold;
+    color: #484848;
+    font-family: 'roboto', sans-serif;
+}
+.refer-top p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.how-to-refer {
+  position: relative;
+  background: url(/assets/referal-friends.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 0;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 50px 0;
+}
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+.numbers {
+    border: 2px solid #fff;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  line-height: 46px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+}
+.referral-items h4 {
+    padding: 15px 0 0;
+    text-transform: capitalize;
+    color: #fff;
+}
+.referral-items p{
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+}
+.referral-items {
+    margin: 100px 0 0;
+    font-family: 'Raleway', sans-serif;
+}
+.main-headings h1{
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+.main-headings p {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+.standing-lady img{
+  width: 100%;
+  display: block;
+  height: auto;
+}
+h3.referal-txt {
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+.referal-bottom {
+    padding-bottom: 50px;
+}
+
+/*............terms page css........*/
+.terms-content-wrapper{
+  padding: 5px 0;
+}
+.terms-content-wrapper h1{
+  font-size: 24px;
+  color: #484848;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500px;
+  margin-bottom: 15px;
+}
+.terms-content-wrapper h2{
+  font-size: 18px;
+  color: #484848;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500px;
+  margin-bottom: 15px;
+}
+.terms-content-wrapper hr{
+  margin: 15px 0;
+
+}
+.terms-content-wrapper h5{
+  font-size: 16px;
+  color: #484848;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500px;
+}
+.terms-content-wrapper p{
+  margin-bottom: 15px;
+}
+.terms-content-wrapper ul {
+    list-style: disc;
+    margin: 0 0 25px;
+    padding: 0 0 0 20px;
+}
+
+.terms-content-wrapper ol {
+    list-style: decimal;
+    margin: 0 0 25px;
+    padding: 0 0 0 20px;
+}
+
+/*.............trust page css........*/
+
+.hero_in.trust-wrap{
+  height: 400px
+}
+.hero_in.trust-wrap:before {
+  background: url(/assets/safety-back.jpg) center bottom no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover
+}
+
+#safety-tabs li {
+
+}
+#safety-tabs li a {
+  color: #484848;
+  padding: 15px;
+  display: block;
+}
+#safety-tabs li a.active  {
+  color: #fff;
+
+  background-color: #f44048;
+}
+.safety-tabs-content{
+  padding: 20px 0;
+  font-size: 16px;
+}
+
+.content-sction{
+  border-top: 1px solid #d2d8dd;
+  border-bottom: 1px solid #d2d8dd;
+  padding: 50px;
+  margin-bottom: 20px;
+  background-color: #f7f6f2;
+}
+.content-sction h2{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #484848;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+.content-sction p{
+  margin-bottom: 15px;
+}
+.safety-steps{
+  border: 1px solid #d2d8dd;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+.image-b img{
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 20px;
+}
+.safety-steps h3{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  color: #484848;
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.accordion .card-header:after {
+    font-family: 'FontAwesome';
+    content: "\f077";
+    float: right;
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f078";
+}
+#help-accordion .card-header.collapsed{
+  background-color: #fff;
+  box-shadow: 0 2px 4px 2px #eee !important;
+  color: #484848;
+}
+#help-accordion .card-header{
+  background-color: #1cbcb4;
+  color: #fff;
+}
+.accordion-wrapper{
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.selected-languages ul{
+  margin-bottom: 5px;
+}
+.selected-languages ul li {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #d2d8dd;
+  border-radius: 3px;
+  margin-right: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.selected-languages ul li span{
+  display: inline-block;
+}
+.selected-languages ul li i.icon_close {
+    font-size: 18px;
+    vertical-align: sub;
+    cursor: pointer;
+}
+.selected-languages ul li:hover{
+  background-color: #f44048;
+  color: #fff;
+  border-color: #f44048;
+}
+
+#file_browse_wrapper {
+   background: url("/assets/browse-button.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+
+   border-radius: 0;
+   height: 40px;
+   overflow: hidden;
+   text-align: center;
+   width: 155px;
+   display: inline-block;
+   vertical-align: bottom;
+}
+
+#file_browse{
+  margin-left:0;
+  width: 155px;
+  height: 40px;
+  opacity:0.0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.image-priview {
+   border: 1px solid #ddd;
+   padding: 5px;
+   width: 200px;
+   height: auto;
+   overflow: hidden;
+   max-height: 200px;
+}
+.image-priview img{
+   width: 100%;
+   height: auto;
+}
+
+.fb-clr{
+  color: #3B5998;
+}
+.twitter-clr{
+  color:#00A2EE;
+}
+.g-plus-clr{
+  color: #DC4E41;
+}
+.insta-clr{
+  color: #9226CA;
+}
+/*.........responsive.........*/
+
+
+
+
+@media screen and (max-width: 992px) {
+  .refer-top h1 {
+    font-size: 2em;
+  }
+  .refer-to {
+    padding: 50px 0;
+  }
+  .share-text {
+    width: 100%;
+  }
+  .content-sction{
+    padding: 20px;
+  }
+  .image-b img{
+    max-width: 75px;
+  }
+  .safety-steps h3{
+    font-size: 18px;
+  }
+  .content-sction p{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+ /* .standing-lady {
+    display: none;
+  }*/
+  h3.referal-txt {
+    position: relative;
+    width: 100%;
+    font-size: 28px;
+  }
+  .referral-items {
+    margin: 50px 0 0;
+  }
+  .toggle-menu-list{
+    display: none;
+  }
+  #mobile-nav{
+    display: block;
+  }
+  .toggle-menu-list{
+    background-color: #edefed;
+    border: 1px solid #dce0e0;
+  }
+}
+@media (max-width:667px) {
+
+  .hero_in.invite-friend-wrap{
+    height: auto;
+
+  }
+  .referrals-app .share-box, .profile-photo{
+    margin-top: 25px;
+  }
+  .referrals-app .share-box{
+    padding: 0 15px;
+  }
+  .hero_in.trust-wrap{
+    height: auto;
+
+  }
+  .content-sction{
+    padding: 15px;
+  }
+  .content-sction h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .cd-timeline__content h4{
+    font-size: 16px;
+  }
+  #safety-tabs li a{
+    padding: 10px 6px;
+  }
+  .terms-content-wrapper{
+    margin-top: 20px;
+  }
+  .terms-content-wrapper h1{
+    font-size: 18px;
+  }
+  .info-card .card-body{
+    padding: 1rem;
+  }
+  .red-button{
+    font-size: 15px;
+  }
+  a{
+    cursor: pointer;
+  }
+
+  .image-priview{
+    margin-bottom: 20px;
+  }
+  .create-account-box .col-form-label{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.upload-id-image {
+  border: 2px dashed #d2d8dd;
+  height: 170px;
+  width: 75%;
+  overflow: hidden;
+  margin: 0 auto 18px
+}
+.upload-id-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.upload-id {
+  position: relative;
+}
+.upload-btn .btn-danger {
+  position: relative;
+}
+#file_browse, #profile_govt_id_soft_copy {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  width: 155px;
+  height: 40px;
+  opacity: 0.0;
+}
+.snapshot-img {
+  border: 2px dashed #d2d8dd;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+#my_camera video {
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+.info-card .card-body p.id-para {
+  padding-top: 20%;
+}

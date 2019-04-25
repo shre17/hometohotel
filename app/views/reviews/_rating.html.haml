@@ -1,0 +1,19 @@
+.row
+  .col-lg-3
+    #review_summary
+      %strong#rating
+        = data.try(:rating)
+      %em#review_comment 
+        = t('places.show_page.section_2.rating_comment', comment: rating_comment(data.rating)) if data.rating.present?
+      %small
+        = "Based on #{pluralize(data.reviews.count, 'review')}"
+  .col-lg-9
+    - (5).downto(1).each do |i|
+      .row
+        .col-lg-10.col-9
+          .progress 
+            .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar", :style => "width: #{statistic(data,i)}%"}
+        .col-lg-2.col-3
+          %small
+            %strong 
+              #{i} #{t('common.reviews.stars')} (#{@reviews.count})

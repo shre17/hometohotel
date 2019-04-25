@@ -1,0 +1,25 @@
+#addPhone.modal{ data: { backdrop: "static" } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Add Number
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      .modal-body
+        .notice
+        .addphone-container
+          = form_for @profile, url: generate_otp_for_phone_number_verification_profiles_path(id: @profile.id), remote: true do |ff|
+            .form-group
+              %label{:for => "chosecountry"}
+                = (t 'common.phone_number_verification_fields.choose_a_country')
+              = ff.select :mobile_country, options_for_select(Profile::COUNTRIES, ff.object.mobile_country), {}, class: 'form-control', onchange: "document.getElementById('country-code').innerHTML = this.options[selectedIndex].value;"
+            .form-group
+              %label{:for => ""}
+                = (t 'common.phone_number_verification_fields.add_a_phone_number')
+              .input-group.mb-3
+                .input-group-prepend
+                  %span.input-group-text{:id => "country-code"}= ff.object.mobile_country
+                = ff.text_field :contact_no, class: "form-control"
+            = ff.submit (t 'common.phone_number_verification_fields.add_number'), class: "btn btn-danger"
+
+      .modal-footer
+        / %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Close

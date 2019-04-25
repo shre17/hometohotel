@@ -1,0 +1,12 @@
+#basic.tab-pane.fade.show.active{"aria-labelledby" => "basic-tab", :role => "tabpanel"}
+  .row
+    .col-md-10
+      .form-content-wrap
+        %h1 
+          = t('experiences.edit_page.step_0.heading')
+        %p 
+          = t('experiences.edit_page.step_0.paragraph')
+
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 1 }
+
+        = f.submit t('common.next_button'), class: 'btn next-stpe-btn', id: 'next-btn'

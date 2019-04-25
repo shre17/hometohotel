@@ -1,0 +1,24 @@
+.col-md-3
+  .setting-menu
+    .nav-toggle.dropdown
+      %a 
+        = t('common.navigation')
+    %ul
+      %li
+        = link_to t('static_pages.common_links.terms_of_service'), terms_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.nondiscrimination_policy'), non_discrimination_policy_staticpages_path, "aria-selected" => "true"  
+      %li
+        = link_to t('static_pages.common_links.payments_terms_of_service'), payments_terms_of_service_staticpages_path, "aria-selected" => "true" 
+      %li
+        = link_to t('static_pages.common_links.privacy_policy'), privacy_and_policy_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.host_guarantee'), host_guarantee_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.guest_refund'), guest_refund_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.ip_policy'), ip_policy_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.cookie_policy'), cookie_policy_staticpages_path, "aria-selected" => "true"
+      %li
+        = link_to t('static_pages.common_links.experiences_guest_release_and_waiver'), experiences_guest_relief_and_wavier_staticpages_path, "aria-selected" => "true"

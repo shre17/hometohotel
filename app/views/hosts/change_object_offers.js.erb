@@ -1,0 +1,18 @@
+<% if request.post? %>
+  $("#manage-offer .modal-body").html("<%= escape_javascript(render partial: 'hosts/partials/manage_offer_for', locals: { offer_for: @offer_for, offer: @offer }) %>")
+  $("#manage-offer").modal('show');
+  $("#change-offer").modal('hide');
+<% else %>
+  $("#change-offer .modal-body").html("<%= escape_javascript(render partial: 'hosts/partials/offer_list_form', locals: { object: @object, offer: @offer }) %>");
+
+  $("#change-offer").modal('show');
+  $("#manage-offer").modal('hide');
+
+  $(function() {
+    return $('.chosen-select').chosen({
+      max_selected_options: 3,
+      no_results_text: 'No results matched',
+      width: '300px'
+    });
+  });
+<% end %>

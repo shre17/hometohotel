@@ -1,0 +1,23 @@
+.booking_detail_wrapper
+  .container-fluid.pl-lg-5.pr-lg-5
+    .row
+      .col-md-9.col-sm-7
+        - if user_signed_in?
+          .booking-name
+            %h3
+              = "#{@place.what_will_guest_have} of #{@place.property_type.title} in #{@place.location.city}"
+            = render '/common/rating', rating: @place.rating
+
+      .col-md-3.col-sm-5
+        %table{:width => "100%"}
+          %tr
+            %td
+              %span.booking-price
+                = @place.price.try(:with_symbol) if @place.price.base_price
+              %span / night
+            %td
+              - if current_user
+                -# if user_signed_in? && !current_user.id.eql?(@place.host_id)
+                %a.btn.btn-block.red-button.booked-btn{"data-target" => "#booking_modal", "data-toggle" => "modal", :href => "#"} Book
+              - else
+                %a.btn.btn-block.red-button.booked-btn{:title => "Book", 'data-toggle' => 'modal', 'data-target' => "#sign-in-dialog"} Book

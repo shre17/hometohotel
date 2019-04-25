@@ -1,0 +1,2 @@
+- options = options_for_select_field(sort_hash(@data))
+= select_tag "place[location_attributes][#{@for}]", options_for_select(options), { class: 'form-control fetch_addr chosen-select', data: { for: @next_for } }

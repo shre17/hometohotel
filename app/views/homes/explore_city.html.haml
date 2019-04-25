@@ -1,0 +1,134 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+
+  = render partial: "common/header_filters" 
+
+  = render partial: "popular_cities"
+
+  .container-fluid.margin_30_30.pl-lg-5.pr-lg-5.top-rated
+    - if @top_rated['Place'].present?
+      %section
+        .main_title_3 
+          %h2 
+            = t('common.explore_place', city: @city)
+          %span
+            %em
+        .row
+          - @top_rated['Place'].first(8).each do |id,place|
+            - if place.first.rating > 4
+              = render partial: "places/place", locals: {place: place.first, city: @city}
+            - else
+              - next
+    - else
+      - if @data['Place'].present?
+        %section
+          .main_title_3 
+            %h2 
+              = t('common.explore_place', city: @city)
+            %span
+              %em
+          .row
+            - @data['Place'].first(8).each do |place|
+              = render partial: "places/place", locals: {place: place, city: @city}
+        %a{:href => destination_city_path(@city.downcase)}
+          %strong
+            = "#{t('common.view_all')} (#{total_places_and_experiences(@city)['Place'].count})"
+            %i.arrow_carrot-right
+
+    - if @top_rated['Experience'].present?
+      %section
+      .main_title_3
+        %h2 
+          = t('common.explore_experience', city: @city)
+        %span
+          %em
+      .row
+        - @top_rated['Experience'].first(8).each do |id,experience|
+          - if experience.first.rating > 4
+            = render partial: "experiences/experience", locals: {experience: experience.first}
+          - else
+            - next
+    - else
+      - if @data['Experience'].present?
+        %section
+          .main_title_3
+            %h2 
+              = t('common.explore_experience', city: @city)
+            %span
+              %em
+          .row
+            - @data['Experience'].first(8).each do |experience|
+              = render partial: "experiences/experience", locals: {experience: experience}
+        %a{ href: set_path_for_city_n_category(@city.downcase, :city)}
+          %strong
+            = "#{t('common.view_all')} (#{total_places_and_experiences(@city)['Experience'].count})"
+            %i.arrow_carrot-right
+              
+
+:javascript
+  window.onscroll = function() {myFunction()};
+
+  var safety = document.getElementById("filters_searchbar");
+  var sticky = safety.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      safety.classList.add("sticky-filter") 
+    } else {
+      safety.classList.remove("sticky-filter");
+    }
+  }
+
+  $(function() {
+    $('#carousel-first').carouseller({
+    });
+    $('#carousel-second').carouseller({
+    });
+  });
+
+  $(function() {   
+    $("#rang").ionRangeSlider({
+      min: 0,
+      max: 10000,
+      from: 1000,
+      to: 9000,
+      type: 'double',
+      prefix: "Rs. ",
+      grid: true,
+      grid_num: 10
+    });
+  });
+
+  $(document).ready(function(){
+    $(".wish_bt").click(function(){
+      id = this.id;
+      element = this;
+      type = $(element).attr("type")
+      $.ajax({
+        url: "#{create_favourite_profiles_path}",
+        data: {type: type, id: id},
+        type: "post",
+        success: function(response){
+          if(response.liked){
+            if(response.type == "Place"){
+              $(element).addClass("active-like-box");
+            }
+            else{
+              $(element).addClass("liked");
+            }
+          }
+          else{
+            if(response.type == "Place"){
+              $(element).removeClass("active-like-box");
+            }
+            else{
+              $(element).removeClass("liked");
+            }
+            
+          }
+        },
+        failure: function(response){}
+      })
+    });
+  });

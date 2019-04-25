@@ -1,0 +1,149 @@
+:css
+  #filters_searchbar {
+    background-color: #fff;
+    padding: 8px 0 8px;
+    margin-bottom: 25px;
+    border: 1px solid #ededed;
+  }
+  .sticky-filter {
+    position: fixed;
+    top: 62px;
+    width: 100%;
+    z-index: 999;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+  }
+
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+
+  = render partial: 'common/header_filters'
+
+  - unless params[:filter].present?
+    = render partial: 'common/categories'
+
+  .container-fluid.margin_30_30.pl-lg-5.pr-lg-5
+    - if params[:filter].present?
+      %section
+        - if @experiences.present?
+          .row
+            - @experiences.each do |experience|
+              = render 'experience', experience: experience
+        - else
+          %h3.text-center
+            No result found!
+            %br
+            Update your search for better result!
+
+    - elsif city_selected?
+      %section
+        .main_title_3
+          %h2
+            = (params[:city] || params[:category])
+            = "(#{@experiences.count})"
+          %span
+            %em
+        .row
+          - @experiences.each do |experience|
+            = render 'experience', experience: experience            
+    - else
+      - if sorted_hash_of_cities.first.present?
+        - sorted_hash_of_cities.first(4).map do |city, data|
+          %section
+            .main_title_3
+              %h2 #{t('experiences.index_page.city', city: city.try(:capitalize))} #{data.count}
+              %span
+                %em
+            .row
+              - data.first(4).each do |experience|
+                = render 'experience', experience: experience            
+            - if (city.present? && data.length>4)
+              %a{ href: set_path_for_city_n_category(city, :city)}
+                %strong
+                  #{t('common.view_all')} (#{data.count})
+                  %i.arrow_carrot-right
+      - else
+        %section.min_hight_100
+          .main_title_3.text-center
+            %h2 No experience uploaded yet!
+
+#toTop
+
+- price_from, price_to = check_price_range
+
+= javascript_include_tag('input_qty.js')
+
+:javascript
+  $(function() {
+    $('#carousel-first').carouseller({
+    });
+    
+    $('#carousel-second').carouseller({
+    });
+  });
+
+  $('#chekin_date').datepicker({
+    uiLibrary: 'bootstrap4'
+  });
+
+  $('#chekout_date').datepicker({
+    uiLibrary: 'bootstrap4'
+  });
+
+  window.onscroll = function() {myFunction()};
+
+  var safety = document.getElementById("filters_searchbar");
+  var sticky = safety.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      safety.classList.add("sticky-filter") 
+    } else {
+      safety.classList.remove("sticky-filter");
+    }
+  }
+
+  $(document).ready(function(){
+    $('.favourite_experience').click(function(){
+      var experience = this;
+      experience_id = this.id;
+      $.ajax({
+        url: "#{create_favourite_profiles_path}",
+        data: {type: 'Experience', id: experience_id},
+        type: "post",
+        success: function(response){
+          if (response.liked) {
+            $(experience).addClass('fav');
+          } else {
+            $(experience).removeClass('fav');
+          }
+        },
+        failure: function(response){}
+      });
+    });
+  });
+
+  $(function() {
+    var price_from = parseInt("#{price_from}");
+    var price_to = parseInt("#{price_to}");
+
+    $("#filter_price_minimum").ionRangeSlider({
+      min: 0,
+      max: 1000,
+      from: price_from,
+      to: price_to,
+      type: 'double',
+      prefix: "$. ",
+      grid: true,
+      grid_num: 10,
+      onFinish: function (data) {
+        $('#filter_price_minimum').val(data.from);
+        $('#filter_price_maximum').val(data.to);
+      }
+    });
+
+    $('#filter_price_minimum').val(price_from);
+    $('#filter_price_maximum').val(price_to);
+  });

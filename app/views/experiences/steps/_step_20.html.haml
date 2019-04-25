@@ -1,0 +1,30 @@
+#default-time{"aria-labelledby" => "default-time-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_21.heading')
+        %p 
+          = t('experiences.edit_page.step_21.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 22 }
+        .row
+          .col-md-3.col-5
+            .form-group
+              .calender-box
+                .icon-clock-3.icon-box
+                = f.select :hosting_start_time, options_for_select(time_list, f.object.hosting_start_time), { prompt: t('experiences.edit_page.step_21.start_time')}, class: 'form-control', :required => true
+          .col-md-1.col-1
+            %span.to-separet 
+              = t('experiences.edit_page.step_21.to')
+          .col-md-3.col-5
+            .form-group
+              .calender-box
+                .icon-clock-3.icon-box
+                = f.select :hosting_end_time, options_for_select(time_list, f.object.hosting_end_time), { prompt: t('experiences.edit_page.step_21.end_time')}, class: 'form-control', :required => true
+       
+        %hr 
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-13.jpg"}/

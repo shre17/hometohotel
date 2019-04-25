@@ -1,0 +1,24 @@
+.col-md-3
+  .setting-menu
+    .nav-toggle.dropdown
+      %a 
+        = t 'common.navigation'
+    %ul
+      %li
+        = link_to (t 'account_settings.menu.notifications'), edit_account_setting_path(current_user.account_setting), class: "#{active_link?('notification')}"
+      %li
+        = link_to (t 'account_settings.menu.security'), edit_user_registration_path, class: "#{active_link?('security')}"
+      - if current_user.is_host?
+        %li
+          = link_to (t "account_settings.menu.bank_details"), edit_bank_accounts_path, class: "#{active_link?('bank_details')}"
+
+      / %li
+      /   %a{:href => "payment_methods.html"} Payment Methods
+      / %li
+      /   %a{:href => "privacy.html"} privacy
+      
+      / %li
+      /   %a{:href => "connected_app.html"} Connected App
+      / %li
+      /   =# link_to (t "account_settings.menu.settings"), settings_account_settings_path, class: "#{active_link?('settings')}"
+      

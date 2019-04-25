@@ -1,0 +1,30 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title
+          = t('places.step_4.title')
+        %h4
+          = t('places.step_4.title')
+        %h2
+          = t('places.step_4.heading')
+        .form-group
+          .row
+            .col-md-7.col
+              %label
+                = t('places.step_4.sub_heading')
+            .col-md-5.col
+              .add-field
+                .input-group.input-number-group
+                  .input-group-button
+                    %span.input-number-decrement -
+                  = form.number_field :number_of_common_bathrooms, value: "#{form.object.number_of_common_bathrooms.present? ? form.object.number_of_common_bathrooms : 0}", class: 'input-number'
+                  .input-group-button
+                    %span.input-number-increment +
+                  = form.hidden_field :step, value: 4
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_3.suggestion.paragraph_3')}

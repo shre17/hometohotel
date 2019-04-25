@@ -1,0 +1,119 @@
+- @resource = @booking.bookable
+%main.check_booking
+  %section.hero_in.become_host_form.start_bg_zoom
+    .wrapper
+  / /hero_in
+  .bg_color_1
+    .container.margin_60_35
+      .row
+        .col-lg-7
+          %p
+            - if flash[:notice].present?
+              = t('booking_invoice.notice', notice: flash[:notice])
+          %section#description
+            %h2
+              = t('check_booking.heading')
+            .reviews-container.about-trip-box
+              .review-box.clearfix
+                .rev-content
+                  .rev-text
+                    = "#{@booking.user.name.titleize} lives in #{@booking.user.profile.city}. #{@booking.user.profile.his_or_her} prefered language is #{@booking.user.profile.prefered_language}. Below you can read a short description about #{@booking.user.profile.him_or_her.downcase}."
+                    %br
+                    = "#{@booking.user.profile.describe_yourself.truncate(100)}"
+                %figure.rev-thumb
+                  = image_tag (@booking.user.profile.image.url || "/assets/avatar1.jpg")
+
+            - if @booking.reservation.present?
+              - if @booking.accepted_by_host.nil?
+                = link_to "Accept", accept_booking_path(@booking), method: 'post', class: "btn green-button bold-button"
+                = link_to "Decline", decline_booking_path(@booking), method: 'post', class: "btn red-button bold-button"
+              - else
+                %h5.text-center{ class: "#{@booking.accepted_or_rejected.downcase}" }
+                  = "You have #{@booking.accepted_or_rejected} this booking request."
+            - else
+              Payment not done
+
+        %aside.col-lg-5
+          .confirm-booking_detail.trip-details-list
+            .row
+              .col-sm-8
+                %h2
+                  - if @booking.is_place?
+                    = t('booking_invoice.reciept.place_name', name: (@resource.name || @resource.title))
+                  - else
+                    = t('home.top_rated_experiences.experience_title', title: @experience.title)
+                - if @booking.is_place?
+                  %p
+                    = "#{@resource.what_will_guest_have} of #{@resource.property_type.title} in #{@resource.location.city}"
+                .score
+                  .cat_star
+                    - (1..5).each do |i|
+                      - if i <= @resource.rating.to_i
+                        %i.icon_star
+                      - else
+                        %i.icon_star.blank
+                %span
+                  = "#{@resource.reviews.count} #{t('booking_invoice.reciept.span').pluralize(@resource.reviews.count)}"
+              .col-sm-4
+                %img.img-fluid{:src => "#{@resource.images.try(:first).try(:avatar).try(:url)}"}/
+            %hr/
+            .booking-date-detail
+              %ul
+                %li
+                  %i.icon-users
+                  = @booking.total_guest.to_s + " #{t('home.search_form.guest')}"
+                %li
+                  %i.icon-calendar-empty
+                  %span
+                    = @booking.start_date.strftime("%a, %d %b %Y") rescue nil
+                  %i.fa.fa-arrow-right
+                  %span
+                    = @booking.end_date.strftime("%a, %d %b %Y") rescue nil
+              .booking-price-details
+                %table{:width => "100%"}
+                  %tr
+                    %td
+                      = @booking.price_with_symbol + " X " + pluralize(@booking.stay_for_days, 'day') + " X " + pluralize(@booking.total_guest, 'guest')
+                    %td
+                      = @booking.total_with_symbol
+                  - if @booking.is_place?
+                    %tr
+                      %td #{t('booking_invoice.reciept.cleaning_fee')}
+                      %td #{@booking.cleaning_fee_with_symbol}
+                    %tr
+                      %td #{t('booking_invoice.reciept.service_fee')}
+                      %td #{@booking.service_fee_with_symbol}
+                    %tr
+                      %td #{t('booking_invoice.reciept.occupancy_taxes_and_fees')}
+                      %td #{@booking.tax_with_symbol}
+                  %tr.total-price
+                    %td #{t('booking_invoice.reciept.total', currency: @booking.currency_symbol)}
+                    %td
+                      %strong
+                        = @booking.final_price_with_symbol
+              %hr/
+              .row
+                .col-sm-8
+                  %h2
+                    = t('booking_invoice.reciept.heading')
+                  / %p
+                  /   = t('booking_invoice.reciept.paragrapg_2')
+                  /   %a{:href => "#"} #{t('booking_invoice.reciept.link')}
+                .col-sm-4
+                  %img.img-fluid{:src => "/assets/logo_sticky.png"}/
+
+        #trip-details.nav-toggle.dropdown
+          %a See Trip Booking Details
+
+= render partial: "messages/message_modal"
+
+:javascript
+  $(document).ready(function(){
+    if($(window).width() < 768){
+      $('#trip-details a').click(function(){
+        $('#trip-details a').toggleClass('detail-active  ');
+        $('.trip-details-list').slideToggle(300);
+         $("html, body").animate({ scrollTop: 200 }, "slow");
+      })
+    }
+  })

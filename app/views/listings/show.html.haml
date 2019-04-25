@@ -1,0 +1,69 @@
+.panel.panel-default
+  .panel-body
+    / Image
+    .row
+      .col-md-12
+        = image_tag @photos[0].avatar.url(), class: "img-responsive" if @photos.length > 0
+    %br/
+    / Main Info
+    .row
+      .col-md-8
+        .row
+          .col-md-3.text-center
+            =# image_tag image_url(@place.host.user.profile), class: "img-circle avatar-large"
+            %br/
+            %br/
+            = @profile.name
+          .col-md-9
+            %h4= @place.name
+            =# @place.address
+            .row.text-center.row-space-1
+              .col-sm-3
+                %i.fa.fa-home.fa-2x
+              .col-sm-3
+                %i.fa.fa-users.fa-2x
+              .col-sm-3
+                %i.fa.fa-bed.fa-2x
+              .col-sm-3
+                %i.fa.fa-ship.fa-2x
+            .row.text-center
+              .col-sm-3
+                =# @room.home_type
+              .col-sm-3
+                =# @room.accommodate
+                =# @room.accommodate > 1? "Guests" : "Guest"
+              .col-sm-3
+                =# @room.bed_room
+                =# @room.bed_room > 1? "Bedrooms" : "Bedroom"
+              .col-sm-3
+                =# @room.bath_room
+                =# @room.bath_room > 1? "Bathrooms" : "Bathroom"
+      .col-md-4
+        / Reservation form
+        =# render 'reservations/form'
+    / About
+    .row
+      .col-md-12
+        %h2 About This Listing
+        %p=# @room.summary
+    / Amenities
+    .row
+      .col-md-2
+        %p Amentities
+      .col-md-10
+        .row
+          .col-md-6
+            %ul.amenities
+              %li{:class => "#{'text-line-through' if !@room.is_tv}"} TV
+              %li{:class => "#{'text-line-through' if !@room.is_kitchen}"} Kitchen
+              %li{:class => "#{'text-line-through' if !@room.is_internet}"} Internet
+          .col-md-6
+            %li{:class => "#{'text-line-through' if !@room.is_heating}"} Heating
+            %li{:class => "#{'text-line-through' if !@room.is_air}"} Air Conditioning
+    
+:javascript
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: #{@room.average_rating}
+  });

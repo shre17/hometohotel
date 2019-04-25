@@ -1,0 +1,1473 @@
+en:
+  common:
+    from: From
+    to: To
+    street: Street
+    city: City
+    state: State
+    zip_code: ZIP code / Postal code
+    country: Country
+    phone_number: Phone number
+    first_name: First name
+    last_name: Last name
+    email: Email
+    password: Password
+    phone_number: Phone number
+    country_of_incorporation: Country of incorporation
+    registration_number: Registration number
+    submit_button: Submit
+    cancel_button: Cancel
+    email_address: Email Address
+    save_button: Save
+    no_phone_number_enter: No phone number entered
+    add_a_phone_number_link: "%{type} phone number"
+    phone_number_verification_fields:
+      choose_a_country: "Choose a country:"
+      add_a_phone_number: "Add a phone number:"
+      add_number: Add number
+      verify: Verify
+      verify_via_sms: Verify via Sms
+      verify_via_call: Verify via Call
+      why_verify_link: Why Verify?
+      paragraph: This is only shared once you have a confirmed booking with another Homes 2 Hotels user. This is how we can all get in touch.
+    reviews:
+      leave_a_review: Leave a Review
+      heading: Reviews
+      content: content
+      attribute: "%{attr}"
+      content: Content
+      user_name: "%{name}"
+      review_content: "%{content}"
+      stars: stars
+      date: "%{date}"
+    edit_profile_link: Edit Profile
+    navigation: Navigation
+    your_email: "Your email"
+    messenger: Messenger
+    facebook: Facebook
+    search_button: SEARCH
+    get_started: GET STARTED
+    places_paragraph: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.    gdgfdgkbdjgbk
+    next_button: Next
+    back_button: Back
+    save_and_continue: Save & continue
+    label_yes: "Yes"
+    label_no: "No"
+    add_image_button: add image
+    character_s_remaining: Character's Remaining
+    tips_and_examples_link: Tips and Examples
+    street_address: Street Address
+    add_item: Add An Item
+    add_an_item: Add an item
+    traveling_help_paragraph_1: Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.
+    traveling_help_paragraph_2: Search for popular places all over the world.
+    static_page_common_content:
+      payments: Payments
+      popular_questions: Popular questions
+      canceling_a_reservation: Canceling a reservation
+      coupons_credits: Coupons  credits
+      identification_verifications: Identification  verifications
+      help_with_your_reservation: Help with your reservation
+      suggested_topic_content:
+        paragraph_1: Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        paragraph_2: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+      trust_and_verification_paragraph: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+      terms_paragraph: "We’ve recently updated our: (1) Terms of Service, (2) Payments Terms of Service, and (3) Privacy Policy (collectively, “Terms”). If you signed up for an account prior to April 16, 2018, we’ll ask you to agree to the new Terms of Service and Payments Terms of Service when you use Homes 2 Hotels on or after June 27, 2018; until June 27, 2018 the prior Terms of Service and Payments Terms of Service will continue to apply to you. The updated Privacy Policy will automatically come into effect for all existing users on May 25, 2018. Your continued use of the Homes 2 Hotels Platform from that day on will be subject to the new Privacy Policy. Please read these Terms carefully. If you signed up for an account on or after April 16, 2018, the updated Terms apply to you. Learn more about what’s changing"
+    social_account_link: Sign in with %{social_network}
+    remember_me: Remember me
+    view: view
+    view_all: View all
+    explore_place: Explore top rated places in %{city}
+    explore_experience: Explore top rated experience in %{city}
+  place:
+    state: State / Province / Dept.
+    city: City / Town / Village
+    paragraph_1: Departments are terriritorial entity of some countries
+  account_settings:
+    menu:
+      notifications: Notifications
+      security: Security
+      settings: Settings
+
+    common_sub_heading:
+      email: Email
+      push_notifications: Push notifications
+      text_messages: Text messages
+      phone_calls: Phone Calls
+
+    bank_details:
+      heading: Bank account details
+      save_details_btn: Save account details
+      sub_heading:
+        individual: 'Individual:'
+        address: 'Address:'
+        funding: 'Funding:'
+      first_name: First Name
+      last_name: Last Name
+      email: Email
+      dob: DOB
+      dob_placeholder: yyyy-mm-dd
+      ssn: SSN
+      street: Street
+      locality: Locality
+      region: Region
+      postal_code: Postal code
+      funding_email: Funding email
+      mobile_number: Mobile number
+      account_number: Account number
+      routing_number: Routing number
+      postal_code: Postal code
+
+    notifications:
+      messages:
+        heading: Messages
+        paragraph: Receive messages from hosts and guests, including booking requests.
+
+      reminders:
+        heading: Reminders
+        paragraph: Receive booking reminders, requests to write a review, and other reminders related to your activities on Homes 2 Hotels.
+
+      policy_and_community:
+        heading: Policy and community
+        paragraph: Receive updates on home sharing regulations and stay informed about advocacy efforts to create fair, responsible home sharing laws in your community.
+
+      promotion_and_tips:
+        heading: Promotions and tips
+        paragraph: Receive coupons, promotions, surveys, product updates, and inspiration from Homes 2 Hotels and its partners.
+
+
+      account_support:
+        heading: Account Support
+        paragraph: We may need to send you messages regarding your account, your trips, legal notifications, security and privacy matters, and customer support requests. For your security you cannot disable email notifications and we may contact you by phone or other means if needed.
+
+    submit_button: Save
+
+    security:
+      change_password:
+        heading: Change Your Password
+        sub_heading:
+          old_password: Old Password
+          new_password: New Password
+          confirm_password: Confirm Password
+      login_history:
+        heading: Login History
+        table_header:
+          th1: Browser/Devise
+          th2: Location
+          th3: Recent Activity
+
+    settings:
+      create_company_account:
+        heading: Company account
+        paragraph_1: Are you hosting on Homes 2 Hotels as part of a company? You can create a company account to get access to professional tools that are right for you.
+        create_company_account_button: Create company account
+        paragraph_2: Provide your legal business details to help us confirm you’re part of a company.
+        form_fields:
+          company_name: Company name
+          business_address: Business address
+          suite_bldg_etc_optional: Suite, bldg, etc. (optional)
+      deactivate_account:
+        deactivate_button: Deactivate my account
+        cancel_deactivation: Cancel Deactivation
+        radio_buttons:
+          i_have_safety_concerns: I have safety concerns.
+          i_have_privacy_concerns: I have privacy concerns.
+          i_dont_find_it_useful: I don’t find it useful.
+          i_dont_understand_how_to_use_it: I don’t understand how to use it.
+          its_temporary_i’ll_be_back: It’s temporary; I’ll be back.
+          other: Other
+        text_area: Care to tell us more?
+
+        static_content:
+          heading_1: Special title treatment
+          list_item_1: 1. You will retain the rights and obligations for all activity on the Homes 2 Hotels platform prior to deactivation.
+          list_item_2: 2. Your profile and any listings will be hidden.
+          list_item_3: 3. You can re-activate your account at any time by contacting us.
+          heading_2: Alternatives to deactivating
+          sub_heading_1: Adjust my privacy settings
+          paragraph_1: Turn off search indexing on your listing, preventing search engines such as Google and Bing from displaying your listing in their search results.
+          sub_heading_2: Change notification preferences
+          paragraph_2: Turn off search indexing on your listing, preventing search engines such as Google and Bing from displaying your listing in their search results.
+          sub_heading_3: Hide my listings
+          paragraph_3: Remove your listings from being viewed or found in search to stop hosting on Homes 2 Hotels.
+
+  profile:
+    required_fields:
+      heading: Required
+      paragraph_1: Your public profile only shows your first name. When you request a booking, your host will see your first and last name.
+      i_am: I Am
+      paragraph_2: We use this data for analysis and never share it with other users.
+      birth_date: Birth Date
+      preferred_language: Preferred Language
+      preferred_currency: Preferred Currency
+      paragraph_3: The magical day you were dropped from the sky by a stork. We use this data for analysis and never share it with other users.
+      paragraph_4: We won’t share your private email address with other Homes 2 Hotels users.
+      learn_more_link: Learn more.
+      preferred_language: Preferred Language
+      paragraph_5: We'll send you messages in this language.
+      preferred_currency: Preferred Currency
+      paragraph_6: We’ll show you prices in this currency.
+      where_you_live: Where You Live
+      describe_yourself: Describe Yourself
+      paragraph_7: Homes 2 Hotels is built on relationships. Help other people get to know you.
+      paragraph_8: "Tell them about the things you like: What are 5 things you can’t live without? Share your favorite travel destinations, books, movies, shows, music, food."
+      paragraph_9: "Tell them what it’s like to have you as a guest or host: What’s your style of traveling? Of Homes 2 Hotels hosting?"
+      paragraph_10: "Tell them about you: Do you have a life motto?"
+    optional:
+      heading: Optional
+      form_fields:
+        school: School
+        work: Work
+        time_zone: Time Zone
+        paragraph: Your home time zone.
+        languages: Languages
+        languages_fields:
+          add_more_link: Add More
+          paragraph: Add any languages that others can use to speak with you on Homes 2 Hotels
+        vat_id: Vat ID
+        add_vat_id_number: Add Vat ID Number
+        vat_id_paragraph: For European Union users or users in other countries for which VAT applies, VAT will be assessed on our Service Fees. If you live in a country where we need to charge VAT, you will not be charged VAT if you enter a valid VAT ID Number.
+        visit_vat_faqs: "Visit VAT FAQs »"
+        vat_number_field:
+          member_state: Member State
+          vat_number: Vat_Number
+          name_on_registration: Name on registration
+          address_line_1: Address line 1
+          address_line_2: Address line 2
+          city: City
+          region: Region
+          postal_code: Postal code
+          paragraph: For European Union users or users in other countries for which VAT applies, VAT will be assessed on our Service Fees. If you live in a country where we need to charge VAT, you will not be charged VAT if you enter a valid VAT ID Number.
+        emergency_contact: Emergency Contact
+        add_contact_link: Add contact
+        emergency_contact_paragraph: Give our Customer Experience team a trusted contact we can alert in an urgent situation.
+        emergency_contact_fields:
+          name: Name
+          phone: Phone
+          email: Email
+          relationship: Relationship
+
+    work_travel:
+      heading: Work Travel
+      form_filed:
+        work_email: Work Email
+        save_button: Save
+      paragraph: Find homes perfect for work trips by choosing the Trip type filter on your next search.
+      learn_more_link: Learn more
+
+    form_field_button: Submit
+
+    upload_photo:
+      heading: Profile Photo
+      paragraph: Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Be sure to use a photo that clearly shows your face and doesn’t include any personal or sensitive info you’d rather not have hosts or guests see.
+
+    trust_and_verification:
+      be_ready_to_book:
+        heading: Be ready to book
+        paragraph: You’ll need to provide a valid Government issue photo ID before you book, so get a head start by doing it now.
+        paragraph_2: Take a selfie to confirm your ID.
+        provide_id_button: Upload ID
+        take_snapshot: Snapshot it
+      your_verified_info:
+        heading: Your verified info
+        paragraph: "You have confirmed your email: %{email}. A confirmed email is important to allow us to securely communicate with you."
+      your_social_accounts:
+        heading: Your social accounts
+        paragraph_1: Make it easier to communicate with a verified phone number. We’ll send you a code by SMS or read it to you over the phone. Enter the code below to confirm that you’re the person on the other end.
+        paragraph_2: Your number is only shared with another Homes 2 Hotels member once you have a confirmed booking.
+        facebook_paragraph: Sign in with Facebook and discover your trusted connections to hosts and guests all over the world.
+        google: google
+        google_paragraph: Connect your Homes 2 Hotels account to your Google account for simplicity and ease.
+        disconnect: disconnect
+        connect: connect
+
+    reviews:
+      reviews_about_you:
+        heading: Reviews About You
+        sub_heading: Past Reviews
+        paragraph_1: Reviews are written at the end of a reservation through Homes 2 Hotels. Reviews you’ve received will be visible both here and on your public profile.
+        paragraph_2: No one has reviewed you yet.
+
+      reviews_by_you:
+        heading: Reviews By You
+        sub_heading_1: Reviews to Write
+        paragraph_1: Nobody to review right now. Looks like it’s time for another trip!
+        sub_heading_2: Past Reviews You’ve Written
+        paragraph_2: You have not written any reviews yet.
+
+    view_profile:
+      heading: Verified info
+      paragraph_1: No verifications yet
+      add_verification_link: Add Verifications
+      heading_2: "Hey i am %{first_name}"
+      heading_3: Joined in July 2018
+      report_this_user_link: Report this user
+
+    common_links:
+      upload_photo: Upload Photo
+      trust_and_verification: Trust And Verification
+      reviews: Reviews
+      view_profile: View Profile
+
+  favourites:
+    heading: "%{first_name} your favourites"
+    sub_heading_1: Experiences
+    sub_heading_2: Places
+    sub_sub_heading: Nothing saved yet
+    paragraph: When you find something you like, click the heart icon to save it. If you’re planning a trip with others, invite them so they can save and vote on their favorites.
+    start_exploring_link: Start Exploring
+
+  header:
+    user:
+      heading: User
+      sub_heading_1: Edit Profile
+      sub_heading_2: Account Settings
+      sub_heading_3: Invite Friends
+      sub_heading_4: Favourites
+      sub_heading_5: Manage Hosting
+      sub_heading_6: Booking history
+      sub_heading_7: Transaction history
+      sub_heading_8: Log Out
+
+    host:
+      heading: Host
+      sub_heading_1: Host a Place
+      sub_heading_2: Host an Experience
+
+    add_listing:
+      heading: Your Listings
+    favourite:
+      heading: Saved Favorites
+    become_a_host: Host a Place
+    sign_up_link: Sign Up
+    sign_in_link: Sign In
+    hotels: Hotels
+    flights: Flights
+
+  footer:
+    follow_us: Follow us
+    home_to_hotels: Homes 2 Hotels Inc.
+    static_pages_link:
+      link_1: Terms
+      link_2: Privacy
+      link_3: Trust & Safety
+      link_4: Traveling Help
+      link_5: Hospitality
+    contact_with_us: Contact with Us
+    newsletter: Newsletter
+    terms_and_conditions: Terms and conditions
+    privacy: Privacy
+    email_protected: "[email protected]"
+
+  invite_a_friend:
+    heading: Share your love of travel
+    paragraph: Introduce a friend to Hotels2Homes. They’ll get ₹2,200 in travel credit when they sign up, and you’ll get ₹1,100 in travel credit once they complete a trip. Only for new Hotels2Homes guests! Read the terms
+    form_fields:
+      enter_email_addresses: Enter email addresses
+      import_contacts: "Import contacts:"
+      Gmail: gmail
+      yahoo: Yahoo
+      or: Or
+      share_your_link: "Share Your Link:"
+      send_an_invitations: Send an invitations
+    its_easy_to_get_started:
+      heading: It’s easy to get started
+      sub_heading_1: Spread the word with your link or over email.
+      sub_heading_2: Get ₹1,100 when they take their first trip of ₹5,000 or more.
+      sub_heading_3: Earn up to ₹3,43,641 by inviting friends.
+      in_progress: In progress
+    referrals:
+      heading: Referrals
+      sub_heading_1: Referrals sent
+      sub_heading_2: Potential credits
+      sub_heading_3: You’ve earned
+    want_more_credits:
+      heading: Want more credits?
+      paragraph: You don’t have any credit right now, so invite some other friends to sign up on Homes 2 Hotels
+
+  home:
+    search_form:
+      heading1: Book unique homes and experiences
+      heading2: all over the world.
+      placeholder_1: Where do you want to go?....
+      dates: Dates
+      placeholder_2: Check In
+      placeholder_3: Check Out
+      guest: Guests
+      adults: Adults
+      children: Childrens
+      price_range: Price range
+      paragraph: Just looking around? Let us suggest you something hot & happening!
+      home: Home
+      experience: Experience
+    popular_cities:
+      heading: Explore Homes Around The world
+      sub_heading: Find a Top-rated with amenities you need
+      city: "%{city}"
+      title: Travel the world with Homes 2 Hotels
+    top_rated_places:
+      view: View
+    top_rated_places_heading: Popular Places
+    top_rated_experiences_heading: Popular Experiences
+    top_rated_experiences:
+      category_name: "%{name}"
+      experience_title: "%{title}"
+      what_makes_you_qualified: "%{content}"
+      read_more: Read more
+      rating_text: "%{text}"
+      per_person: per person
+      person: person
+
+    what_people_say:
+      title: What People Say
+      paragraph: Top rated peoples feedback about out service
+      name: Paula Wilson
+    featured_box_1:
+      heading: 24/7 customer support
+      paragraph: + 1-647-984-3227
+    featured_box_2:
+      heading: ₹6,00,00,000 host guarantee
+      paragraph: Become a H2H Superhost
+    featured_box_3:
+      heading: Verified ID
+      paragraph: We aim to build a trusted community by giving you more info when you're deciding who to host or stay with.
+
+  host:
+    home:
+      heading_1: Host on Homes 2 Hotels
+      heading_2: Earn money as an Homes 2 Hotels host
+      why_host_on_homes2hotels:
+        heading: Why host on Homes 2 Hotels?
+        paragraph: No matter what kind of home or room you have to share, homes 2 hotels makes it simple and secure to earn money and reach millions of travelers looking for unique places to stay, just like yours.
+      you_re_in_control:
+        heading: You’re in control
+        paragraph: With Homes 2 Hotels, you’re in full control of your availability, prices, house rules, and how you interact with guests. You can set check-in times and handle the process however you like.
+      we_re_there_at_every_step:
+        heading: We’re there at every step
+        paragraph: Homes 2 Hotels offers tools, hospitality tips, 24/7 support, and an online community of experienced hosts for questions and sharing ideas for success.
+      how_to_be_an_homes2hotels_host:
+        heading: How to be an Homes 2 Hotels host
+        step1:
+          heading: Create your listing
+          paragraph_1: It’s free and easy to create a listing on homes 2 hotels. Describe your space, how many guests you can accommodate, and add photos and details.
+          paragraph_2: Our pricing tool can recommend competitive rates, but what you charge is always up to you.
+        step2:
+          heading: Welcome guests
+          paragraph_1: Get to know guests before arrival by messaging them on our platform.
+          paragraph_2: Most hosts clean the spaces guests can use, and provide essentials like clean sheets, towels, and toilet paper.
+          paragraph_3: You can greet guests in person with a key or just send them a door code.
+        step3:
+          heading: Get paid
+          paragraph_1: It’s free and easy to create a listing on homes 2 hotels. Describe your space, how many guests you can accommodate, and add photos and details.
+          paragraph_2: Our pricing tool can recommend competitive rates, but what you charge is always up to you.
+      safety_on_homes2hotels:
+        heading: Safety on Homes 2 Hotels
+        title: Why host on Homes 2 Hotels?
+        paragraph: No matter what kind of home or room you have to share, homes 2 hotels makes it simple and secure to earn money and reach millions of travelers looking for unique places to stay, just like yours.
+      frequently_asked_questions:
+        heading: Frequently asked questions
+        sub_heading_1: Getting Started
+        ques_1: Can I share my home on homes 2 hotels?
+        ans_1: You can learn about local laws and rules and get advice on hosting responsibly in homes 2 hotels’s online Help Center.
+        ques_2: Who can be an homes 2 hotels host?
+        ans_2: It’s easy to become an homes 2 hotels host in most areas, and it’s always free to create a listing. Entire apartments and homes, private rooms, treehouses, and castles are just a few of the properties hosts have shared on homes 2 hotels. For more details on what’s expected of hosts, check out homes 2 hotels’s community standards, which revolve around safety, security, and reliability, and hospitality standards, which help hosts earn great guest reviews.
+        ques_3: Does homes 2 hotels screen guests?
+        ans_3: homes 2 hotels verifies some information about guests and hosts to help make our community a safer place for everyone. That includes requiring a profile photo, confirmed phone number, and confirmed email address. As a host, for added security, you can also ask potential guests to provide an official ID and complete homes 2 hotels’s Verified ID process.
+        sub_heading_2: Earnings
+        ques_4: How should I price my listing on homes 2 hotels?
+        ans_4: What you charge is always up to you, but we do provide tips to help make your space more competitive. When you create a listing on homes 2 hotels, we suggest a price for your property based on your location and other factors. You can set nightly, weekly, and/or monthly rates. Our Smart Pricing tool can help you get the most from your homes 2 hotels.
+        ques_5: How do homes 2 hotels payments work?
+        ans_5: "All payments are processed securely through homes 2 hotels’s online payment system. Guests are charged when a reservation is made, and hosts are paid 24 hours after check-in. How you’re paid is up to you: You can set up direct deposit, PayPal, or a number of other options."
+        ques_6: Does homes 2 hotels provide any insurance for hosts?
+        ans_6: Accidents are rare on homes 2 hotels, but just in case, we’ve got your back. Our Host Guarantee provides up to ₹6,00,00,000 of coverage in case property damage occurs, and our Host Protection Insurance provides liability coverage for up to ₹6,00,00,000, for every listing. We also offer 24/7 host support—because your peace of mind is priceless.
+      start_creating_your_listing:
+        heading: Start creating your listing
+    experiences:
+      host_an_experience_on_homes2hotels_host:
+        heading: Host an experience on Homes 2 Hotels host
+        paragraph: Earn money leading people on activities you love.
+      what_are_homes2hotels_experiences:
+        heading: What are Homes 2 Hotels Experiences?
+        paragraph: Homes 2 Hotels Experiences are activities designed and led by inspiring locals. They go beyond typical tours or classes by immersing guests in each host’s unique world. It’s an opportunity for anyone to share their hobbies, skills, or expertise without needing an extra room
+      ben:
+        heading: Ben
+        paragraph_1: “I took guests to hear classical music by an obscure composer and they loved it! It shows that people can be open to new experiences.”
+        paragraph_2: Hosts A Classical Wander in London
+      share_your_passion_with_the_world:
+        heading: Share your passion with the world
+        paragraph: Introduce guests to the activities and places you’re most passionate about. We’ll help you design your experience step by step, with plenty of resources along the way.
+      meet_interesting_people:
+        heading: Meet interesting people
+        paragraph: Connect with a community of travelers and locals who share your interests. You might make a few new friends, learn from fellow enthusiasts, or get someone excited about a new hobby.
+      host_on_your_terms:
+        heading: Host on your terms
+        paragraph: Host on your terms
+            Set a schedule that works for you, whether you host daily, weekly, or monthly. Pick your price and group size, and manage all the details on the go with a convenient mobile app.
+      meet_the_host_community:
+        heading: Meet the host community
+        paragraph_1: Hosts are chefs, artists, and other in-the-know locals like you who give their guests access to activities and places they can’t typically find on their own. They make everyone feel welcome, and help people in a group connect with one another.
+        paragraph_2: Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....
+        name: "%{name}"
+      safety_on_homes2hotels:
+        heading: Safety on Homes 2 Hotels
+        paragraph: Here’s a brief overview of the process to host an experience on Homes 2 Hotels.
+      learn_what_we_re_looking_for:
+        heading: Learn what we’re looking for
+        paragraph: Review our quality standards and see if your experience is a fit for Homes 2 Hotels.
+      create_your_experience_page:
+        heading: Create your experience page
+        paragraph: Create a page with descriptions, photos, videos, and other details.
+      submit_to_Homes2Hotels_for_review:
+        heading: Submit to Homes 2 Hotels for review
+        paragraph: If your experience meets our quality standards, you can begin hosting.
+      frequently_asked_questions:
+        heading: Frequently asked questions
+        sub_heading_1:
+          title: Do I have to host a home to host an experience?
+          paragraph: No. You don’t have to host guests overnight in your home or space to be an experience host.
+        sub_heading_2:
+          title: What’s the time commitment?
+          paragraph: You can host as often as you like — feel free to adjust your dates and times until you find what works best for you.
+        sub_heading_3:
+          title: Do I need a business license?
+          paragraph: Depending on activities involved, certain experiences may require a business license. Make sure to check local laws in your area to determine which licenses may be required for your experience, especially if there is food, alcohol, or transportation involved.
+        show_more: 'Show more'
+        show_less: 'Show less'
+      explore_other_experiences:
+        heading: Explore other experiences
+        experience_category: "%{exp_category}"
+  places:
+    step_2:
+      title: Step 1
+      heading: What kind of place are you listing?
+      sub_heading_1: First, let’s narrow things down
+      sub_heading_2: Now choose a property type
+      sub_heading_3: What will guests have?
+      sub_heading_4:
+        title: Is this set up as a dedicated guest space?
+        guest_space: "%{guest_space}"
+      paragraph: Apartments are typically located in multi-unit residential buildings or complexes where other people live.
+      select_tag:
+        option_1: Entire place
+        option_2: Private room
+        option_3: Shared room
+      suggestion:
+        heading_1: Entire place
+        paragraph_1: Guests have the whole place to themselves. This usually includes a bedroom, a bathroom, and a kitchen.
+        heading_2: Private room
+        paragraph_2: Guests have their own private room for sleeping. Other areas could be shared.
+        heading_3: Shared room
+        paragraph_3: Guests sleep in a bedroom or a common area that could be shared with others.
+
+    step_3:
+      title: Step 2
+      heading: How many guests can your place accommodate?
+      sub_heading_1: Number of guests
+      sub_heading_2: How many bedrooms can guests use?
+      sub_heading_3:
+        title: How many beds can guests use?
+        sub_sub_heading_1: Beds
+        sub_sub_heading_2: Sleeping arrangements
+        bedroom: Bedroom
+        double: Double
+        queen: Queen
+        single: Single
+        sofa_bed: Sofa Bed
+        king_bed: King Bed
+        couch: Couch
+        crib: crib
+        toddler_bed: Toddler Bed
+        hammock: Hammock
+        bunk_bed: Bunk Bed
+        water_bed: Water Bed
+        air_mattress: Air Mattress
+        floor_mattress: Floor Mattress
+        remove_bedroom_button: remove bedroom
+      suggestion:
+        paragraph_1: The number and type of beds you have determines how many guests can stay comfortably.
+        paragraph_2: Sleeping arrangements help guests decide whether your space is a right fit and know what to expect once they’re there.
+        paragraph_3: Select No. of Share Bathrooms of your place.
+
+
+    step_4:
+      title: Step 3
+      heading: Bathrooms
+      sub_heading: Share bathrooms
+
+    step_5:
+      title: Step 4
+      heading: Where’s your place located?
+      form_fields:
+        country_region: Country / Region
+        apt_suite: Apt / Suite / Buzzer (Optional)
+      paragraph_1: Your exact address will only be shared with confirmed guests.
+      paragraph_2: Address Incorrect
+      reset_button: Reset
+
+    step_6:
+      title: Step 5
+      heading: Is the pin in the right place?
+      paragraph: If needed, you can drag the pin to adjust its location. Only confirmed guests will see this, so they know how to get to your place.
+
+    step_7:
+      title: Step 6
+      heading_1: What amenities do you offer?
+      amenity_title: "%{title}"
+      heading_2: Safety amenities
+      safety_amenity_title: "%{title}"
+      safety_amenity_description: "%{description}"
+      suggestion:
+        paragraph_1: Providing the essentials helps guests feel at home in your place.
+        paragraph_2: Some hosts provide breakfast, or just coffee and tea. None of these things are required, but sometimes they add a nice touch to help guests feel welcome.
+
+    step_8:
+      title: Step 7
+      heading: What spaces can guests use?
+      space: "%{space}"
+      suggestion:
+        paragraph: Spaces should be on the property. Don’t include laundromats or nearby places that aren’t part of your property. If it’s OK with your neighbors, you can include a pool, hot tub, or other shared space.
+
+    step_9:
+      title: Step 8
+      heading: Show travelers what your space looks like
+      add_image_button: add more images
+
+    step_10:
+      title: Step 9
+      heading_1: Edit your title and description
+      placeholder_1: Listing title
+      heading_2: Summary
+      placeholder_2: Describe the décor, light, what's nearby, etc...
+      suggestion:
+        paragraph_1: Your summary description is meant to be a brief overview of your place that guests read before they get into the details.
+        paragraph_2: You can also use your description to remind guests that people from all backgrounds are welcome in your home.
+
+    step_11:
+      title: Step 10
+      heading: Review Homes 2 Hotels’s guest requirements
+      sub_heading_1:
+        title: Summary
+        sub_sub_heading_1: Email address
+        sub_sub_heading_2: Confirmed phone number
+        sub_sub_heading_3: Payment information
+      sub_heading_2:
+        title: "Before booking your home, each guest must:"
+        sub_sub_heading_1: Agree to your House Rules
+        sub_sub_heading_2: Message you about their trip
+        sub_sub_heading_3: Let you know how many guests are coming
+        sub_sub_heading_4: Confirm their check-in time if they’re arriving within 2 days
+
+    step_12:
+      title: Step 11
+      section_1:
+        title: Set house rules for your guests
+        option: "%{title}"
+        add_rules_button: add rule
+      section_2:
+        title: Details guests must know about your home
+        option: "%{title}"
+      suggestion:
+        paragraph_1: In addition to Homes2Hotels’s requirements, guests must agree to all your House Rules before they book.
+        paragraph_2: If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.
+
+    step_13:
+      title: Step 12
+      heading_1: Here’s how guests will book with you
+      sub_heading_1:
+        title: 1. Qualified guests find your listing
+        paragraph: Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.
+      sub_heading_2:
+        title: 2. You set controls for who can book
+        paragraph: To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.
+      sub_heading_3:
+        title: 3. Once a guest books, you get notified
+        paragraph: You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.
+      heading_2: You’re protected throughout
+      paragraph: In the rare case there are issues, Homes 2 Hotels has you covered with 24/7 customer support, and completely penalty-free cancellations if you’re uncomfortable with a reservation.
+
+    step_14:
+      title: Step 13
+      heading: Let’s get started with a couple questions
+      sub_heading_1: Have you rented out your place before?
+      sub_heading_2: How often do you want to have guests?
+
+    step_15:
+      title: Step 14
+      heading: How much notice do you need before a guest arrives?
+      paragraph: "Tip: Letting guests book same-day reservations can help you get guests who book last-minute trips."
+      form: "From:"
+      to: "To:"
+
+    step_16:
+      title: Step 15
+      heading: How far in advance can guests book?
+      paragraph: "Tip: Most hosts can keep their calendars updated up to 6 months out."
+
+    step_17:
+      title: Step 16
+      heading: How far in advance can guests book?
+      sub_heading_1: Nights Min
+      sub_heading_2: Nights Max
+      paragraph: "Tip: Shorter trips can mean more reservations, but you might have to turn over your space more often."
+      paragraph_1: "Minimum night should not be greater than maximum"
+
+    step_18:
+      title: Step 17
+      heading: Update your date
+      placeholder_1: Check-In
+      placeholder_2: Check-Out
+
+    step_19:
+      heading: Block dates for a place
+      sub_heading_1: Select Single Date
+      sub_heading_2: Select Date In Range
+      add_single_date: add single date
+
+    step_20:
+      title: Step 19
+      heading_1: Price Your Space
+      paragraph_1: <strong> Increase your chances of getting booked </strong> <br>Set up Smart Pricing to automatically keep your  nightly prices competitive as demand in your area changes.
+      heading_2: Set up Smart Pricing
+      label_1: Base price
+      label_2: Minimum price
+      label_3: Maximum price
+      label_4: Currency
+      label_5: Service Fee
+      label_6: Cleaning Fee
+      label_7: Tax
+      paragraph_2: You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.
+
+    step_21:
+      title: Step 20
+      heading: Something special for your first guests
+      sub_heading_1:
+        title: Offer 20% off to your first guests
+        paragraph: The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.
+      sub_heading_2: Don’t add a special offer
+      paragraph_1: Once you publish your listing, you won’t be able to add this offer.
+
+    edit_page:
+      continue_button: Continue
+
+      side_bar:
+        basic: "Basic"
+        place: "Place"
+        place_accommodate: "Place Accommodate"
+        guest_arrangement: "Guest Arrangement"
+        share_bath: "Share bathrooms"
+        location: "Place Location"
+        pin_point: "Pin Point"
+        amenities: "Amenities"
+        place_image: "Place Photos"
+        spaces: "Spaces"
+        summary: "Summary"
+        house_rules: "House Rules"
+        settings: "SETTINGS"
+        specific_availability: "Specific Availability"
+        notice: "Notice"
+        guests_book: "Guest Booking Detail"
+        advance_book: "Advance Booking Detail"
+        block_dates: "Block Dates"
+        space_price: "Price Your Space"
+
+    show_page:
+      place_name: "%{title}"
+      view_photos: View photos
+      section_1:
+        title: Description
+        description: "%{description}"
+        amenities:
+          heading: Amenities
+          title: "%{title}"
+        rules:
+          heading: Rules
+          title: "%{title}"
+        tour_this_apartment: Tour this apartment
+        image_description: "%{img_description}"
+        location:
+          heading: Location
+          full_address: "%{full_addr}"
+      section_2:
+        title: Reviews
+        rating_comment: "%{comment}"
+
+    index_page:
+      city: "%{city}"
+
+  experiences:
+    new_page:
+      page_1:
+        hi_there: Hi there,
+        user_name: "%{name}"
+        paragraph_1: We are excited to learn about the experience you did like to host on Homes 2 Hotels.
+        paragraph_2: In just a few minutes, you will start to create your experience page, then you will submit it to be reviewed by Homes 2 Hotels.
+
+      page_2:
+        heading: "Here is an overview of the process:"
+        sub_heading:
+          title:  Learn about our expectations
+          paragraph: In just a few minutes, you will start to create your experience page, then you will submit it to be reviewed by Homes 2 Hotels.
+
+      page_3:
+        heading: What is Homes 2 Hotels looking for in an experience?
+        list_item_1: It’s led by a knowledgeable and passionate host
+        list_item_2: Guests participate hands-on, or are immersed in an activity
+        list_item_3: It gives guests access to a special place or community
+        list_item_4: It tells the story of a host’s unique perspective
+
+      page_4:
+        heading: "What we’re not looking for:"
+        paragraph: The following things don’t qualify as an Homes 2 Hotels experience.
+
+      page_5:
+        heading: Imagine your guests have all arrived. How would you kick off the first 10 minutes of your experience?
+
+      page_6:
+        heading: What does hospitality mean to you?
+
+      page_7:
+        heading: Thanks! Now it’s time to start creating.
+        sub_heading_1:
+          title: Learn about our expectations
+          paragraph: Find out what makes experiences different and what Homes 2 Hotels is looking for.
+        sub_heading_2:
+          title: Create your experience
+          paragraph: Add photos, videos, descriptions, and other details to be reviewed by Homes 2 Hotels.
+        sub_heading_3:
+          title: Submit for review
+          paragraph: Someone from Homes 2 Hotels will review your experience page. If it meets our quality standards, you’ll get to add availability and start hosting!
+        create_your_experiences_button: Create Your Experiences
+    edit_page:
+      side_bar:
+        heading: submitexperience
+        basic: Basic
+        location: Location
+        language: Language
+        category: Category
+        organization: Organization
+        about_the_experience: About the experience
+        title: Title
+        photo: Photo
+        about_you: About You
+        about_organization: About Organization
+        what_we_ll_do: What we'll do?
+        where_we_ll_meet: Where we'll meet?
+        where_we_ll_be: Where we'll be?
+        what_we_ll_provide: What we'll provide?
+        what_guests_should_bring: What Guests Should Bring
+        notes: Notes
+        settings: SETTINGS
+        guest_requirements: Guest Requirements
+        group_size: Group Size
+        price: Price
+        contribution: Contribution
+        default_time: Default Time
+        booking_settings: Booking Settings
+        review_submit: REVIEW  SUBMIT
+
+      step_0:
+        heading: Create your experience
+        paragraph: You are one of the very first members of a new Homes 2 Hotels community. We’re excited to see what you create, and we’re even more excited to partner with you to create incredible travel experiences for guests from around the world.
+
+      step_1:
+        heading: Location
+        label: Which city will you host your experience in?
+        placeholder: Enter city
+
+      step_2:
+        heading: Which language will you write your descriptions in?
+        paragraph: Keep in mind that most travelers on Homes 2 Hotels speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.
+        label: "I’ll write my descriptions and speak in:"
+        prompt: Select Language
+
+      step_3:
+        heading: What type of experience will you host?
+        paragraph_1: Choose the category that best describes your experience. Add a second, if you think it fits into another category.
+        label_1: Is this a Concert?
+        label_2: Yes, this is a Concert
+        label_3: Is food the main theme of your experience? (e.g. a cooking class, home-cooked meal, or food tour?)
+        label_4: Is alcohol the main theme of your experience? (e.g. a bar crawl or tasting class?)
+        label_5: Are you hosting on behalf of a nonprofit organization?
+        paragraph_2: If you’re hosting on behalf of a nonprofit or charitable organization, you may qualify to host a Social Impact experience. Homes2Hotels will waive service fees, and 100% of the proceeds will go to the organization.
+        label_6: Yes, I’m hosting on behalf of a nonprofit organization
+        paragraph_3: Great! To participate, you’ll have to register with our partner, TechSoup. We’ll send you instructions after you submit your experience page.
+        label_7: Make sure you’re signed into the organization’s Homes 2 Hotels account
+        paragraph_4: To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Homes 2 Hotels account if the organization doesn’t already have one.
+        label_8: I’m signed into the organization’s account and not my personal Homes 2 Hotels account.
+
+      step_4:
+        heading: Tell us about the organization you represent
+        label_1: Organization name
+        label_2: "I certify that:"
+        label_3: I have the consent of the charitable organization to run this experience on their behalf
+        label_4: The charitable organization meets Homes 2 Hotels’s criteria for a Social Impact experience
+
+      step_5:
+        heading: Create the page guests will see
+        paragraph: Use the preview on the the right to see how your experience will look publicly. As you create the description for your experience, it will appear in the preview. Write in a clear, straightforward, and friendly way. We’ll give you tips on when to show off your personality and be more descriptive.
+
+      step_6:
+        heading: What is the title of your experience?
+        placeholder: E.g. Dance your way through Rio’s samba scene
+
+      step_7:
+        heading: Add photos
+        paragraph_1: If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.
+        sub_heading: Cover Photo
+        paragraph_2: Choose a photo that represents your experience. This is the first photo that will appear when guests browse for things to do.
+
+      step_8:
+        heading: Tell guests what makes you qualified to host this experience
+        paragraph: Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.
+
+      step_9:
+        heading: Describe the nonprofit organization
+        paragraph: Tell people about the nonprofit organization that you are partnering with. What cause does it support? What is its mission?
+
+      step_10:
+        heading: Describe what you’ll do
+        paragraph: Get guests excited with a fun, detailed description of the itinerary.
+
+      step_11:
+        heading: Where should guests meet you?
+        paragraph: Tell guests exactly where to meet you at the start of the experience. Make sure the location is easy to find. The exact address won’t be shared until the guest’s reservation is confirmed.
+        form_heading: Provide an address
+        form_fields:
+          location_name: "Location name:"
+          apt_suite: "Apt, Suite, Bldg. (optional):"
+          directions: "Directions:"
+          paragraph: Include specific instructions on how to get to the meeting point, and how guests can find you once they arrive.
+        step_2:
+          heading: "Step 2: Drop a pin on the map"
+          sub_heading: "Map pin:"
+          paragraph_1: Drag the pin to the meeting point.
+          paragraph_2: Only confirmed guests will see the exact address.
+
+      step_12:
+        heading: Add details about where you’ll be
+        paragraph_1: Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.
+        sub_heading: Is all alcohol being served at a licensed location (restaurant, bar, etc.)?
+        paragraph_2: Check out the "%{href}" in your area that might apply.
+        paragraph_part_1: Check out the
+        alcohol_law_link: alcohol laws
+        paragraph_part_2: in your area that might apply.
+
+      step_13:
+        heading: What will you provide for guests?
+        paragraph: It’s important to let guests know what you’ll provide because it helps them understand what they’re paying for.
+        label_1: Not providing anything for your guests?
+        label_2: I am not providing anything
+
+      step_14:
+        heading_1: What should guests bring with them?
+        paragraph_1: Think through everything a guest will need to have with them during the experience that you’re not already providing. This will be emailed to guests once they book.
+        title: "%{title}"
+        paragraph_2: What should your guests bring?
+        heading_2: Do guests not have to bring anything at all?
+        label_1: If so, make sure you’re providing everything they might need.
+        label_2: My guests don’t need to bring anything
+
+      step_15:
+        heading: What else do guests need to know before they book?
+        paragraph: Put yourself in a guest’s shoes. Some information may seem obvious, but be detailed so guests are over-prepared.
+        placeholder: Try addressing any concerns guests might have about booking your experience.
+        sub_heading: Is there nothing else guests should know?
+        label: I have no additional notes for my guests
+
+      step_16:
+        heading: Settings
+        paragraph: Add details like group size, price, default time, and more.
+
+      step_17:
+        heading: Who can attend your experience?
+        paragraph_1: Keep in mind that someone booking your experience might book spots for other guests. If there are strict requirements around age, skill level, or certifications, include them here.
+        label_1: Alcohol
+        label_2: My experience includes alcohol. Only guests that meet the legal drinking age will be served.
+        label_3: Minimum age
+        paragraph_2: Set age limits for guests. Minors can only attend with their legal guardian.
+        label_4: Parents can bring kids under 2 years
+        label_5: How active is your experience?
+        key: "%{key}"
+        label_6: Additional requirements
+        label_7: Require verified ID
+        paragraph_3: The primary booker has to successfully complete verified ID in order for them and their guests to attend your experience.
+        label_8: Require the booker to
+        link: verify their ID.
+
+      step_18:
+        heading: Maximum group size
+        paragraph: Think about the group size that works best for your experience. Should it be small and intimate? Is it fun with a large group? Please note that Homes 2 Hotels has a one-guest minimum, which means that if only one person books your experience, you&#x2019;ll still be expected to host.
+        prompt: Choose a number of guests
+        save_and_continue: Save & Continue
+
+      step_19:
+        heading: Set a price per guest
+        paragraph: The price of your experience is always up to you. Some new hosts offer their experience at a lower price in the beginning to attract guests when they don't have any reviews yet.
+        euro: Euro
+
+      step_20:
+        heading: Explain what the guest's money benefits
+        paragraph: Give guests insight into how the nonprofit organization will use their money. What will they be funding or enabling the nonprofit organization to do?
+        placeholder: Type guest contribution description here
+        save_and_continue: Save & Continue
+
+      step_21:
+        heading: At what time will you typically host your experience?
+        paragraph: Later on, you'll pick the exact calendar dates you'd like to host. You'll also be able to adjust times for each individual date.
+        to: to
+        start_time: Start Time
+        end_time: End Time
+
+      step_22:
+        heading: When the latest time guests can book?
+        paragraph: We recommend setting this as close to the start time as possible so more guests can book.
+        prompt: Start Time
+        label_1: Would you like to have your experience canceled if no one books by a certain time?
+        label_2: No thanks
+        label_3: Yes, I need advance notice that I m hosting
+
+      step_23:
+        heading: Review our policies before you submit to Homes 2 Hotels
+        paragraph_1: Homes 2 Hotels will review the version you&#x2019;re about to submit, so make sure you&#x2019;re happy with it. You can still go back and fine-tune your descriptions at any time.
+        label_1: Minimum guests
+        paragraph_2: Experiences on Homes 2 Hotels have a 1 guest minimum. That means if one person books your experience, you&#x2019;ll still be expected to host them.
+        label_2: Service fees
+        paragraph_3: Homes 2 Hotels takes 20% of each booking. Read more about our
+        link_1: service fee
+        label_3: Exclusivity
+        paragraph_4: Each experience date you schedule through Homes 2 Hotels must only be attended by Homes 2 Hotels guests. Guests who book and pay through other platforms must be hosted at separate times.
+        label_4: "By submitting, I confirm the following is true:"
+        label_5: My experience complies with local laws. Learn more about other laws (like business licensing) that may apply.
+        label_6: I agree to the
+        link_2: Homes 2 Hotels Experiences Additional Terms of Service and Guest Refund Policy.
+        label_7: I confirm that my descriptions and photos are my own, and accurately reflect my experience.
+        submit_button: Submit for review
+        edit_descriptions: Edit descriptions
+
+    index_page:
+      title: Choose a type of experience
+      category_name: "%{name}"
+      city: "%{city}"
+
+    show_page:
+      hosted_by: Hosted By
+      host_name: "%{name}"
+      full_address: "%{full_addr}"
+      ques_1: What's make your host to qualified for this experience
+      ans_1: "%{what_makes_you_qualified}"
+      ques_2: What your host will do in this experience
+      ans_2: "%{what_you_will_do}"
+      ques_3: Who can come
+      ans_3: Guests ages "%{min_age}" and up can attend.
+      ques_4: Where we’ll be
+      ans_4: "%{where_you_will_be}"
+      ques_5: Group size
+      ans_5: "%{max_group_size}"
+      ques_5: Bringing guests under 18
+      ans_5: If you bring a guest that’s under 18, it’s your responsibility to make sure the activities they participate in are age-appropriate.
+      ques_6: Government ID
+      ans_6: You’ll need to take a picture of yourself that matches the photo on your ID. This is so Homes 2 Hotels can confirm who’s actually going on the experience. You’ll only have to do this once.
+      ques_7: Experiences cancellation policy
+      ans_7: Any experience can be canceled and fully refunded within 24 hours of purchase.
+      heading_1: Instagram photos feed
+      heading_2: Where your host will be
+      heading_3: Location
+      heading_4: Similar Experience's in
+      heading_5: Entire apartment in Melbourne
+      button: See dates
+      see_dates_modal_popup:
+        heading_1: When do you want to go?
+        paragraph: if you don't find the dates you want, you can always
+                  %{href} to see if they can make room.
+        heading_2: Availability for
+        button: Choose
+
+  static_pages:
+    common_links:
+      terms_of_service: Terms of Service
+      nondiscrimination_policy: Nondiscrimination Policy
+      payments_terms_of_service: Payments Terms of Service
+      privacy_policy: Privacy Policy
+      host_guarantee: Host Guarantee
+      guest_refund: Guest Refund
+      ip_policy: IP Policy
+      cookie_policy: Cookie Policy
+      experiences_guest_release_and_waiver: Experiences Guest Release and Waiver
+
+    privacy_and_policy:
+      heading: Privacy Policy
+      paragraph: "We’ve recently updated our: (1) Terms of Service, (2) Payments Terms of Service, and (3) Privacy Policy (collectively, “Terms”). If you signed up for an account prior to April 16, 2018, we’ll ask you to agree to the new Terms of Service and Payments Terms of Service when you use Homes 2 Hotels on or after June 27, 2018; until June 27, 2018 the prior Terms of Service and Payments Terms of Service will continue to apply to you. The updated Privacy Policy will automatically come into effect for all existing users on May 25, 2018. Your continued use of the Homes 2 Hotels Platform from that day on will be subject to the new Privacy Policy. Please read these Terms carefully. If you signed up for an account on or after April 16, 2018, the updated Terms apply to you. Learn more about what’s changing"
+
+    hospitality:
+      heading: Hosting on Homes 2 Hotels
+      link_1: Basic requirements
+      link_2: Guest reviews
+      link_3: Cleanliness
+      link_4: Essential amenities
+      link_5: Accurate listing details
+      link_6: Easy check-in
+      link_7: Communication
+      sub_heading_1:
+        title: What’s expected of hosts?
+        paragraph_1: We want to give you clear guidance so you know what’s expected and can provide a 5-star stay every time you share your home.
+        paragraph_2: "We ask all hosts to meet five basic requirements: overall rating, response rate, cancellations, acceptance of reservations, and essential amenities. Beyond the basics, you’ll also get reviewed by guests who stay with you."
+        paragraph_3: Already a host? Check your Progress to see how you’re doing.
+      sub_heading_2:
+        title: Basic requirements
+        paragraph: To help create comfortable, reliable stays for guests, all homes and hosts must meet five basic requirements.
+      sub_heading_3:
+        title: Be responsive
+        paragraph: Responding quickly when guests reach out shows that you’re an attentive and considerate host. How frequently and quickly you respond to reservation requests and booking inquiries is measured by your response rate. We ask hosts to respond to these types of messages within 24 hours.
+      sub_heading_4:
+        title: Accept reservation requests
+        paragraph: No guest likes to have to send 4 or 5 requests to find an available place so we expect that if your calendar shows you’re free, you accept most requests. Make sure your listing’s calendar reflects the days you’re able to host. This way you’re more likely to get reservation requests that you can actually accommodate. You can use your availability settings to block time off between bookings, or to prevent requests for same-day reservations or reservations too far in the future.
+      sub_heading_5:
+        title: Avoid cancelling on guests
+        paragraph: We take cancellations seriously and ask all hosts to avoid cancelling on guests–their travel plans depend on it! You’ll be subject to penalties, including financial penalties, if you cancel a confirmed booking. We ask that you avoid canceling confirmed bookings unless there are extenuating circumstances.
+      sub_heading_6:
+        title: Get positive reviews
+        paragraph_1: Guests like to know they can expect a consistent level of quality, no matter where they book. At the end of each stay, guests will review their experience with you, which is one of the ways we evaluate you as a host. Your overall rating is your average review score from all the guests you’ve hosted.
+        paragraph_2: As a host, you’ll have an opportunity to rate guests too–on their cleanliness, courteousness, and communication. Your feedback helps us ensure that guests are treating the homes they stay in as if they were their own. Guests who are consistently flagged by hosts may be subject to penalties.
+      sub_heading_7:
+        title: Getting great reviews from guests
+        paragraph: "We’ve found that hosts who get great reviews tend to focus on four things: cleanliness, accurate listing details, a smooth check-in, and proactive communication."
+      sub_heading_8:
+        title: Cleanliness
+        paragraph_1: Guests will expect the clean and tidy space they see in your listing photos. Make sure you give yourself enough time to clean between guests, especially when you have back-to-back bookings.
+        paragraph_2: Guests will have the opportunity to rate the cleanliness of your space, and the average of your ratings will appear on your listing page. If you consistently receive low cleanliness ratings, you may be subject to penalties.
+      sub_heading_9:
+        title: WHAT’S EXPECTED
+        list_item_1: Clean every room guests can access, especially bedrooms, bathrooms, and the kitchen
+        list_item_2: Check that there’s no hair, dust, or mold on surfaces and floors
+        list_item_3: "Perform turnover between each stay:"
+        list_item_4: Provide fresh linens/sheets and towels for guests
+        list_item_5: Clear trash, food, and leftover items from previous guests
+      sub_heading_10:
+        title: TIPS
+        list_item_1: Space out your bookings to give yourself more time to prep between guests. You can update your reservation preferences to block a night or two before reservations
+        list_item_2: Charge a cleaning fee and use the extra money to pay for cleaning supplies or hire a professional cleaning service
+        list_item_3: Leave cleaning supplies in your space so your guests can take care of spills and accidental messes
+        list_item_4: Provide fresh linens/sheets and towels for guests
+        list_item_5: Clear trash, food, and leftover items from previous guests
+      sub_heading_11:
+        title: Essential amenities
+        paragraph: During a trip, every guest should have what they need to shower and have a good night’s rest. You’re encouraged to provide other amenities if you like, but you’re required to provide at least these essentials.
+        list_item_1: Clean every room guests can access, especially bedrooms, bathrooms, and the kitchen
+        list_item_2: Check that there’s no hair, dust, or mold on surfaces and floors
+        list_item_3: "Perform turnover between each stay:"
+        list_item_4: Provide fresh linens/sheets and towels for guests
+        list_item_5: Clear trash, food, and leftover items from previous guests
+      sub_heading_12:
+        title: Accurate listing details
+        paragraph_1: Setting the right expectations before a trip can contribute to a better experience for both you and your guests. You can help travelers decide if your space meets their needs by providing clear info and must-know details like whether you allow pets. A detailed listing and profile helps attract the guests who are looking for a place just like yours.
+        paragraph_2: Guests will have the opportunity to rate the accuracy of the information you provide.
+      sub_heading_13:
+        title: LISTING INFORMATION
+        sub_sub_heading_1:
+          title: WHAT’S EXPECTED
+          list_item_1: Accurate and up-to-date address (this will be shared only after guest has booked)
+          list_item_2: Bedroom and bathroom privacy details are accurate
+          list_item_3: Listing photos fairly represent the condition and layout of the space
+          list_item_4: Amenities are as advertised, present and functional
+        sub_sub_heading_2:
+          title: TIPS
+          list_item_1: Use a variety of high-quality photos with captions and write a detailed description of the space
+          list_item_2: Provide House Rules that address situations that will matter to your guests. Your rules can provide clarity around what you do and don’t allow, like smoking, pets, or additional visitors.
+          list_item_3: Let guests know if there are parts of the listing that are off-limits, like a garage or the attic
+          list_item_4: Be honest about unexpected factors that will impact your guests’ stay. Your guests deserve to know if your neighbors just started a noisy construction project or if they’ll have to climb 8 flights of stairs to get to your place.
+      sub_heading_14:
+        title: AMENITIES
+        paragraph: List all the amenities you offer and make sure each one is available and operational
+      sub_heading_15:
+        title: NIGHTLY PRICE
+        paragraph: Make sure your space matches the price you set. A very high price may lead travelers to assume your listing is extra luxurious. Need help? Try looking at other listings in your area or turn on Smart Pricing.
+      sub_heading_16:
+        title: Easy check-in
+        paragraph: A clear and simple check-in process will help put your guests at ease after a day of traveling. Guests will be asked to rate their check-in experience at the end of their stay.
+      sub_heading_17:
+        title: TIPS
+        list_item_1: Create a check-in guide for your listing–we’ll share it with your guests 24 hours before check-in so they have everything they need to arrive smoothly
+        list_item_2: If you plan to meet guests in person, make sure to coordinate a check-in time in advance
+        list_item_3: If you offer self check-in, add those details in the Guest resources section of your listing
+        list_item_4: Make sure your guests know how to contact you if they have a travel delay or last-minute question
+        list_item_5: Provide your guests with detailed directions for getting to your place—you can save time by putting it all in your house manual
+      sub_heading_18:
+        title: Supporting guests during their stay
+        paragraph: Whether or not you’re staying in the space with your guests, it’s important to remain available throughout their stay. Your guests will have the opportunity to rate the clarity and consistency of your communication at the end of their stay—and the average of these guest ratings will appear on your listing page.
+      sub_heading_19:
+        title: TIPS
+        list_item_1: Be proactive in your communication so guests know you’re available. Reach out early to coordinate arrival plans. If you won’t be greeting your guests when they arrive, you can send them a message at their check-in time to make sure everything went smoothly.
+        list_item_2: If you confirm a reservation and something about your listing changes, tell your guest in advance.
+        list_item_3: Download the Homes 2 Hotels app so you can respond to messages anywhere.
+        list_item_4: If you won’t be in the area during their stay, you can give your guests a local point of contact.
+
+    terms:
+      heading_1:
+        title: Updated Terms of Service
+        paragraph: "We’ve recently updated our: (1) Terms of Service, (2) Payments Terms of Service, and (3) Privacy Policy (collectively, “Terms”). If you signed up for an account prior to April 16, 2018, we’ll ask you to agree to the new Terms of Service and Payments Terms of Service when you use Homes 2 Hotels on or after June 27, 2018; until June 27, 2018 the prior Terms of Service and Payments Terms of Service will continue to apply to you. The updated Privacy Policy will automatically come into effect for all existing users on May 25, 2018. Your continued use of the Homes 2 Hotels Platform from that day on will be subject to the new Privacy Policy. Please read these Terms carefully. If you signed up for an account on or after April 16, 2018, the updated Terms apply to you. Learn more about what’s changing"
+      heading_2:
+        title: Nondiscrimination Policy
+        sub_heading: Our Commitment to Inclusion and Respect
+        paragraph: "We’ve recently updated our: (1) Terms of Service, (2) Payments Terms of Service, and (3) Privacy Policy (collectively, “Terms”). If you signed up for an account prior to April 16, 2018, we’ll ask you to agree to the new Terms of Service and Payments Terms of Service when you use Homes 2 Hotels on or after June 27, 2018; until June 27, 2018 the prior Terms of Service and Payments Terms of Service will continue to apply to you. The updated Privacy Policy will automatically come into effect for all existing users on May 25, 2018. Your continued use of the Homes 2 Hotels Platform from that day on will be subject to the new Privacy Policy. Please read these Terms carefully. If you signed up for an account on or after April 16, 2018, the updated Terms apply to you. Learn more about what’s changing"
+        list_item_1: If your Country of Residence is the United States, you area   contracting with Homes 2 Hotels, Inc., 888 Brannan Street, 4th Floor, San Francisco, CA 94103, United States.
+        list_item_2: If your Country of Residence is outside of the United States, the People’s Republic of China (which for purposes of these Terms does not include Hong Kong, Macau and Taiwan) (hereinafter <strong>“ China ” </strong>) and Japan, you are contracting with Homes 2 Hotels Ireland UC (<strong> "Homes 2 Hotels Ireland” </strong>), The Watermarque Building, South Lotts Road, Ringsend, Dublin 4, Ireland.
+        list_item_3: If your Country of Residence is  China, you are contracting with Homes 2 Hotels Internet (Beijing) Co., Ltd. <strong>(“ Homes 2 Hotels China ”) </strong> except where you book a Host Service (as defined below) or when you create a Listing located outside of China, in which case you are contracting with Homes 2 Hotels Ireland for that transaction.
+        list_item_4: If your Country of Residence is Japan, you are contracting with Homes 2 Hotels Global Services Limited (<strong>" Homes 2 Hotels GSL "</strong> ), 25-28 North Wall Quay, Dublin 1, D01 H104, Ireland,
+          except where you book a Host Service (as defined below) or when you create a Listing located outside of Japan, in which case you are contracting with Homes 2 Hotels Ireland for that transaction. Additionally, if your contracting entity is Homes 2 Hotels GSL, you will nevertheless contract with Homes 2 Hotels Ireland for all bookings confirmed prior to June 13, 2018 at 3:00 pm UTC.
+      heading_3:
+        title: 1. Scope of Homes 2 Hotels Services
+        paragraph: 1.1 The Homes 2 Hotels Platform is an online marketplace that enables registered users (“Members”) and certain third parties who offer services (Members and third parties who offer services are “Hosts” and the services they offer are “Host Services”) to publish such Host Services on the Homes 2 Hotels Platform (“Listings”) and to communicate and transact directly with Members that are seeking to book such Host Services (Members using Host Services are “Guests”). Host Services may include the offering of vacation or other properties for use ("Accommodations"), single or multi-day activities in various categories (“Experiences”), access to unique events and locations (“Events”), and a variety of other travel and non-travel related services.
+      heading_4:
+        title: Table of Contents
+        link_1: Scope of Homes 2 Hotels Services
+        link_2: Eligibility, Using the Homes 2 Hotels Platform, Member Verification
+        link_3: Modification of these Terms
+        link_4: Account Registration
+        link_5: Content
+        link_6: Service Fees
+        link_7: Terms specific for Hosts
+        link_8: Terms specific for Guests
+        link_9: Booking Modifications, Cancellations and Refunds, Resolution Center
+        link_10: Ratings and Reviews
+        link_11: Damage to Accommodations, Disputes between Members
+        link_12: Rounding off, Currency conversion
+        link_13: Taxes
+        link_14: Prohibited Activities
+        link_15: Term and Termination, Suspension and other Measures
+        link_16: Disclaimers
+        link_17: Liability
+        link_18: Indemnification
+        link_19: Dispute Resolution
+        link_20: Feedback
+        link_21: Applicable Law and Jurisdiction
+        link_22: General Provisions
+        list_item_1: "Homes 2 Hotels hosts <u><strong>may</strong></u>:"
+        list_item_2: Except as noted above, Homes 2 Hotels hosts may decline to rent based on factors that are not prohibited by law. For example, except where prohibited by law, Homes 2 Hotels hosts may decline to rent guests with pets, or to guests who smoke.
+        list_item_3: Require guests to respect restrictions on foods consumed in the listing (e.g., a host who maintains a Kosher or vegetarian kitchen may require guests to respect those restrictions).
+        list_item_4: Nothing in this policy prevents a host from turning down a guest on the basis of a characteristic that is not protected under the civil rights laws or closely associated with a protected class. For example, an Homes 2 Hotels host may turn down a guest who wants to smoke in a unit, or place limits on the number of guests in a unit.
+      nondiscrimination_policy: Nondiscrimination Policy
+      payments_terms_of_service: Payments Terms of Service
+      host_guarantee: Host Guarantee
+      guest_refund: Guest Refund
+      ip_policy: IP Policy
+      cookie_policy: Cookie Policy
+      experiences_guest_release_and_waiver: Experiences Guest Release and Waiver
+
+
+
+    traveling_help:
+      ask_ques_form:
+        title: How we can help?
+        placeholder: Ask a question...
+      questions_you_re_in_the_right_place:
+        heading: Questions? You're in the right place.
+        how_it_works:
+          heading: How It Works
+          paragraph: Discover unique places to stay anywhere in the world.
+        trust_safety:
+          heading: Trust safety
+          paragraph: Learn about how we help everyone on Homes 2 Hotels travel and host with confidence.
+      select_a_topic:
+        heading: Select a topic
+
+      popular_articles:
+        heading: Popular articles
+        payment_methods:
+          heading: Payment methods
+          list_item_1: What methods of payment does Homes 2 Hotels accept?
+          list_item_2: How do I use Alipay to pay?
+          list_item_3: How do I edit or remove a payment method?
+        popular_questions:
+          heading: Popular questions
+          list_item_1: What should I know about booking a home in Japan?
+          list_item_2: What is Homes 2 Hotels Guest Refund Policy for homes?
+          list_item_3: Can I pay with any currency?
+        canceling_a_reservation:
+          heading: Canceling a reservation
+          list_item_1: Do I get a full refund if I cancel?
+          list_item_2: What if I need to cancel because of an emergency or unavoidable circumstance?
+          list_item_3: What is the Resolution Center?
+        coupons_credits:
+          heading: Coupons  credits
+          list_item_1: How do I use a coupon code?
+          list_item_2: My coupon code isn't working
+          list_item_3: How do I earn credit from referring a friend to Homes 2 Hotels?
+        identification_verifications:
+          heading: Identification  verifications
+          list_item_1: What are profile verifications and how do I get them?
+          list_item_2: How does it work when Homes 2 Hotels asks for an ID?
+          list_item_3: Why didn't I get my email notification?
+        help_with_your_reservation:
+          heading: Help with your reservation
+          list_item_1: I can't find my reservation
+          list_item_2: What should I do if something's missing or not as expected when I check in?
+          list_item_3: What is the Resolution Center?
+
+    suggested_topic_content:
+      heading: Faq Section
+      payment_methods:
+        title: Payment methods
+        ques_1: What methods of payment does Homes 2 Hotels accept?
+        ques_2: How do I use Alipay to pay?
+        ques_3: How do I edit or remove a payment method?
+      popular_questions:
+        title: Popular questions
+        ques_1: What should I know about booking a home in Japan?
+        ques_2: What is Homes 2 Hotels's Guest Refund Policy for homes?
+        ques_3: Can I pay with any currency?
+      canceling_a_reservation:
+        title: Canceling a reservation
+        ques_1: Do I get a full refund if I cancel?
+        ques_2: Generative Modeling ReviewWhat if I need to cancel because of an emergency or unavoidable circumstance?
+        ques_3: What is the Resolution Center?
+      coupons_credits:
+        title: Coupons  credits
+        ques_1: How do I use a coupon code?
+        ques_2: My coupon code isn't working
+        ques_3: How do I earn credit from referring a friend to Homes 2 Hotels?
+      identification_verifications:
+        title: Identification  verifications
+        ques_1: What are profile verifications and how do I get them?
+        ques_2: How does it work when Homes 2 Hotels asks for an ID?
+        ques_3: Why didn't I get my email notification?
+      help_with_your_reservation:
+        title: Help with your reservation
+        ques_1: I can't find my reservation?
+        ques_2: What should I do if something's missing or not as expected when I check in?
+        ques_3: What is the Resolution Center?
+
+    how_it_works:
+      heading: Local destinations for a global community
+      discover_amazing_places:
+        title: Discover Amazing Places
+        paragraph: Find hosts with extra rooms, entire homes, and unique accommodations like castles and igloos.
+      book_a_stay:
+        title: Book a Stay
+        paragraph: Connect with hosts, confirm travel dates, and pay—all through Homes 2 Hotels’s trusted services.
+      travel:
+        title: Travel
+        paragraph: Feel at home, anywhere you go in the world. Learn more about how to travel on Homes 2 Hotels.
+
+    trust_and_safety:
+      overview:
+        heading: Trust  Safety
+        sub_heading_1:
+          title: Your safety is our priority
+          list_item_1: Overview
+          list_item_2: Traveling
+          list_item_3: Hosting
+          list_item_4: Community
+          paragraph_1: Creating a world where everyone can truly belong requires a foundation of trust. So, as Homes 2 Hotels continues to grow, it's vital we collect and publish the standards that have always underpinned this global community, both to convey our values and guide behavior.
+          paragraph_2: This is a living document&#x2014;we&#x2019;re constantly rethinking our approach as we learn from the community what's best for Homes 2 Hotels. But these five standards are the heart of what we've learned from you so far, and we&#x2019;re always working to make sure they're enforced.
+        sub_heading_2:
+          title: Safety by design
+          paragraph: Homes 2 Hotels is designed with safety&#x2014;both online and off in mind
+        sub_heading_3:
+          title: Risk scoring
+          paragraph: Every Homes 2 Hotels reservation is scored for risk before it's confirmed. We use predictive analytics and machine learning to instantly evaluate hundreds of signals that help us flag and investigate suspicious activity before it happens.
+        sub_heading_4:
+          title: Watchlist  background checks
+          paragraph: While no screening system is perfect, globally we run hosts and guests against regulatory, terrorist, and sanctions watchlists. For hosts and guests in the United States, we also conduct background checks.
+        sub_heading_5:
+          title: preparedness
+          paragraph: We routinely run safety workshops with hosts and leading local experts and provide hosts with online safety cards with important local information for their guests. Hosts can also request a free smoke and carbon monoxide detector for their home.
+        sub_heading_6:
+          title: Secure payments
+          paragraph: Our secure platform ensures your money gets to the host that's why we ask you to always pay through Homes 2 Hotels and never wire money or pay someone directly.
+        sub_heading_7:
+          title: Account protection
+          paragraph: We take a number of measures to safeguard your Homes 2 Hotels account, like requiring multi-factor authentication when a login is attempted from a new phone or computer and sending you account alerts when changes are made.
+        sub_heading_8:
+          title: Preparedness
+          paragraph: Always pay and communicate directly through the Homes 2 Hotels website or app. As long as you stay on Homes 2 Hotels throughout the entire process&#x2014;from communication, to booking, to payment&#x2014;you&#x2019;re protected by our multi-layer defense strategy.
+        sub_heading_9:
+          title: We're here if you need us
+          paragraph: Our global team is standing by 24/7 in 11 different languages to help make things right with rebooking assistance, refunds, reimbursements, our $1 million dollar Host Guarantee, and insurance programs for both homes and experiences. Just reach out if there&#x2019;s anything you need.
+      traveling:
+        heading: Every home and every experience on Homes 2 Hotels is unique
+        paragraph: Homes 2 Hotels is designed with safety&#x2014;both online and off&#x2014;in mind
+        sub_heading_1: Search  book with confidence
+        sub_heading_2: Read the ratings  reviews
+        sub_heading_3: Get your questions answered
+        sub_heading_4: Always communicate  pay on Homes 2 Hotels
+        sub_heading_5: Do a safety check
+        sub_heading_6: Research local travel alerts  warnings
+        sub_heading_7: We&#x2019;re here for you 24/7
+      hosting:
+        heading: Sharing your space or passions with someone you&#x2019;ve never met can feel like a leap of faith
+        paragraph: Here&#x2019;s how you can help ensure your hosting experience, and your guest&#x2019;s trip, goes off without a hitch
+        sub_heading_1:
+          title: Set clear expectations
+          paragraph_1: Your listing should let potential guests know about the unique features and amenities of your home or experience. Even small details like the number of flights of stairs to your front door or the fitness level required for your experience can help make sure guests enjoy their time with you.
+          paragraph_2: If you&#x2019;re a home host, you can also outline specific expectations (like quiet hours) in your house rules.
+        sub_heading_2:
+          title: Set guest requirements
+          paragraph: Every guest is asked to provide their full name, date of birth, photo, phone number, email address, and payment information to Homes 2 Hotels before booking. Home hosts also have the option to require guests to provide Homes 2 Hotels with a government ID before booking their listing.
+        sub_heading_3:
+          title: Read profiles  reviews
+          paragraph: If you want to know more about a guest before accepting their reservation request, check out their profile or read reviews from past hosts. Hosts and guests can only review each other after a reservation is complete, so you know the feedback you&#x2019;re reading is based on actual experiences.
+        sub_heading_4:
+          title: Get to know your guest in advance
+          paragraph: Our secure messaging tool gives you the chance to get to know guests and answer or ask any questions that come up before or during the trip. Messaging is also a great place to coordinate things like check-in or provide local recommendations.
+        sub_heading_5:
+          title: Keep safety info  equipment handy
+          paragraph: It&#x2019;s important to equip your home or experience and your guests with the safety essentials they might need during their trip. This includes things like a working smoke and carbon monoxide detector, a fire extinguisher, a first aid kit, and a fully completed online safety card.
+        sub_heading_6:
+          title: We're here for you 24/7
+          paragraph: In the rare event that an issue should arise, our team is available 24/7 in 11 languages to support you and your guests&#x2014;all you have to do is reach out. We offer things like rebooking assistance, refunds, reimbursements, our $1 million Host Guarantee, and insurance programs for home and experience hosts to help make things right.
+      community:
+        paragraph_1: Creating a world where everyone can truly belong requires a foundation of trust. So, as Homes 2 Hotels continues to grow, it&#x2019;s vital we collect and publish the standards that have always underpinned this global community, both to convey our values and guide behavior.
+        paragraph_2: This is a living document&#x2014;we&#x2019;re constantly rethinking our approach as we learn from the community what&#x2019;s best for Homes 2 Hotels. But these five standards are the heart of what we&#x2019;ve learned from you so far, and we&#x2019;re always working to make sure they&#x2019;re enforced.
+        sub_heading:
+          title: Safety
+          paragraph: Your Homes 2 Hotels experience begins the moment you embrace adventure. That&#x2019;s only possible when you trust this community and feel safe. As a result safety is our first priority&#x2014;we require that you refrain from endangering or threatening anyone.
+
+  registration:
+    new:
+      label_2: Your password
+      label_3: Confirm password
+      text_1: Already have an account?
+      button: Register Now!
+      text_2: characters minimum
+
+  sign_in_modal:
+    text: Don’t have an account?
+    log_in: Log in
+    forgot_password: Forgot Password
+
+  booking_modal:
+    per_night: / night
+    total: Total
+    you_won_t_be_charged_yet: You won’t be charged yet
+    Book: book
+    rs: Rs
+
+  booking_invoice:
+    paypal: Paypal
+    braintree: Braintree
+    notice: "%{notice}"
+    notice: "%{notice}"
+    heading: About your trip
+    paragraph: Agree and continue....
+    button_1: Agree and continue
+    button_2: Contact Host
+    reciept:
+      place_name: "%{name}"
+      paragraph_1: Entire home/apt in Los Angeles
+      span: review
+      cleaning_fee: Cleaning fee
+      service_fee: Service fee
+      occupancy_taxes_and_fees: Occupancy taxes and fees
+      total_inr: Total (INR)
+      heading: Strict with grace period – free cancellation
+      paragraph_2: Cancel within 48 hours of booking to get a full refund.
+      link: More details
+      how_many_coming: How many coming?
+
+  check_booking:
+    heading: About your guest
+
+  password_reset:
+    new_password: New password
+    confirm_password: Confirm new password
+    button: Change my password

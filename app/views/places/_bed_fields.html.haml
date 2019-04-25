@@ -1,0 +1,89 @@
+.nested-fields
+  .add-more
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.king_bed')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :king_bed, class: 'input-number', value: f.object.king_bed
+            .input-group-button
+              %span.input-number-increment.beds +
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.queen')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :queen,class: 'input-number', value: f.object.queen
+            .input-group-button
+              %span.input-number-increment.beds +
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.double')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :double, class: 'input-number', value: f.object.double
+            .input-group-button
+              %span.input-number-increment.beds +
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.single')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :single,class: 'input-number', value: f.object.single
+            .input-group-button
+              %span.input-number-increment.beds +
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.bunk_bed')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :bunk_bed,class: 'input-number', value: f.object.bunk_bed
+            .input-group-button
+              %span.input-number-increment.beds +
+    .row
+      .col-md-7.col
+        %label
+          = t('places.step_3.sub_heading_3.water_bed')
+      .col-md-5.col
+        .add-field
+          .input-group.input-number-group
+            .input-group-button
+              %span.input-number-decrement.beds -
+            = f.number_field :water_bed, class: 'input-number', value: f.object.water_bed
+            .input-group-button
+              %span.input-number-increment.beds +
+    = f.fields_for :bedroom do |bed|
+      .row.number-of-bathrooms
+        .col-md-7.col
+          %label
+            = "Room has pvte. Bathroom"
+        .col-md-5.col
+          .check-box-wrapper.pl-45.cheq-right
+            %label.check-box
+              = bed.check_box :no_of_attached_bathrooms, {checked: f.object.bedroom.no_of_attached_bathrooms.eql?(1), class:'check-box'}, 1 , 0
+              %span.checkmark
+    .row
+      .col-md-12.col
+        %label
+          = "OTHER SLEEPING ARRANGEMENTS"
+    = render 'other_sleeping_arrangements', f: f

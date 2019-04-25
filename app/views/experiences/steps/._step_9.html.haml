@@ -1,0 +1,18 @@
+#about-organization{"aria-labelledby" => "about-organization-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_9.heading')
+        %p
+          = t('experiences.edit_page.step_9.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 10 }
+        .form-group
+          = f.text_area :nonprofit_organization_detail, class: 'form-control', maxlength: 150,style: 'height: 123px;'
+          %span#rchars 150
+          = t('common.character_s_remaining')
+        .form-group
+          = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-9.jpg"}/

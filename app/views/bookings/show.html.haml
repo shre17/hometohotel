@@ -1,0 +1,74 @@
+%script{:src => "https://js.braintreegateway.com/v2/braintree.js"}
+
+#booking_modal.modal.fade{ data: { backdrop: "static" } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5 Booking details:
+      .modal-body
+        .row
+          - if @booking.is_experience?
+            .col-md-12
+              %p
+                %strong Name:
+                = @booking.bookable.title
+              %p
+                %strong Total:
+                = @booking.total_with_symbol
+              %p
+                %strong No of Guest:
+                = @booking.total_guest
+              %p
+                %strong For:
+                = @booking.exp_date_in_date
+              %p
+                %strong Time:
+                = @booking.exp_time
+              %p
+                %strong Total Price
+                = @booking.final_price_with_symbol
+          - else
+            .col-md-12
+              %p
+                %strong Name:
+                = @booking.bookable.name
+              %p
+                %strong Total:
+                = @booking.total_with_symbol
+              %p
+                %strong No of Guest:
+                = @booking.total_guest
+              %p
+                %strong From:
+                = @booking.start_date_in_date
+              %p
+                %strong To:
+                = @booking.end_date_in_date
+              %p
+                %strong Service Fee:
+                = @booking.service_fee_with_symbol
+              %p
+                %strong Cleaning Fee:
+                = @booking.cleaning_fee_with_symbol
+              %p
+                %strong Taxes:
+                = @booking.tax_with_symbol
+              %p
+                %strong Total Price
+                = @booking.final_price_with_symbol
+
+        = link_to t('booking_invoice.braintree'), pay_via_braintree_booking_path(@booking), method: :get, class: "btn red-button bold-button"
+
+        =# link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_booking_path(@booking), method: :post)
+
+      .modal-footer
+        - if @booking.bookable.class.name.downcase.eql?('place')
+          = link_to 'Cancel', place_path(@booking.bookable), class: 'btn pull-right'
+        - else
+          = link_to 'Cancel', experience_path(@booking.bookable), class: 'btn pull-right'
+
+:javascript
+  $(document).ready(function(){
+    $('#booking_modal').modal('show');
+  });
+

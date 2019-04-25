@@ -1,0 +1,112 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    / /hero_in
+    .bg_color_1
+      %section.edit-profile.margin_30_30
+        .container
+          .row
+            .col-sm-3
+              .edit-profile-left
+                .view-profile-img
+                  - if @profile.image.present?
+                    %img{:src => @profile.image.url(:medium), :width => "100%"}/
+                  - else 
+                    %img{:src => "/assets/user_pic.png", :width => "100%"}/
+                .card{:style => "border: 1px solid rgba(0,0,0,.125);margin-top: 15px;"}
+                  %h5.card-header 
+                    = (t 'profile.view_profile.heading')
+                  .card-body
+                    %p.id-detail
+                      Government ID
+                      - if @profile.profile_verified
+                        %i.fa.fa-check-circle
+                      - else
+                        %i.fa.fa-times
+                    %p.id-detail
+                      Email Address
+                      - if @profile.user.confirmed_at.present?
+                        %i.fa.fa-check-circle
+                      - else
+                        %i.fa.fa-times
+                    %p.id-detail
+                      Phone Verified
+                      - if @profile.mobile_verified?
+                        %i.fa.fa-check-circle
+                      - else
+                        %i.fa.fa-times
+                    / %p 
+                    /   =# (t 'profile.view_profile.paragraph_1')
+                      
+                    / %a{:href => "#"} 
+                    /   = (t 'profile.view_profile.add_verification_link')
+            .col-sm-9
+              .user-details-rt
+                %h2
+                  = t('profile.view_profile.heading_2', first_name: @profile.first_name ) 
+                %h6.text-normal 
+                  = (t 'profile.view_profile.heading_3')
+                .report-user
+                - if current_user.profile.id.eql?(@profile.id.to_i)
+                  %a{:href => edit_profile_path(current_user)} 
+                    = (t 'common.edit_profile_link')
+                - else
+                  / %i.fa.fa-flag
+                  / %a{:href => "#"}
+                  /   =# (t 'profile.view_profile.report_this_user_link') 
+                  / %br
+                %br
+                %br
+                %p.profile-about
+                  = @profile.describe_yourself
+                %hr
+                .reviews-box
+                  %h2 
+                    = (t 'common.reviews.heading')
+                    %span#host_reviews_count
+                      = "(#{@profile.user.host.reviews.count})"
+                  .reviews-container#show_host_reviews
+                    - @profile.user.host.reviews.each do |review|
+                      = render partial: "reviews/review", locals: { review: review}
+
+              - if current_user.has_authority_to_review?(@profile)
+                %hr
+                .add-review
+                  %h5
+                    = (t 'common.reviews.leave_a_review')
+                  .col-md-12
+                    .single-line
+                  %br
+                  = form_for @profile.user.host.reviews.new, url: create_review_place_path(@profile.user.host.id), remote: true do |f| 
+
+                    .row
+                      .col-md-9.col-5
+                        = f.label "#{t('common.reviews.attribute', attr: 'service')}"
+                      .col-md-3.col-7
+                        .rating
+                          - [4,3,2,1,0].each do |i|
+                            = f.radio_button :service, "#{i+1}", id: "service_#{i}_stars"
+                            %label.stars{ for: "service_#{i}_stars"} #{i} stars
+   
+                    .row
+                      .form-group.col-md-12
+                        %label 
+                          = (t 'common.reviews.content')
+                        = f.hidden_field :reviewable_type
+                        = f.text_area :content, class: "form-control"
+                      .form-group.col-md-12.add_top_20
+                        = f.submit (t 'common.submit_button'), class: "btn_1"
+                
+  / /main
+/ page
+#toTop
+
+
+:javascript
+  $(document).ready(function(){
+    $('#new_review').on('ajax:success', function(e, data, status, xhr){
+      $('#review_content').val('');
+      $('#service_0_stars').click();
+    });
+  });

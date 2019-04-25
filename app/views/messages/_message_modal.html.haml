@@ -1,0 +1,21 @@
+#message_modal.modal.fade
+  .modal-dialog
+    = form_for @booking.bookable.messages.new, url: messages_path do |f|
+      .modal-content
+        .modal-header
+          %h5.modal-title
+            %span.booking-price.price Query Form
+            %span 
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          .row
+            .col-sm-12
+              .form-group
+                = f.hidden_field :messagable_type
+                = f.hidden_field :messagable_id, value: "#{@booking.bookable.id}" 
+                = f.text_area :message, placeholder: 'Write Your Query HERE', class: 'form-control'
+        .modal-footer
+          = f.submit :send, class: "btn red-button btn-block" 
+
+ 

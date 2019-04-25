@@ -1,0 +1,148 @@
+#booking_modal.modal.fade
+  .modal-dialog
+    = form_for(@place.bookings.new) do |f|
+      .modal-content
+        .modal-header
+          %h5.modal-title
+            %span.booking-price.price{ data: { price: "#{@place.price.base_price}" } }
+              = @place.price.with_symbol
+            %span #{t('booking_modal.per_night')}
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          .row
+            .col-sm-6
+              .form-group
+                .calender-box
+                  .icon-calendar
+                  = f.text_field :start_date, placeholder: t('home.search_form.placeholder_2'), class: 'form-control', id: "txtCheckIn", :readonly => "readonly", required: true, value: (session[:filter_params]['check_in'] rescue nil)
+            .col-sm-6
+              .form-group
+                .calender-box
+                  .icon-calendar
+                  = f.text_field :end_date, placeholder: t('home.search_form.placeholder_3'), class: 'form-control', id: "txtCheckOut", :readonly => "readonly", required: true, value: (session[:filter_params]['check_out'] rescue nil)
+            .col-sm-12
+              .form-group
+                .panel-dropdown.add-guest.active
+                  = t('home.search_form.guest')
+                  .add-field
+                    .input-group.input-number-group
+                      .input-group-button
+                        %span.input-number-decrement -
+                      = f.number_field :total_guest, max: @place.number_of_guests , min: 1, class: 'input-number', id: 'guest-count', value: 0
+                      .input-group-button
+                        %span.input-number-increment +
+                      = hidden_field_tag :id, @place.id
+                      = f.hidden_field :total, id: 'hidden_reservation_total'
+                      = f.hidden_field :price, value: @place.price.base_price
+                      = f.hidden_field :currency, value: @place.price.currency
+                      = f.hidden_field :bookable_type
+                      .booking-dates.d-none
+                        = get_place_booking_dates(@place)
+                #preview.total-price
+                  %table.reservation-table
+                    %tbody
+                      %tr
+                        %td
+                          = @place.price.with_symbol + "x"
+                          %span#reservation_days 0
+                        %td.text-right
+                          = @place.price.symbol_only
+                          %span#reservation_sum= '0'
+                          %span#reservation_total
+                            
+                      %tr
+                        %td
+                          %strong #{t('booking_modal.total')} -
+                        %td.text-right
+                          %strong
+                            = @place.price.symbol_only
+                            %span#final-reservation_sum= '0'
+                            %span#final-reservation_total
+        .modal-footer
+          %button.btn.red-button.btn-block{:type => "submit"} #{t('booking_modal.book')}
+          .clearfix
+          %div
+            %center
+              %small #{t('booking_modal.you_won_t_be_charged_yet')}
+
+  / /bg_color_1
+
+:javascript
+  $(function () {
+    var numberOfDays = "+" + "#{@place.advance_booking_period.to_s}" + "d";
+    var blocked_dates = "#{@place.blocked_dates.map{|date| date.blocked_date.strftime('%d-%m-%Y')}.join(",")}";
+    var checkout = $('#txtCheckOut').datepicker({
+      format: 'dd/mm/yyyy',
+      startDate: "+0d",
+      endDate: numberOfDays,
+      datesDisabled: blocked_dates.split(","),
+    });
+    $('#txtCheckOut').attr('disabled', 'disabled');
+    var checkin = $('#txtCheckIn').datepicker({
+      startDate: "+0d",
+      endDate: numberOfDays,
+      format: 'dd/mm/yyyy',
+      datesDisabled: blocked_dates.split(",")
+    }).on('changeDate', function(event) {
+      $('#txtCheckOut').removeAttr('disabled');
+      var newDate = new Date(event.date)
+      newDate.setDate(newDate.getDate()+60)
+      checkout.datepicker("setStartDate", event.date);
+      checkout.datepicker("setEndDate", newDate);
+      checkin.datepicker('hide');
+      $('#txtCheckOut')[0].focus();
+    });
+  });
+
+  $(document).ready(function(){
+    var stay_upto_min = "#{@place.stay_upto_min}";
+    $("#txtCheckIn").datepicker({
+    }).on('changeDate', function (selected) {
+      var minDate = new Date(selected.date.valueOf());
+      var minDate = new Date(selected.date.valueOf());
+      if(parseInt(stay_upto_min) > 1){
+        $('#txtCheckOut').datepicker('setStartDate', minDate.addDays((parseInt(stay_upto_min)- 1)));
+      }
+      else{
+        $('#txtCheckOut').datepicker('setStartDate', minDate);
+      }
+    });
+    $("#txtCheckOut").datepicker({
+    }).on('changeDate', function (selected) {
+        var minDate = new Date(selected.date.valueOf());
+        $('#txtCheckIn').datepicker('setEndDate', minDate);
+        calculate_total(this);
+        $("#txtCheckOut").datepicker('hide');
+      });
+
+      function calculate_total(that) {
+        var $input = $("#booking_total_guest").parents('.input-number-group').find('.input-number');
+        var val = parseInt($input.val(), 10);
+        var start_date = $('#txtCheckIn').datepicker('getDate');
+        var end_date = $('#txtCheckOut').datepicker('getDate');
+        // var room_price = $(".price").text().match(/\d+/)[0];
+        var room_price = $(".price").data('price');
+        var days = parseInt((end_date - start_date)/1000/60/60/24)
+        if(val > 2){
+          var total = days * room_price * (val)
+        }
+        else{
+          var total = days * room_price
+        }
+        $('#reservation_days').text(days);
+        $('#hidden_reservation_days').text(days);
+        $('#reservation_sum').text(total);
+        $('#reservation_total').val(total);
+        $('#final-reservation_sum').text(total);
+        $('#final-reservation_total').val(total);
+        document.getElementById('hidden_reservation_total').value = total;
+        $('#btn_book').attr('disabled', false);
+      }
+  });
+
+  Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  }

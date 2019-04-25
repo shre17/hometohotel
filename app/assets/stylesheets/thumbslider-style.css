@@ -1,0 +1,58 @@
+.slick-slide {
+  height: auto !important;
+}
+.polular-post-slider-active {
+  padding-top: 10px;
+}
+.polular-post-slider-active .cr-navigation {
+  position: absolute;
+  top: 43%;
+  margin-top: -15px;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  background: #f7f7f7;
+  font-size: 20px;
+  text-align: center;
+  padding: 1px 0;
+  color: #adadad;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-out 0s;
+  -o-transition: all 0.4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
+  visibility: visible;
+  opacity: 1;
+}
+.polular-post-slider-active .cr-navigation i {
+  font-size: 30px;
+  color: #666;
+}
+.cr-navigation.cr-navigation-next.slick-arrow i {
+  text-align: center;
+  position: absolute;
+  top: 3px;
+  right: 11px;
+}
+.cr-navigation.cr-navigation-prev.slick-arrow i {
+  position: absolute;
+  left: 11px;
+  top: 3px;
+}
+.polular-post-slider-active .cr-navigation.cr-navigation-prev {
+  left: 20px;
+  right: auto;
+}
+.polular-post-slider-active .cr-navigation.cr-navigation-next {
+  left: auto;
+  right: 20px;
+}
+.polular-post-slider-active:hover .cr-navigation {
+  opacity: 1;
+  visibility: visible;
+}
+
+

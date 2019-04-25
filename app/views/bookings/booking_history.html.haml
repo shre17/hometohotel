@@ -1,0 +1,33 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+  .container-fluid.margin_30_30.responsive-table.pl-lg-5.pr-lg-5.top-rated
+    .row
+      .col-md-12
+        .card.info-card
+          %h5.card-header.panel-dark Booking History
+          .card-body
+            .login-history-table
+              %table.table.responsive-table
+                %thead
+                  %tr
+                    %th{:scope => "col"} S.no
+                    %th{:scope => "col"} Type
+                    %th{:scope => "col"} Booking Made On
+                    %th{:scope => "col"} Booking From
+                    %th{:scope => "col"} Booking To
+                    %th{:scope => "col"} Price
+                %tbody
+                  - @bookings.each_with_index do |booking, index|
+                    - count = index + 1
+                    - path = booking.bookable_type.eql?("Experience") ? experience_path(booking.bookable_id) : place_path(booking.bookable_id)
+                    %tr
+                      %td{:scope => "row", "data-label" => "S.no"} #{count}
+                      %td{"data-label" => "Type"}
+                        %a{href: path}
+                          = booking.bookable_type
+                      %td{"data-label" => "Booking Made On"} #{booking.created_at.strftime("%d-%b-%y")}
+                      %td{"data-label" => "Booking From"} #{ booking.bookable_type.eql?('Experience') ? booking.exp_date : booking.start_date.strftime("%d-%b-%y")}
+                      %td{"data-label" => "Booking To"} #{ booking.bookable_type.eql?('Experience') ? booking.exp_date : booking.end_date.strftime("%d-%b-%y")}
+                      %td{"data-label" => "Price"} #{Money.new(booking.price,booking.currency).currency.symbol}#{booking.price}
+

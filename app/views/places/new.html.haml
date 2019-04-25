@@ -1,0 +1,46 @@
+%main
+  %section.hero_in.become_host_form
+    .wrapper
+  .form-progress
+    .progress_bar
+  .bg_color_1
+    %section
+      = render 'form', place: @place
+      
+
+:javascript
+  $(document).on('change', '#place_category_id', function() {
+    var id = $(this).val();
+    $.ajax({
+      type:"post",
+      url: "#{get_property_categories_path}",
+      data: {id: id},
+      success: function(response) {
+        $('#place_property_type_id').removeAttr('disabled');
+        $('#place_property_type_id').html('');
+        $.each(response.data, function(key, value) {   
+          $('#place_property_type_id')
+            .append($("<option></option>")
+                    .attr("value",value[0])
+                    .text(value[1])); 
+        });
+      }
+    })
+  });
+
+  $(document).on('change', '#place_property_type_id', function() {
+    $(".guests_have").show();
+  });
+  
+
+  $(".allownumericwithdecimal").on("keypress keyup blur",function (event) {
+    $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+      if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+      }
+    });
+
+  $('#bedrooms .links a').hide()
+  $(".guests_have").hide();
+  $('#place_property_type_id').attr('disabled','disabled');
+  $('.locations_other_fileds').hide();

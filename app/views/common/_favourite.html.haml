@@ -1,0 +1,31 @@
+
+.col-xl-4.col-lg-4.col-md-4.col-sm-6{:id => "div_#{data.try(:id)}"}
+  %h6.mb-3.font-weight-bold{:id => "h6_#{data.try(:id)}"} 
+    - count = index+1
+    = "#{count} #{type}"
+  .box_grid.box-shadow
+    %figure
+      %a.favourite.wish_bt{ id: "#{data.try(:id)}", :href => "", class: "#{ data.try(:favourites).where(user_id: current_user.id).present? ? 'liked' : ''}", type: "#{type}" }
+      - image = data.images.present? ? data.images.first.avatar.url : "/assets/ex-1.jpg"
+      - if type.eql?("Experience")    
+        %a{:href => experience_path(data.id)}
+          %img.img-fluid{:alt => "", :height => "533", :src => image, :width => "800"}/
+          .read_more
+            %span Read more
+      - else 
+        %a{:href => place_path(data.id)}
+          %img.img-fluid{:alt => "", :height => "533", :src => image, :width => "800"}/
+          .read_more
+            %span Read more
+    .wrapper
+      - if type == "Experience"
+        %span.font-weight-bold
+        %br
+        %span 
+          = data.title 
+      - else
+        %span.font-weight-bold
+          = data.what_will_guest_have
+        %br
+        %span 
+          = "#{data.name} in #{data.get_cities}"

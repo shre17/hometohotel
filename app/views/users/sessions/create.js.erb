@@ -1,0 +1,6 @@
+<% if @status == "success" %>  
+  window.location.reload();
+<% else %>
+  $(".text-center.notice").html("<%= @error%>")
+  $(".text-center.notice").show();
+<% end %>

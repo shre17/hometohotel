@@ -1,0 +1,54 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title
+          = t('places.step_2.title')
+        %h4
+          = t('places.step_2.title')
+        %h2
+          = t('places.step_2.heading')
+        .form-group
+          .row
+            .col
+              %label
+                = t('places.step_2.sub_heading_1')
+              = form.select :category_id, options_for_select(get_categories, selected: @place.category_id), {:include_blank => 'Select one'}, {:class => 'form-control', required: true}
+        .form-group
+          .row
+            .col
+              %label
+                = t('places.step_2.sub_heading_2')
+              =# form.select :property_type_id, options_for_select([]), {:include_blank => 'Select property type'},{:class => 'form-control property-type', required: true}
+              = form.select :property_type_id, options_for_select(get_properties(@place.category), selected: @place.property_type_id), {:include_blank => 'Select property type'},{:class => 'form-control', required: true}
+        %div.guests_have
+          .form-group
+            .row
+              .col
+                %label
+                  = t('places.step_2.sub_heading_3')
+                = form.select :what_will_guest_have, options_for_select(Place::GUEST_HAVE, selected: @place.what_will_guest_have),{include_blank: "Select one"}, {:class => 'form-control', required: true}
+                = form.hidden_field :step, value: 2
+          / .form-group
+          /   .row
+          /     .col
+          /       =# t('places.step_2.sub_heading_4.title')
+          /       - Place::DEDICATED_GUEST_SPACE.each do |guest_space|
+          /         .radio-box
+          /           %label.radio-check
+          /             =# guest_space[1]
+          /             =# form.radio_button :dedicated_guest_space, guest_space[0], :checked => @place.dedicated_guest_space.eql?(guest_space[0].zero? ? false : true)
+          /             =# form.label :dedicated_guest_space, guest_space[1], :value => guest_space[1]
+          /             %span.checkmark
+
+    .col-lg-6#sidebar.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+      .box_detail.booking.step-1{class: form.object.category.present? ? "" : "d-none"}
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %h5 #{t('places.step_2.suggestion.heading_1')}
+          %p #{t('places.step_2.suggestion.paragraph_1')}
+          %h5 #{t('places.step_2.suggestion.heading_2')}
+          %p #{t('places.step_2.suggestion.paragraph_2')}
+          %h5 #{t('places.step_2.suggestion.heading_3')}
+          %p #{t('places.step_2.suggestion.paragraph_3')}

@@ -1,0 +1,246 @@
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5WrXE2PKioWg1yO62dkpOk5sDhzCVxc&libraries=places&callback=initAutocomplete"}
+%main
+  %section.hero_in.places_detail.places_detail_bg
+    - if @place.images.any?
+      .image-wrapper{style: "background-image:url(#{@place.images.first.try(:avatar).try(:url)});"}
+    - else
+      .image-wrapper
+        %img{:src => "/assets/places-back.jpg"}/
+    .wrapper
+      %span.magnific-gallery
+        = render partial: "images"
+
+    %row
+      - if current_user.present? && @place.host.present? && current_user.id.eql?(@place.host.user_id)
+        %span
+          %a.save-place{:href => "/"}
+            %i.fa.fa-floppy-o
+            %span.hero-btn-text
+              Save Your Listing
+        %span
+          %a.edit-place{:href => "/places/#{@place.id}/edit?step=1"}
+            %i.fa.fa-pencil
+            %span.hero-btn-text
+              Edit Your Listing
+  //hero_in
+  .bg_color_1
+    - if is_mobile_request?
+      %nav.secondary_nav.sticky_horizontal
+        .container-fluid.pl-lg-5.pr-lg-5
+          / %div.place-name-mob
+          %div.right-user-info
+            %h4.place-name
+              = t('places.show_page.place_name', title: @place.name.try(:capitalize))
+            = link_to profile_path(@place.host.user.profile) do 
+              %img.user-pic{:alt => "User Image", :src => current_user.profile.image.present? ? current_user.profile.image.url : "/assets/user_pic.png" }
+    .container
+      .row.justify-content-center
+        .col-md-10 
+          %nav.secondary_nav.sticky_horizontal
+            - unless is_mobile_request?
+              %div.right-user-info
+              
+
+            %ul.clearfix.left-place-description              
+              %li
+                %a.active{:href => "#description"}
+                  = t('places.show_page.section_1.title')
+              %li
+                %a{:href => "#reviews"}
+                  = t('places.show_page.section_2.title')
+              %li
+                %a{:href => "#"}
+              / %li.edit-btn
+              /   %button.btn.btn-edit
+              /     Edit
+
+    .container.margin_60_35
+      .row.justify-content-center
+        .col-md-10
+
+          %section#description
+            .user-bx
+              = link_to profile_path(@place.host.user.profile) do
+                %span.pro-img
+                  %img.user-pic{:alt => "User Image", :src => (user_signed_in? && @place.host.user.profile.image.present?) ? @place.host.user.profile.image.url : "/assets/user_pic.png" }
+                .extra-wrap
+                  %h4
+                    = t('places.show_page.place_name', title: @place.name.try(:capitalize))
+                  %span.usernames Hosted by: 
+                  =  @place.host.user.try(:name)
+            %ul.icons-box
+              %li
+                %a{:href => "JavaScript:Void(0);"}
+                  %i.fa.fa-user
+                  %span
+                    = @place.number_of_guests.to_s + " Guest"
+
+              %li
+                %a{:href => "JavaScript:Void(0);"}
+                  %i.fa.fa-bed
+                  %span
+                    = @place.bedrooms.count.to_s + " Bedroom"
+              - if @place.bedrooms.sum(&:no_of_attached_bathrooms) > 0
+                %li
+                  %a{:href => "JavaScript:Void(0);"}
+                    %i.fa.fa-bath
+                    %span
+                      = @place.bedrooms.sum(&:no_of_attached_bathrooms).to_s + " Private Bathroom"
+              - if @place.number_of_common_bathrooms.to_i > 0
+                %li
+                  %a{:href => "JavaScript:Void(0);"}
+                    %i.fa.fa-bath
+                    %span
+                      = @place.number_of_common_bathrooms.to_s + " Shared Bathroom"
+            %h2
+              = t('places.show_page.section_1.title')
+            %p
+              = t('places.show_page.section_1.description', description: @place.description)
+            %hr/
+            // amenities
+            - if @place.get_amenities.any?
+              %h4
+                = t('places.show_page.section_1.amenities.heading')
+              .row
+                .col-lg-12
+                  .row.hotel_facilities
+                    - @place.get_amenities.each do |amenity|
+                      .col-sm-2.col-4.text-center
+                        %img{:alt => "", :src => "/assets/place_amenities/#{Place::IMAGES_RIGHT_NAME[amenity.title]}.png"}>/
+                        = t('places.show_page.section_1.amenities.title', title: amenity.title == "ESSENTIALS- Towels, bed sheets, soap, toilet paper, and pillows" ? "Essentials" : amenity.title)
+              //row
+              %hr/
+
+            - if @place.get_safety_amenities.any?
+              // safety amenities
+              %h4
+                = t('Safety Amenities')
+              .row
+                .col-lg-12
+                  %ul.bullets
+                    - @place.get_safety_amenities.each do |amenity|
+                      %li
+                        = t('places.show_page.section_1.rules.title', title: amenity.title)
+              //row
+              %hr/
+
+            - if @place.shared_spaces.any?
+              %h4
+                = t('PROPERTY SPACES GUEST CAN USE')
+              .row
+                .col-lg-12
+                  %ul.bullets
+                    - @place.shared_spaces.each do |space|
+                      %li
+                        = t('places.show_page.section_1.rules.title', title: Place::SPACES[space])
+              //row
+              %hr/
+
+            - if @place.guest_details.any?
+              %h4
+                = t('Details guests must know about your home')
+              .row
+                .col-lg-12
+                  %ul.bullets
+                    - @place.guest_details.each do |guest_detail|
+                      %li
+                        = t('places.show_page.section_1.rules.title', title: guest_detail.title)
+              //row
+              %hr/
+            //rules
+            - if @place.rules.any?
+              %h4
+                = t('places.show_page.section_1.rules.heading')
+              .row
+                .col-lg-12
+                  %ul.bullets
+                    - if @place.rules.any?
+                      - @place.rules.select(&:status).each do |rule|
+                        %li
+                          = t('places.show_page.section_1.rules.title', title: rule.title)
+              //row
+              %hr/
+            - if @place.images.any?
+              %h3
+                = t('places.show_page.section_1.tour_this_apartment')
+              .img_gallery
+                .row
+                  - @place.images.each do |image|
+                    .col-sm-3.col-6
+                      .gallery_img
+                        %a{:href => "#"}
+                          %img.img-fluid{:alt => "", :src => "#{image.avatar.try(:url)}"}/
+
+                        %h5
+                          = t('places.show_page.section_1.image_description', img_description: image.description )
+              %hr/
+            %h3
+              = t('places.show_page.section_1.location.heading')
+            %p
+              %strong
+                %div.full_address
+                  = t('places.show_page.section_1.location.full_address', full_addr: @place.location.full_address)
+            %hr/
+            %div.lat.d-none
+              = @place.location.latitude
+            %div.long.d-none
+              = @place.location.longitude
+
+            .map.map_single.add_bottom_30
+              %div{:style => ""}
+                #one_marker{:style => "height: 400px;"}
+
+          = render partial: "reviews/reviews", locals: {data: @place }
+
+    = render partial: 'similar_listing'
+
+    - unless user_signed_in? && current_user.id.eql?(@place.host.user_id)
+      = render partial: "booking_form"
+
+- if user_signed_in?
+  = render partial: "book_now_modal"
+
+- unless @is_admin_verified
+  :javascript
+    $(document).ready(function(){
+      alertify.set('notifier','position', 'top-right');
+      alertify.set('notifier','delay', 80);
+      alertify.warning('Your profile not verified by admin.');
+    });
+
+:javascript
+  $(function() {
+    $('#carousel-first').carouseller();
+    $('#carousel-second').carouseller();
+  });
+  // map js
+  $(window).load(function() {
+    handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'one_marker'}}, function(){
+      var lat = parseFloat($(".lat").text())
+      var long = parseFloat($(".long").text())
+      markers = handler.addMarkers([
+        {
+          lat: lat,
+          lng: long,
+          picture: {
+            url: "http://maps.google.com/mapfiles/ms/micons/red.png",
+            width:  36,
+            height: 36
+          },
+          infowindow: $(".full_address").text()
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(15);
+    });
+  });
+
+  $(document).on("click", "#review-submit-btn", function(e){
+    var review_content = $("#review_content").val();
+    if(review_content == ""){
+      e.preventDefault();
+      $("#review_content").after("<div class='validation' style='color:red;'>Please enter content.</div>")
+    }
+  });

@@ -1,0 +1,2 @@
+$("#manage-offer .modal-body").html("<%= escape_javascript(render partial: 'hosts/partials/manage_offer', locals: { offer: @offer }) %>")
+$("#manage-offer").modal('show');

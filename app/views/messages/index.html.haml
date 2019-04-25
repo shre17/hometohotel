@@ -1,0 +1,49 @@
+#page
+  %main
+    %section.hero_in.become_host_form
+      .wrapper
+    .bg_color_1
+      %section
+        .container.margin_30_30
+          .row
+            - if false
+              .col-sm-12.col-md-3.mb-2
+                .select
+                  %select.p-2.form-control
+                    %option{:selected => "selected", :value => "all"} All Messages (3)
+                    %option{:value => "starred"} Starred (0)
+                    %option{:value => "unread"} Unread (0)
+                    %option{:value => "reservations"} Reservations (0)
+                    %option{:value => "pending_requests"} Pending Requests (0)
+                    %option{:value => "hidden"} Archived (0)
+            - if @recent_messages.present?
+              - @recent_messages.each_with_index do |message, index|
+                .col-sm-12
+                  .msg-listing
+                    %ul
+                      %li
+                        %a.text-muted{:href => message_path(messenger_id(message,@contacted_user_ids[index]))}
+                          .row
+                            .col-sm-3.pl-4
+                              .message-wrapper
+                                %span
+                                  - image = message_attribute(message,@contacted_user_ids[index], "image_url").present? ? message_attribute(message,@contacted_user_ids[index], "image_url") : "/assets/user_pic.png"
+                                  %img{ src: image}/
+                                .extra-wrap
+                                  %p
+                                    = message_attribute(message,@contacted_user_ids[index], "first_name")
+                                  %small
+                                    = time_calculation(message)
+                            .col-sm-6
+                              = render partial: "message_with_location", locals: {message: message}
+            - else
+              .row
+                .container
+                  %p No Message
+
+:javascript
+  $(document).ready(function(){
+   $(".msg-cross").click(function(){
+     $(".message-top").hide();
+   })
+  })

@@ -1,0 +1,27 @@
+#notes{"aria-labelledby" => "notes-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_15.heading')
+        %p 
+          = t('experiences.edit_page.step_15.paragraph')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 16 }
+        .form-group
+          = f.text_area :must_know_before_booking, placeholder: t('experiences.edit_page.step_15.placeholder'),minlength: 100, maxlength: '150', style: 'height: 123px;', class: 'form-control'
+        %h6 
+          = t('experiences.edit_page.step_15.sub_heading')
+        .form-group
+          .check-box-wrapper
+            %label.check-box
+              = t('experiences.edit_page.step_15.label')
+              - if f.object.no_additional_notes
+                = f.check_box :no_additional_notes, checked: 'checked'
+              - else
+                = f.check_box :no_additional_notes
+              %span.checkmark
+        .form-group
+          = f.submit t('common.save_and_continue'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-15.jpg"}/

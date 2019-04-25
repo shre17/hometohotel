@@ -1,0 +1,46 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title
+          = t('places.step_7.title')
+        %h4
+          = t('places.step_7.title')
+        %h2
+          = t('places.step_7.heading_1')
+        .form-group
+          .row
+            .col
+              - get_amenities.each do |amenity|
+                .check-box-wrapper
+                  %label.check-box
+                    = check_box_tag "place[amenities][]", amenity.id, @place.amenities.include?(amenity.id.to_s), class: "check-box"
+                    = t('places.step_7.amenity_title', title: amenity.title)
+                    %span.checkmark{id: amenity.id, value: "false"}
+              %h2
+                = t('places.step_7.heading_2')
+              = form.hidden_field :step, value: 7
+              - get_safety_amenities.each do |safety_amenity|
+                .check-box-wrapper
+                  %label.check-box
+                    = check_box_tag "place[safety_amenities][]", safety_amenity.id, @place.safety_amenities.include?(safety_amenity.id.to_s)
+                    = t('places.step_7.safety_amenity_title', title: safety_amenity.title)
+                    %br
+                    = t('places.step_7.safety_amenity_description', description: safety_amenity.description)
+                    %span.checkmark
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          %p #{t('places.step_7.suggestion.paragraph_1')}
+          %p #{t('places.step_7.suggestion.paragraph_2')}
+
+:javascript
+  $(document).ready(function(){
+    var checkBoxes = $('.check-box');
+    checkBoxes.change(function () {
+        $('.next-button').prop('disabled', checkBoxes.filter(':checked').length < 1);
+    });
+    $('.check-box').change();
+  });

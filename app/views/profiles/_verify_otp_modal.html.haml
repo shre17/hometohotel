@@ -1,0 +1,20 @@
+#verifyPhone.modal{ data: { backdrop: "static" } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Verify Number
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      .modal-body
+        .notice
+        .addphone-container
+          = form_tag verify_mobile_number_profiles_path, remote: true do |ff|
+            .form-group
+              = number_field_tag :otp, '', min: 1000, max: 9999, minmax: true, class: 'form-control', placeholder: "OTP"
+
+            = submit_tag (t 'common.phone_number_verification_fields.verify'), class: "btn btn-danger"
+
+
+          = link_to 'Retry', resend_otp_profiles_path, method: :post, remote: true, class: 'float-right'
+
+      .modal-footer
+        / %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Close

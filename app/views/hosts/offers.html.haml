@@ -1,0 +1,43 @@
+.add_new_offer.float-right
+  %button.btn.btn-primary{ "data-target" => "#new-offer", "data-toggle" => "modal", :type => "button" }
+    Add New
+%br
+
+%table.display.responsive.no-wrap{ id: "offers-list" }
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Discount
+      %th Max Discount
+      %th Max Weekly Discount
+      %th Max Monthly Discount
+      %th Active
+      %th Action
+
+  %tbody
+    - @offers.each do |offer|
+      %tr
+        %td
+          = offer.title
+        %td
+          = offer.description.truncate(20)
+        %td
+          = offer.discount
+        %td
+          = offer.max_discount
+        %td
+          = offer.weekly_discount
+        %td
+          = offer.monthly_discount
+        %td
+          = offer.active
+        %td
+          = link_to 'Edit', offer_host_path(offer), class: "btn btn-primary", remote: true
+          |
+          = link_to 'Manage', manage_offer_host_path(offer), class: "btn btn-primary", remote: true
+
+:javascript
+  $('#offers-list').DataTable({
+    responsive: true
+  });

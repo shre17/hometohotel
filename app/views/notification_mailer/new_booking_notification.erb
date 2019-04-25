@@ -1,0 +1,5 @@
+Hello <%= @host.user.name %>
+
+You have received a new booking request for your <%= @booking.bookable.class.name %>, <%= @booking.bookable.name %>.
+
+To check more details about the booking <%= link_to 'click here', check_booking_bookings_url(@booking) %>

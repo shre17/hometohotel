@@ -1,0 +1,52 @@
+%main
+  %section{:style => "margin:150px"}
+    .wrapper
+      .container
+        = render partial: "common/profile_header"
+        .field
+          %h3 Reviews about you
+          %h5 Reviews about host
+          - current_user.host.reviews.each do |review|
+            %h4 
+              = review.user_name 
+              %br
+              = review.created_at.strftime("%b %d,%Y")
+            .field
+              = review.content
+            %hr
+
+          %h3 Reviews about experiences
+          - experiences = current_user.host.experiences
+          - experiences.each do |experience|
+            %h4 
+              = experience.title
+            - if experience.reviews.present?
+              -experience.reviews.each do |review|
+                %h4 
+                  = review.user_name 
+                %br
+                  = review.created_at.strftime("%b %d,%Y")
+                .field
+                  = review.content
+                %hr
+            - else
+              %h4 No Reviews
+
+          %h3 Reviews about places
+          - places = current_user.host.places
+          -places.each do |place|
+            %h4 
+              = place.name
+            - if place.reviews.present?
+              -place.reviews.each do |review|
+                %h4 
+                  = review.user_name 
+                %br
+                  = review.created_at.strftime("%b %d,%Y")
+                .field
+                  = review.content
+                %hr
+            - else
+              %h4 No Reviews  
+
+          

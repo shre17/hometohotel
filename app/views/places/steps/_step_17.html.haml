@@ -1,0 +1,66 @@
+.host-step
+  .row
+    = form.hidden_field :step, value: 18
+    = form.fields_for :price do |ff|
+      .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.hoststepleft
+        %fieldset
+          %h3.form-title #{t('places.step_20.title')}
+          %h2 #{t('places.step_20.heading_1')}
+          %p #{t('places.step_20.paragraph_1').html_safe}
+          %h2.small-title #{t('places.step_20.heading_2')}
+
+          .form-group
+            .row
+              .col
+                %label #{t('places.step_20.label_1')}
+                = ff.number_field :base_price, max: 9999, class: 'form-control allownumericwithdecimal', required: true, step: :any
+                / %span.tipprice
+                /   Tip: $351
+
+          .form-group
+            .row
+              .col
+                %label #{t('places.step_20.label_4')}
+                = ff.select :currency, options_for_select(Price::CURRENCY, selected: ff.object.currency), {},{prompt: 'Select currency', class: 'form-control'}
+
+          .form-group
+            .row
+              .col
+                %label #{t('places.step_20.label_5')}
+                .step-price
+                  = ff.number_field :service_fee, max: 20, class: 'form-control allownumericwithdecimal', required: true, placeholder: 'Ex: 1.5', step: :any
+                  %span %
+
+          .form-group
+            .row
+              .col
+                %label #{t('places.step_20.label_6')}
+                .step-price
+                  = ff.number_field :cleaning_fee, max: 20, class: 'form-control allownumericwithdecimal', required: true, placeholder: 'Ex: 1.5', step: :any
+                  %span %
+
+          .form-group
+            .row
+              .col
+                %label #{t('places.step_20.label_7')}
+                .step-price
+                  = ff.number_field :tax, max: 20, class: 'form-control allownumericwithdecimal', required: true, placeholder: 'Ex: 1.5', step: :any
+                  %span %
+                %p #{t('places.step_20.paragraph_2')}
+
+      .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35
+        .container-fluid.pl-lg-5.pr-lg-5.top-rated.nearest
+          %section
+            %h2 Nearest Places
+            .row
+              -if @place.location.nearbys(100000)
+                - begin
+                  - @place_exist = false
+                  - @place.location.nearbys(100000).collect(&:locationable).reject(&:blank?).each do |place|
+                    - if place.class.name.eql?('place')
+                      - @place_exist = true
+                      = render partial: "places/related_places_price", locals: {place: place, city: place.location.city}
+                  - unless @place_exist
+                    = "No near by places present"
+                - rescue
+                  = "No near by places present"

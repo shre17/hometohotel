@@ -1,0 +1,7 @@
+= form_for @booking do |f|
+  - if @booking.express_token.blank?
+    \...
+  - else
+    = f.hidden_field :express_token
+    %p TODO Display order confirmation details
+  %p= f.submit "Complete Order"

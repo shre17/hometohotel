@@ -1,0 +1,760 @@
+
+
+.calender-box .icon-calendar {
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    font-size: 20px;
+}
+  .preview-image {
+    min-height: 200px;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 999999;
+    cursor: pointer;
+  }
+  .preview-image img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  .caption-box{
+    position: absolute;
+    bottom: 5px;
+    background: linear-gradient(to top, rgb(0, 0, 0) -20%, rgba(0, 0, 0, 0) 100%);
+    width: 95%;
+  }
+  .caption-box input{
+    min-height: 70px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 0 5px;
+    width: 100%;
+  }
+  .caption-box input:focus{
+    outline: none;
+    border: none;
+  }
+  .remove-image-icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+  }
+  .remove_img {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 20px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    display: block;
+    line-height: 22px;
+    box-shadow: 0px 1px 2px #333;
+  }
+  .remove_img:before {
+    line-height: 22px !important;
+  }
+  .remove-image-icon a {
+    display: none;
+  }
+
+  .caption-box input::-webkit-input-placeholder {
+    color: #fff;
+  }
+  .caption-box input::-moz-placeholder {
+    color: #fff;
+  }
+  .caption-box input:-ms-input-placeholder {
+    color: #fff;
+  }
+  .caption-box input:-moz-placeholder {
+    color: #fff;
+  }
+  .add-more-images {
+    clear: both;
+    width: 100%;
+    margin: 15px 0px;
+  }
+  .img-preview{
+    background-position: center, center;
+    background-size: cover;
+    height: 188px !important;
+  }
+
+
+
+
+.no-margin{
+  margin: 0;
+}
+.overly-text {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-weight: normal;
+    font-size: 16px;
+    transition: all 2s linear;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+}
+.how-it-works .featured-box {
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    min-height: 370px;
+    background: #fff;
+}
+.how-it-works .featured-box h1, .how-it-works .featured-box p {
+  color: #484848;
+}
+.hospitality-container .card-body h2{
+  font-size: 15px;
+  font-weight: 600;
+  color: #484848;
+}
+.hospitality-container .card-body h2 i{
+  font-size: 30px;
+  color: #f44048;
+  vertical-align: sub;
+
+}
+.hospitality-container .card-body h4{
+  font-size: 18px;
+}
+
+.hospitality-container .card-body ul {
+  list-style: disc;
+  margin: 0 0 25px;
+  padding: 0 0 0 25px;
+}
+
+.hospitality-container .card-body  ul li {
+  padding-bottom: 10px;
+}
+
+.hotel_facilities img{
+  width: 100%;
+  max-width: 90px;
+  display: block;
+  margin: 15px auto;
+}
+.add-guest .add-field{
+  padding: 0;
+  display: inline-block;
+  float: right;
+}
+.add-guest{
+  overflow-y: auto;
+}
+.total-price{
+  margin: 10px 0 0;
+  padding: 0;
+  border-top: 1px solid #e9ecef;
+}
+.total-price table{
+  width: 100%;
+}
+.total-price .reservation-table tr{
+  border-bottom: 1px solid #e9ecef;
+}
+.total-price .reservation-table tr:last-child{
+  border-bottom: none;
+}
+.total-price .reservation-table tr td{
+  padding: 10px 0;
+  font-size: 14px;
+}
+.calender-box{
+  position: relative;
+}
+.calender-box .icon-box{
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  font-size: 18px;
+}
+.reviews-box{
+ margin: 30px 0;
+}
+.reviews-box h2{
+ font-size: 24px;
+ color: #484848;
+}
+.reviews-box h2 span{
+ font-size: 18px;
+ color: #767676;
+}
+.edit-profile-left p{
+ margin-bottom: 20px;
+}
+.reviews-box h4{
+ font-size: 18px;
+ margin-bottom: 15px;
+}
+.reviews-box hr{
+ margin: 15px 0;
+}
+.reviews-box .reviews-container .rev-thumb{
+ width: 70px;
+ height: auto;
+ border-radius: 10;
+}
+.reviews-box .reviews-container .rev-thumb span{
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   display: block;
+}
+.reviews-box .reviews-container .rev-thumb img {
+   width: 70px;
+   height: 70px;
+   border-radius: 100%;
+}
+.reviews-box .reviews-container .rev-content {
+   position: relative;
+   padding: 0;
+   border: none;
+   border-radius: 0 !important;
+   border-bottom: 1px solid #ededed;
+   min-height: 80px;
+}
+.exp_booking, .check_booking {
+  .reviews-container .rev-thumb img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.check_booking {
+  .accepted {
+    color: #008000;
+  }
+  .rejected {
+    color: #f44048;
+  }
+}
+.clear-margin{
+ margin: 0 !important;
+}
+.follow_us ul li:first-child{
+ display: block;
+}
+.favourite-list-left{
+  padding: 32px;
+  /*height: 98vh !important;
+  overflow: auto !important;*/
+  position: relative;
+  border-right: 1px solid rgba(0,0,0,.125);
+}
+
+.favourite-top{
+  padding-bottom: 32px;
+  /*border-bottom: 1px solid rgba(0,0,0,.125);*/
+}
+
+#favouriteTab.review-tabs .nav-link {
+   border-bottom: 2px solid transparent;
+}
+
+#favouriteTab.review-tabs .nav-link:hover {
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #f44048;
+}
+
+#favouriteTab.review-tabs .nav-item.show .nav-link,
+#favouriteTab.review-tabs .nav-link.active {
+  border: none;
+  border-bottom: 2px solid #f44048;
+  color: #f44048;
+}
+#favouriteTab.review-tabs .nav-link {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+  color: #484848;
+  font-weight: 600;
+}
+#favouriteTab.review-tabs {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+#favouriteTab.review-tabs .nav-link {
+  padding: 1.5rem 0;
+}
+#favouriteTab.review-tabs.nav-tabs .nav-item {
+  margin-right: 32px;
+}
+.favourite_map {
+  padding: 32px;
+}
+.favourite_map img {
+  width: 100%;
+  height: 100vh;
+}
+
+.confirm-booking_detail {
+    padding: 24px;
+    border: 1px solid #ededed;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+.confirm-booking_detail h2{
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 22px ;
+  letter-spacing: normal;
+  color: #484848;
+  font-weight: 600;
+}
+.confirm-booking_detail p{
+  margin-bottom: 0;
+}
+.booking-date-detail ul{
+  margin: 0;
+  padding: 0 0 10px;
+  list-style: none;
+  border-bottom: 1px solid #ededed;
+}
+.booking-date-detail ul li{
+ display: block;
+ font-size: 16px;
+ color: #484848;
+ font-weight: normal;
+ padding: 5px 0;
+}
+.booking-date-detail ul li i{
+  margin-right: 5px;
+}
+.booking-date-detail ul li span {
+  padding: 0 10px;
+}
+.booking-price-details table tr td{
+  font-size: 16px;
+  color: #484848;
+  font-weight: normal;
+  padding: 8px 0px;
+}
+.total-price {
+  border-top: 1px solid #ededed;
+}
+.total-price td{
+  padding: 20px 0 0 !important;
+}
+.about-trip-box.reviews-container .review-box{
+  padding-right: 70px;
+  padding-left: 0;
+
+}
+.about-trip-box.reviews-container .rev-content{
+  border: none;
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+.about-trip-box.reviews-container .rev-thumb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    left: auto;
+    top: auto;
+}
+.bold-button{
+  font-weight: 600;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+#trip-details{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.14) !important;
+    left: 0;
+    right: 0;
+    display: none;
+    font-size: 16px;
+
+}
+#trip-details a{
+  padding: 15px 0;
+  background-color: #fff;
+  display: block;
+  text-align: center;
+}
+#trip-details a.detail-active{
+  background-color: #f44048;
+  color: #fff;
+}
+.confirm-booking_detail{
+  padding: 10px;
+  margin-bottom: 80px;
+}
+.modal-open {
+  overflow: inherit !important;
+}
+
+/*<..........message page css ....................*/
+.message-top {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 4px;
+}
+.msg-cross {
+  float: right;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+}
+.msg-listing {
+  border:1px solid #dce0e0;
+}
+.msg-listing p {
+  margin-bottom: 0;
+}
+.msg-listing img {
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+}
+.msg-listing strong {
+  color: #1cbcb4;
+}
+.msg-listing ul {
+  margin-bottom: 0;
+}
+.msg-listing ul li {
+  padding: 20px;
+  border-bottom: 1px solid #dce0e0;
+}
+.msg-listing ul li:last-child {
+  border-bottom: none;
+}
+.msg-listing ul.msg-rating-list {
+  margin-left: 30px;
+}
+.msg-listing ul.msg-rating-list li {
+  padding: 0;
+  border:0;
+  margin: 0;
+}
+.msg-listing ul.msg-rating-list {
+  display: none;
+}
+.msg-listing ul li:hover ul.msg-rating-list {
+  display: block;
+}
+.your-link {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 9px 15px;
+  vertical-align: top;
+  margin-left: 0;
+}
+.your-link span {
+  font-weight: bold;
+}
+.your-link input {
+  border: 0;
+  margin-left: 6px;
+  font-size: 16px;
+}
+.message-top h1 {
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 12px;
+  margin: 0;
+}
+.message-top p{
+  margin-bottom: 5px;
+}
+.msg-profile-top {
+  text-align: center;
+}
+.msg-profile-top img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.msg-profile-top h5 {
+  margin-top: 12px;
+}
+.msg-heading {
+  margin-bottom: 24px;
+  font-weight: normal;
+  color:#484848;
+  font-size: 18px;
+}
+.check-in-out {
+  margin: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.right-angle i {
+  font-size: 35px;
+  color: #9b9b9b;
+  margin-top: 5px;
+}
+.message-wrapper span{
+  display: inline-block;
+  width: 57px;
+  height: 57px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+  margin-right: 15px;
+}
+.send-message-box{
+  position: relative;
+  border: 1px solid #dce0e0;
+  margin-bottom: 10px;
+}
+
+
+.send-message-box:before {
+    top: -1px;
+    left: 100%;
+    border-width: 27px 27px 0 0;
+    border-color: #fff transparent transparent;
+}
+.send-message-box:before {
+    width: 0;
+    height: 0;
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    display: inline-block;
+    right: -10px;
+    top: 15px;
+    left: auto;
+    border: 10px solid transparent;
+    border-right: 0;
+    border-left-color: #dce0e0;
+}
+
+.send-message-box:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -9px;
+    top: 16px;
+    left: auto;
+    border: 9px solid transparent;
+    border-right: 0;
+    border-left-color: #fff;
+}
+.send-message-box .panel-body{
+  padding: 20px;
+}
+.send-message-box textarea{
+  width: 100%;
+  border: none;
+  min-height: 100px;
+}
+.send-message-box .panel-bottom{
+  padding: 20px;
+  background-color: #f7f6f2;
+}
+.host-image img{
+  width: 100%;
+  max-width: 65px;
+}
+.horizontal-rule-text {
+    overflow: hidden;
+    text-align: center;
+}
+.horizontal-rule-wrapper {
+    position: relative;
+}
+.horizontal-rule-wrapper:before {
+    right: 100%;
+    margin-right: 15px;
+}
+.horizontal-rule-wrapper:before, .horizontal-rule-wrapper:after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #dce0e0;
+    width: 500px;
+    top: 50%;
+}
+.send-message-box .panel-dark{
+  background-color: #f7f6f2;
+  border: none;
+}
+.message-box{
+  padding: 5px 0;
+  color: #484848;
+  word-wrap: break-word;
+}
+.msg-time{
+  font-size: 12px;
+  color: #484848;
+}
+.receive-message-box {
+  position: relative;
+  border: 1px solid #dce0e0;
+  margin-bottom: 10px;
+}
+.receive-message-box .panel-dark {
+  background-color: #fff;
+  border-bottom: 0;
+}
+.receive-message-box .panel-body {
+  padding: 20px;
+}
+.receive-message-box::before {
+    width: 0;
+    height: 0;
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    display: inline-block;
+    left: -10px;
+    top: 15px;
+    right: auto;
+    border: 10px solid transparent;
+        border-right-color: transparent;
+        border-right-style: solid;
+        border-right-width: 10px;
+        border-left-color: transparent;
+    border-left: 0;
+    border-right-color: #dce0e0;
+}
+.receive-message-box::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -9px;
+    top: 16px;
+    right: auto;
+    border: 9px solid transparent;
+        border-right-color: transparent;
+        border-right-style: solid;
+        border-right-width: 9px;
+        border-left-color: transparent;
+    border-left: 0;
+    border-right-color: #fff;
+}
+
+/*<.............message page css end..............*/
+
+
+/*<..........new css added on 26-07-2018............*/
+.reviews-box h2{
+  font-size: 18px;
+  color: #484848;
+}
+.single-line{
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}
+.information-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.information-list li{
+  display: block;
+  padding-bottom: 5px;
+}
+.information-list li i{
+  color: #1cbcb4;
+}
+.information-list li i.icon-lightbulb:before{
+  line-height: normal;
+}
+.icon-lightbulb:before{
+  line-height: 50px;
+}
+.icon_close:before{
+  line-height: 35px;
+}
+.wrong-address {
+  font-size: 18px;
+  padding-top: 10px;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+}
+.box-shadow-new{
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1) !important;
+  min-height: inherit !important;
+}
+.box-shadow-new .wrapper{
+  padding: 30px 30px 0;
+  min-height: inherit;
+}
+.box-shadow-new p{
+  margin-bottom: 5px;
+}
+/*.pagination {
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 0;
+}*/
+.pagination span, .pagination em, .pagination a{
+  border: 1px solid #eee;
+  padding: 2px 8px;
+}
+.pagination em.current{
+  background-color: #f44048;
+  color: #fff;
+  border-color: #f44048;
+}
+@media (max-width: 767px) {
+  .overly-text{
+    display: none;
+  }
+  #trip-details{
+    display: block;
+  }
+  .trip-details-list{
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .favourite-list-left{
+    padding: 15px;
+    height: auto !important;
+  }
+  #favouriteTab.review-tabs .nav-link{
+    padding: .5rem 0;
+  }
+  .favourite-list-left h1{
+    font-size: 24px;
+  }
+  .become-list{
+    margin-bottom: 15px;
+  }
+  .favourite_map {
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .booking-date-detail ul li, .booking-price-details table tr td{
+    font-size: 14px;
+  }
+}

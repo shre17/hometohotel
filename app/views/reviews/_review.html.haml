@@ -1,0 +1,20 @@
+.review-box.clearfix
+  %figure.rev-thumb
+    %a{ href: profile_path(review.user) }
+      - image = review.user.profile.image.present? ? review.user.profile.image.url : "/assets/user_pic.png"
+      %img{ src: "#{image}"}/
+
+  .rev-content
+    - if (review.reviewable_type.eql?("Place") || review.reviewable_type.eql?("Experience"))
+      = render '/common/rating', rating: review.overall_rating.round(0)
+      .rev-info
+        = "#{t('common.reviews.user_name', name: review.user.profile.first_name)} – #{t('common.reviews.date', date: review.created_at.strftime("%B %d, %Y"))}" 
+      .rev-text
+        %p
+          = "#{t('common.reviews.review_content', content: review.content)}"
+    - else
+      .rev-text
+        %p
+          = "#{t('common.reviews.review_content', content: review.content)}"
+      .rev-info
+        = "#{t('common.reviews.user_name', name: review.user.profile.first_name)} – #{t('common.reviews.date', date: review.created_at.strftime("%B %d, %Y"))}" 

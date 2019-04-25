@@ -1,0 +1,32 @@
+.nested-fields
+  #beds
+    .row
+      .col-md-6.add-date-input
+        .form-group
+          = f.text_field :blocked_date, placeholder: t('home.search_form.placeholder_2'), class: 'form-control datepicker date-calendar blocked_date', disabled: f.object.blocked_date.present?
+      .col-md-6.add-date-btn
+        .form-group.remove_date_icon
+          = link_to_remove_association  f, class: "btn" do
+            %i.fa.fa-times
+
+
+:javascript
+  $(function () {
+   var checkin = $('.blocked_date').datepicker({
+        startDate: "+0d",
+        format: 'dd/mm/yyyy',
+        datesDisabled: $(".all_blocked-dates").text()
+    }).on('changeDate', function(event) {
+        var newDate = new Date(event.date)
+        newDate.setDate(newDate.getDate()+60)
+        checkin.datepicker('hide');
+    });
+  });
+
+:css
+  .date-calendar {
+    width: 398px;
+  }
+  .date-calendar table{
+    width: 100%;
+  }

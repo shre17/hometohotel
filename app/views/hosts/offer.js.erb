@@ -1,0 +1,2 @@
+$("#edit-offer .modal-body").html("<%= escape_javascript(render partial: 'hosts/partials/edit_form', locals: { offer: @offer }) %>")
+$("#edit-offer").modal('show');

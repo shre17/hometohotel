@@ -1,0 +1,31 @@
+.host-step.step-2
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_1.title')
+        %h1 
+          = t('places.step_1.heading')
+        %h4 
+          = t('places.step_1.title')
+        %h2 
+          = t('places.step_1.sub_heading')
+        .row
+          .col-xl-6
+            .form-group
+              = form.select :what_will_guest_have, options_for_select(Place::GUEST_HAVE,selected: @place.what_will_guest_have),{}, {:class => 'form-control'}
+              = form.hidden_field :step, value: 2
+          .col-xl-6
+            .form-group
+              = form.select :number_of_guests, options_for_select(Place::GUESTS.invert,selected: @place.number_of_guests), {:include_blank => 'Select one'},{:class => 'form-control', :required => true}
+        .form-group
+          .row
+            .col
+              .form-group
+                %input.form-control{:placeholder => "Enter a location", :type => "text", :value => "Indore, Madhya Pradesh, India"}/
+    .col-lg-6.col-md-6.pl-lg-5.pr-lg-5.margin_60_35 
+      .box_detail.booking
+        %span
+          %i.icon-lightbulb
+        .extra-wrap
+          = t('common.places_paragraph')

@@ -1,0 +1,154 @@
+:css
+  .concert-field, .food-n-drink-filed {
+    display: none;
+  }
+
+#category{"aria-labelledby" => "language-tab", :role => "tabpanel"}
+  .row
+    .col-md-8
+      .form-content-wrap
+        %h2 
+          = t('experiences.edit_page.step_3.heading')
+        %p 
+          = t('experiences.edit_page.step_3.paragraph_1')
+        = render partial: 'experiences/steps/step_count', locals: { f: f, step: 4 }
+
+        .first-category
+          = f.select :category_1, options_for_select(Category.experiences.pluck(:title, :id), f.object.category_1),{ prompt: 'Select Category' },:required => true, class: 'form-control'
+          / .div
+          /   =# link_to 'Add one more', '#-', class: 'add-second-cat float-right', style: "#{ f.object.category_2.blank? ? '' : 'display: none;' }"
+
+        / %br
+        / .second-category{ style: "#{ f.object.category_2.blank? ? 'display: none;' : '' }" }
+        /   =# f.select :category_2, options_for_select(Category.experiences.pluck(:title, :id), f.object.category_2),{ prompt: 'Select Category' }, class: 'form-control'
+        /   .div
+        /     =# link_to 'Remove', '#-', class: 'remove-second-cat float-right'
+        %br
+
+        .concert-field
+          .form-group
+            %label 
+              = t('experiences.edit_page.step_3.label_1')
+            .check-box-wrapper
+              %label.check-box
+                = t('experiences.edit_page.step_3.label_2')
+                - if f.object.this_is_a_concert
+                  = f.check_box :this_is_a_concert, checked: 'checked'
+                - else
+                  = f.check_box :this_is_a_concert
+                %span.checkmark
+
+        .food-n-drink-filed
+          .form-group
+            %label 
+              = t('experiences.edit_page.step_3.label_3')
+            .select-option-radio
+              %label.radio-check-box
+                = t('label_for_no')
+                - if f.object.is_food_the_main_theme
+                  = f.radio_button :is_food_the_main_theme, 0
+                - else
+                  = f.radio_button :is_food_the_main_theme, 0, checked: 'checked'
+                %span.checkmark
+              %label.radio-check-box
+                = t('label_for_yes')
+                - if f.object.is_food_the_main_theme
+                  = f.radio_button :is_food_the_main_theme, 1, checked: 'checked'
+                - else
+                  = f.radio_button :is_food_the_main_theme, 1
+                %span.checkmark
+          .form-group
+            %label 
+              = t('experiences.edit_page.step_3.label_4')
+            .select-option-radio
+              %label.radio-check-box
+                = t('common.label_for_no')
+                - if f.object.is_alcohol_the_main_theme
+                  = f.radio_button :is_alcohol_the_main_theme, 0
+                - else
+                  = f.radio_button :is_alcohol_the_main_theme, 0, checked: 'checked'
+                %span.checkmark
+              %label.radio-check-box
+                = t('common.label_for_yes')
+                - if f.object.is_alcohol_the_main_theme
+                  = f.radio_button :is_alcohol_the_main_theme, 1, checked: 'checked'
+                - else
+                  = f.radio_button :is_alcohol_the_main_theme, 1
+                %span.checkmark
+        / .form-group
+        /   %label 
+        /     = t('experiences.edit_page.step_3.label_5')
+        /   %p 
+        /     = t('experiences.edit_page.step_3.paragraph_2')
+        /   .check-box-wrapper
+        /     %label.check-box
+        /       = t('experiences.edit_page.step_3.label_6')
+        /       - if f.object.nonprofit_organization
+        /         = f.check_box :nonprofit_organization, checked: 'checked'
+        /       - else
+        /         = f.check_box :nonprofit_organization
+        /       %span.checkmark
+        /     %p 
+        /       = t('experiences.edit_page.step_3.paragraph_3')
+        / .form-group
+        /   %label 
+        /     = t('experiences.edit_page.step_3.label_7')
+        /   %p 
+        /     = t('experiences.edit_page.step_3.paragraph_4')
+        / .form-group
+        /   .check-box-wrapper
+        /     %label.check-box
+        /       = t('experiences.edit_page.step_3.label_8')
+        /       - if f.object.organization_account
+        /         = f.check_box :organization_account, checked: 'checked'
+        /       - else
+        /         = f.check_box :organization_account
+        /       %span.checkmark
+        .form-group
+          = f.submit t('common.next_button'), class: 'btn next-stpe-btn'
+    .col-md-4
+      .side-img
+        %img{:src => "/assets/side-3.jpg"}/
+
+:javascript
+  $(document).ready(function(){
+    var selected_id = parseInt("#{f.object.category_1}")
+    display_fields_accordingly(selected_id);
+  })
+  
+  $(document).on('change','#experience_category_1',function(){
+    var selected_id = parseInt($(this).val());
+
+    $('.concert-field').hide();
+    $('.food-n-drink-filed').hide();
+
+    display_fields_accordingly(selected_id);
+  });
+
+  function display_fields_accordingly(id) {
+    if (id == 13) {
+      $('.food-n-drink-filed').show();
+    } else if (id == 16) {
+      $('.concert-field').show();
+    } else if ([9,14,18].indexOf(id)>=0) {
+      $('.concert-field').show();
+      $('.food-n-drink-filed').show();
+    }
+  }
+
+- if false
+  :javascript
+    $(document).on('click', '.add-second-cat', function(e){
+      e.preventDefault();
+      $('.add-second-cat').hide();
+      $('.second-category').show();
+      return false
+    });
+
+    $(document).on('click', '.remove-second-cat', function(e){
+      e.preventDefault();
+      $('.add-second-cat').show();
+      $('.second-category').hide();
+      $('.second-category').find('select').val('')
+      return false
+    });

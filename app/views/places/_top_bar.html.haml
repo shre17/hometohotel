@@ -1,0 +1,53 @@
+%div.nav-tab-list
+  %ul#myTab.nav.nav-tabs{:role => "tablist"}
+    %li.nav-item{class: @step.eql?(1) ? 'active-tab' : 'inactive-tab'}
+      %a#location-tab.nav-link{ href: "#{edit_place_path(@place, step: 1)}"}
+        = t('places.edit_page.side_bar.place')
+    %li.nav-item{class: @step.eql?(2) ? 'active-tab' : 'inactive-tab'}
+      %a#language-tab.nav-link{ href: "#{edit_place_path(@place, step: 2)}"}
+        = t('places.edit_page.side_bar.place_accommodate')
+    %li.nav-item{class: @step.eql?(3) ? 'active-tab' : 'inactive-tab'}
+      %a#category-tab.nav-link{ href: "#{edit_place_path(@place, step: 3)}"}
+        = t('places.edit_page.side_bar.share_bath')
+    %li.nav-item{class: @step.eql?(4) ? 'active-tab' : 'inactive-tab'}
+      %a#about-tab.nav-link{ href: "#{edit_place_path(@place, step: 4)}"}
+        = t('places.edit_page.side_bar.location')
+    %li.nav-item{class: @step.eql?(5) ? 'active-tab' : 'inactive-tab'}
+      %a#experience-title.nav-link{ href: "#{edit_place_path(@place, step: 5)}"}
+        = t('places.edit_page.side_bar.pin_point')
+    %li.nav-item{class: @step.eql?(6) ? 'active-tab' : 'inactive-tab'}
+      %a#photo-title.nav-link{ href: "#{edit_place_path(@place, step: 6)}"}
+        = t('places.edit_page.side_bar.amenities')
+    %li.nav-item{class: @step.eql?(7) ? 'active-tab' : 'inactive-tab'}
+      %a#about-you-tab.nav-link{ href: "#{edit_place_path(@place, step: 7)}"}
+        = t('places.edit_page.side_bar.spaces')
+    %li.nav-item{class: @step.eql?(8) ? 'active-tab' : 'inactive-tab'}
+      %a#what-we-do-tab.nav-link{ href: "#{edit_place_path(@place, step: 8)}"}
+        = t('places.edit_page.side_bar.place_image')
+    %li.nav-item{class: @step.eql?(9) ? 'active-tab' : 'inactive-tab'}
+      %a#where-we-meet-tab.nav-link{ href: "#{edit_place_path(@place, step: 9)}"}
+        = t('places.edit_page.side_bar.spaces')
+    %li.nav-item{class: @step.eql?(10) ? 'active-tab' : 'inactive-tab'}
+      %a#where-we-be-tab.nav-link{ href: "#{edit_place_path(@place, step: 10)}"}
+        = t('places.edit_page.side_bar.house_rules')
+    %li.nav-item{class: @step.eql?(11) ? 'active-tab' : 'inactive-tab'}
+      %a#what-we-provide-tab.nav-link{ href: "#{edit_place_path(@place, step: 11)}"}
+        = t('places.edit_page.side_bar.settings')
+    %li.nav-item{class: @step.eql?(12) ? 'active-tab' : 'inactive-tab'}
+      %a#what-guests-tab.nav-link{ href: "#{edit_place_path(@place, step: 12)}"}
+        = t('places.edit_page.side_bar.specific_availability')
+    %li.nav-item{class: @step.eql?(13) ? 'active-tab' : 'inactive-tab'}
+      %a#notes-tab.nav-link{ href: "#{edit_place_path(@place, step: 13)}"}
+        = t('places.edit_page.side_bar.notice')
+    %li.nav-item{class: @step.eql?(14) ? 'active-tab' : 'inactive-tab'}
+      %a#notes-tab.nav-link{ href: "#{edit_place_path(@place, step: 14)}"}
+        = t('places.edit_page.side_bar.guests_book')
+    %li.nav-item{class: @step.eql?(15) ? 'active-tab' : 'inactive-tab'}
+      %a#guest-requirements-tab.nav-link{ href: "#{edit_place_path(@place, step: 15)}"}
+        = t('places.edit_page.side_bar.advance_book')
+    %li.nav-item{class: @step.eql?(16) ? 'active-tab' : 'inactive-tab'}
+      %a#group-size-tab.nav-link{ href: "#{edit_place_path(@place, step: 16)}"}
+        = t('places.edit_page.side_bar.block_dates')
+    %li.nav-item{class: @step.eql?(17) ? 'active-tab' : 'inactive-tab'}
+      %a#pricetab-tab.nav-link{ href: "#{edit_place_path(@place, step: 17)}"}
+        = t('places.edit_page.side_bar.space_price')

@@ -1,0 +1,84 @@
+.host-step
+  .row
+    .col-md-6.pl-lg-5.pr-lg-5.margin_60_35.host-step-left
+      %fieldset
+        %h3.form-title 
+          = t('places.step_15.title')
+        %h4 
+          = t('places.step_15.title')
+        %h2 
+          = t('places.step_15.heading')
+        .form-group
+          .row
+            .col-md-10
+              = form.select :guest_arrives_notice, options_for_select(Place::GUEST_ARRIVAL.invert,selected: @place.guest_arrives_notice),{include_blank: "Select one"}, {:class => 'form-control arrive-notice', :required => true}
+              = form.hidden_field :step, value: 14
+        .form-group.same-day-time.d-none
+          .row
+            .col-md-10
+              = form.label :guest_can_book_before
+              = form.select :guest_can_book_before, options_for_select(Place::GUEST_CAN_BOOK_BEFORE,selected: (@place.guest_can_book_before.present? ? @place.guest_can_book_before : "10AM" )),{}, {:class => 'form-control'}
+        .form-group
+          .row
+            .col-md-10
+              %p  
+                = t('places.step_15.paragraph')
+        .form-group.time-link
+          .row
+            .col-md-10
+              %a{href: "javascript:void(0)"} When can guest check in?  
+                
+        .form-group.time
+          .row.step-pb-80
+            .col-md-5
+              %label 
+                = t('places.step_15.from')
+              = form.select :check_in_time_from, options_for_select(Place::CHECK_IN_TIME,selected: @place.check_in_time_from),{:include_blank => 'Select a time'}, {:class => 'form-control check-in-from', :required => true}
+            .col-md-5
+              %label 
+                = t('places.step_15.to')
+              = form.select :check_in_time_to, options_for_select(Place::CHECK_IN_TIME,selected: @place.check_in_time_to),{:include_blank => 'Select a time'}, {:class => 'form-control check-in-to', :required => true} 
+    
+- if form.object.guest_arrives_notice.eql?(2)
+  :javascript
+    $(".same-day-time").removeClass('d-none');
+- if form.object.check_in_time_from.present?
+  :javascript
+    $(".time").show();
+- else
+  :javascript
+    $(document).on("click", ".time-link", function(){
+      $(".time").toggle();
+    });
+:javascript
+  $(document).on("change",".check-in-from", function(){
+    $(".check-in-to option").each(function(index,element){
+      $(element).prop("disabled", false);
+    });
+    if($(this).val() == "Flexible"){
+      $(".check-in-to").prop("disabled", true);
+    }
+    else{
+      $(".check-in-to").prop("disabled", false);
+      if($(this).val() == "8AM"){
+        $(".check-in-to option[value='9AM']").prop("disabled", true);
+        $(".check-in-to option[value='8AM']").prop("disabled", true); 
+      } 
+      else{
+        index = $(".check-in-to option").index($(".check-in-to option[value = "+$(this).val()+"]"));
+        options = $(".check-in-to option").slice(2,index+2);
+        options.each(function(index,element){
+          $(element).prop("disabled", true);
+        });
+      }
+    }
+  });
+
+  $(document).on("change",".arrive-notice", function(){
+    if($(this).val() == "2"){
+      $(".same-day-time").removeClass('d-none');
+    }
+    else{
+      $(".same-day-time").addClass('d-none');
+    }
+  });

@@ -1,0 +1,18 @@
+- if category_selected?
+  .container-fluid.pl-lg-5.pr-lg-5
+    %h1.main-title
+      = params[:category]
+- else
+  %section.experiences-wrapper
+    .container-fluid.margin_60_35.pl-lg-5.pr-lg-5
+      %h1.main-title #{t('experiences.index_page.title')}
+      #carousel-first.carouseller
+        %a.carouseller__left{:href => "javascript:void(0)"} ‹
+        .carouseller__wrap
+          .carouseller__list
+            - Category.experiences.titles.each do |exp_category|
+              .car__2
+                %img{:src => "/assets/#{exp_category.downcase.gsub(' ','-')}.jpg"}/
+                %span
+                  = link_to t('experiences.index_page.category_name', name: exp_category.capitalize), set_path_for_city_n_category(exp_category, :category)
+        %a.carouseller__right{:href => "javascript:void(0)"}
